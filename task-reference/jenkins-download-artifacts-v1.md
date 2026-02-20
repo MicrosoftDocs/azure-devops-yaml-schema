@@ -1,8 +1,10 @@
 ---
 title: JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
-description: Download artifacts produced by a Jenkins job.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+description: Download artifacts produced by a Jenkins job (task version 1).
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
@@ -20,7 +22,7 @@ Use this task to download artifacts produced by a Jenkins job.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Jenkins download artifacts v1
@@ -49,46 +51,16 @@ Use this task to download artifacts produced by a Jenkins job.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Jenkins Download Artifacts v1
-# Download artifacts produced by a Jenkins job.
-- task: JenkinsDownloadArtifacts@1
-  inputs:
-    jenkinsServerConnection: # string. Alias: serverEndpoint. Required. Jenkins service connection. 
-    jobName: # string. Required. Job name. 
-    #jenkinsJobType: # string. Optional. Use when jobName = invalidjobName. Jenkins job type. 
-    saveTo: 'jenkinsArtifacts' # string. Required. Save to. Default: jenkinsArtifacts.
-  # Advanced
-    jenkinsBuild: 'LastSuccessfulBuild' # 'LastSuccessfulBuild' | 'BuildNumber'. Required. Download artifacts produced by. Default: LastSuccessfulBuild.
-    #jenkinsBuildNumber: '1' # string. Required when jenkinsBuild == BuildNumber. Jenkins build number. Default: 1.
-    #itemPattern: '**' # string. Item Pattern. Default: **.
-    #downloadCommitsAndWorkItems: false # boolean. Download Commits and WorkItems. Default: false.
-    #startJenkinsBuildNumber: # string. Optional. Use when downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber. Download commits and work items from. 
-    #artifactDetailsFileNameSuffix: # string. Optional. Use when downloadCommitsAndWorkItems == invalid. Commit and WorkItem FileName. 
-  # Propagated Artifacts
-    #propagatedArtifacts: false # boolean. Artifacts are propagated to Azure. Default: false.
-    #artifactProvider: 'azureStorage' # 'azureStorage'. Required when propagatedArtifacts == notValid. Artifact Provider. Default: azureStorage.
-    #ConnectedServiceNameARM: # string. Required when propagatedArtifacts == true. Azure Subscription. 
-    #storageAccountName: # string. Required when propagatedArtifacts == true. Storage Account Name. 
-    #containerName: # string. Required when propagatedArtifacts == true. Container Name. 
-    #commonVirtualPath: # string. Optional. Use when propagatedArtifacts == true. Common Virtual Path.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="jenkinsServerConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`jenkinsServerConnection`** - **Jenkins service connection**<br>
-Input alias: `serverEndpoint`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the service connection for your Jenkins instance. To create a new service connection, click the Manage link.
 <!-- :::editable-content-end::: -->
@@ -184,7 +156,7 @@ Enables downloading the commits and work item details associated with the Jenkin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="startJenkinsBuildNumber"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`startJenkinsBuildNumber`** - **Download commits and work items from**<br>
 `string`. Optional. Use when `downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber`.<br>
@@ -311,7 +283,7 @@ Use this task to download artifacts produced by a Jenkins job.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -326,20 +298,6 @@ Use this task to download artifacts produced by a Jenkins job.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

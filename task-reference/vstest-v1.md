@@ -1,19 +1,27 @@
 ---
 title: VSTest@1 - Visual Studio Test v1 task
 description: Run tests with Visual Studio test runner.
-ms.date: 08/27/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: steved0x
+ms.author: sdanie
 ---
 
 # VSTest@1 - Visual Studio Test v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run tests with Visual Studio test runner.
 
 This version of the task is deprecated; use [VSTest@3](./vstest-v3.md).
+
+> [!NOTE]
+> The VSTest@1 task can't rerun failed **Data-driven tests**.
+
+> [!NOTE]
+> VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -32,7 +40,7 @@ Use this task to run tests with Visual Studio test runner.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio Test v1
@@ -60,7 +68,6 @@ Use this task to run tests with Visual Studio test runner.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

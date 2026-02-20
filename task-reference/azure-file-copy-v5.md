@@ -1,8 +1,8 @@
 ---
 title: AzureFileCopy@5 - Azure file copy v5 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 5).
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 ---
 
 # AzureFileCopy@5 - Azure file copy v5 task
@@ -74,7 +74,7 @@ The location of source files. Supported values include YAML Pipelines and Classi
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of an [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) configured for the subscription where the target Azure service, virtual machine, or storage account is located. See [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview) for more details.
 <!-- :::editable-content-end::: -->
@@ -98,7 +98,7 @@ Specify the destination type.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`storage`** - **RM Storage Account**<br>
-Input alias: `StorageAccountRM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `StorageAccountRM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a pre-existing ARM storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
@@ -142,7 +142,7 @@ In the case that the `SourcePath` is a single item with no wildcard, this blob p
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`resourceGroup`** - **Resource Group**<br>
-Input alias: `EnvironmentNameRM`. `string`. Required when `Destination = AzureVMs`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `EnvironmentNameRM`. `string`. Required when `Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the target Resource Group into which the files will be copied.
 <!-- :::editable-content-end::: -->

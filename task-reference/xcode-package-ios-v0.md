@@ -1,8 +1,10 @@
 ---
 title: XcodePackageiOS@0 - Xcode Package iOS v0 task
 description: Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below).
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # XcodePackageiOS@0 - Xcode Package iOS v0 task
@@ -24,7 +26,7 @@ This task is deprecated.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xcode Package iOS v0
@@ -41,7 +43,6 @@ This task is deprecated.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

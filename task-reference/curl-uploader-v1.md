@@ -1,8 +1,8 @@
 ---
 title: cURLUploader@1 - cURL Upload Files v1 task
 description: Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # cURLUploader@1 - cURL Upload Files v1 task
@@ -23,7 +23,7 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # cURL Upload Files v1
@@ -40,7 +40,6 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

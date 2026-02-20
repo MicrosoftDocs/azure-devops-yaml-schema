@@ -1,14 +1,16 @@
 ---
 title: NuGetToolInstaller@1 - NuGet tool installer v1 task
 description: Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # NuGetToolInstaller@1 - NuGet tool installer v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
@@ -20,7 +22,7 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # NuGet tool installer v1
@@ -39,7 +41,7 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 ## Inputs
 
 <!-- :::item name="versionSpec"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **Version of NuGet.exe to install**<br>
 `string`.<br>
@@ -55,7 +57,7 @@ Examples: `4.x`, `3.3.x`, `2.8.6`, `>=4.0.0-0`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkLatest"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`checkLatest`** - **Always check for new versions**<br>
 `boolean`. Default value: `false`.<br>
@@ -80,7 +82,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -118,7 +120,7 @@ Use this task to find, download, and cache a specified version of [NuGet](https:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

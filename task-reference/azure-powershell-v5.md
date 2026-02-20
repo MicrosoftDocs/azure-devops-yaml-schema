@@ -1,14 +1,16 @@
 ---
 title: AzurePowerShell@5 - Azure PowerShell v5 task
 description: Run a PowerShell script within an Azure environment.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzurePowerShell@5 - Azure PowerShell v5 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a PowerShell script within an Azure environment. The Azure context is authenticated with the provided Azure Resource Manager service connection.
@@ -48,7 +50,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Azure PowerShell v5
@@ -77,19 +79,21 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Azure Resource Manager subscription to configure before running PowerShell.
+
+[!INCLUDE [connection-expression](./includes/azure-subscription-variables.md)]
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ScriptType"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`ScriptType`** - **Script Type**<br>
 `string`. Allowed values: `FilePath` (Script File Path), `InlineScript` (Inline Script). Default value: `FilePath`.<br>
@@ -101,7 +105,7 @@ The type of the script: file path or inline.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ScriptPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`ScriptPath`** - **Script Path**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
@@ -113,7 +117,7 @@ The path of the script. This should be a fully qualified path or one relative to
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Inline"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`Inline`** - **Inline Script**<br>
 `string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
@@ -125,7 +129,7 @@ Specifes the script to execute. The maximum supported inline script length is 50
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ScriptArguments"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
@@ -137,7 +141,7 @@ The additional parameters to pass to PowerShell. These can be either ordinal or 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorActionPreference"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`errorActionPreference`** - **ErrorActionPreference**<br>
 `string`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
@@ -149,7 +153,7 @@ Selects the value of the `ErrorActionPreference` variable for executing the scri
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="FailOnStandardError"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`FailOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
@@ -161,10 +165,10 @@ When this is true, this task will fail if any errors are written to the error pi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azurePowerShellVersion"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`azurePowerShellVersion`** - **Azure PowerShell Version**<br>
-Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 In case of hosted agents, the supported Azure PowerShell Versions are `1.0.0`, `1.6.0`, `2.3.2`, `2.6.0`, and `3.1.0` (Hosted VS2017 Queue).
 To pick the latest version available on the agent, select `LatestVersion` (Latest installed version).
@@ -176,10 +180,10 @@ For private agents you can specify a preferred version of Azure PowerShell using
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="preferredAzurePowerShellVersion"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`preferredAzurePowerShellVersion`** - **Preferred Azure PowerShell Version**<br>
-Input alias: `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3`. Regex like `2.\*,2.3.\*` is not supported. The Hosted VS2017 Pool currently supports Az module versions `1.0.0`, `1.6.0`, `2.3.2`, `2.6.0`, and `3.1.0`.
 <!-- :::editable-content-end::: -->
@@ -188,7 +192,7 @@ The preferred Azure PowerShell Version needs to be a proper semantic version eg.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pwsh"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>
@@ -212,7 +216,7 @@ If this is true, then the task will first check to make sure specified script is
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
 `string`.<br>
@@ -232,7 +236,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -264,7 +268,6 @@ To troubleshoot issues related to service connections, see [Service Connection t
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-
 The following example shows how to invoke a script from a file and pass script arguments to it.
 
 ```yml
@@ -277,7 +280,7 @@ The following example shows how to invoke a script from a file and pass script a
       -Arg1 val1 `
       -Arg2 val2 `
       -Arg3 val3
-    azurePowerShellVersion: latestVersion
+    azurePowerShellVersion: LatestVersion
     pwsh: true
 ```
 
@@ -301,7 +304,7 @@ The following arguments shows how to invoke an inline script.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

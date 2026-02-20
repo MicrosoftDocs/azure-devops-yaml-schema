@@ -1,14 +1,16 @@
 ---
 title: resources.webhooks.webhook.filters.filter definition
 description: Filters used to customize the triggers for a webhook event.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020.1"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.webhooks.webhook.filters.filter definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Filters used to customize the triggers for a webhook event.
@@ -18,7 +20,7 @@ Filters used to customize the triggers for a webhook event.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 filters:
@@ -30,7 +32,7 @@ filters:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md)
 
@@ -41,7 +43,7 @@ Definitions that reference this definition: [resources.webhooks.webhook.filters]
 
 <!-- :::properties::: -->
 <!-- :::item name="path"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`path`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 json path to select data from event payload.
@@ -50,7 +52,7 @@ json path to select data from event payload.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="value"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`value`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Expected value for the filter to match.

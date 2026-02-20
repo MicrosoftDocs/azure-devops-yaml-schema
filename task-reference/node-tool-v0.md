@@ -1,8 +1,10 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # NodeTool@0 - Node.js tool installer v0 task
@@ -60,7 +62,7 @@ There is a newer version of the task available. For more information, see [UseNo
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Use Node.js ecosystem v0
@@ -73,33 +75,6 @@ There is a newer version of the task available. For more information, see [UseNo
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
-
-```yaml
-# Use Node.js ecosystem v0
-# Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-- task: NodeTool@0
-  inputs:
-    versionSpec: '6.x' # string. Required. Version Spec. Default: 6.x.
-    #checkLatest: false # boolean. Check for Latest Version. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Use Node.js ecosystem v0
-# Finds or Downloads and caches specified version spec of Node and adds it to the PATH.
-- task: NodeTool@0
-  inputs:
-    versionSpec: '6.x' # string. Required. Version Spec. Default: 6.x.
-    #checkLatest: false # boolean. Check for Latest Version. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -129,7 +104,7 @@ Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`versionSpec`** - **Version Spec**<br>
 `string`. Required. Default value: `6.x`.<br>
@@ -168,7 +143,7 @@ Specifies the agent to check for the latest available version that satisfies the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="force32bit"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`force32bit`** - **Use 32 bit version on x64 agents**<br>
 `boolean`. Default value: `false`.<br>
@@ -247,7 +222,7 @@ There is a newer version of the task available. For more information, see [UseNo
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -262,50 +237,6 @@ There is a newer version of the task available. For more information, see [UseNo
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Node, npm, node.js |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Node, npm |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Node |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

@@ -1,8 +1,8 @@
 ---
 title: Xcode@2 - Xcode Build v2 task
 description: Build an Xcode workspace on Mac OS.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Xcode@2 - Xcode Build v2 task
@@ -20,7 +20,7 @@ Use this task to build an Xcode workspace on macOS.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xcode Build v2
@@ -66,7 +66,6 @@ Use this task to build an Xcode workspace on macOS.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -489,7 +488,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -503,7 +502,6 @@ None.
 | Task category | Build |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

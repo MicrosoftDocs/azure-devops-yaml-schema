@@ -1,8 +1,10 @@
 ---
 title: VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
 description: Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: steved0x
+ms.author: sdanie
 ---
 
 # VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
@@ -20,7 +22,7 @@ Use this task to acquire the [Microsoft test platform](https://www.nuget.org/pac
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio test platform installer v1
@@ -39,33 +41,13 @@ Use this task to acquire the [Microsoft test platform](https://www.nuget.org/pac
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Visual Studio Test Platform Installer v1
-# Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
-- task: VisualStudioTestPlatformInstaller@1
-  inputs:
-  # Package settings
-    packageFeedSelector: 'nugetOrg' # 'nugetOrg' | 'customFeed' | 'netShare'. Required. Package Feed. Default: nugetOrg.
-    #versionSelector: 'latestPreRelease' # 'latestPreRelease' | 'latestStable' | 'specificVersion'. Required when packageFeedSelector = nugetOrg || packageFeedSelector = customFeed. Version. Default: latestPreRelease.
-    #testPlatformVersion: # string. Required when versionSelector = specificVersion. Test Platform Version. 
-    #customFeed: # string. Required when packageFeedSelector = customFeed. Package Source. 
-    #username: # string. Optional. Use when packageFeedSelector = customFeed. User Name. 
-    #password: # string. Optional. Use when packageFeedSelector = customFeed. Password. 
-    #netShare: # string. Required when packageFeedSelector = netShare. UNC Path.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="packageFeedSelector"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packageFeedSelector`** - **Package Feed**<br>
 `string`. Required. Allowed values: `nugetOrg` (Official Nuget), `customFeed` (Custom Feed), `netShare` (Network path). Default value: `nugetOrg`.<br>
@@ -83,7 +65,7 @@ Specifies the feed where the task fetches the Visual Studio Test Platform NuGet 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionSelector"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionSelector`** - **Version**<br>
 `string`. Required when `packageFeedSelector = nugetOrg || packageFeedSelector = customFeed`. Allowed values: `latestPreRelease` (Latest (Includes Pre-Release)), `latestStable` (Latest Stable), `specificVersion` (Specific Version). Default value: `latestPreRelease`.<br>
@@ -107,7 +89,7 @@ Specifies the version of Visual Studio Test Platform to install on the agent. Av
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customFeed"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`customFeed`** - **Package Source**<br>
 `string`. Required when `packageFeedSelector = customFeed`.<br>
@@ -119,7 +101,7 @@ Specifies the URL of a custom feed or a package management feed in Azure DevOps 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="username"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`username`** - **User Name**<br>
 `string`. Optional. Use when `packageFeedSelector = customFeed`.<br>
@@ -131,7 +113,7 @@ Specifies the user name to authenticate the feed specified in the **Package Sour
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="password"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`password`** - **Password**<br>
 `string`. Optional. Use when `packageFeedSelector = customFeed`.<br>
@@ -143,7 +125,7 @@ Specifies the password or personal access token (PAT) for authenticating the fee
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="netShare"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`netShare`** - **UNC Path**<br>
 `string`. Required when `packageFeedSelector = netShare`.<br>
@@ -211,7 +193,7 @@ See [Run automated tests from test plans](/azure/devops/test/run-automated-tests
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

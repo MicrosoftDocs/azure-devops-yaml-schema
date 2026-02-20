@@ -1,14 +1,14 @@
 ---
 title: DeployVisualStudioTestAgent@2 - Visual Studio test agent deployment v2 task
 description: DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DeployVisualStudioTestAgent@2 - Visual Studio test agent deployment v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 > [!IMPORTANT]
@@ -34,7 +34,7 @@ monikerRange: "<=azure-pipelines"
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio test agent deployment v2
@@ -59,33 +59,6 @@ monikerRange: "<=azure-pipelines"
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Visual Studio Test Agent Deployment v2
-# DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests.
-- task: DeployVisualStudioTestAgent@2
-  inputs:
-  # Test Machines
-    testMachines: # string. Required. Machines. 
-    adminUserName: # string. Required. Admin login. 
-    adminPassword: # string. Required. Admin password. 
-    winRmProtocol: 'Http' # 'Http' | 'Https'. Required. Protocol. Default: Http.
-    #testCertificate: true # boolean. Optional. Use when winRmProtocol = Https. Test Certificate. Default: true.
-  # Agent Configuration
-    machineUserName: # string. Required. Username. 
-    machinePassword: # string. Required. Password. 
-    #runAsProcess: false # boolean. Run UI tests. Default: false.
-    #isDataCollectionOnly: false # boolean. Enable data collection only. Default: false.
-  # Advanced
-    #testPlatform: '14.0' # '15.0' | '14.0'. Test agent version. Default: 14.0.
-    #agentLocation: # string. Test agent location. 
-    #updateTestAgent: false # boolean. Update test agent. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

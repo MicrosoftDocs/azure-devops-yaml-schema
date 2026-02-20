@@ -1,14 +1,16 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service (task version 1).
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Deploy an Azure Cloud Service.
@@ -36,7 +38,7 @@ Deploy an Azure Cloud Service.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Cloud Service deployment v1
@@ -68,65 +70,6 @@ Deploy an Azure Cloud Service.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure Cloud Service deployment v1
-# Deploy an Azure Cloud Service.
-- task: AzureCloudPowerShellDeployment@1
-  inputs:
-    azureClassicSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription (Classic). 
-    StorageAccount: # string. Required. Storage account. 
-    ServiceName: # string. Required. Service name. 
-    ServiceLocation: # string. Required. Service location. 
-    CsPkg: # string. Required. CsPkg. 
-    CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
-    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
-    #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
-    #AllowUpgrade: true # boolean. Allow upgrade. Default: true.
-    #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
-    #ForceUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Force upgrade. Default: false.
-    #VerifyRoleInstanceStatus: false # boolean. Verify role instance status. Default: false.
-  # Advanced Options For Creating New Service
-    #DiagnosticStorageAccountKeys: # string. Diagnostic storage account keys. 
-    #NewServiceCustomCertificates: # string. Custom certificates to import. 
-    #NewServiceAdditionalArguments: # string. Additional arguments. 
-    #NewServiceAffinityGroup: # string. Affinity group.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure Cloud Service Deployment v1
-# Deploy an Azure Cloud Service.
-- task: AzureCloudPowerShellDeployment@1
-  inputs:
-    azureClassicSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription (Classic). 
-    StorageAccount: # string. Required. Storage account. 
-    ServiceName: # string. Required. Service name. 
-    ServiceLocation: # string. Required. Service location. 
-    CsPkg: # string. Required. CsPkg. 
-    CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
-    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
-    #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
-    #AllowUpgrade: true # boolean. Allow upgrade. Default: true.
-    #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
-    #ForceUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Force upgrade. Default: false.
-    #VerifyRoleInstanceStatus: false # boolean. Verify role instance status. Default: false.
-  # Advanced Options For Creating New Service
-    #DiagnosticStorageAccountKeys: # string. Diagnostic storage account keys. 
-    #NewServiceCustomCertificates: # string. Custom certificates to import. 
-    #NewServiceAdditionalArguments: # string. Additional arguments. 
-    #NewServiceAffinityGroup: # string. Affinity group.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -136,7 +79,7 @@ Deploy an Azure Cloud Service.
 :::moniker range="<=azure-pipelines"
 
 **`azureClassicSubscription`** - **Azure subscription (Classic)**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Azure subscription to target for deployment.
 <!-- :::editable-content-end::: -->
@@ -145,7 +88,7 @@ The Azure subscription to target for deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="EnableAdvancedStorageOptions"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`EnableAdvancedStorageOptions`** - **Enable ARM storage support**<br>
 `boolean`. Default value: `false`.<br>
@@ -157,7 +100,7 @@ Enables or disables ARM storage support.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="StorageAccount"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`StorageAccount`** - **Storage account (Classic)**<br>
 `string`. Required when `EnableAdvancedStorageOptions = false`.<br>
@@ -167,20 +110,9 @@ The storage account must exist prior to deployment.
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`StorageAccount`** - **Storage account**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The storage account must exist prior to deployment.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ARMConnectedServiceName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`ARMConnectedServiceName`** - **Azure subscription (ARM)**<br>
 `string`. Required when `EnableAdvancedStorageOptions = true`.<br>
@@ -192,7 +124,7 @@ The ARM subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ARMStorageAccount"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`ARMStorageAccount`** - **Storage account (ARM)**<br>
 `string`. Required when `EnableAdvancedStorageOptions = true`.<br>
@@ -255,7 +187,7 @@ The CsCfg path in the default artifact directory.
 :::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Environment (Slot)**<br>
-Input alias: `Slot`. `string`. Required. Default value: `Production`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `Slot`. `string`. Required. Default value: `Production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set this value to 'Staging' or use the default.
 <!-- :::editable-content-end::: -->
@@ -300,7 +232,7 @@ Allows an upgrade to the Microsoft Azure deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SimultaneousUpgrade"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SimultaneousUpgrade`** - **Simultaneous upgrade**<br>
 `boolean`. Optional. Use when `AllowUpgrade == true`. Default value: `false`.<br>
@@ -324,7 +256,7 @@ Sets a forced upgrade.  Forcing an upgrade can cause loss of local data.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="VerifyRoleInstanceStatus"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`VerifyRoleInstanceStatus`** - **Verify role instance status**<br>
 `boolean`. Default value: `false`.<br>
@@ -356,7 +288,7 @@ NOTE: If there is sensitive information in the diagnostic results for your envir
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="NewServiceCustomCertificates"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`NewServiceCustomCertificates`** - **Custom certificates to import**<br>
 `string`.<br>

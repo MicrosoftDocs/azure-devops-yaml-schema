@@ -1,14 +1,16 @@
 ---
 title: includeExcludeStringFilters definition
 description: Items to include or exclude.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/23/2026
+monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # includeExcludeStringFilters definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Items to include or exclude.
@@ -18,10 +20,10 @@ Items to include or exclude.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
+> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
 
 Definitions that reference this definition: [resources.containers.container.trigger](resources-containers-container-trigger.md)
 
@@ -31,7 +33,7 @@ Definitions that reference this definition: [resources.containers.container.trig
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -55,7 +57,7 @@ Definitions that reference this definition: [resources.containers.container.trig
 <!-- :::implementation-item name="includeExcludeStringFilters: string list"::: -->
 <a name="includeexcludestringfiltersstringlist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## includeExcludeStringFilters: string list
@@ -97,7 +99,7 @@ includeExcludeStringFilters: [ string ] # List of items to include.
 <!-- :::implementation-item name="includeExcludeStringFilters: object properties"::: -->
 <a name="includeexcludestringfiltersobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## includeExcludeStringFilters: include, exclude

@@ -1,14 +1,25 @@
 ---
 title: CopyPublishBuildArtifacts@1 - Copy and Publish Build Artifacts v1 task
 description: CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyPublishBuildArtifacts@1 - Copy and Publish Build Artifacts v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to copy build artifacts to a staging folder and then publish them to the server or a file share. Files are copied to the `$(Build.ArtifactStagingDirectory)` staging folder and then published.
+
+> [!IMPORTANT]
+> This task is deprecated. We recommend that you use [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts) and the [Copy Files task](copy-files-v2.md) and the [Publish Build Artifacts](publish-build-artifacts-v1.md) task instead.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2  || =azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to copy build artifacts to a staging folder and then publish them to the server or a file share. Files are copied to the `$(Build.ArtifactStagingDirectory)` staging folder and then published.
@@ -25,7 +36,7 @@ Use this task to copy build artifacts to a staging folder and then publish them 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Copy and Publish Build Artifacts v1
@@ -40,7 +51,6 @@ Use this task to copy build artifacts to a staging folder and then publish them 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

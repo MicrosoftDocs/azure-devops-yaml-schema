@@ -1,8 +1,10 @@
 ---
 title: jobs.job.strategy definition
 description: Execution strategy for this job.
-ms.date: 11/20/2024
+ms.date: 01/23/2026
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # jobs.job.strategy definition
@@ -40,6 +42,9 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+To access variables from a job in a subsequent job, see [Set a multi-job output variable](/azure/devops/pipelines/process/variables#set-a-multi-job-output-variable).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -113,15 +118,9 @@ For each occurrence of *string2*, a variable called *string2* with the value *st
 
 The optional `maxParallel` keyword specifies the maximum number of simultaneous matrix legs to run at once.
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 If `maxParallel` is unspecified or set to 0, no limit is applied.
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-If `maxParallel` is unspecified, no limit is applied.
 
 ::: moniker-end
 
@@ -141,7 +140,7 @@ This example uses a `matrix` job strategy to build on multiple platforms.
 
 ```yaml
 # Build NodeJS Express app using Azure Pipelines
-# https://learn.microsoft.com/azure/devops/pipelines/ecosystems/javascript?view=azure-devops
+# https://learn.microsoft.com/azure/devops/pipelines/ecosystems/javascript
 strategy:
   matrix:
     linux:

@@ -1,14 +1,16 @@
 ---
 title: ManualValidation@1 - Manual validation v1 task
 description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-ms.date: 09/23/2024
-monikerRange: "=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server"
+author: juliakm
+ms.author: jukullam
 ---
 
 # ManualValidation@1 - Manual validation v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
@@ -29,6 +31,23 @@ Pause a pipeline run to wait for manual interaction. Works only with YAML pipeli
   inputs:
     notifyUsers: # string. Required. Notify users. 
     #approvers: # string. Approvers. 
+    #allowApproversToApproveTheirOwnRuns: true # boolean. Allow approvers to approve their own run. Default: true.
+    #instructions: # string. Instructions. 
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
+
+```yaml
+# Manual validation v1
+# Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
+- task: ManualValidation@1
+  inputs:
+    notifyUsers: # string. Required. Notify users. 
+    #approvers: # string. Approvers. 
+    #allowApproversToApproveTheirOwnRuns: false # boolean. Allow approvers to approve their own run. Default: false.
     #instructions: # string. Instructions. 
     #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
@@ -40,12 +59,12 @@ Pause a pipeline run to wait for manual interaction. Works only with YAML pipeli
 ## Inputs
 
 <!-- :::item name="notifyUsers"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`notifyUsers`** - **Notify users**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Send a manual validation pending email to a comma separated list of specific users (or groups). You can send an email to a group using the `[org name]\group` name syntax.
+Send a manual validation pending email to a comma separated list of specific users (or groups). You can send an email to a group using the `[org name]\group` name syntax. If you can edit the pipeline, you have permission to add email addresses to notifyUsers. No additional permissions are required.
 
 This task input is required, but you can specify an empty string if you don't want to notify anyone, for example during a test run: `notifyUsers: ''`.
 <!-- :::editable-content-end::: -->
@@ -54,7 +73,7 @@ This task input is required, but you can specify an empty string if you don't wa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="approvers"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`approvers`** - **Approvers**<br>
 `string`.<br>
@@ -65,8 +84,31 @@ Specify a comma separated list of users/groups/project teams to act on a manual 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="allowApproversToApproveTheirOwnRuns"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`allowApproversToApproveTheirOwnRuns`** - **Allow approvers to approve their own run**<br>
+`boolean`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is true, approver will be able to approve their own run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
+
+**`allowApproversToApproveTheirOwnRuns`** - **Allow approvers to approve their own run**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is true, approver will be able to approve their own run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="instructions"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`instructions`** - **Instructions**<br>
 `string`.<br>
@@ -78,7 +120,7 @@ Specifies the instructions that are shown to the user when resuming or rejecting
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`onTimeout`** - **On timeout**<br>
 `string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
@@ -98,7 +140,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
@@ -159,7 +201,7 @@ This example uses `timeoutInMinutes` which is a [common task property](/azure/de
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

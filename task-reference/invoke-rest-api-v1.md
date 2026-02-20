@@ -1,8 +1,8 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InvokeRESTAPI@1 - Invoke REST API v1 task
@@ -20,7 +20,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Invoke REST API v1
@@ -41,38 +41,16 @@ Use this task to invoke a REST API as a part of your pipeline.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Invoke REST API v1
-# Invoke a REST API as a part of your pipeline.
-- task: InvokeRESTAPI@1
-  inputs:
-    connectionType: 'connectedServiceName' # 'connectedServiceName' | 'connectedServiceNameARM'. Alias: connectedServiceNameSelector. Required. Connection type. Default: connectedServiceName.
-    serviceConnection: # string. Alias: connectedServiceName. Required when connectedServiceNameSelector = connectedServiceName. Generic service connection. 
-    #azureServiceConnection: # string. Alias: connectedServiceNameARM. Required when connectedServiceNameSelector = connectedServiceNameARM. Azure subscription. 
-    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
-    #headers: # string. Headers. 
-    #body: # string. Optional. Use when method != GET && method != HEAD. Body. 
-    #urlSuffix: # string. URL suffix and parameters. 
-  # Advanced
-    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: false.
-    #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="connectionType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`connectionType`** - **Connection type**<br>
-Input alias: `connectedServiceNameSelector`. `string`. Required. Allowed values: `connectedServiceName` (Generic), `connectedServiceNameARM` (Azure Resource Manager). Default value: `connectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameSelector`. `string`. Required. Allowed values: `connectedServiceName` (Generic), `connectedServiceNameARM` (Azure Resource Manager). Default value: `connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the service connection type to use to invoke the REST API. Select **Azure Resource Manager** to invoke an Azure management API or **Generic** for all other APIs.
 <!-- :::editable-content-end::: -->
@@ -81,21 +59,10 @@ Specifies the service connection type to use to invoke the REST API. Select **Az
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceConnection"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`serviceConnection`** - **Generic service connection**<br>
-Input alias: `connectedServiceName | genericService`. `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the generic service connection that provides the baseUrl for the call and the authorization to use for the task.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`serviceConnection`** - **Generic service connection**<br>
-Input alias: `connectedServiceName`. `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceName | genericService`. `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the generic service connection that provides the baseUrl for the call and the authorization to use for the task.
 <!-- :::editable-content-end::: -->
@@ -104,21 +71,10 @@ Specifies the generic service connection that provides the baseUrl for the call 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureServiceConnection"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureServiceConnection`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM | azureSubscription`. `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Resource Manager subscription to configure and use for invoking Azure management APIs.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`azureServiceConnection`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM | azureSubscription`. `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager subscription to configure and use for invoking Azure management APIs.
 <!-- :::editable-content-end::: -->
@@ -163,7 +119,7 @@ Specifies the request body for the function call in JSON format.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="urlSuffix"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`urlSuffix`** - **URL suffix and parameters**<br>
 `string`.<br>
@@ -227,8 +183,6 @@ None.
 
 > [!NOTE]
 > This task can be used only in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs).
-
-
 
 Succeeds if the API returns success and the response body parsing is successful, or when the API updates the timeline record with success.
 

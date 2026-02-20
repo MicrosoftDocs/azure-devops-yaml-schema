@@ -1,8 +1,10 @@
 ---
 title: AzureFunctionOnKubernetes@1 - Azure Function on Kubernetes v1 task
 description: Deploy Azure function to Kubernetes cluster.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureFunctionOnKubernetes@1 - Azure Function on Kubernetes v1 task
@@ -83,7 +85,7 @@ Select a Docker registry service connection.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Kubernetes service connection.
 <!-- :::editable-content-end::: -->
@@ -95,7 +97,7 @@ Select a Kubernetes service connection.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscriptionConnection`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription, which contains Azure Container Registry.Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
 <!-- :::editable-content-end::: -->

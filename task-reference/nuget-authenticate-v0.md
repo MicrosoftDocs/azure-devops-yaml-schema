@@ -1,14 +1,16 @@
 ---
 title: NuGetAuthenticate@0 - NuGet authenticate v0 task
 description: This version of the task is deprecated, use NuGetAuthenticateV1 instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
-ms.date: 08/19/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # NuGetAuthenticate@0 - NuGet authenticate v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
@@ -18,19 +20,12 @@ This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenti
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # NuGet authenticate v0
@@ -43,25 +38,13 @@ Use this task to configure NuGet tools to authenticate with Azure Artifacts and 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-# NuGet authenticate v0
-# Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
-- task: NuGetAuthenticate@0
-  inputs:
-    #nuGetServiceConnections: # string. Service connection credentials for feeds outside this organization. 
-    #forceReinstallCredentialProvider: false # boolean. Reinstall the credential provider even if already installed. Default: false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="nuGetServiceConnections"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
 `string`.<br>
@@ -73,7 +56,7 @@ Optional. The comma-separated list of [NuGet service connection](/azure/devops/p
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="forceReinstallCredentialProvider"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
 `boolean`. Default value: `false`.<br>
@@ -93,7 +76,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -122,7 +105,7 @@ This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenti
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

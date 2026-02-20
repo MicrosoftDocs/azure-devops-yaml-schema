@@ -1,14 +1,16 @@
 ---
 title: onSuccessOrFailureHook definition
 description: Used to run steps for rollback actions or clean-up.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # onSuccessOrFailureHook definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
@@ -18,7 +20,7 @@ Used to run steps for rollback actions or clean-up.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 onSuccessOrFailureHook:
@@ -34,10 +36,10 @@ onSuccessOrFailureHook:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
+> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
 
 Definitions that reference this definition: [jobs.deployment.strategy.runOnce](jobs-deployment-strategy-run-once.md), [jobs.deployment.strategy.rolling](jobs-deployment-strategy-rolling.md), [jobs.deployment.strategy.canary](jobs-deployment-strategy-canary.md)
 
@@ -48,7 +50,7 @@ Definitions that reference this definition: [jobs.deployment.strategy.runOnce](j
 
 <!-- :::properties::: -->
 <!-- :::item name="failure"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`failure`** [onFailureHook](on-failure-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Runs on failure of any step.
@@ -57,7 +59,7 @@ Runs on failure of any step.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="success"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`success`** [onSuccessHook](on-success-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Runs on success of all of the steps.

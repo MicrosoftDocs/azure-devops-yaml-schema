@@ -1,8 +1,10 @@
 ---
 title: NuGetPublisher@0 - NuGet publisher v0 task
 description: NuGetPublisher@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # NuGetPublisher@0 - NuGet publisher v0 task
@@ -22,7 +24,7 @@ NuGetPublisher@0 is deprecated. Use the “NuGet” task instead. It works with 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # NuGet publisher v0
@@ -42,28 +44,6 @@ NuGetPublisher@0 is deprecated. Use the “NuGet” task instead. It works with 
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# NuGet Publisher v0
-# Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
-- task: NuGetPublisher@0
-  inputs:
-    searchPattern: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg' # string. Required. Path/Pattern to nupkg. Default: **/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg.
-    nuGetFeedType: 'external' # 'external' | 'internal'. Required. Feed type. Default: external.
-    connectedServiceName: # string. Required when nuGetFeedType = external. NuGet Service Connection. 
-    #feedName: # string. Required when nuGetFeedType = internal. Internal Feed URL. 
-  # Advanced
-    #nuGetAdditionalArgs: # string. NuGet Arguments. 
-    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: -.
-    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: 3.3.0.
-    #nuGetPath: # string. Path to NuGet.exe. 
-    #continueOnEmptyNupkgMatch: false # boolean. Continue if no packages match the "Path/Pattern to nupkg". Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -95,7 +75,7 @@ Specifies whether the target feed is an internal feed/collection or an external 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="connectedServiceName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`connectedServiceName`** - **NuGet Service Connection**<br>
 `string`. Required when `nuGetFeedType = external`.<br>
@@ -222,7 +202,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -237,20 +217,6 @@ None.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: Cmd |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.83.0 or greater |
-| Task category | Package |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

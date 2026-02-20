@@ -1,8 +1,10 @@
 ---
 title: pool definition
 description: Which pool to use for a job of the pipeline.
-ms.date: 11/20/2024
+ms.date: 01/23/2026
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # pool definition
@@ -19,17 +21,12 @@ A `pool` specification also holds information about the job's strategy for runni
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md), [preDeployHook](pre-deploy-hook.md), [deployHook](deploy-hook.md), [routeTrafficHook](route-traffic-hook.md), [postRouteTrafficHook](post-route-traffic-hook.md), [onFailureHook](on-failure-hook.md), [onSuccessHook](on-success-hook.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## Implementations
@@ -44,7 +41,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 | Implementation | Description |
 |---|---|
@@ -58,12 +55,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-In Azure DevOps Server 2019 you can specify a pool at the job level in YAML, and at the pipeline level in the pipeline settings UI. In Azure DevOps Server 2019.1 you can also specify a pool at the pipeline level in YAML if you have a single implicit job.
-:::moniker-end
-
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 You can specify a pool at the pipeline, stage, or job level.
 :::moniker-end
 
@@ -177,7 +169,7 @@ Name of the VM image you want to use; valid only in the Microsoft-hosted pool.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::implementation-signature::: -->
 ## pool: name, demands

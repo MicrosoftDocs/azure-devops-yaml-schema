@@ -1,24 +1,39 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # pipeline.parameters.parameter definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-A parameter represents a value passed to a pipeline.
+A parameter represents a value passed to a pipeline. Parameters must include a default value.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-server"
+
+```yaml
+parameters:
+- name: string # Required as first property.
+  displayName: string # Human-readable name for the parameter.
+  type: string
+  default: string | parameters | [ parameters ] # Default value; if no default, then the parameter MUST be given by the user at runtime.
+  values: [ string ] # Allowed list of values (for some data types).
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 parameters:
@@ -33,7 +48,7 @@ parameters:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [parameters](parameters.md)
 
@@ -44,7 +59,7 @@ Definitions that reference this definition: [parameters](parameters.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
@@ -52,7 +67,7 @@ Definitions that reference this definition: [parameters](parameters.md)
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the parameter.
@@ -61,34 +76,28 @@ Human-readable name for the parameter.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 See [**types**](#types).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
-boolean | deployment | deploymentList | environment | filePath | job | jobList | number | object | pool | secureFile | serviceConnection | stage | stageList | step | stepList | string.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="default"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`default`** parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Default value; if no default, then the parameter MUST be given by the user at runtime.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="values"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`values`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Allowed list of values (for some data types).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -99,7 +108,7 @@ boolean | deployment | deploymentList | environment | filePath | job | jobList |
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The type and name fields are required when defining parameters. See all [parameter data types](/azure/devops/pipelines/process/runtime-parameters#parameter-data-types).
+The `type` and `name` fields are required when defining parameters. Learn more about [parameter data types](/azure/devops/pipelines/process/runtime-parameters#parameter-data-types).
 
 ```yaml
 parameters:
@@ -128,63 +137,62 @@ The `type` value must be one of the `enum` members from the following table.
 | `stage` | a single stage |
 | `stageList` | sequence of stages |
 
-The step, stepList, job, jobList, deployment, deploymentList, stage, and stageList data types all use standard YAML schema format. This example includes string, number, boolean, object, step, and stepList. 
-
+The step, stepList, job, jobList, deployment, deploymentList, stage, and stageList data types all use standard YAML schema format. This example includes string, number, boolean, object, step, and stepList.
 
 ```yaml
 parameters:
-- name: myString
-  type: string
-  default: a string
-- name: myMultiString
-  type: string
-  default: default
-  values:
-  - default
-  - ubuntu
-- name: myNumber
-  type: number
-  default: 2
-  values:
-  - 1
-  - 2
-  - 4
-  - 8
-  - 16
-- name: myBoolean
-  type: boolean
-  default: true
-- name: myObject
-  type: object
-  default:
-    foo: FOO
-    bar: BAR
-    things:
-    - one
-    - two
-    - three
-    nested:
-      one: apple
-      two: pear
-      count: 3
-- name: myStep
-  type: step
-  default:
-    script: echo my step
-- name: mySteplist
-  type: stepList
-  default:
-    - script: echo step one
-    - script: echo step two
+  - name: myString
+    type: string
+    default: a string
+  - name: myMultiString
+    type: string
+    default: default
+    values:
+      - default
+      - ubuntu
+  - name: myNumber
+    type: number
+    default: 2
+    values:
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+  - name: myBoolean
+    type: boolean
+    default: true
+  - name: myObject
+    type: object
+    default:
+      foo: FOO
+      bar: BAR
+      things:
+        - one
+        - two
+        - three
+      nested:
+        one: apple
+        two: pear
+        count: 3
+  - name: myStep
+    type: step
+    default:
+      script: echo my step
+  - name: mySteplist
+    type: stepList
+    default:
+      - script: echo step one
+      - script: echo step two
 
 trigger: none
 
 jobs: 
-- job: stepList
-  steps: ${{ parameters.mySteplist }}
-- job: myStep
-  steps:
-    - ${{ parameters.myStep }}
+  - job: stepList
+    steps: ${{ parameters.mySteplist }}
+  - job: myStep
+    steps:
+      - ${{ parameters.myStep }}
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
@@ -201,28 +209,28 @@ parameters:
   type: string
   default: ubuntu-latest
   values:
-  - windows-latest
-  - ubuntu-latest
-  - macOS-latest
+    - windows-latest
+    - ubuntu-latest
+    - macOS-latest
 
 trigger: none
 
 jobs:
-- job: build
-  displayName: build
-  pool: 
-    vmImage: ${{ parameters.image }}
-  steps:
-  - script: echo The image parameter is ${{ parameters.image }}```
+  - job: build
+    displayName: build
+    pool: 
+      vmImage: ${{ parameters.image }}
+    steps:
+      - script: echo The image parameter is ${{ parameters.image }}
 ```
 
-You can use parameters to extend a template. In this example, the pipeline using the template supplies the values to fill into the template.
+Use parameters to extend a template. In this example, the pipeline using the template supplies the values to fill into the template.
 
 ```yaml
 # File: simple-param.yml
 parameters:
-- name: yesNo # name of the parameter; required
-  type: boolean # data type of the parameter; required
+- name: yesNo # name of param; required
+  type: boolean # data type of param; required
   default: false
 
 steps:
@@ -237,7 +245,40 @@ trigger:
 extends:
     template: simple-param.yml
     parameters:
-        yesNo: false # set to a non-boolean value to have the build fail
+        yesNo: false 
+```
+
+Use templates to define parameters and then pass those parameters to a pipeline.
+
+```yaml
+# File: template.yml 
+parameters:
+  - name: environment
+    type: string
+    default: 'production'
+
+jobs:
+- job: Deploy
+  displayName: 'Deploy to ${{ parameters.environment }}'
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: echo "Deploying to ${{ parameters.environment }}"
+    displayName: 'Deploy Step'
+```
+
+```yaml
+# File: azure-pipelines.yml
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- template: template.yml
+  parameters:
+    environment: 'staging'
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
@@ -246,6 +287,6 @@ extends:
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-See [templates](/azure/devops/pipelines/process/templates) for more about working with templates.
+See [templates](/azure/devops/pipelines/process/templates) to learn more about working with templates.
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

@@ -1,14 +1,16 @@
 ---
 title: target definition
 description: Tasks run in an execution context, which is either the agent host or a container.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/23/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # target definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Tasks run in an execution context, which is either the agent host or a container.
@@ -18,7 +20,7 @@ Tasks run in an execution context, which is either the agent host or a container
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.getPackage](steps-get-package.md), [steps.publish](steps-publish.md), [steps.reviewApp](steps-review-app.md)
 
@@ -28,7 +30,7 @@ Definitions that reference this definition: [steps.task](steps-task.md), [steps.
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -37,14 +39,6 @@ Definitions that reference this definition: [steps.task](steps-task.md), [steps.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-| Implementation | Description |
-|---|---|
-| [target: string](#targetstring) | Environment in which to run this step or task. |
-| [target: container, commands](#targetobjectproperties) | Configure step target with environment and allowed list of commands. |
-
-:::moniker-end
 <!-- :::implementations-list-end::: -->
 
 <!-- :::remarks::: -->
@@ -64,7 +58,7 @@ An individual step may override its context by specifying a `target`, and option
 <!-- :::implementation-item name="target: string"::: -->
 <a name="targetstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## target: string
@@ -105,7 +99,7 @@ Available options are the word `host` to target the agent host plus any containe
 <!-- :::implementation-item name="target: object properties"::: -->
 <a name="targetobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## target: container, commands, settableVariables
@@ -148,42 +142,6 @@ Restrictions on which variables that can be set.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-<!-- :::implementation-signature::: -->
-## target: container, commands
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Configure step target with environment and allowed list of commands.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-target:
-  container: string # Container to target (or 'host' for host machine).
-  commands: any | restricted # Set of allowed logging commands ('any' or 'restricted').
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="container"::: -->
-**`container`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Container to target (or 'host' for host machine).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="commands"::: -->
-**`commands`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Set of allowed logging commands ('any' or 'restricted'). any | restricted.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
 <!-- :::objectAnyOf-end::: -->
 
 <!-- :::remarks::: -->

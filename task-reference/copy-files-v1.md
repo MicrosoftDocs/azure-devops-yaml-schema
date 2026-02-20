@@ -1,8 +1,8 @@
 ---
 title: CopyFiles@1 - Copy Files v1 task
 description: Copy files from source folder to target folder using minimatch patterns (The minimatch patterns will only match file paths, not folder paths).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyFiles@1 - Copy Files v1 task
@@ -23,7 +23,7 @@ Use this task to copy files from a source folder to a target folder using match 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Copy Files v1
@@ -40,7 +40,6 @@ Use this task to copy files from a source folder to a target folder using match 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

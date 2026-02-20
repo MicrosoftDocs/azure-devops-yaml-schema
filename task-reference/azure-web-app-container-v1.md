@@ -1,17 +1,21 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task deploys containers to Azure App Service.
+
+When you deploy a container using this task, you don't see an error message if the specified container image is incorrect.  Use Azure portal logs to troubleshoot container deployment issues.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,7 +24,30 @@ This task deploys containers to Azure App Service.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure Web App for Containers v1
+# Deploy containers to Azure App Service.
+- task: AzureWebAppContainer@1
+  inputs:
+    azureSubscription: # string. Required. Azure subscription. 
+    appName: # string. Required. App name. 
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
+    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    #containers: # string. Alias: imageName. Image name. 
+    #multicontainerConfigFile: # string. Configuration File. 
+    #containerCommand: # string. Startup command. 
+    #siteContainersConfig: # string. Site Containers Config. 
+  # Application and Configuration Settings
+    #appSettings: # string. App settings. 
+    #configurationStrings: # string. Configuration settings.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Azure Web App for Containers v1
@@ -47,7 +74,7 @@ This task deploys containers to Azure App Service.
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
@@ -59,7 +86,7 @@ The name of the [Azure Resource Manager subscription](/azure/devops/pipelines/li
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appName`** - **App name**<br>
 `string`. Required.<br>
@@ -71,7 +98,7 @@ Specifies the name of an existing Azure App Service. Only app services based on 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
@@ -86,7 +113,7 @@ If the deployment target is an Azure App Service Environment, leave the slot nam
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
@@ -99,7 +126,7 @@ Specifies the Azure resource group that contains the Azure App Service indicated
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="slotName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
@@ -111,10 +138,10 @@ Specifies an existing slot, excluding the production slot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containers"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`containers`** - **Image name**<br>
-Input alias: `imageName`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `imageName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the fully qualified container image name. For example, **myregistry.azurecr.io**/nginx:latest or **python:3.7.2-alpine**/.  
 For a multi-container scenario, multiple container image names can be provided.
@@ -124,7 +151,7 @@ For a multi-container scenario, multiple container image names can be provided.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="multicontainerConfigFile"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`multicontainerConfigFile`** - **Configuration File**<br>
 `string`.<br>
@@ -136,7 +163,7 @@ The path of the Docker-Compose file. Must be a fully qualified path or a path re
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerCommand"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
@@ -151,7 +178,7 @@ For example:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSettings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appSettings`** - **App settings**<br>
 `string`.<br>
@@ -163,12 +190,24 @@ Edits the web app application settings using the syntax -key value (for example:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configurationStrings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edits the web app application settings using the syntax -key value (for example: `-phpVersion 5.6 -linuxFxVersion: node|6.11`). A value containing spaces should be enclosed in double quotes.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="siteContainersConfig"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`siteContainersConfig`** - **Site Containers Config**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provide siteContainers-config JSON for SiteContainers deployments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +222,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -209,7 +248,7 @@ The application URL of the selected Azure App Service.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

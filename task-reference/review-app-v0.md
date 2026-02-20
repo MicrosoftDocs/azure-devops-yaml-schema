@@ -1,17 +1,17 @@
 ---
 title: ReviewApp@0 - Review App v0 task
 description: Use this task under deploy phase provider to create a resource dynamically.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # ReviewApp@0 - Review App v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task under a deploy phase provider to create a resource dynamically.
+`ReviewApp` deploys every pull request from your Git repository to a dynamic environment resource.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,7 +20,7 @@ Use this task under a deploy phase provider to create a resource dynamically.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Review App v0
@@ -39,7 +39,7 @@ Use this task under a deploy phase provider to create a resource dynamically.
 ## Inputs
 
 <!-- :::item name="resourceName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`resourceName`** - **Resource name**<br>
 `string`. Required.<br>
@@ -51,7 +51,7 @@ Specifies the name of an existing resource in the environment, which will be use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="baseEnvironmentName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`baseEnvironmentName`** - **Environment name**<br>
 `string`.<br>
@@ -62,7 +62,7 @@ Specifies the name of an existing resource in the environment, which will be use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="reviewResourceName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`reviewResourceName`** - **Review Resource Name**<br>
 `string`.<br>
@@ -81,7 +81,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -92,19 +92,39 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task under a deploy phase provider to create a resource dynamically.
+`ReviewApp` deploys every pull request from your Git repository to a dynamic environment resource. Reviewers can see how those changes look as well as work with other dependent services before they’re merged into the main branch and deployed to production. This will make it easy for you to create and manage **reviewApp** resources and benefit from all the traceability and diagnosis capability of the environment features. By using the **reviewApp** keyword, you can create a clone of a resource (dynamically create a new resource based on an existing resource in an environment) and add the new resource to the environment.
+
+For more information, see [Kubernetes resource - Set up Review App](/azure/devops/pipelines/process/environments-kubernetes#set-up-review-app) and [What’s new in Azure DevOps Sprint 160](https://devblogs.microsoft.com/devops/whats-new-in-azure-devops-sprint-160/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The following is a sample YAML snippet of using `reviewApp` under environments.
+
+```yaml
+jobs:
+- deployment:
+  environment: 
+     name: smarthotel-dev      
+     resourceName: $(System.PullRequest.PullRequestId) 
+  pool:
+    name: 'ubuntu-latest'
+  strategy:                 
+    runOnce:            
+      pre-deploy: 
+        steps:       
+        - reviewApp: MainNamespace
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -122,5 +142,9 @@ Use this task under a deploy phase provider to create a resource dynamically.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+- [What’s new in Azure DevOps Sprint 160](https://devblogs.microsoft.com/devops/whats-new-in-azure-devops-sprint-160/)
+- [Kubernetes resource - Set up Review App](/azure/devops/pipelines/process/environments-kubernetes#set-up-review-app)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

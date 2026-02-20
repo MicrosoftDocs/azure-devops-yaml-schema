@@ -1,14 +1,16 @@
 ---
 title: onSuccessHook definition
 description: Used to run steps for clean-up actions.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # onSuccessHook definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
@@ -18,7 +20,7 @@ Used to run steps for rollback actions or clean-up.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 onSuccessHook:
@@ -30,10 +32,10 @@ onSuccessHook:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
+> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
 
 Definitions that reference this definition: [onSuccessOrFailureHook](on-success-or-failure-hook.md)
 
@@ -44,7 +46,7 @@ Definitions that reference this definition: [onSuccessOrFailureHook](on-success-
 
 <!-- :::properties::: -->
 <!-- :::item name="steps"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`steps`** [steps](steps.md).<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run.
@@ -53,7 +55,7 @@ A list of steps to run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where on success steps will run.

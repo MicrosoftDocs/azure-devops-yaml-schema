@@ -1,14 +1,16 @@
 ---
 title: AzureStaticWebApp@0 - Deploy Azure Static Web App v0 task
 description: Build and deploy an Azure Static Web App.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2022"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureStaticWebApp@0 - Deploy Azure Static Web App v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task builds and deploys an Azure Static Web app.
@@ -80,10 +82,10 @@ This task builds and deploys an Azure Static Web app.
 ## Inputs
 
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd | rootDirectory`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd | rootDirectory`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the absolute working directory in which to execute this task. If left empty, the default working directory is used.
 <!-- :::editable-content-end::: -->
@@ -92,7 +94,7 @@ Specifies the absolute working directory in which to execute this task. If left 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="app_location"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`app_location`** - **App location**<br>
 `string`.<br>
@@ -104,7 +106,7 @@ The directory location of the application source code, relative to the working d
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="app_build_command"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`app_build_command`** - **App build command**<br>
 `string`.<br>
@@ -116,7 +118,7 @@ The custom command used to run Oryx when building application source code.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="output_location"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`output_location`** - **Output location**<br>
 `string`.<br>
@@ -128,7 +130,7 @@ The directory location of the compiled application code after building is comple
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="api_location"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`api_location`** - **Api location**<br>
 `string`.<br>
@@ -140,7 +142,7 @@ The directory location of the Azure Functions source code, relative to the worki
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="api_build_command"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`api_build_command`** - **Api build command**<br>
 `string`.<br>
@@ -152,7 +154,7 @@ The custom command used to run Oryx when building Azure Functions source code.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="routes_location"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`routes_location`** - **Routes location**<br>
 `string`.<br>
@@ -165,7 +167,7 @@ The directory location of the routes.json file, relative to the working director
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="config_file_location"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`config_file_location`** - **Config file location**<br>
 `string`.<br>
@@ -177,7 +179,7 @@ The directory location of the staticwebapp.config.json file, relative to the wor
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="skip_app_build"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`skip_app_build`** - **Skip app build**<br>
 `boolean`.<br>
@@ -189,7 +191,7 @@ Skips Oryx build for the app folder.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="skip_api_build"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`skip_api_build`** - **Skip api build**<br>
 `boolean`.<br>
@@ -201,7 +203,7 @@ Skips Oryx build for the API folder.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="is_static_export"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`is_static_export`** - **Set static export**<br>
 `boolean`.<br>
@@ -215,7 +217,7 @@ When this flag is set to `true`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbose"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`verbose`** - **Verbose**<br>
 `boolean`.<br>
@@ -227,7 +229,7 @@ Enables verbose logging.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="build_timeout_in_minutes"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`build_timeout_in_minutes`** - **Build timeout in minutes**<br>
 `string`.<br>
@@ -239,7 +241,7 @@ Specifies the time limit of the Oryx app folder build in minutes.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azure_static_web_apps_api_token"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`azure_static_web_apps_api_token`** - **Azure Static Web Apps api token**<br>
 `string`.<br>
@@ -252,7 +254,7 @@ Specifies the API token for deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployment_environment"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`deployment_environment`** - **Deployment Environment**<br>
 `string`.<br>
@@ -264,7 +266,7 @@ Specifies the environment to deploy to. Leave blank for the production environme
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="production_branch"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`production_branch`** - **Production Branch**<br>
 `string`.<br>
@@ -296,15 +298,23 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
-None.
+This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
+
+<!-- :::item name="AZURESTATICWEBAPP_STATIC_WEB_APP_URL"::: -->
+**`AZURESTATICWEBAPP_STATIC_WEB_APP_URL`**<br><!-- :::editable-content name="Value"::: -->
+URL of the Static Web App after a successful deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
 > [!NOTE]
 > This task only runs on Linux agents.
 <!-- :::editable-content-end::: -->
@@ -367,7 +377,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

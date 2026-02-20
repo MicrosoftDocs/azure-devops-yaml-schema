@@ -1,14 +1,14 @@
 ---
 title: KubeloginInstaller@0 - Kubelogin tool installer v0 task
 description: Helps to install kubelogin.
-ms.date: 07/02/2024
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 ---
 
 # KubeloginInstaller@0 - Kubelogin tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Installs kubelogin and adds it to the PATH of your agent.
@@ -28,6 +28,7 @@ Installs kubelogin and adds it to the PATH of your agent.
 - task: KubeloginInstaller@0
   inputs:
     #kubeloginVersion: 'latest' # string. kubelogin version. Default: latest.
+    #gitHubConnection: # string. GitHub Connection.
 ```
 
 :::moniker-end
@@ -37,12 +38,24 @@ Installs kubelogin and adds it to the PATH of your agent.
 ## Inputs
 
 <!-- :::item name="kubeloginVersion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`kubeloginVersion`** - **kubelogin version**<br>
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of kubelogin to use, for example `0.0.30`, or `latest` to use the latest version. For more information about kubelogin versions, see [kubelogin releases](https://github.com/Azure/kubelogin/releases).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="gitHubConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`gitHubConnection`** - **GitHub Connection**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A GitHub connection is needed to prevent anonymous requests limits to the Github API for [Azure/kubelogin](https://github.com/azure/kubelogin) from impacting the installation. Leaving this empty may cause failures if the request limit is reached. This connection does not require ANY permissions.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -57,7 +70,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

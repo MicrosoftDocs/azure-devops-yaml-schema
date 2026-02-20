@@ -1,8 +1,8 @@
 ---
 title: ArchiveFiles@1 - Archive Files v1 task
 description: Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # ArchiveFiles@1 - Archive Files v1 task
@@ -20,7 +20,7 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Archive Files v1
@@ -37,7 +37,6 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

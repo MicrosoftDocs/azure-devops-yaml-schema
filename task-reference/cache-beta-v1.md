@@ -1,14 +1,16 @@
 ---
 title: CacheBeta@1 - Cache (Beta) v1 task
 description: Cache files between runs (task version 1).
-ms.date: 08/07/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # CacheBeta@1 - Cache (Beta) v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Improve build performance by using this task to cache files, like dependencies, between pipeline runs.
@@ -23,7 +25,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Cache (Beta) v1
@@ -43,7 +45,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 ## Inputs
 
 <!-- :::item name="key"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`key`** - **Key**<br>
 `string`. Required.<br>
@@ -55,7 +57,7 @@ The key (unique identifier) for the cache. This should be a string that can be s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="path"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`path`** - **Path**<br>
 `string`. Required.<br>
@@ -67,7 +69,7 @@ The path of the folder to cache. Can be fully qualified or relative to `$(System
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cacheHitVar"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`cacheHitVar`** - **Cache hit variable**<br>
 `string`.<br>
@@ -79,7 +81,7 @@ The variable to set to `true` when the cache is restored (i.e. a cache hit). Oth
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="restoreKeys"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`restoreKeys`** - **Additional restore key prefixes**<br>
 `string`.<br>
@@ -99,7 +101,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -119,7 +121,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

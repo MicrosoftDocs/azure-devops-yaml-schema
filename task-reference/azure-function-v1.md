@@ -1,8 +1,10 @@
 ---
 title: AzureFunction@1 - Invoke Azure Function v1 task
 description: Invoke an Azure Function.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureFunction@1 - Invoke Azure Function v1 task
@@ -20,7 +22,7 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Invoke Azure Function v1
@@ -40,34 +42,13 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Invoke Azure Function v1
-# Invoke an Azure Function as a part of your pipeline.
-- task: AzureFunction@1
-  inputs:
-    function: # string. Required. Azure function URL. 
-    key: # string. Required. Function key. 
-    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
-    #headers: # string. Headers. 
-    #queryParameters: # string. Query parameters. 
-    #body: # string. Optional. Use when method != GET && method != HEAD. Body. 
-  # Advanced
-    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: false.
-    #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="function"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`function`** - **Azure function URL**<br>
 `string`. Required.<br>

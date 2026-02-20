@@ -1,8 +1,10 @@
 ---
 title: variables.template definition
 description: Define variables in a template.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # variables.template definition

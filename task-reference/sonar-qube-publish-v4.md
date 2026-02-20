@@ -1,20 +1,22 @@
 ---
 title: SonarQubePublish@4 - Publish Quality Gate Result v4 task
 description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis (task version 4).
-ms.date: 08/19/2024
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 ---
 
 # SonarQubePublish@4 - Publish Quality Gate Result v4 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish SonarQube's Quality Gate result on the Azure DevOps build result. Use this after the analysis.
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubePublish@7](./sonar-qube-publish-v7.md).
+> This task is deprecated; use [SonarQubePublish@8](./sonar-qube-publish-v8.md).
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -42,7 +44,7 @@ Use this task to publish SonarQube's Quality Gate result on the Azure DevOps bui
 ## Inputs
 
 <!-- :::item name="pollingTimeoutSec"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`pollingTimeoutSec`** - **Timeout (s)**<br>
 `string`. Required. Default value: `300`.<br>
@@ -62,7 +64,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

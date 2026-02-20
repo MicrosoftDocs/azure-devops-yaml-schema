@@ -1,14 +1,16 @@
 ---
 title: resources.packages definition
 description: List of external packages.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/23/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.packages definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 List of package resources referenced by the pipeline.
@@ -18,7 +20,7 @@ List of package resources referenced by the pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 packages: [ package ] # List of package resources.
@@ -28,7 +30,7 @@ packages: [ package ] # List of package resources.
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources](resources.md)
 
@@ -38,7 +40,7 @@ Definitions that reference this definition: [resources](resources.md)
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

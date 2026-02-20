@@ -1,14 +1,16 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 08/27/2024
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy: using a script file or writing the script in our inline editor. Since this task is server based, it appears on Deployment group jobs.
@@ -20,7 +22,7 @@ This task is deprecated.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy: using a script file or writing the script in our inline editor.
@@ -34,7 +36,7 @@ Use this task to run your scripts and make changes to your MySQL Database. There
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # This task is supported on classic release pipelines only.
@@ -49,7 +51,7 @@ Use this task to run your scripts and make changes to your MySQL Database. There
 ## Inputs
 
 <!-- :::item name="TaskNameSelector"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`TaskNameSelector`** - **Deploy MySql Using**<br>
 `string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
@@ -61,7 +63,7 @@ Specifies either Script File or Inline Script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlFile"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`SqlFile`** - **MySQL Script**<br>
 `string`. Required when `TaskNameSelector = SqlTaskFile`.<br>
@@ -73,7 +75,7 @@ Specifies the full path of the script file on the automation agent or on a UNC p
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlInline"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`SqlInline`** - **Inline MySQL Script**<br>
 `string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
@@ -85,7 +87,7 @@ Specifies the MySQL script to execute on the selected database.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ServerName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`ServerName`** - **Host Name**<br>
 `string`. Required. Default value: `localhost`.<br>
@@ -97,7 +99,7 @@ Specifies the server name of `Database for MySQL`, such as `localhost`. This str
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DatabaseName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`DatabaseName`** - **Database Name**<br>
 `string`.<br>
@@ -120,7 +122,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`SqlUsername`** - **Mysql User Name**<br>
 `string`. Required.<br>
@@ -132,7 +134,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlPassword"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`SqlPassword`** - **Password**<br>
 `string`. Required.<br>
@@ -144,7 +146,7 @@ Specifies the password for MySQL Database. The password can be a variable define
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlAdditionalArguments"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`SqlAdditionalArguments`** - **Additional Arguments**<br>
 `string`.<br>
@@ -166,7 +168,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -217,7 +219,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -232,20 +234,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | Preview, Classic release |
-| Runs on | DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.100.0 or greater |
-| Task category | Deploy |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

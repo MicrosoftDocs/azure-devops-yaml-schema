@@ -1,14 +1,16 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # stages.stage definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Stages are a collection of related jobs. By default, stages run sequentially. Each stage starts only after the preceding stage is complete unless otherwise specified via the `dependsOn` property.
@@ -37,7 +39,7 @@ stages:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 stages:
@@ -54,24 +56,10 @@ stages:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-stages:
-- stage: string # Required as first property. ID of the stage.
-  displayName: string # Human-readable name for the stage.
-  pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
-  dependsOn: string | [ string ] # Any stages which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this stage.
-  variables: variables | [ variable ] # Stage-specific variables.
-  jobs: [ job | deployment | template ] # Jobs which make up the stage.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [stages](stages.md)
 
@@ -82,7 +70,7 @@ Definitions that reference this definition: [stages](stages.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="stage"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`stage`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the stage.
@@ -91,7 +79,7 @@ ID of the stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the stage.
@@ -100,7 +88,7 @@ Human-readable name for the stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this stage will run unless otherwise specified.
@@ -109,7 +97,7 @@ Pool where jobs in this stage will run unless otherwise specified.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dependsOn"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`dependsOn`** string | string list.<br><!-- :::editable-content name="propDescription"::: -->
 Any stages which must complete before this one. By default stages are run sequentially in the order defined in the pipeline. Specify `dependsOn: []` for a stage if it shouldn't depend on the previous stage in the pipeline.
@@ -118,7 +106,7 @@ Any stages which must complete before this one. By default stages are run sequen
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this stage.
@@ -127,7 +115,7 @@ Evaluate this condition expression to determine whether to run this stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Stage-specific variables.
@@ -136,7 +124,7 @@ Stage-specific variables.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`jobs`** [jobs](jobs.md).<br><!-- :::editable-content name="propDescription"::: -->
 Jobs which make up the stage.
@@ -145,7 +133,7 @@ Jobs which make up the stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
@@ -172,7 +160,7 @@ Setting false prevents the stage from being skipped. By default it's always true
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateContext"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`templateContext`** templateContext.<br><!-- :::editable-content name="propDescription"::: -->
 Stage related information passed from a pipeline when extending a template. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
@@ -202,7 +190,7 @@ As an owner of a resource like an environment, you can define checks that are re
 Currently, manual approval checks are supported on [environments](/azure/devops/pipelines/process/environments).
 For more information, see [Approvals](/azure/devops/pipelines/process/approvals).
 
-:::moniker range="> azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ### Exclusive lock
 

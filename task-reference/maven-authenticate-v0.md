@@ -1,14 +1,16 @@
 ---
 title: MavenAuthenticate@0 - Maven Authenticate v0 task
 description: Provides credentials for Azure Artifacts feeds and external maven repositories.
-ms.date: 11/20/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # MavenAuthenticate@0 - Maven Authenticate v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to provide credentials for Azure Artifacts feeds and external Maven repositories.
@@ -64,7 +66,7 @@ This is an Entra Workload ID-backed Azure DevOps user Service Connection. If thi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactsFeeds"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`artifactsFeeds`** - **Feeds**<br>
 `string`.<br>
@@ -76,7 +78,7 @@ Specifies a comma-separated list of Azure Artifacts feed names to authenticate w
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenServiceConnections"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`mavenServiceConnections`** - **Credentials for repositories outside this organization/collection**<br>
 `string`.<br>
@@ -96,7 +98,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -279,7 +281,7 @@ To correctly authenticate the task, set the repositories in your project's `pom.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

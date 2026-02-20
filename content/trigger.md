@@ -1,8 +1,10 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 11/20/2024
+ms.date: 01/23/2026
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # trigger definition
@@ -18,23 +20,18 @@ A push trigger specifies which branches cause a continuous integration build to 
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [resources.repositories.repository](resources-repositories-repository.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-Definitions that reference this definition: [pipeline](pipeline.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -44,15 +41,6 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-| Implementation | Description |
-|---|---|
-| [trigger: none](#triggerstring) | Disable CI triggers. |
-| [trigger: string list](#triggerstringlist) | List of branches that trigger a run. |
-| [trigger: batch, branches, paths](#triggerobjectproperties) | Full syntax for complete control. |
-
-:::moniker-end
 <!-- :::implementations-list-end::: -->
 
 <!-- :::remarks::: -->
@@ -75,18 +63,9 @@ YAML pipelines are configured by default with a CI trigger on all branches, unle
 
 There are three distinct syntax options for the `trigger` keyword: a list of branches to include, a way to disable CI triggers, and the full syntax for complete control.
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 If you specify an `exclude` clause without an `include` clause for `branches`, `tags`, or `paths`, it is equivalent to specifying `*` in the `include` clause.
-
-::: moniker-end
-
-::: moniker range="<= azure-pipelines-2019.1"
-
-> [!IMPORTANT]
-> When you specify a trigger, only branches that you explicitly configure for inclusion trigger a pipeline.
-> Inclusions are processed first, and then exclusions are removed from that list.
-> If you specify an exclusion but no inclusions, nothing triggers.
 
 ::: moniker-end
 <!-- :::editable-content-end::: -->
@@ -178,6 +157,16 @@ trigger: [ string ] # List of branches that trigger a run.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+### Remarks
+
+Pushing a commit to branches specified in the list trigger a run. In addition to specifying branch names in the `branches` lists, you can also configure triggers when a tag is pushed by using the following format:
+
+```yaml
+trigger:
+- refs/tags/{tagname}
+```
+
+For more information on tags, choose your repository type in [Supported repositories](/azure/devops/pipelines/repos/), and go to the CI triggers section.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -196,7 +185,7 @@ trigger:
 <!-- :::implementation-item name="trigger: object properties"::: -->
 <a name="triggerobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: batch, branches, paths, tags
@@ -251,52 +240,6 @@ Tag names to include or exclude for triggering a run.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::implementation-signature::: -->
-## trigger: batch, branches, paths
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Use the full syntax control for full control over the CI trigger.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-trigger:
-  batch: boolean # Whether to batch changes per branch.
-  branches: # Branch names to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-  paths: # File paths to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="batch"::: -->
-**`batch`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Whether to batch changes per branch.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-Branch names to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-File paths to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
 <!-- :::objectAnyOf-end::: -->
 
 <!-- :::remarks::: -->
@@ -307,7 +250,7 @@ If you have many team members uploading changes often, you may want to reduce th
 
 When specifying a branch, tag, or path, you may use an exact name or a wildcard. For more information, see [wildcards](/azure/devops/pipelines/repos/github#wildcards).
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 > [!IMPORTANT]
 > `batch` is not supported in [repository resource](./resources-repositories-repository.md) triggers.
@@ -315,6 +258,22 @@ When specifying a branch, tag, or path, you may use an exact name or a wildcard.
 ::: moniker-end
 
 For more information, see [Triggers - CI triggers](/azure/devops/pipelines/build/triggers#ci-triggers) and choose your repository type.
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+### Examples
+
+```yaml
+# Build every branch except for main
+trigger:
+  branches:
+    include:
+    - '*' # Must enclose in '' since * is a reserved YAML character
+    exclude:
+    - main
+```
 
 ```yaml
 # specific branch build with batching
@@ -324,12 +283,6 @@ trigger:
     include:
     - main
 ```
-<!-- :::editable-content-end::: -->
-<!-- :::remarks-end::: -->
-
-<!-- :::examples::: -->
-<!-- :::editable-content name="examples"::: -->
-### Examples
 
 ```yaml
 trigger:

@@ -1,8 +1,10 @@
 ---
 title: PowerShell@1 - PowerShell v1 task
 description: Run a PowerShell script.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # PowerShell@1 - PowerShell v1 task
@@ -20,7 +22,7 @@ Run a PowerShell script.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # PowerShell v1
@@ -37,7 +39,6 @@ Run a PowerShell script.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

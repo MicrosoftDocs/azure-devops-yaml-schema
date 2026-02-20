@@ -1,8 +1,8 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
-description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME (task version 0).
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # JavaToolInstaller@0 - Java tool installer v0 task
@@ -20,7 +20,30 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Java tool installer v0
+# Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8' # string. Required. JDK version. Default: 8.
+    jdkArchitectureOption: # 'x64' | 'x86' | 'arm64'. Required. JDK architecture. 
+    jdkSourceOption: # 'AzureStorage' | 'LocalDirectory' | 'PreInstalled'. Required. JDK source. 
+    #jdkFile: # string. Required when jdkSourceOption == LocalDirectory. JDK file. 
+    #azureResourceManagerEndpoint: # string. Required when jdkSourceOption == AzureStorage. Azure subscription. 
+    #azureStorageAccountName: # string. Required when jdkSourceOption == AzureStorage. Storage account name. 
+    #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
+    #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
+    #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
+    #azureResourceGroupName: # string. Optional. Use when jdkSourceOption == AzureStorage. Resource Group name. 
+    #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
+    #createExtractDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Create directory for extracting. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 ```yaml
 # Java tool installer v0
@@ -65,70 +88,6 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-# Java tool installer v0
-# Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '8' # string. Required. JDK version. Default: 8.
-    jdkArchitectureOption: # 'x64' | 'x86'. Required. JDK architecture. 
-    jdkSourceOption: # 'AzureStorage' | 'LocalDirectory' | 'PreInstalled'. Required. JDK source. 
-    #jdkFile: # string. Required when jdkSourceOption == LocalDirectory. JDK file. 
-    #azureResourceManagerEndpoint: # string. Required when jdkSourceOption == AzureStorage. Azure subscription. 
-    #azureStorageAccountName: # string. Required when jdkSourceOption == AzureStorage. Storage account name. 
-    #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
-    #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
-    #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
-    #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Java tool installer v0
-# Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '8' # string. Required. JDK version. Default: 8.
-    jdkArchitectureOption: # 'x64' | 'x86'. Required. JDK architecture. 
-    jdkSourceOption: # 'AzureStorage' | 'LocalDirectory'. Required. JDK source. 
-    #jdkFile: # string. Required when jdkSourceOption == LocalDirectory. JDK file. 
-    #azureResourceManagerEndpoint: # string. Required when jdkSourceOption == AzureStorage. Azure subscription. 
-    #azureStorageAccountName: # string. Required when jdkSourceOption == AzureStorage. Storage account name. 
-    #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
-    #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
-    jdkDestinationDirectory: # string. Required. Destination directory. 
-    #cleanDestinationDirectory: true # boolean. Clean destination directory. Default: true.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Java Tool Installer v0
-# Acquires a specific version of Java from a user supplied Azure blob or the tools cache and sets JAVA_HOME. Use this task to change the version of Java used in Java tasks.
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '8' # string. Required. JDK version. Default: 8.
-    jdkArchitectureOption: # 'x64' | 'x86'. Required. JDK architecture. 
-    jdkSourceOption: # 'AzureStorage' | 'LocalDirectory'. Required. JDK source. 
-    #jdkFile: # string. Required when jdkSourceOption == LocalDirectory. JDK file. 
-    #azureResourceManagerEndpoint: # string. Required when jdkSourceOption == AzureStorage. Azure subscription. 
-    #azureStorageAccountName: # string. Required when jdkSourceOption == AzureStorage. Storage account name. 
-    #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
-    #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
-    jdkDestinationDirectory: # string. Required. Destination directory. 
-    #cleanDestinationDirectory: true # boolean. Clean destination directory. Default: true.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -147,7 +106,18 @@ Specifies the JDK version to make available on the path. Use a whole number vers
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkArchitectureOption"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`jdkArchitectureOption`** - **JDK architecture**<br>
+`string`. Required. Allowed values: `x64`, `x86`, `arm64`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the architecture (`x86`, `x64`) of the JDK.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 `string`. Required. Allowed values: `x64`, `x86`.<br>
@@ -159,21 +129,10 @@ Specifies the architecture (`x86`, `x64`) of the JDK.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkSourceOption"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory), `PreInstalled` (Pre-installed).<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the source for the compressed JDK. The source can be Azure blob storage or a local directory on the agent or source repository, or you can use the pre-installed version of Java (available for Microsoft-hosted agents). Please see the example below about how to use the pre-installed version of Java.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`jdkSourceOption`** - **JDK source**<br>
-`string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the source for the compressed JDK. The source can be Azure blob storage or a local directory on the agent or source repository, or you can use the pre-installed version of Java (available for Microsoft-hosted agents). Please see the example below about how to use the pre-installed version of Java.
 <!-- :::editable-content-end::: -->
@@ -242,21 +201,10 @@ Specifies the path to the JDK inside the Azure storage container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDestinationDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`jdkDestinationDirectory`** - **Destination directory**<br>
 `string`. Required when `jdkSourceOption != PreInstalled`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the destination directory where the JDK should be extracted. On Linux and Windows, this is used as the destination directory for the JDK installation. On macOS, this directory is used as a temporary folder for extracting .dmg's because macOS doesn't support installing JDK to a specific directory.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`jdkDestinationDirectory`** - **Destination directory**<br>
-`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the destination directory where the JDK should be extracted. On Linux and Windows, this is used as the destination directory for the JDK installation. On macOS, this directory is used as a temporary folder for extracting .dmg's because macOS doesn't support installing JDK to a specific directory.
 <!-- :::editable-content-end::: -->
@@ -277,7 +225,7 @@ Resource Group name of the storage account.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanDestinationDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`cleanDestinationDirectory`** - **Clean destination directory**<br>
 `boolean`. Optional. Use when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>
@@ -287,20 +235,9 @@ Specifies the option to clean the destination directory before JDK is extracted 
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`cleanDestinationDirectory`** - **Clean destination directory**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the option to clean the destination directory before JDK is extracted into it.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="createExtractDirectory"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`createExtractDirectory`** - **Create directory for extracting**<br>
 `boolean`. Optional. Use when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>
@@ -394,7 +331,7 @@ Here's an example of using "pre-installed" feature. This feature allows you to u
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -409,35 +346,6 @@ Here's an example of using "pre-installed" feature. This feature allows you to u
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Java, JDK |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Java |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

@@ -1,8 +1,10 @@
 ---
 title: VSMobileCenterTest@0 - Mobile Center Test v0 task
 description: Test mobile app packages with Visual Studio Mobile Center.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: steved0x
+ms.author: sdanie
 ---
 
 # VSMobileCenterTest@0 - Mobile Center Test v0 task
@@ -20,7 +22,7 @@ Use this task to test mobile app packages with Visual Studio Mobile Center.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Mobile Center Test v0
@@ -70,7 +72,6 @@ Use this task to test mobile app packages with Visual Studio Mobile Center.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -549,7 +550,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -563,7 +564,6 @@ None.
 | Task category | Test |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

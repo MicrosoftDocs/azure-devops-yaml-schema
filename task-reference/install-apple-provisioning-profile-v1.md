@@ -1,8 +1,8 @@
 ---
 title: InstallAppleProvisioningProfile@1 - Install Apple provisioning profile v1 task
 description: Install an Apple provisioning profile required to build on a macOS agent machine.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InstallAppleProvisioningProfile@1 - Install Apple provisioning profile v1 task
@@ -20,7 +20,7 @@ Use this task to install an Apple provisioning profile, which is required in ord
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Install Apple provisioning profile v1
@@ -34,22 +34,6 @@ Use this task to install an Apple provisioning profile, which is required in ord
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Install Apple Provisioning Profile v1
-# Install an Apple provisioning profile required to build on a macOS agent.
-- task: InstallAppleProvisioningProfile@1
-  inputs:
-    provisioningProfileLocation: 'secureFiles' # 'secureFiles' | 'sourceRepository'. Required. Provisioning profile location. Default: secureFiles.
-    provProfileSecureFile: # string. Required when provisioningProfileLocation == secureFiles. Provisioning profile. 
-    #provProfileSourceRepository: # string. Required when provisioningProfileLocation == sourceRepository. Provisioning profile. 
-    #removeProfile: true # boolean. Remove profile after build. Default: true.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -113,7 +97,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -129,7 +113,6 @@ The Name property for the selected provisioning profile.
 <!-- :::item-end::: -->
 
 :::moniker-end
-
 
 <!-- :::outputVariables-end::: -->
 
@@ -154,7 +137,7 @@ You can install an Apple provisioning profile that is:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -169,20 +152,6 @@ You can install an Apple provisioning profile that is:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: xcode |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

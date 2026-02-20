@@ -1,8 +1,8 @@
 ---
 title: PublishSymbols@1 - Index sources and publish symbols v1 task
 description: Index your source code and publish symbols to a file share.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishSymbols@1 - Index sources and publish symbols v1 task
@@ -24,7 +24,7 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Index sources and publish symbols v1
@@ -44,7 +44,6 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -188,7 +187,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -202,7 +201,6 @@ None.
 | Task category | Build |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

@@ -1,8 +1,10 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # PowerShell@2 - PowerShell v2 task
@@ -80,71 +82,6 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# PowerShell v2
-# Run a PowerShell script on Linux, macOS, or Windows.
-- task: PowerShell@2
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-  # Advanced
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #showWarnings: false # boolean. Show warnings as Azure DevOps warnings. Default: false.
-    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
-    #workingDirectory: # string. Working Directory.
-```
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
-
-```yaml
-# PowerShell v2
-# Run a PowerShell script on Linux, macOS, or Windows.
-- task: PowerShell@2
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-  # Advanced
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
-    #workingDirectory: # string. Working Directory.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# PowerShell v2
-# Run a PowerShell script on Windows, macOS, or Linux.
-- task: PowerShell@2
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-  # Advanced
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
-    #workingDirectory: # string. Working Directory.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -189,7 +126,7 @@ Specifies the arguments passed to the PowerShell script. Arguments can be ordina
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="script"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your PowerShell commands here.\n\nWrite-Host "Hello World"`.<br>
@@ -199,20 +136,9 @@ Specifies the contents of the script. The maximum supported inline script length
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`script`** - **Script**<br>
-`string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"\n\n# Use the environment variables input below to pass secret variables to this script.`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the script. The maximum supported inline script length is 20000 characters. Use a script from a file if you want to use a longer script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorActionPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`errorActionPreference`** - **ErrorActionPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
@@ -222,20 +148,9 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`errorActionPreference`** - **ErrorActionPreference**<br>
-`string`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="warningPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`warningPreference`** - **WarningPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -247,7 +162,7 @@ When not set to  `Default`, prepends the line `$WarningPreference = 'VALUE'` at 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="informationPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`informationPreference`** - **InformationPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -259,7 +174,7 @@ When not set to `Default`, prepends the line `$InformationPreference = 'VALUE'` 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosePreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`verbosePreference`** - **VerbosePreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -271,7 +186,7 @@ When not set to `Default`, prepends the line `$VerbosePreference = 'VALUE'` at t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="debugPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`debugPreference`** - **DebugPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -307,7 +222,7 @@ If the value of this boolean is `true`, the task fails if any errors are written
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="showWarnings"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`showWarnings`** - **Show warnings as Azure DevOps warnings**<br>
 `boolean`. Default value: `false`.<br>
@@ -331,7 +246,7 @@ If the value is set to `false`, the line `if ((Test-Path -LiteralPath variable:\
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pwsh"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>
@@ -355,7 +270,7 @@ Specifies the working directory where the script is run. If a value is not speci
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runScriptInSeparateScope"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`runScriptInSeparateScope`** - **Run script in the separate scope**<br>
 `boolean`. Default value: `false`.<br>

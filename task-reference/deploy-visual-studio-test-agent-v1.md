@@ -1,8 +1,8 @@
 ---
 title: DeployVisualStudioTestAgent@1 - Visual Studio Test Agent Deployment v1 task
 description: Deploy and configure Test Agent to run tests on a set of machines.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DeployVisualStudioTestAgent@1 - Visual Studio Test Agent Deployment v1 task
@@ -23,7 +23,7 @@ This task deploys and configures the Test Agent to run tests on a set of machine
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio Test Agent Deployment v1
@@ -49,7 +49,6 @@ This task deploys and configures the Test Agent to run tests on a set of machine
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -243,7 +242,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -257,7 +256,6 @@ None.
 | Task category | Test |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

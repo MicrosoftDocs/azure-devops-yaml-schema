@@ -1,8 +1,10 @@
 ---
 title: AzurePowerShell@1 - Azure PowerShell v1 task
 description: Run a PowerShell script within an Azure environment (task version 1).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzurePowerShell@1 - Azure PowerShell v1 task
@@ -20,7 +22,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure PowerShell v1
@@ -37,7 +39,6 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

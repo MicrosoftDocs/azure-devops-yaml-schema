@@ -1,8 +1,10 @@
 ---
 title: variables.name definition
 description: Define variables using name and full syntax.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # variables.name definition
@@ -18,7 +20,7 @@ Define variables using name and full syntax.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 variables:
@@ -29,15 +31,6 @@ variables:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-variables:
-- name: string # Required as first property. Variable name.
-  value: string # Variable value.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -70,7 +63,7 @@ Variable value.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="readonly"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`readonly`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether a YAML variable is read-only; default is false.

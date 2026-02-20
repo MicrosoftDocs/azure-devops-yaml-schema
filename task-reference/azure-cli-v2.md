@@ -1,14 +1,14 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureCLI@2 - Azure CLI v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell script when running on Linux agent. Or, run Azure CLI commands against an Azure subscription in a PowerShell/PowerShell Core/batch script when running on Windows agent.
@@ -16,19 +16,12 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-<!-- :::editable-content name="description"::: -->
-Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell script when running on Linux agent. Or, run Azure CLI commands against an Azure subscription in a PowerShell/Powershell Core/batch script when running on Windows agent.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Azure CLI v2
@@ -53,7 +46,7 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Azure CLI v2
@@ -77,39 +70,16 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Azure CLI v2
-# Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/Powershell Core/Batch script when running on Windows agent.
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure Resource Manager connection. 
-    scriptType: # 'ps' | 'pscore' | 'batch' | 'bash'. Required. Script Type. 
-    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
-    scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
-    #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
-    #arguments: # string. Alias: scriptArguments. Script Arguments. 
-    #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: stop.
-  # Advanced
-    #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
-    #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
-    #workingDirectory: # string. Alias: cwd. Working Directory. 
-    #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
-    #powerShellIgnoreLASTEXITCODE: false # boolean. Optional. Use when scriptType = ps || scriptType = pscore. Ignore $LASTEXITCODE. Default: false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Resource Manager service connection for the deployment.
 <!-- :::editable-content-end::: -->
@@ -118,7 +88,7 @@ Select an Azure Resource Manager service connection for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="scriptType"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`scriptType`** - **Script Type**<br>
 `string`. Required. Allowed values: `ps` (PowerShell), `pscore` (PowerShell Core), `batch`, `bash` (Shell).<br>
@@ -128,20 +98,9 @@ Type of script. Select a `bash` or `pscore` script when running on Linux agent. 
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-**`scriptType`** - **Script Type**<br>
-`string`. Required. Allowed values: `ps` (Powershell), `pscore` (Powershell Core), `batch`, `bash` (Shell).<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Type of script. Select a `bash` or `pscore` script when running on Linux agent. Or, select a `batch`, `ps`, or `pscore` script when running on Windows agent. A `pscore` script can run on cross-platform agents (Linux, macOS, or Windows).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="scriptLocation"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`scriptLocation`** - **Script Location**<br>
 `string`. Required. Allowed values: `inlineScript` (Inline script), `scriptPath` (Script path). Default value: `scriptPath`.<br>
@@ -153,7 +112,7 @@ Path to the script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="scriptPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`scriptPath`** - **Script Path**<br>
 `string`. Required when `scriptLocation = scriptPath`.<br>
@@ -165,7 +124,7 @@ Fully qualified path of the script. Use `.ps1`, `.bat`, or `.cmd` when using Win
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="inlineScript"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptLocation = inlineScript`.<br>
@@ -191,10 +150,10 @@ call az account show
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Script Arguments**<br>
-Input alias: `scriptArguments`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `scriptArguments`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the script.
 <!-- :::editable-content-end::: -->
@@ -203,7 +162,7 @@ Arguments passed to the script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="powerShellErrorActionPreference"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`powerShellErrorActionPreference`** - **ErrorActionPreference**<br>
 `string`. Optional. Use when `scriptType = ps || scriptType = pscore`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
@@ -215,7 +174,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your PowerShe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addSpnToEnvironment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`addSpnToEnvironment`** - **Access service principal details in script**<br>
 `boolean`. Default value: `false`.<br>
@@ -237,7 +196,7 @@ The following list shows the syntax to access environment variables based on the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useGlobalConfig"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`useGlobalConfig`** - **Use global Azure CLI configuration**<br>
 `boolean`. Default value: `false`.<br>
@@ -249,10 +208,10 @@ If this input is false, this task will use its own [Azure CLI configuration dire
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
@@ -261,7 +220,7 @@ Current working directory where the script is run. If left blank, this input is 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStandardError"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
@@ -273,7 +232,7 @@ If this input is true, this task will fail when any errors are written to the St
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="powerShellIgnoreLASTEXITCODE"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`powerShellIgnoreLASTEXITCODE`** - **Ignore $LASTEXITCODE**<br>
 `boolean`. Optional. Use when `scriptType = ps || scriptType = pscore`. Default value: `false`.<br>
@@ -285,7 +244,7 @@ If this input is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXIT
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="visibleAzLogin"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`visibleAzLogin`** - **az login output visibility**<br>
 `boolean`. Default value: `true`.<br>
@@ -305,7 +264,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -379,7 +338,7 @@ The following example illustrates how to pass arguments to your script.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,14 +1,16 @@
 ---
 title: mountReadOnly definition
 description: Volumes to mount read-only.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020.1"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # mountReadOnly definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Volumes to mount read-only, the default is all false.
@@ -18,7 +20,7 @@ Volumes to mount read-only, the default is all false.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 mountReadOnly:
@@ -32,10 +34,10 @@ mountReadOnly:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
+> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
 
 Definitions that reference this definition: [jobs.job.container](jobs-job-container.md), [resources.containers.container](resources-containers-container.md)
 
@@ -46,7 +48,7 @@ Definitions that reference this definition: [jobs.job.container](jobs-job-contai
 
 <!-- :::properties::: -->
 <!-- :::item name="work"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`work`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Mount the work directory as readonly.
@@ -55,7 +57,7 @@ Mount the work directory as readonly.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externals"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`externals`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Mount the externals directory as readonly.
@@ -64,7 +66,7 @@ Mount the externals directory as readonly.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tools"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`tools`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Mount the tools directory as readonly.
@@ -73,7 +75,7 @@ Mount the tools directory as readonly.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tasks"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`tasks`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Mount the tasks directory as readonly.

@@ -1,8 +1,8 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
-description: Deploy a virtual machine scale set image.
-ms.date: 10/10/2024
-monikerRange: "<=azure-pipelines"
+description: Deploy a virtual machine scale set image (task version 0).
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
@@ -20,7 +20,7 @@ This task deploys a Virtual Machine scale set image.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure VM scale set deployment v0
@@ -45,32 +45,6 @@ This task deploys a Virtual Machine scale set image.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure VM scale set Deployment v0
-# Deploy Virtual Machine scale set image.
-- task: AzureVmssDeployment@0
-  inputs:
-  # Azure Details
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
-    vmssName: # string. Required. Virtual Machine scale set name. 
-    vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
-  # Image Details
-    #imageUrl: # string. Required when action = Update image || action = UpdateImage. Image URL. 
-  # Configure start-up
-    #customScriptsDirectory: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Custom script directory. 
-    #customScript: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Command. 
-    #customScriptArguments: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Arguments. 
-    #customScriptsStorageAccount: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Azure storage account where custom scripts will be uploaded. 
-  # Advanced
-    #skipArchivingCustomScripts: false # boolean. Skip Archiving custom scripts. Default: false.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -80,7 +54,7 @@ This task deploys a Virtual Machine scale set image.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager subscription for the scale set.
 <!-- :::editable-content-end::: -->
@@ -129,7 +103,7 @@ Specifies the operating system type of the VM scale set.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageUrl"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`imageUrl`** - **Image URL**<br>
 `string`. Required when `action = Update image || action = UpdateImage`.<br>
@@ -260,7 +234,7 @@ Next, try adding a command line task before the virtual machine scale set task:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

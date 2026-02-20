@@ -1,14 +1,16 @@
 ---
 title: NuGetAuthenticate@1 - NuGet authenticate v1 task
 description: Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
-ms.date: 11/20/2024
-monikerRange: ">=azure-pipelines-2022"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # NuGetAuthenticate@1 - NuGet authenticate v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
@@ -29,8 +31,6 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
   inputs:
     #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
     #feedUrl: # string. Azure Artifacts URL. 
-    #forceReinstallCredentialProvider: false # boolean. Reinstall the credential provider even if already installed. Default: false.
-    #nuGetServiceConnections: # string. Service connection credentials for feeds outside this organization.
 ```
 
 :::moniker-end
@@ -76,13 +76,13 @@ If this is set, `workloadIdentityServiceConnection` is required. All other input
 
 :::moniker-end
 <!-- :::item-end::: -->
-<!-- :::item name="forceReinstallCredentialProvider"::: -->
-:::moniker range=">=azure-pipelines-2022"
+<!-- :::item name="nuGetServiceConnections"::: -->
+:::moniker range="<=azure-pipelines"
 
-**`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
-`boolean`. Default value: `false`.<br>
+**`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Reinstalls the credential provider to the user profile directory, even if it's already installed. If the credential provider is already installed in the user profile, the task determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
+Optional. The comma-separated list of [NuGet service connection](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) names for feeds outside this organization or collection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +109,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 None.
 

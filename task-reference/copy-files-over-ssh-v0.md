@@ -1,8 +1,8 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyFilesOverSSH@0 - Copy files over SSH v0 task
@@ -20,7 +20,7 @@ Copy files or build artifacts to a remote machine over SSH.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Copy files over SSH v0
@@ -45,7 +45,7 @@ Copy files or build artifacts to a remote machine over SSH.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Copy files over SSH v0
@@ -68,76 +68,13 @@ Copy files or build artifacts to a remote machine over SSH.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-# Copy files over SSH v0
-# Copy files or build artifacts to a remote machine over SSH.
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: **.
-    #targetFolder: # string. Target folder. 
-  # Advanced
-    #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
-    #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
-    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
-    #flattenFolders: false # boolean. Flatten folders. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Copy files over SSH v0
-# Copy files or build artifacts to a remote machine over SSH.
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: **.
-    #targetFolder: # string. Target folder. 
-  # Advanced
-    #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
-    #flattenFolders: false # boolean. Flatten folders. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Copy Files Over SSH v0
-# Copy files or build artifacts to a remote machine over SSH.
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: **.
-    #targetFolder: # string. Target folder. 
-  # Advanced
-    #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
-    #flattenFolders: false # boolean. Flatten folders. Default: false.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="sshEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`sshEndpoint`** - **SSH service connection**<br>
 `string`. Required.<br>
@@ -191,7 +128,7 @@ The target folder on the remote machine, where files will be copied. Example: `/
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isWindowsOnTarget"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`isWindowsOnTarget`** - **Target machine running Windows**<br>
 `boolean`. Default value: `false`.<br>
@@ -215,7 +152,7 @@ Deletes all existing files and sub-folders in the target folder before copying.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanHiddenFilesInTarget"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`cleanHiddenFilesInTarget`** - **Remove hidden files in target folder**<br>
 `boolean`. Optional. Use when `cleanTargetFolder = true`. Default value: `false`.<br>
@@ -227,7 +164,7 @@ When set to `true`, removes hidden files in the target folder.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="readyTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`readyTimeout`** - **SSH handshake timeout**<br>
 `string`. Required. Default value: `20000`.<br>
@@ -275,7 +212,7 @@ Flattens the folder structure and copies all files into the specified target fol
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="concurrentUploads"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`concurrentUploads`** - **Number of concurrent uploads when copying files**<br>
 `string`. Default value: `10`.<br>
@@ -287,7 +224,7 @@ Number of concurrent uploads when copying files. Default is 10.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenUploads"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`delayBetweenUploads`** - **Delay between queueing uploads (in milliseconds)**<br>
 `string`. Default value: `50`.<br>
@@ -327,7 +264,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -342,7 +279,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -357,35 +294,6 @@ None.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.144.0 or greater |
-| Task category | Deploy |
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.102.0 or greater |
-| Task category | Deploy |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

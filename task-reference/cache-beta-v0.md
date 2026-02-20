@@ -1,14 +1,16 @@
 ---
 title: CacheBeta@0 - Cache (Beta) v0 task
 description: Cache files between runs (task version 0).
-ms.date: 08/27/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # CacheBeta@0 - Cache (Beta) v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Improve build performance by using this task to cache files, like dependencies, between pipeline runs.
@@ -20,7 +22,7 @@ This version of the task is deprecated; use [Cache@2](./cache-v2.md).
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Improve build performance by using this task to cache files, like dependencies, between pipeline runs.
@@ -35,7 +37,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Cache (Beta) v0
@@ -54,7 +56,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 ## Inputs
 
 <!-- :::item name="key"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`key`** - **Key**<br>
 `string`. Required.<br>
@@ -66,7 +68,7 @@ The key (unique identifier) for the cache. This should be a newline-delimited li
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="path"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`path`** - **Path**<br>
 `string`. Required.<br>
@@ -78,7 +80,7 @@ The path of the folder to cache. Can be fully qualified or relative to `$(System
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cacheHitVar"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`cacheHitVar`** - **Cache hit variable**<br>
 `string`.<br>
@@ -98,7 +100,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -118,7 +120,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

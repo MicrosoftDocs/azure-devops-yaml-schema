@@ -1,8 +1,10 @@
 ---
 title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: steved0x
+ms.author: sdanie
 ---
 
 # VSBuild@1 - Visual Studio build v1 task
@@ -12,6 +14,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build with MSBuild and set the Visual Studio version property. Learn more about installing [Visual Studio images on Azure](/visualstudio/install/using-visual-studio-vm).
+
+> [!TIP]
+> Use [NuGetAuthenticate@1](./nuget-authenticate-v1.md) in your pipeline before this task. For more information, see [Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?](#why-is-my-build-pipeline-failing-and-prompting-for-single-sign-on-sso-authentication).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,7 +25,33 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Visual Studio build v1
+# Build with MSBuild and set the Visual Studio version property.
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
+    #vsVersion: 'latest' # 'latest' | '18.0' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
+    #msbuildArgs: # string. MSBuild Arguments. 
+    #platform: # string. Platform. 
+    #configuration: # string. Configuration. 
+    #clean: false # boolean. Clean. Default: false.
+  # Advanced
+    #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
+    #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
+    #logProjectEvents: true # boolean. Record Project Details. Default: true.
+    #createLogFile: false # boolean. Create Log File. Default: false.
+    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
+    #enableDefaultLogger: true # boolean. Enable Default Logger. Default: true.
+    #customVersion: # string. Custom Version.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Visual Studio build v1
@@ -45,54 +76,6 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-```yaml
-# Visual Studio build v1
-# Build with MSBuild and set the Visual Studio version property.
-- task: VSBuild@1
-  inputs:
-    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
-    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
-    #msbuildArgs: # string. MSBuild Arguments. 
-    #platform: # string. Platform. 
-    #configuration: # string. Configuration. 
-    #clean: false # boolean. Clean. Default: false.
-  # Advanced
-    #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
-    #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
-    #logProjectEvents: true # boolean. Record Project Details. Default: true.
-    #createLogFile: false # boolean. Create Log File. Default: false.
-    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Visual Studio Build v1
-# Build with MSBuild and set the Visual Studio version property.
-- task: VSBuild@1
-  inputs:
-    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
-    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
-    #msbuildArgs: # string. MSBuild Arguments. 
-    #platform: # string. Platform. 
-    #configuration: # string. Configuration. 
-    #clean: false # boolean. Clean. Default: false.
-  # Advanced
-    #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
-    #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
-    #logProjectEvents: true # boolean. Record Project Details. Default: true.
-    #createLogFile: false # boolean. Create Log File. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -119,16 +102,18 @@ Make sure the solutions you specify are downloaded by this build pipeline. On th
 > [!TIP]
 > - You can also build MSBuild project (.*proj) files.
 > - If you are building a customized MSBuild project file, we recommend you use the MSBuild task instead of the Visual Studio Build task.
+>
+> For information on the differences between MSBuild and Visual Studio build, see [Visual Studio builds vs. MSBuild.exe builds](/visualstudio/msbuild/build-process-overview#visual-studio-builds-vs-msbuildexe-builds).
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vsVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range=">azure-pipelines-server"
 
 **`vsVersion`** - **Visual Studio Version**<br>
-`string`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
+`string`. Allowed values: `latest`, `18.0` (Visual Studio 2026), `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The value of this input must match the version of Visual Studio used to create your solution.
 
@@ -140,10 +125,10 @@ Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to th
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-server"
 
 **`vsVersion`** - **Visual Studio Version**<br>
-`string`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
+`string`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The value of this input must match the version of Visual Studio used to create your solution.
 
@@ -276,7 +261,7 @@ Optional. Creates a log file (Windows only).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="logFileVerbosity"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`logFileVerbosity`** - **Log File Verbosity**<br>
 `string`. Optional. Use when `createLogFile = true`. Allowed values: `quiet`, `minimal`, `normal`, `detailed`, `diagnostic`. Default value: `normal`.<br>
@@ -288,7 +273,7 @@ Specifies the verbosity level in log files.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableDefaultLogger"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`enableDefaultLogger`** - **Enable Default Logger**<br>
 `boolean`. Default value: `true`.<br>
@@ -300,7 +285,7 @@ If set to `true`, enables the default logger for MSBuild.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`customVersion`** - **Custom Version**<br>
 `string`.<br>
@@ -333,6 +318,19 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+### Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?
+
+Builds can fail if credentials have expired. To avoid these failures, we recommend using the [NuGet Authenticate](nuget-authenticate-v1.md) task to reinstall the credential provider and automatically refresh credentials. This ensures uninterrupted access during pipeline execution.
+
+```yaml
+steps:
+# Authenticate with NuGet to ensure credentials are refreshed
+- task: NuGetAuthenticate@1 
+# Build the solution using VSBuild
+- task: VSBuild@1
+  inputs:
+    solution: '**/*.sln' 
+```
 Learn more about installing [Visual Studio images on Azure](/visualstudio/install/using-visual-studio-vm).
 
 > [!IMPORTANT]

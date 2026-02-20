@@ -1,14 +1,16 @@
 ---
 title: ContainerStructureTest@0 - Container Structure Test v0 task
 description: Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # ContainerStructureTest@0 - Container Structure Test v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
@@ -20,7 +22,7 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Container Structure Test v0
@@ -43,7 +45,7 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
 ## Inputs
 
 <!-- :::item name="dockerRegistryServiceConnection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
 `string`. Required.<br>
@@ -55,7 +57,7 @@ Specify a Docker registry service connection. Required for commands that need to
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repository"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`repository`** - **Container repository**<br>
 `string`. Required.<br>
@@ -67,7 +69,7 @@ The name of the repository.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tag"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tag`** - **Tag**<br>
 `string`. Default value: `$(Build.BuildId)`.<br>
@@ -79,7 +81,7 @@ The tag is used in pulling the image from docker registry service connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`configFile`** - **Config file path**<br>
 `string`. Required.<br>
@@ -91,7 +93,7 @@ The config file path that contains container structure tests, either in .yaml or
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test run title**<br>
 `string`.<br>
@@ -103,7 +105,7 @@ Specify a name for the Test Run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnFailedTests"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`failTaskOnFailedTests`** - **Fail task if there are test failures**<br>
 `boolean`. Default value: `false`.<br>
@@ -123,7 +125,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -223,7 +225,7 @@ troubleshoot failures, and drive failure ownership.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

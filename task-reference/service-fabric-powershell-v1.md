@@ -1,8 +1,10 @@
 ---
 title: ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
 description: Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
@@ -20,7 +22,7 @@ Use this task to run a PowerShell script within the context of an Azure Service 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Service Fabric PowerShell v1
@@ -36,33 +38,16 @@ Use this task to run a PowerShell script within the context of an Azure Service 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Service Fabric PowerShell v1
-# Run a PowerShell script within the context of an Azure Service Fabric cluster connection.
-- task: ServiceFabricPowerShell@1
-  inputs:
-    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
-    ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: FilePath.
-    #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
-    #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
-    #ScriptArguments: # string. Script Arguments.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="clusterConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`clusterConnection`** - **Cluster Service Connection**<br>
-Input alias: `serviceConnectionName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Service Fabric cluster which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->

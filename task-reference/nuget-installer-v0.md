@@ -1,14 +1,16 @@
 ---
 title: NuGetInstaller@0 - NuGet Installer v0 task
 description: Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # NuGetInstaller@0 - NuGet Installer v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Installs or restores missing NuGet packages.
@@ -33,7 +35,7 @@ This task is deprecated. Use the [NuGetCommand@2](./nuget-command-v2.md)'s `rest
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
@@ -41,19 +43,12 @@ Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for la
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Installs or restores missing NuGet packages.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # NuGet Installer v0
@@ -72,27 +67,6 @@ Installs or restores missing NuGet packages.
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# NuGet Installer v0
-# Installs or restores missing NuGet packages.
-- task: NuGetInstaller@0
-  inputs:
-    solution: '**/*.sln' # string. Required. Path to solution or packages.config. Default: **/*.sln.
-    #nugetConfigPath: # string. Path to NuGet.config. 
-    restoreMode: 'restore' # 'restore' | 'install'. Required. Installation type. Default: restore.
-    #noCache: false # boolean. Disable local cache. Default: false.
-    #nuGetRestoreArgs: # string. NuGet arguments. 
-  # Advanced
-    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: -.
-    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: 3.3.0.
-    #nuGetPath: # string. Path to NuGet.exe.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -226,7 +200,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -241,20 +215,6 @@ None.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.83.0 or greater |
-| Task category | Package |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

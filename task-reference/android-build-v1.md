@@ -1,8 +1,10 @@
 ---
 title: AndroidBuild@1 - Android Build v1 task
 description: AndroidBuild@1 is deprecated. Use Gradle.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AndroidBuild@1 - Android Build v1 task
@@ -24,7 +26,7 @@ The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipel
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Android Build v1
@@ -51,7 +53,6 @@ The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipel
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

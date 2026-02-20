@@ -1,8 +1,10 @@
 ---
 title: steps.download definition
 description: Downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # steps.download definition
@@ -18,7 +20,7 @@ The `download` step downloads artifacts associated with the current run or from 
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -39,44 +41,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-steps:
-- download: string # Required as first property. Specify current, pipeline resource identifier, or none to disable automatic download.
-  artifact: string # Artifact name.
-  patterns: string # Pattern to download files from artifact.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  target: string | target # Environment in which to run this task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-steps:
-- download: string # Required as first property. Specify current, pipeline resource identifier, or none to disable automatic download.
-  artifact: string # Artifact name.
-  patterns: string # Pattern to download files from artifact.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -145,7 +109,7 @@ Human-readable name for the task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
@@ -192,7 +156,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.
@@ -206,7 +170,7 @@ Number of retries if the task fails.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The `download` keyword downloads artifact resources.
+The `download` keyword downloads artifact resources to the folder specified in [Artifact download location](#artifact-download-location).
 
 Depending on the type of referenced artifact (or artifacts), `download` calls [Download Pipeline Artifacts](/azure/devops/pipelines/tasks/reference/download-pipeline-artifact-v2) (for Pipeline artifacts, if your pipeline is running in Azure DevOps Services), [Download Build Artifacts](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1) (for build artifacts), or [Download artifacts from file share](/azure/devops/pipelines/tasks/reference/download-fileshare-artifacts-v1) (for file share artifacts).
 

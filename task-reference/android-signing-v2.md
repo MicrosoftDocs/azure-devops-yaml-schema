@@ -1,14 +1,16 @@
 ---
 title: AndroidSigning@2 - Android Signing v2 task
 description: Sign and align Android APK files (task version 2).
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AndroidSigning@2 - Android Signing v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task in a pipeline to sign and align Android APK files.
@@ -32,7 +34,7 @@ Use this task in a pipeline to sign and align Android APK files.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Android Signing v2
@@ -54,7 +56,6 @@ Use this task in a pipeline to sign and align Android APK files.
 
 :::moniker-end
 
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -64,7 +65,7 @@ Use this task in a pipeline to sign and align Android APK files.
 :::moniker range="<=azure-pipelines"
 
 **`apkFiles`** - **APK files**<br>
-Input alias: `files`. `string`. Required. Default value: `**/*.apk`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `files`. `string`. Required. Default value: `**/*.apk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the APK(s) you want to sign. You can use [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) to specify multiple files. For example:
 
@@ -91,7 +92,7 @@ Signs the APK with a provided keystore file. Unsigned APKs can only run in an em
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeystoreFile`** - **Keystore file**<br>
-Input alias: `keystoreFile`. `string`. Required when `jarsign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keystoreFile`. `string`. Required when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file path to the Android Keystore file that is used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library, where it is securely stored with encryption. The Android Keystore file is removed from the agent machine when the pipeline completes.
 
@@ -105,7 +106,7 @@ The file can either be checked into source control or placed on the build machin
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeystorePassword`** - **Keystore password**<br>
-Input alias: `keystorePass`. `string`. Optional. Use when `jarsign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keystorePass`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The password for the provided Android Keystore file.
 > [!IMPORTANT]
@@ -119,7 +120,7 @@ The password for the provided Android Keystore file.
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeystoreAlias`** - **Alias**<br>
-Input alias: `keystoreAlias`. `string`. Optional. Use when `jarsign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keystoreAlias`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The alias that identifies the public/private key pair to be used in the Android Keystore file.
 <!-- :::editable-content-end::: -->
@@ -131,7 +132,7 @@ The alias that identifies the public/private key pair to be used in the Android 
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeyPassword`** - **Key password**<br>
-Input alias: `keyPass`. `string`. Optional. Use when `jarsign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keyPass`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The key password for the alias and Android Keystore file.
 > [!IMPORTANT]
@@ -169,7 +170,7 @@ Select this boolean if you want to zipalign your package. This reduces the amoun
 :::moniker range="<=azure-pipelines"
 
 **`zipalignFile`** - **Zipalign location**<br>
-Input alias: `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the location of the zipalign executable used during signing. This defaults to the zipalign found in the Android SDK version folder that your application builds against.
 <!-- :::editable-content-end::: -->
@@ -206,7 +207,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -221,35 +222,6 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: JDK |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Build |
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: JDK, AndroidSDK |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Build |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

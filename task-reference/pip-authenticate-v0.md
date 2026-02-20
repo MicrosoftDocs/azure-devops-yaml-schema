@@ -1,14 +1,16 @@
 ---
 title: PipAuthenticate@0 - Python pip authenticate v0 task
 description: Authentication task for the pip client used for installing Python distributions (task version 0).
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # PipAuthenticate@0 - Python pip authenticate v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to provide authentication for the `pip` client that installs Python distributions.
@@ -20,7 +22,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Python pip authenticate v0
@@ -34,29 +36,16 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Python Pip Authenticate v0
-# Authentication task for pip client used for installing python distributions.
-- task: PipAuthenticate@0
-  inputs:
-  # Feeds and Authentication
-    #artifactFeeds: # string. Alias: feedList. My feeds (select below). 
-    #externalFeeds: # string. Alias: externalSources. Feeds from external organizations.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="artifactFeeds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`artifactFeeds`** - **My feeds (select below)**<br>
-Input alias: `feedList`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedList`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the feeds to authenticate as present in the organization.
 <!-- :::editable-content-end::: -->
@@ -65,10 +54,10 @@ Specifies the feeds to authenticate as present in the organization.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externalFeeds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`externalFeeds`** - **Feeds from external organizations**<br>
-Input alias: `externalSources`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalSources`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the endpoints to authenticate outside the organization.
 <!-- :::editable-content-end::: -->
@@ -85,7 +74,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -120,7 +109,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

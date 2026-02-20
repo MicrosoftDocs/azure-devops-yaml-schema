@@ -1,14 +1,14 @@
 ---
 title: InstallAppleCertificate@2 - Install Apple certificate v2 task
 description: Install an Apple certificate required to build on a macOS agent machine.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InstallAppleCertificate@2 - Install Apple certificate v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install the Apple certificate that is required to build on a macOS agent. You can use this task to install an Apple certificate that is stored as a [secure file](/azure/devops/pipelines/library/secure-files) on the server.
@@ -16,13 +16,6 @@ Use this task to install the Apple certificate that is required to build on a ma
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Install an Apple certificate required to build on a macOS agent.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -71,52 +64,13 @@ Install an Apple certificate required to build on a macOS agent.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-```yaml
-# Install Apple certificate v2
-# Install an Apple certificate required to build on a macOS agent machine.
-- task: InstallAppleCertificate@2
-  inputs:
-    certSecureFile: # string. Required. Certificate (P12). 
-    #certPwd: # string. Certificate (P12) password. 
-  # Advanced
-    keychain: 'temp' # 'default' | 'temp' | 'custom'. Required. Keychain. Default: temp.
-    #keychainPassword: # string. Required when keychain = custom || keychain = default. Keychain password. 
-    #customKeychainPath: # string. Required when keychain = custom. Custom keychain path. 
-    #deleteCert: # boolean. Optional. Use when keychain = custom || keychain = default. Delete certificate from keychain. 
-    #deleteCustomKeychain: # boolean. Optional. Use when keychain = custom. Delete custom keychain. 
-    #signingIdentity: # string. Certificate signing identity.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Install Apple Certificate v2
-# Install an Apple certificate required to build on a macOS agent.
-- task: InstallAppleCertificate@2
-  inputs:
-    certSecureFile: # string. Required. Certificate (P12). 
-    #certPwd: # string. Certificate (P12) password. 
-  # Advanced
-    keychain: 'temp' # 'default' | 'temp' | 'custom'. Required. Keychain. Default: temp.
-    #keychainPassword: # string. Required when keychain = custom || keychain = default. Keychain password. 
-    #customKeychainPath: # string. Required when keychain = custom. Custom keychain path. 
-    #deleteCert: # boolean. Optional. Use when keychain = custom || keychain = default. Delete certificate from keychain. 
-    #deleteCustomKeychain: # boolean. Optional. Use when keychain = custom. Delete custom keychain. 
-    #signingIdentity: # string. Certificate signing identity.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="certSecureFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`certSecureFile`** - **Certificate (P12)**<br>
 `string`. Required.<br>
@@ -128,7 +82,7 @@ Specifies the certificate (.p12) that was uploaded to `Secure Files` to install 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="certPwd"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`certPwd`** - **Certificate (P12) password**<br>
 `string`.<br>
@@ -140,7 +94,7 @@ Specifies the password to the Apple certificate (.p12). Use a new build variable
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="keychain"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`keychain`** - **Keychain**<br>
 `string`. Required. Allowed values: `default` (Default Keychain), `temp` (Temporary Keychain), `custom` (Custom Keychain). Default value: `temp`.<br>
@@ -152,7 +106,7 @@ Specifies the keychain in which to install the Apple certificate. For Microsoft-
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="keychainPassword"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`keychainPassword`** - **Keychain password**<br>
 `string`. Required when `keychain = custom || keychain = default`.<br>
@@ -164,7 +118,7 @@ Specifies the password to unlock the keychain. Use a new build variable with its
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customKeychainPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`customKeychainPath`** - **Custom keychain path**<br>
 `string`. Required when `keychain = custom`.<br>
@@ -176,7 +130,7 @@ Specifies the full path to a custom keychain file. The keychain will be created 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deleteCert"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`deleteCert`** - **Delete certificate from keychain**<br>
 `boolean`. Optional. Use when `keychain = custom || keychain = default`.<br>
@@ -188,7 +142,7 @@ Specifies the certificate to delete from the keychain after the build or release
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deleteCustomKeychain"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`deleteCustomKeychain`** - **Delete custom keychain**<br>
 `boolean`. Optional. Use when `keychain = custom`.<br>
@@ -200,7 +154,7 @@ Specifies the custom keychain to delete from the agent after the build or releas
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signingIdentity"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`signingIdentity`** - **Certificate signing identity**<br>
 `string`.<br>
@@ -212,7 +166,7 @@ Specifies the `Common Name` of the subject in the signing certificate.  Will att
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="setUpPartitionIdACLForPrivateKey"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`setUpPartitionIdACLForPrivateKey`** - **Set up partition_id ACL for the imported private key**<br>
 `boolean`.<br>
@@ -244,7 +198,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -279,7 +233,7 @@ You can use this task to install an Apple certificate that is stored as a [secur
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -294,20 +248,6 @@ You can use this task to install an Apple certificate that is stored as a [secur
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: xcode |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

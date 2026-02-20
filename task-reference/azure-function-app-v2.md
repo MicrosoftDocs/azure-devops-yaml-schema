@@ -1,8 +1,10 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 08/06/2024
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureFunctionApp@2 - Azure Functions Deploy v2 task
@@ -35,11 +37,35 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #runtimeStack: # 'DOTNET|6.0' | 'DOTNET-ISOLATED|6.0' | 'DOTNET-ISOLATED|7.0' | 'DOTNET-ISOLATED|8.0' | 'DOTNET-ISOLATED|9.0' | 'JAVA|8' | 'JAVA|11' | 'JAVA|17' | 'JAVA|21' | 'NODE|14' | 'NODE|16' | 'NODE|18' | 'NODE|20' | 'PYTHON|3.8' | 'PYTHON|3.9' | 'PYTHON|3.10' | 'PYTHON|3.11'. Optional. Use when appType = functionAppLinux && isFlexConsumption = false. Runtime stack. 
+  # Application and Configuration Settings
+    #appSettings: # string. App settings. 
+  # Additional Deployment Options
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != "" && isFlexConsumption = false && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
+
+```yaml
+# Azure Functions Deploy v2
+# Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
+- task: AzureFunctionApp@2
+  inputs:
+    connectedServiceNameARM: # string. Alias: azureSubscription. Required. Azure Resource Manager connection. 
+    appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
+    #isFlexConsumption: false # boolean. Is Function App on Flex Consumption Plan. Default: false.
+    appName: # string. Required. Azure Functions App name. 
+    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "" && isFlexConsumption = false. Deploy to Slot or App Service Environment. Default: false.
+    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #runtimeStack: # 'DOTNET|6.0' | 'DOTNET-ISOLATED|6.0' | 'DOTNET-ISOLATED|7.0' | 'DOTNET-ISOLATED|8.0' | 'JAVA|8' | 'JAVA|11' | 'JAVA|17' | 'JAVA|21' | 'NODE|14' | 'NODE|16' | 'NODE|18' | 'NODE|20' | 'PYTHON|3.8' | 'PYTHON|3.9' | 'PYTHON|3.10' | 'PYTHON|3.11'. Optional. Use when appType = functionAppLinux && isFlexConsumption = false. Runtime stack. 
   # Application and Configuration Settings
     #appSettings: # string. App settings. 
   # Additional Deployment Options
-    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != "" && isFlexConsumption = false && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != "" && isFlexConsumption = false && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -75,9 +101,9 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`connectedServiceNameARM`** - **Azure Resource Manager connection**<br>
-Input alias: `azureSubscription`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscription`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Select the Azure Resource Manager connection for the deployment. The service connection must be connected to an active Azure subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +122,7 @@ Select the Azure Function App type for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isFlexConsumption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`isFlexConsumption`** - **Is Function App on Flex Consumption Plan**<br>
 `boolean`. Default value: `false`.<br>
@@ -120,7 +146,7 @@ Specify the name of an existing Azure Functions App. The Function Apps listed wi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Optional. Use when `appType != "" && isFlexConsumption = false`. Default value: `false`.<br>
@@ -165,7 +191,7 @@ Enters or selects the Azure Resource group that contains the Azure App Service s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="slotName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
@@ -200,7 +226,21 @@ The file path to the package or folder that contains App Service content generat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`runtimeStack`** - **Runtime stack**<br>
+`string`. Optional. Use when `appType = functionAppLinux && isFlexConsumption = false`. Allowed values: `DOTNET|6.0`, `DOTNET-ISOLATED|6.0`, `DOTNET-ISOLATED|7.0`, `DOTNET-ISOLATED|8.0`, `DOTNET-ISOLATED|9.0`, `JAVA|8`, `JAVA|11`, `JAVA|17`, `JAVA|21`, `NODE|14`, `NODE|16`, `NODE|18`, `NODE|20`, `PYTHON|3.8`, `PYTHON|3.9`, `PYTHON|3.10`, `PYTHON|3.11`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
+
+> [!NOTE]
+> This value currently doesn't update the **linuxFxVersion** that the site is running on. This means you can't update the stack from Node 18 to Node 20. The task currently only updates the app settings.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux && isFlexConsumption = false`. Allowed values: `DOTNET|6.0`, `DOTNET-ISOLATED|6.0`, `DOTNET-ISOLATED|7.0`, `DOTNET-ISOLATED|8.0`, `JAVA|8`, `JAVA|11`, `JAVA|17`, `JAVA|21`, `NODE|14`, `NODE|16`, `NODE|18`, `NODE|20`, `PYTHON|3.8`, `PYTHON|3.9`, `PYTHON|3.10`, `PYTHON|3.11`.<br>
@@ -232,18 +272,22 @@ Specify the framework and version your function app will run on. You can use any
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the application settings using the syntax `-key value` (for example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE`). Enclose values that contain spaces in double quotes (for example: `"Eastern Standard Time"`).
+
+For more information on app settings, see [Environment variables and app settings in Azure App Service](/azure/app-service/reference-app-settings).
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMethod"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`deploymentMethod`** - **Deployment method**<br>
-`string`. Required when `appType != "" && isFlexConsumption = false && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
+`string`. Required when `appType != "" && isFlexConsumption = false && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
+
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,6 +299,8 @@ Specifies the [deployment method](#deployment-methods) for the app. Linux Consum
 `string`. Required when `appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
+
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -265,7 +311,9 @@ Specifies the [deployment method](#deployment-methods) for the app. Linux Consum
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required when `appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.s
+Chooses the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
+
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 

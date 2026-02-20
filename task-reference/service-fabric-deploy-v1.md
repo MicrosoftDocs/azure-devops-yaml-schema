@@ -1,8 +1,9 @@
 ---
 title: ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 description: Deploy an Azure Service Fabric application to a cluster.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+ms.custom: sfi-ropc-nochange
 ---
 
 # ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
@@ -22,7 +23,7 @@ Use this task to deploy a Service Fabric application to a cluster. This task dep
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Service Fabric application deployment v1
@@ -72,57 +73,6 @@ Use this task to deploy a Service Fabric application to a cluster. This task dep
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Service Fabric Application Deployment v1
-# Deploy a Service Fabric application to a cluster.
-- task: ServiceFabricDeploy@1
-  inputs:
-    applicationPackagePath: # string. Required. Application Package. 
-    serviceConnectionName: # string. Required. Cluster Service Connection. 
-    #publishProfilePath: # string. Publish Profile. 
-    #applicationParameterPath: # string. Application Parameters. 
-    #overrideApplicationParameter: false # boolean. Override Application Parameters. Default: false.
-  # Advanced Settings
-    #compressPackage: false # boolean. Compress Package. Default: false.
-    #copyPackageTimeoutSec: # string. CopyPackageTimeoutSec. 
-    #registerPackageTimeoutSec: # string. RegisterPackageTimeoutSec. 
-    overwriteBehavior: 'SameAppTypeAndVersion' # 'Always' | 'Never' | 'SameAppTypeAndVersion'. Required. Overwrite Behavior. Default: SameAppTypeAndVersion.
-    #skipUpgradeSameTypeAndVersion: false # boolean. Skip upgrade for same Type and Version. Default: false.
-    #skipPackageValidation: false # boolean. Skip package validation. Default: false.
-  # Upgrade Settings
-    #useDiffPackage: false # boolean. Use Diff Package. Default: false.
-    #overridePublishProfileSettings: false # boolean. Override All Publish Profile Upgrade Settings. Default: false.
-    #isUpgrade: true # boolean. Optional. Use when overridePublishProfileSettings = true. Upgrade the Application. Default: true.
-    #unregisterUnusedVersions: true # boolean. Unregister Unused Versions. Default: true.
-    #upgradeMode: 'Monitored' # 'Monitored' | 'UnmonitoredAuto' | 'UnmonitoredManual'. Required when overridePublishProfileSettings = true && isUpgrade = true. Upgrade Mode. Default: Monitored.
-    #FailureAction: 'Rollback' # 'Rollback' | 'Manual'. Required when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. FailureAction. Default: Rollback.
-    #UpgradeReplicaSetCheckTimeoutSec: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true. UpgradeReplicaSetCheckTimeoutSec. 
-    #TimeoutSec: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true. TimeoutSec. 
-    #ForceRestart: false # boolean. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true. ForceRestart. Default: false.
-    #HealthCheckRetryTimeoutSec: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. HealthCheckRetryTimeoutSec. 
-    #HealthCheckWaitDurationSec: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. HealthCheckWaitDurationSec. 
-    #HealthCheckStableDurationSec: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. HealthCheckStableDurationSec. 
-    #UpgradeDomainTimeoutSec: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. UpgradeDomainTimeoutSec. 
-    #ConsiderWarningAsError: false # boolean. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. ConsiderWarningAsError. Default: false.
-    #DefaultServiceTypeHealthPolicy: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. DefaultServiceTypeHealthPolicy. 
-    #MaxPercentUnhealthyDeployedApplications: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. MaxPercentUnhealthyDeployedApplications. 
-    #UpgradeTimeoutSec: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. UpgradeTimeoutSec. 
-    #ServiceTypeHealthPolicyMap: # string. Optional. Use when overridePublishProfileSettings = true && isUpgrade = true && upgradeMode = Monitored. ServiceTypeHealthPolicyMap. 
-  # Docker Settings
-    #configureDockerSettings: false # boolean. Configure Docker settings. Default: false.
-    #registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword'. Required when configureDockerSettings = true. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Required when configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
-    #registryUserName: # string. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Registry User Name. 
-    #registryPassword: # string. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Registry Password. 
-    #passwordEncrypted: true # boolean. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Password Encrypted. Default: true.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -141,7 +91,7 @@ Specifies the path to the application package that is to be deployed. [Variables
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceConnectionName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serviceConnectionName`** - **Cluster Service Connection**<br>
 `string`. Required.<br>
@@ -179,7 +129,7 @@ Optional. Specifies the path to the application parameters file. [Variables](/az
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideApplicationParameter"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`overrideApplicationParameter`** - **Override Application Parameters**<br>
 `boolean`. Default value: `false`.<br>
@@ -496,7 +446,7 @@ Configures the application with the specified Docker settings.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="registryCredentials"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required when `configureDockerSettings = true`. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Service Connection), `ContainerRegistryEndpoint` (Container Registry Service Connection), `UsernamePassword` (Username and Password). Default value: `AzureResourceManagerEndpoint`.<br>
@@ -508,10 +458,10 @@ Specifies how credentials for the Docker registry are provided.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 
@@ -526,7 +476,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription.
 

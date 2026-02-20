@@ -1,8 +1,8 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyFiles@2 - Copy files v2 task
@@ -20,7 +20,7 @@ Use this task to copy files from a source folder to a target folder using match 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Copy files v2
@@ -41,44 +41,6 @@ Use this task to copy files from a source folder to a target folder using match 
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-```yaml
-# Copy files v2
-# Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-- task: CopyFiles@2
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: '**' # string. Required. Contents. Default: **.
-    TargetFolder: # string. Required. Target Folder. 
-  # Advanced
-    #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
-    #OverWrite: false # boolean. Overwrite. Default: false.
-    #flattenFolders: false # boolean. Flatten Folders. Default: false.
-    #preserveTimestamp: false # boolean. Preserve Target Timestamp. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Copy Files v2
-# Copy files from source folder to target folder using match patterns (The match patterns will only match file paths, not folder paths).
-- task: CopyFiles@2
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: '**' # string. Required. Contents. Default: **.
-    TargetFolder: # string. Required. Target Folder. 
-  # Advanced
-    #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
-    #OverWrite: false # boolean. Overwrite. Default: false.
-    #flattenFolders: false # boolean. Flatten Folders. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -114,6 +76,8 @@ For example:
 * `**\bin\**` copies all files recursively from any bin folder.
 
 The pattern is used to match only file paths, not folder paths. Specify patterns, such as `**\bin\**` instead of `**\bin`.
+
+Wrapping special characters in `[]` can be used to escape literal glob characters in a file name. For example the literal file name `hello[a-z]` can be escaped as `hello[[]a-z]`. For more information, see [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 
 Use the path separator that matches your build agent type. For example, `/` must be used for Linux agents. More examples are shown below.
 <!-- :::editable-content-end::: -->
@@ -170,7 +134,7 @@ Optional. Flattens the folder structure and copies all files into the specified 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="preserveTimestamp"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`preserveTimestamp`** - **Preserve Target Timestamp**<br>
 `boolean`. Default value: `false`.<br>
@@ -182,7 +146,7 @@ Preserves the target file timestamp by using the original source file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCount"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCount`** - **Retry count to copy the file**<br>
 `string`. Default value: `0`.<br>
@@ -194,7 +158,7 @@ Specifies the retry count to copy the file. This string is useful for intermitte
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenRetries"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`delayBetweenRetries`** - **Delay between two retries.**<br>
 `string`. Default value: `1000`.<br>
@@ -206,7 +170,7 @@ Specifies the delay between two retries. This string is useful for intermittent 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ignoreMakeDirErrors"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`ignoreMakeDirErrors`** - **Ignore errors during creation of target folder.**<br>
 `boolean`. Default value: `false`.<br>
@@ -337,7 +301,6 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 ```
 
-
 #### [Classic](#tab/classic/)
 
 * Source folder
@@ -393,7 +356,6 @@ These files are copied to the staging directory:
 
 ### Copy everything from the source directory except the .git folder
 
-
 #### [YAML](#tab/yaml/)
 
 **Example with multiple match patterns:**
@@ -440,7 +402,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -455,20 +417,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.91.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

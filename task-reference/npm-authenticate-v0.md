@@ -1,8 +1,10 @@
 ---
 title: npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 description: Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
-ms.date: 11/20/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # npmAuthenticate@0 - npm authenticate (for task runners) v0 task
@@ -48,20 +50,6 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# npm Authenticate (for task runners) v0
-# Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like Gulp and Grunt to authenticate with private registries.
-- task: npmAuthenticate@0
-  inputs:
-    #workingFile: # string. .npmrc file to authenticate. 
-    #customEndpoint: # string. Credentials for registries outside this account/collection.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -92,7 +80,7 @@ If this is set, `workloadIdentityServiceConnection` is required. Not compatible 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`workingFile`** - **.npmrc file to authenticate**<br>
 `string`. Required.<br>
@@ -102,33 +90,11 @@ The path to the `.npmrc` file that specifies the registries you want to work wit
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`workingFile`** - **.npmrc file to authenticate**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The path to the `.npmrc` file that specifies the registries you want to work with. Select the file, not the folder, such as `/packages/mypackage.npmrc`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`customEndpoint`** - **Credentials for registries outside this organization/collection**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization or collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization or collection, leave this blank. The build's credentials are used automatically.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`customEndpoint`** - **Credentials for registries outside this account/collection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization or collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization or collection, leave this blank. The build's credentials are used automatically.
@@ -180,10 +146,13 @@ This task will only add authentication details to one `.npmrc` file at a time. I
 ```YAML
 - task: npmAuthenticate@0
   inputs:
-    workingFile: $(agent.tempdirectory)/.npmrc
-- script: echo ##vso[task.setvariable variable=NPM_CONFIG_USERCONFIG]$(agent.tempdirectory)/.npmrc
+    workingFile: $(Agent.TempDirectory)/.npmrc
+
+- script: echo "##vso[task.setvariable variable=NPM_CONFIG_USERCONFIG]$(Agent.TempDirectory)/.npmrc"
+
 - script: npm ci
   workingDirectory: project1
+
 - script: npm ci
   workingDirectory: project2
 ```
@@ -197,8 +166,8 @@ To do so, you can either:
 * Set the environment variables `http_proxy`/`https_proxy` and optionally `no_proxy` to your proxy settings. See [npm config](https://docs.npmjs.com/misc/config#https-proxy) for details. Note that these are commonly used variables which other non-`npm` tools (e.g. curl) may also use.
 
 * Add the proxy settings to the [npm configuration](https://docs.npmjs.com/misc/config), either manually, by using [npm config set](https://docs.npmjs.com/cli/config#set), or by setting [environment variables](https://docs.npmjs.com/misc/config#environment-variables) prefixed with `NPM_CONFIG_`.
-  >**Caution:**  
-  >`npm` task runners may not be compatible with all methods of proxy configuration supported by `npm`.
+  > [!IMPORTANT]  
+  > `npm` task runners may not be compatible with all methods of proxy configuration supported by `npm`.
 
 * Specify the proxy with a command line flag when calling `npm`.
   ```YAML
@@ -232,18 +201,20 @@ If the pipeline is running in a different project than the project hosting the f
 If the only authenticated registries you use are Azure Artifacts registries in your organization, you only need to specify the path to an `.npmrc` file to the `npmAuthenticate` task.
 
 #### `.npmrc`
+
 ```
 registry=https://pkgs.dev.azure.com/{organization}/_packaging/{feed}/npm/registry/
 always-auth=true
 ```
 
 #### `npm`
+
 ```YAML
 - task: npmAuthenticate@0
   inputs:
     workingFile: .npmrc
 - script: npm ci
-# ...
+
 - script: npm publish
 ```
 
@@ -264,15 +235,17 @@ always-auth=true
 The registry URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and the URL for an organization scoped feed must not contain the project. Learn more about [project scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 #### npm
+
 ```YAML
 - task: npmAuthenticate@0
   inputs:
     workingFile: .npmrc
-    customEndpoint: OtherOrganizationNpmConnection, ThirdPartyRepositoryNpmConnection
+    customEndpoint: OtherOrganizationNpmConnection, ThirdPartyRepositoryNpmConnection # Name of your service connection
 - script: npm ci
-# ...
+
 - script: npm publish -registry https://pkgs.dev.azure.com/{otherorganization}/_packaging/{feed}/npm/registry/
 ```
+
 `OtherOrganizationNpmConnection` and `ThirdPartyRepositoryNpmConnection` are the names of [npm service connections](/azure/devops/pipelines/library/service-endpoints#npm-service-connection) that have been configured and authorized for use in your pipeline, and have URLs that match those in the specified `.npmrc` file.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->

@@ -1,8 +1,8 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CMake@1 - CMake v1 task
@@ -20,7 +20,7 @@ Use this task to build with the CMake cross-platform build system.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # CMake v1
@@ -35,20 +35,6 @@ Use this task to build with the CMake cross-platform build system.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
-
-```yaml
-# CMake v1
-# Build with the CMake cross-platform build system.
-- task: CMake@1
-  inputs:
-    #workingDirectory: 'build' # string. Alias: cwd. Working Directory. Default: build.
-    #cmakeArgs: # string. Arguments.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -58,7 +44,7 @@ Use this task to build with the CMake cross-platform build system.
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`. Default value: `build`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The current working directory when CMake is run.
 
@@ -85,7 +71,7 @@ The arguments passed to CMake.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runInsideShell"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`runInsideShell`** - **Run cmake command inside shell**<br>
 `boolean`. Default value: `false`.<br>
@@ -121,7 +107,6 @@ Use this task to build with the CMake cross-platform build system.
 ### How do I enable CMake for Microsoft-hosted agents?
 
 The [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted) have CMake installed already, so you don't need to do anything. You do not need to add a demand for CMake in your `azure-pipelines.yml` file.
-
 
 ### How do I enable CMake for my on-premises agent?
 

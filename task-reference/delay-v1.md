@@ -1,14 +1,14 @@
 ---
 title: Delay@1 - Delay v1 task
 description: Delay further execution of a workflow by a fixed time.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Delay@1 - Delay v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Delays further execution of a workflow by a fixed time.
@@ -16,19 +16,12 @@ Delays further execution of a workflow by a fixed time.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Delays further execution of the workflow by a fixed time.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Delay v1
@@ -39,19 +32,6 @@ Delays further execution of the workflow by a fixed time.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Delay v1
-# Delay further execution of the workflow by a fixed time.
-- task: Delay@1
-  inputs:
-    delayForMinutes: '0' # string. Required. Delay Time (minutes). Default: 0.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -95,12 +75,40 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 > [!NOTE]
 > Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 
-The maximum value for a delay is 60 days (86400 minutes).
+The maximum value for a delay is 60 days (86400 minutes). The default timeout for [agentless jobs](/azure/devops/pipelines/process/phases#server-jobs) is [60 minutes](/azure/devops/pipelines/process/phases#agentless-jobs-supported-tasks). To use delays which are 60 minutes or longer, set the parent job’s [timeoutInMinutes](/azure/devops/pipelines/process/phases#timeouts) property to a higher value. Otherwise, the job will time out and fail.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+### Delay for 30 minutes
+
+The following YAML snippet creates a job to delay for 30 minutes before continuing execution.
+```YAML
+- job: DelayTask
+  pool: server # 'server' is a reserved word for agentless jobs. Delay task must be agentless.
+  steps:
+  - task: Delay@V1
+    inputs:
+      delayForMinutes: '30'
+```
+
+### Delay for 7 days
+
+The following YAML snippet creates a job which delays for 7 days (10080 minutes) before continuing execution.
+```YAML
+- job: DelayTask
+  pool: server
+  timeoutInMinutes: 10081
+  steps:
+  - task: Delay@V1
+    inputs:
+      delayForMinutes: '10080'
+```
+
+> [!NOTE]
+> You must set the `timeoutInMinutes` property to be at least a minute longer than the `delayForMinutes` parameter on the Delay@V1 task. The default `timeoutInMinutes` is 60 minutes on an agentless job. Failing to do so will cause the task to timeout.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

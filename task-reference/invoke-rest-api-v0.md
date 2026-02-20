@@ -1,8 +1,8 @@
 ---
 title: InvokeRESTAPI@0 - Invoke REST API v0 task
 description: Invoke REST API as a part of your process (task version 0).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InvokeRESTAPI@0 - Invoke REST API v0 task
@@ -20,7 +20,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Invoke REST API v0
@@ -39,7 +39,6 @@ Use this task to invoke a REST API as a part of your pipeline.
 
 :::moniker-end
 
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -49,7 +48,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 :::moniker range="<=azure-pipelines"
 
 **`serviceConnection`** - **Generic endpoint**<br>
-Input alias: `connectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the generic service connection that provides the `baseURL` for the call and the authorization to use for the task.
 <!-- :::editable-content-end::: -->
@@ -158,8 +157,6 @@ None.
 
 > [!NOTE]
 > This task can be used only in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs).
-
-
 
 Succeeds if the API returns success and the response body parsing is successful, or when the API updates the timeline record with success.
 

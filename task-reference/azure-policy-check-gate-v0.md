@@ -1,17 +1,21 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to check the security and compliance assessment for Azure Policy.
+Use this task to check the security and compliance assessment for Azure Policy with deployment [gates](/azure/devops/pipelines/release/approvals/gates).
+
+This task can be used as either pre-deployment or post-deployment gate. Pre-deployment gates run before deployment and post-deployment gates run after. If a pre-deployment policy compliance check fails, the deployment stops.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -36,7 +40,7 @@ Use this task to check the security and compliance assessment for Azure Policy.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Check Azure Policy compliance v0
@@ -55,10 +59,10 @@ Use this task to check the security and compliance assessment for Azure Policy.
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the Azure Resource Manager subscription you want to use to enforce the policies.
 <!-- :::editable-content-end::: -->
@@ -67,7 +71,7 @@ Selects the Azure Resource Manager subscription you want to use to enforce the p
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ResourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource group**<br>
 `string`.<br>
@@ -79,7 +83,7 @@ Provides the resource group name.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Resources"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`Resources`** - **Resource name**<br>
 `string`.<br>
@@ -113,7 +117,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -143,7 +147,7 @@ and determine the mitigation measures required to reduce the risks.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

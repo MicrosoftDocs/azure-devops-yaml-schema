@@ -1,14 +1,16 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 11/20/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # TwineAuthenticate@1 - Python twine upload authenticate v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to authenticate uploads of Python distributions using twine. Add `-r FeedName/EndpointName --config-file $(PYPIRC_PATH)` to your twine upload command. For feeds present in this organization, use the feed name as the repository (`-r`). Otherwise, use the endpoint name defined in the service connection.
@@ -50,7 +52,7 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Python twine upload authenticate v1
@@ -104,7 +106,7 @@ Specifies the Azure artifact's feed name to authenticate with twine. The authent
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`artifactFeed`** - **My feed (select below)**<br>
 `string`.<br>
@@ -116,7 +118,7 @@ Specifies the Azure artifact's feed name to authenticate with twine. The authent
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pythonUploadServiceConnection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pythonUploadServiceConnection`** - **Feed from external organizations**<br>
 `string`.<br>
@@ -136,7 +138,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -193,12 +195,11 @@ In this example, we are setting authentication for publishing to a private Azure
 - task: TwineAuthenticate@1
   displayName: Twine Authenticate
   inputs:
-    # In this case, name of the feed is 'myTestFeed' in the project 'myTestProject'. Project is needed because the feed is project scoped.
-    artifactFeed: myTestProject/myTestFeed
+    artifactFeed: projectName/feedName    # For project scoped feeds use: projectName/FeedName, or just feedName for organization scoped feeds
   
-# Use command line script to 'twine upload', use -r to pass the repository name and --config-file to pass the environment variable set by the authenticate task.
 - script: |
-     python -m twine upload -r myTestFeed --config-file $(PYPIRC_PATH) dist/*.whl
+     python -m twine upload -r feedName --config-file $(PYPIRC_PATH) dist/*.whl # Use -r to pass the repository name (defined in the .pypirc file), and --config-file to point to the .pypirc path set by the TwineAuthenticate task
+  displayName: Upload package with Twine
 ```
 
 The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
@@ -220,12 +221,11 @@ In this example, we are setting up authentication for publishing to the official
 - task: TwineAuthenticate@1
   displayName: Twine Authenticate
   inputs:
-    # In this case, name of the service connection is "pypitest".
-    pythonUploadServiceConnection: pypitest
+    pythonUploadServiceConnection: pypitest # Name of the Python package upload service connection
   
-# Use command line script to 'twine upload', use -r to pass the repository name and --config-file to pass the environment variable set by the authenticate task.
 - script: |
-     python -m twine upload -r "pypitest" --config-file $(PYPIRC_PATH) dist/*.whl
+     python -m twine upload -r "pypitest" --config-file $(PYPIRC_PATH) dist/*.whl # Use -r to pass the repository name, and --config-file to point to the .pypirc path set by the TwineAuthenticate task
+  displayName: Upload package with Twine
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
@@ -248,7 +248,7 @@ In this example, we are setting up authentication for publishing to the official
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

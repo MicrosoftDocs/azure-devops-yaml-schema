@@ -1,8 +1,8 @@
 ---
 title: KubernetesManifest@1 - Deploy to Kubernetes v1 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 ---
 
 # KubernetesManifest@1 - Deploy to Kubernetes v1 task
@@ -20,7 +20,54 @@ Use Kubernetes manifest files to deploy to clusters or even bake the manifest fi
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-server"
+
+```yaml
+# Deploy to Kubernetes v1
+# Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
+- task: KubernetesManifest@1
+  inputs:
+    #action: 'deploy' # 'bake' | 'createSecret' | 'delete' | 'deploy' | 'patch' | 'promote' | 'scale' | 'reject'. Action. Default: deploy.
+    #connectionType: 'kubernetesServiceConnection' # 'azureResourceManager' | 'kubernetesServiceConnection'. Required when action != bake. Service connection type. Default: kubernetesServiceConnection.
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when action != bake && connectionType = kubernetesServiceConnection. Kubernetes service connection. 
+    #azureSubscriptionConnection: # string. Alias: azureSubscriptionEndpoint. Required when action != bake && connectionType = azureResourceManager. Azure subscription. 
+    #azureResourceGroup: # string. Required when action != bake && connectionType = azureResourceManager. Resource group. 
+    #kubernetesCluster: # string. Required when action != bake && connectionType = azureResourceManager. Kubernetes cluster. 
+    #useClusterAdmin: false # boolean. Optional. Use when connectionType = azureResourceManager. Use cluster admin credentials. Default: false.
+    #namespace: # string. Namespace. 
+    #strategy: 'none' # 'canary' | 'none'. Optional. Use when action = deploy || action = promote || action = reject. Strategy. Default: none.
+    #trafficSplitMethod: 'pod' # 'pod' | 'smi'. Optional. Use when strategy = canary. Traffic split method. Default: pod.
+    #percentage: '0' # string. Required when strategy = Canary && action = deploy. Percentage. Default: 0.
+    #baselineAndCanaryReplicas: '1' # string. Required when strategy = Canary && action = deploy && trafficSplitMethod = SMI. Baseline and canary replicas. Default: 1.
+    #manifests: # string. Required when action = deploy || action = promote || action = reject. Manifests. 
+    #containers: # string. Optional. Use when action = deploy || action = promote || action = bake. Containers. 
+    #imagePullSecrets: # string. Optional. Use when action = deploy || action = promote. ImagePullSecrets. 
+    #renderType: 'helm' # 'helm' | 'kompose' | 'kustomize'. Optional. Use when action = bake. Render Engine. Default: helm.
+    #dockerComposeFile: # string. Required when action = bake && renderType = kompose. Path to docker compose file. 
+    #helmChart: # string. Required when action = bake && renderType = helm. Helm Chart. 
+    #releaseName: # string. Optional. Use when action = bake && renderType = helm. Helm Release Name. 
+    #overrideFiles: # string. Optional. Use when action = bake && renderType = helm. Override Files. 
+    #overrides: # string. Optional. Use when action = bake && renderType = helm. Overrides. 
+    #kustomizationPath: # string. Optional. Use when action = bake && renderType = kustomize. Kustomization Path. 
+    #resourceToPatch: 'file' # 'file' | 'name'. Required when action = patch. Resource to patch. Default: file.
+    #resourceFileToPatch: # string. Required when action = patch && resourceToPatch = file. File path. 
+    #kind: # 'deployment' | 'replicaset' | 'statefulset'. Required when action = scale || resourceToPatch = name. Kind. 
+    #name: # string. Required when action = scale || resourceToPatch = name. Name. 
+    #replicas: # string. Required when action = scale. Replica count. 
+    #mergeStrategy: 'strategic' # 'json' | 'merge' | 'strategic'. Required when action = patch. Merge Strategy. Default: strategic.
+    #arguments: # string. Optional. Use when action = delete. Arguments. 
+    #patch: # string. Required when action = patch. Patch. 
+    #secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required when action = createSecret. Type of secret. Default: dockerRegistry.
+    #secretName: # string. Optional. Use when action = createSecret. Secret name. 
+    #secretArguments: # string. Optional. Use when action = createSecret && secretType = generic. Arguments. 
+    #dockerRegistryEndpoint: # string. Optional. Use when action = createSecret && secretType = dockerRegistry. Docker registry service connection. 
+    #rolloutStatusTimeout: '0' # string. Optional. Use when action = deploy || action = patch || action = scale || action = promote. Timeout for rollout status. Default: 0.
+    #resourceType: 'Microsoft.ContainerService/managedClusters' # string. Optional. Use when action = deploy. Resource type. Default: Microsoft.ContainerService/managedClusters.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Deploy to Kubernetes v1
@@ -103,7 +150,7 @@ For more information, see [Remarks](#remarks).
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`. Required when `action != bake && connectionType = kubernetesServiceConnection`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`. Required when `action != bake && connectionType = kubernetesServiceConnection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
@@ -115,7 +162,7 @@ Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/serv
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscriptionConnection`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription, which contains Azure Container Registry.Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
 <!-- :::editable-content-end::: -->
@@ -541,6 +588,18 @@ Specifies the length of time (in seconds) to wait before ending `watch on rollou
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="resourceType"::: -->
+:::moniker range=">=azure-pipelines-server"
+
+**`resourceType`** - **Resource type**<br>
+`string`. Optional. Use when `action = deploy`. Default value: `Microsoft.ContainerService/managedClusters`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The type of the resource (fleet, managed cluster).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 
 ### Task control options
 
@@ -609,7 +668,7 @@ The following YAML code is an example of deploying to a Kubernetes namespace by 
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy
   inputs:
     kubernetesServiceConnection: someK8sSC1
@@ -641,7 +700,7 @@ The following YAML code shows a sample creation of Docker registry secrets by us
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Create secret
   inputs: 
     action: createSecret
@@ -656,7 +715,7 @@ This YAML code shows a sample creation of generic secrets:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Create secret
   inputs: 
     action: createSecret
@@ -673,7 +732,7 @@ The following YAML code is an example of baking manifest files from Helm charts.
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   name: bake
   displayName: Bake K8s manifests from Helm chart
   inputs:
@@ -681,7 +740,7 @@ steps:
     helmChart: charts/sample
     overrides: 'image.repository:nginx'
 
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy K8s manifests
   inputs:
     kubernetesServiceConnection: someK8sSC
@@ -700,7 +759,7 @@ The following YAML code is an example of baking manifest files generated with Ku
 
 ```yaml
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   name: bake
   displayName: Bake K8s manifests from kustomization path
   inputs:
@@ -708,7 +767,7 @@ steps:
     renderType: kustomize
     kustomizationPath: folderContainingKustomizationFile
 
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy K8s manifests
   inputs:
     kubernetesServiceConnection: k8sSC1
@@ -721,7 +780,7 @@ The following YAML code is an example of baking manifest files generated with Ko
 
 ```yaml
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   name: bake
   displayName: Bake K8s manifests from Docker Compose
   inputs:
@@ -729,7 +788,7 @@ steps:
     renderType: kompose
     dockerComposeFile: docker-compose.yaml
 
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy K8s manifests
   inputs:
     kubernetesServiceConnection: k8sSC1
@@ -743,7 +802,7 @@ The following YAML code shows an example of scaling objects:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Scale
   inputs: 
     action: scale
@@ -760,7 +819,7 @@ The following YAML code shows an example of object patching:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Patch
   inputs: 
     action: patch
@@ -778,7 +837,7 @@ This YAML code shows a sample object deletion:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Delete
   inputs:
     action: delete

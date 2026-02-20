@@ -1,14 +1,16 @@
 ---
 title: jobs.deployment definition
 description: A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # jobs.deployment definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A [deployment job](/azure/devops/pipelines/process/deployment-jobs) is a special type of job.
@@ -19,7 +21,7 @@ It's a collection of steps to run sequentially against the environment.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 jobs:
@@ -35,7 +37,7 @@ jobs:
   environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
   strategy: strategy # Execution strategy for this deployment.
   workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # What to clean up before the job runs.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -47,60 +49,10 @@ jobs:
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-jobs:
-- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
-  displayName: string # Human-readable name for the deployment.
-  dependsOn: string | [ string ] # Any jobs which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this deployment.
-  continueOnError: string # Continue running even on failure?
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
-  variables: variables | [ variable ] # Deployment-specific variables.
-  pool: string | pool # Pool where this job will run.
-  environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
-  strategy: strategy # Execution strategy for this deployment.
-  workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
-  uses: # Any resources required by this job that are not already referenced.
-    repositories: [ string ] # Repository references.
-    pools: [ string ] # Pool references.
-  container: string | container # Container resource name.
-  services: # Container resources to run as a service container.
-    string: string # Name/value pairs
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-jobs:
-- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
-  displayName: string # Human-readable name for the deployment.
-  dependsOn: string | [ string ] # Any jobs which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this deployment.
-  continueOnError: string # Continue running even on failure?
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
-  variables: variables | [ variable ] # Deployment-specific variables.
-  pool: string | pool # Pool where this job will run.
-  environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
-  strategy: strategy # Execution strategy for this deployment.
-  workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
-  container: string | container # Container resource name.
-  services: # Container resources to run as a service container.
-    string: string # Name/value pairs
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs](jobs.md)
 
@@ -111,7 +63,7 @@ Definitions that reference this definition: [jobs](jobs.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="deployment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deployment`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
@@ -120,7 +72,7 @@ Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the deployment.
@@ -129,7 +81,7 @@ Human-readable name for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dependsOn"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`dependsOn`** string | string list.<br><!-- :::editable-content name="propDescription"::: -->
 Any jobs which must complete before this one.
@@ -138,7 +90,7 @@ Any jobs which must complete before this one.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this deployment.
@@ -147,7 +99,7 @@ Evaluate this condition expression to determine whether to run this deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
@@ -156,7 +108,7 @@ Continue running even on failure?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this job to complete before the server kills it.
@@ -165,7 +117,7 @@ Time to wait for this job to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cancelTimeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`cancelTimeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for the job to cancel before forcibly terminating it.
@@ -174,7 +126,7 @@ Time to wait for the job to cancel before forcibly terminating it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Deployment-specific variables.
@@ -183,7 +135,7 @@ Deployment-specific variables.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where this job will run.
@@ -192,7 +144,7 @@ Pool where this job will run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="environment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`environment`** [jobs.deployment.environment](jobs-deployment-environment.md).<br><!-- :::editable-content name="propDescription"::: -->
 Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
@@ -201,7 +153,7 @@ Target environment name and optionally a resource name to record the deployment 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`strategy`** [jobs.deployment.strategy](jobs-deployment-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this deployment.
@@ -210,25 +162,27 @@ Execution strategy for this deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
+
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="uses"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`uses`** [jobs.job.uses](jobs-job-uses.md).<br><!-- :::editable-content name="propDescription"::: -->
-Any resources required by this job that are not already referenced.
+Specifies resources required by this job that are not already referenced elsewhere in the pipeline, for example by a [checkout](./steps-checkout.md) step or a [repository resource](./resources-repositories-repository.md). For more information about `uses`, see [Limit job authorization scope](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope) and ["uses" statement for pre-declaring resources](/azure/devops/release-notes/2021/sprint-181-update#uses-statement-for-pre-declaring-resources).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.
@@ -237,7 +191,7 @@ Container resource name.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
@@ -246,7 +200,7 @@ Container resources to run as a service container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateContext"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`templateContext`** templateContext.<br><!-- :::editable-content name="propDescription"::: -->
 Deployment related information passed from a pipeline when extending a template. See remarks for more information. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).

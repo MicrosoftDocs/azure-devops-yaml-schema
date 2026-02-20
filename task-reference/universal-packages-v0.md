@@ -1,14 +1,16 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # UniversalPackages@0 - Universal packages v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download, or package and publish Universal Packages.
@@ -20,7 +22,7 @@ Use this task to download, or package and publish Universal Packages.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Universal packages v0
@@ -58,85 +60,13 @@ Use this task to download, or package and publish Universal Packages.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Universal packages v0
-# Download or publish Universal Packages.
-- task: UniversalPackages@0
-  inputs:
-    command: 'download' # 'download' | 'publish'. Required. Command. Default: download.
-    downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
-    #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
-  # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required when command = download. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external && command = download. organization/collection connection. 
-    #vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal && command = download. Feed. 
-    #vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal && command = download. Package name. 
-    #vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal && command = download. Version. 
-    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Feed. 
-    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Package name. 
-    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Version. 
-  # Feed & package details
-    #feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required when command = publish. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external && command = publish. organization/collection connection. 
-    #vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal && command = publish. Destination Feed. 
-    #vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal && command = publish. Package name. 
-    #feedPublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Feed. 
-    #packagePublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Package name. 
-    #versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required when command = publish. Version. Default: patch.
-    #versionPublish: # string. Required when versionPublishSelector = custom && command = publish. Custom version. 
-    #packagePublishDescription: # string. Optional. Use when command = publish. Description. 
-  # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = publish && internalOrExternalPublish = internal. Publish pipeline metadata. Default: true.
-    #verbosity: 'None' # 'None' | 'Trace' | 'Debug' | 'Information' | 'Warning' | 'Error' | 'Critical'. Verbosity. Default: None.
-  # Output
-    #publishedPackageVar: # string. Optional. Use when command = publish. Package Output Variable.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Universal Packages v0
-# Download or publish Universal Packages.
-- task: UniversalPackages@0
-  inputs:
-    command: 'download' # 'download' | 'publish'. Required. Command. Default: download.
-    downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
-    #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
-  # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required when command = download. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external && command = download. Account/collection connection. 
-    #vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal && command = download. Feed. 
-    #vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal && command = download. Package name. 
-    #vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal && command = download. Version. 
-    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Feed. 
-    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Package name. 
-    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Version. 
-  # Feed & package details
-    #feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required when command = publish. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external && command = publish. Account/collection connection. 
-    #vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal && command = publish. Destination Feed. 
-    #vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal && command = publish. Package name. 
-    #feedPublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Feed. 
-    #packagePublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Package name. 
-    #versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required when command = publish. Version. Default: patch.
-    #versionPublish: # string. Required when versionPublishSelector = custom && command = publish. Custom version. 
-    #packagePublishDescription: # string. Optional. Use when command = publish. Description. 
-  # Advanced
-    #verbosity: 'None' # 'None' | 'Trace' | 'Debug' | 'Information' | 'Warning' | 'Error' | 'Critical'. Verbosity. Default: None.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="command"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `download`, `publish`. Default value: `download`.<br>
@@ -148,7 +78,7 @@ Specifies the Universal Package command to run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="downloadDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`downloadDirectory`** - **Destination directory**<br>
 `string`. Required when `command = download`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
@@ -160,21 +90,10 @@ Specifies the folder path where the task downloads the package's contents.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedsToUse"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`feedsToUse`** - **Feed location**<br>
-Input alias: `internalOrExternalDownload`. `string`. Required when `command = download`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a feed from this collection or another collection in Azure Artifacts.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`feedsToUse`** - **Feed location**<br>
-Input alias: `internalOrExternalDownload`. `string`. Required when `command = download`. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `internalOrExternalDownload`. `string`. Required when `command = download`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -183,21 +102,10 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externalFeedCredentials"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`externalFeedCredentials`** - **organization/collection connection**<br>
-Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external && command = download`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`externalFeedCredentials`** - **Account/collection connection**<br>
-Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -206,10 +114,10 @@ Specifies the credentials to use for external registries located in the selected
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeed"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`vstsFeed`** - **Feed**<br>
-Input alias: `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed. You must have Azure Artifacts installed and licensed to select a feed here. Specifies the *FeedName* for an organization-scoped feed and *projectName/FeedName* or *ProjectID/FeedID* for a project-scoped feed.
 <!-- :::editable-content-end::: -->
@@ -218,10 +126,10 @@ Includes the selected feed. You must have Azure Artifacts installed and licensed
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeedPackage"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`vstsFeedPackage`** - **Package name**<br>
-Input alias: `packageListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packageListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the package for the task to download.
 <!-- :::editable-content-end::: -->
@@ -230,10 +138,10 @@ Specifies the name of the package for the task to download.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsPackageVersion"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`vstsPackageVersion`** - **Version**<br>
-Input alias: `versionListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `versionListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the package version or uses a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version. Examples: `1.*` gets the highest version with major version 1, and `1.2.*` gets the highest patch release with major version 1 and minor version 2.
 <!-- :::editable-content-end::: -->
@@ -242,7 +150,7 @@ Specifies the package version or uses a variable containing the version to downl
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedDownloadExternal"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`feedDownloadExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 `string`. Required when `internalOrExternalDownload = external && command = download`.<br>
@@ -254,22 +162,9 @@ For project-scoped feeds, the value should be `Project/Feed`, where `Project` is
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`feedDownloadExternal`** - **Feed**<br>
-`string`. Required when `internalOrExternalDownload = external && command = download`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a feed in another organization/collection.
-
-For project-scoped feeds, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name/ID. For organization-scoped feeds, the value should be only the feed name.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packageDownloadExternal"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packageDownloadExternal`** - **Package name**<br>
 `string`. Required when `internalOrExternalDownload = external && command = download`.<br>
@@ -281,7 +176,7 @@ Specifies the package name to download.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionDownloadExternal"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionDownloadExternal`** - **Version**<br>
 `string`. Required when `internalOrExternalDownload = external && command = download`.<br>
@@ -293,7 +188,7 @@ Specifies the package version or uses a variable containing the version to downl
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`publishDirectory`** - **Path to file(s) to publish**<br>
 `string`. Required when `command = publish`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
@@ -305,21 +200,10 @@ Specifies the path to list of files to be published.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedsToUsePublish"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`feedsToUsePublish`** - **Feed location**<br>
-Input alias: `internalOrExternalPublish`. `string`. Required when `command = publish`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a feed from this collection or another collection in Azure Artifacts.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`feedsToUsePublish`** - **Feed location**<br>
-Input alias: `internalOrExternalPublish`. `string`. Required when `command = publish`. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `internalOrExternalPublish`. `string`. Required when `command = publish`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -328,21 +212,10 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishFeedCredentials"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishFeedCredentials`** - **organization/collection connection**<br>
-Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the credentials to use for external feeds.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`publishFeedCredentials`** - **Account/collection connection**<br>
-Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external feeds.
 <!-- :::editable-content-end::: -->
@@ -351,10 +224,10 @@ Specifies the credentials to use for external feeds.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeedPublish"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`vstsFeedPublish`** - **Destination Feed**<br>
-Input alias: `feedListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the project and the feed's name/GUID to publish to.
 <!-- :::editable-content-end::: -->
@@ -363,7 +236,7 @@ Specifies the project and the feed's name/GUID to publish to.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishPackageMetadata"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Optional. Use when `command = publish && internalOrExternalPublish = internal`. Default value: `true`.<br>
@@ -375,10 +248,10 @@ Associates this build/release pipeline's metadata (such as run # and source code
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeedPackagePublish"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`vstsFeedPackagePublish`** - **Package name**<br>
-Input alias: `packageListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packageListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a package ID to publish or creates a new package ID if you've never published a version of this package before. Package names must be lower case and can only use letters, numbers, and dashes (`-`).
 <!-- :::editable-content-end::: -->
@@ -387,7 +260,7 @@ Specifies a package ID to publish or creates a new package ID if you've never pu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedPublishExternal"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`feedPublishExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
@@ -399,22 +272,9 @@ If the feed was created in a project, the value should be `Project/Feed`, where 
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`feedPublishExternal`** - **Feed**<br>
-`string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the external feed name to publish to.
-
-If the feed was created in a project, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name. If the feed was not created in a project, the value should be only the feed name.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packagePublishExternal"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packagePublishExternal`** - **Package name**<br>
 `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
@@ -426,10 +286,10 @@ Specifies the package name when publishing to an external feed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionOption`** - **Version**<br>
-Input alias: `versionPublishSelector`. `string`. Required when `command = publish`. Allowed values: `major` (Next major), `minor` (Next minor), `patch` (Next patch), `custom`. Default value: `patch`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `versionPublishSelector`. `string`. Required when `command = publish`. Allowed values: `major` (Next major), `minor` (Next minor), `patch` (Next patch), `custom`. Default value: `patch`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a version increment strategy. The `custom` value to input your package version manually. For new packages, the first version will be 1.0.0 if you specify `major`, 0.1.0 if you specify `minor`, or 0.0.1 if you specify `patch`. See the [Semantic Versioning spec](https://semver.org/) for more information.
 <!-- :::editable-content-end::: -->
@@ -438,7 +298,7 @@ Specifies a version increment strategy. The `custom` value to input your package
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionPublish"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionPublish`** - **Custom version**<br>
 `string`. Required when `versionPublishSelector = custom && command = publish`.<br>
@@ -450,7 +310,7 @@ Specifies a custom version schema for the package.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packagePublishDescription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packagePublishDescription`** - **Description**<br>
 `string`. Optional. Use when `command = publish`.<br>
@@ -462,7 +322,7 @@ Specifies the description of the package contents and/or the changes made in thi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosity"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`verbosity`** - **Verbosity**<br>
 `string`. Allowed values: `None`, `Trace`, `Debug`, `Information`, `Warning`, `Error`, `Critical`. Default value: `None`.<br>
@@ -472,20 +332,9 @@ Specifies the amount of detail displayed in the output.
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`verbosity`** - **Verbosity**<br>
-`string`. Allowed values: `None`, `Trace`, `Debug`, `Information`, `Warning`, `Error`, `Critical` (Citical). Default value: `None`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the amount of detail displayed in the output.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishedPackageVar"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishedPackageVar`** - **Package Output Variable**<br>
 `string`. Optional. Use when `command = publish`.<br>
@@ -505,7 +354,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -608,7 +457,7 @@ This example demonstrated how to use the Pipelines task builder to quickly gener
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -623,20 +472,6 @@ This example demonstrated how to use the Pipelines task builder to quickly gener
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.115.0 or greater |
-| Task category | Package |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

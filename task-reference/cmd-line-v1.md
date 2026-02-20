@@ -1,8 +1,8 @@
 ---
 title: CmdLine@1 - Command Line v1 task
 description: Run a command line with arguments.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CmdLine@1 - Command Line v1 task
@@ -23,7 +23,7 @@ Use this task to run a program from the command prompt.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Command Line v1
@@ -38,7 +38,6 @@ Use this task to run a program from the command prompt.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

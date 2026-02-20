@@ -1,14 +1,14 @@
 ---
 title: Go@0 - Go v0 task
 description: Get, build, or test a Go application, or run a custom Go command.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Go@0 - Go v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to get, build, or test a Go application, or to run a custom Go command.
@@ -20,7 +20,7 @@ Use this task to get, build, or test a Go application, or to run a custom Go com
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Go v0
@@ -41,7 +41,7 @@ Use this task to get, build, or test a Go application, or to run a custom Go com
 ## Inputs
 
 <!-- :::item name="command"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `get`, `build`, `test`, `custom`. Default value: `get`.<br>
@@ -53,7 +53,7 @@ Specifies a Go command to run. Use `Custom` to run a command not listed here.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customCommand"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`customCommand`** - **Custom command**<br>
 `string`. Required when `command == custom`.<br>
@@ -65,7 +65,7 @@ A custom Go command to execute. For example, to execute `go version`, use `versi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
@@ -77,7 +77,7 @@ The optional arguments to the selected command. For example, use build-time argu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
 `string`.<br>
@@ -97,7 +97,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -154,7 +154,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

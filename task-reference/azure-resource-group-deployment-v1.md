@@ -1,8 +1,8 @@
 ---
 title: AzureResourceGroupDeployment@1 - Azure Resource Group Deployment v1 task
 description: Deploy, start, stop, delete Azure Resource Groups.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureResourceGroupDeployment@1 - Azure Resource Group Deployment v1 task
@@ -24,7 +24,7 @@ This task is deprecated; use [AzureResourceGroupDeployment@2](./azure-resource-g
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Resource Group Deployment v1
@@ -50,7 +50,6 @@ This task is deprecated; use [AzureResourceGroupDeployment@2](./azure-resource-g
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -301,7 +300,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -315,7 +314,6 @@ None.
 | Task category | Deploy |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

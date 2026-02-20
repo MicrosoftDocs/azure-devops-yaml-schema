@@ -1,8 +1,10 @@
 ---
 title: DownloadPackage@0 - Download package v0 task
 description: Download a package from a package management feed in Azure Artifacts (task version 0).
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # DownloadPackage@0 - Download package v0 task
@@ -20,7 +22,7 @@ This task is deprecated; use [DownloadPackage@1](./download-package-v1.md).
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a package from a package management feed in Azure Artifacts.
@@ -28,21 +30,12 @@ Use this task to download a package from a package management feed in Azure Arti
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download a package from a package management feed in Azure Artifacts or TFS. Requires the Package Management extension.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download package v0
@@ -56,23 +49,6 @@ Use this task to download a package from a package management feed in Azure Arti
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Download Package v0
-# Download a package from a Package Management feed in Azure Artifacts or TFS. 
- Requires the Package Management extension.
-- task: DownloadPackage@0
-  inputs:
-    feed: # string. Required. Feed. 
-    definition: # string. Required. Package. 
-    version: # string. Required. Version. 
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -145,7 +121,7 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ## Remarks
 
@@ -178,7 +154,7 @@ There is a newer version of this task available at [DownloadPackage@1](./downloa
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

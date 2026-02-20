@@ -1,14 +1,14 @@
 ---
 title: PublishTestResults@1 - Publish test results v1 task
 description: Publish test results to Azure Pipelines (task version 1).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishTestResults@1 - Publish test results v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Publish test results to Azure Pipelines.
@@ -16,19 +16,12 @@ Publish test results to Azure Pipelines.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Publish Test Results to VSTS/TFS.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish test results v1
@@ -46,26 +39,6 @@ Publish Test Results to VSTS/TFS.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Publish Test Results v1
-# Publish Test Results to VSTS/TFS.
-- task: PublishTestResults@1
-  inputs:
-    testRunner: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Required. Test Result Format. Default: JUnit.
-    testResultsFiles: '**/TEST-*.xml' # string. Required. Test Results Files. Default: **/TEST-*.xml.
-    #mergeTestResults: false # boolean. Merge Test Results. Default: false.
-    #testRunTitle: # string. Test Run Title. 
-  # Advanced
-    #platform: # string. Platform. 
-    #configuration: # string. Configuration. 
-    #publishRunAttachments: true # boolean. Upload Test Attachments. Default: true.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -212,7 +185,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -226,7 +199,6 @@ None.
 | Task category | Test |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

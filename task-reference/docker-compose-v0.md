@@ -1,14 +1,14 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DockerCompose@0 - Docker Compose v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Build, push or run multi-container Docker applications. Use this task with Docker or the Azure Container registry.
@@ -33,7 +33,7 @@ Build, push or run multi-container Docker applications. Use this task with Docke
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Docker Compose v0
@@ -78,94 +78,6 @@ Build, push or run multi-container Docker applications. Use this task with Docke
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Docker Compose v0
-# Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    dockerComposeFile: '**/docker-compose.yml' # string. Required. Docker Compose File. Default: **/docker-compose.yml.
-    #additionalDockerComposeFiles: # string. Additional Docker Compose Files. 
-    #dockerComposeFileArgs: # string. Environment Variables. 
-    #projectName: '$(Build.Repository.Name)' # string. Project Name. Default: $(Build.Repository.Name).
-    #qualifyImageNames: true # boolean. Qualify Image Names. Default: true.
-    action: 'Run a Docker Compose command' # 'Build services' | 'Push services' | 'Run services' | 'Run a specific service' | 'Lock services' | 'Write service image digests' | 'Combine configuration' | 'Run a Docker Compose command'. Required. Action. Default: Run a Docker Compose command.
-    #additionalImageTags: # string. Optional. Use when action = Build services || action = Push services. Additional Image Tags. 
-    #includeSourceTags: false # boolean. Optional. Use when action = Build services || action = Push services. Include Source Tags. Default: false.
-    #includeLatestTag: false # boolean. Optional. Use when action = Build services || action = Push services. Include Latest Tag. Default: false.
-    #buildImages: true # boolean. Optional. Use when action = Run services. Build Images. Default: true.
-    #serviceName: # string. Required when action = Run a specific service. Service Name. 
-    #containerName: # string. Optional. Use when action = Run a specific service. Container Name. 
-    #ports: # string. Optional. Use when action = Run a specific service. Ports. 
-    #workingDirectory: # string. Alias: workDir. Optional. Use when action = Run a specific service. Working Directory. 
-    #entrypoint: # string. Optional. Use when action = Run a specific service. Entry Point Override. 
-    #containerCommand: # string. Optional. Use when action = Run a specific service. Command. 
-    #detached: true # boolean. Optional. Use when action = Run services || action = Run a specific service. Run in Background. Default: true.
-    #abortOnContainerExit: true # boolean. Optional. Use when action = Run services && detached == false. Abort on Container Exit. Default: true.
-    #imageDigestComposeFile: '$(Build.StagingDirectory)/docker-compose.images.yml' # string. Required when action = Write service image digests. Image Digest Compose File. Default: $(Build.StagingDirectory)/docker-compose.images.yml.
-    #removeBuildOptions: false # boolean. Optional. Use when action = Lock services || action = Combine configuration. Remove Build Options. Default: false.
-    #baseResolveDirectory: # string. Optional. Use when action = Lock services || action = Combine configuration. Base Resolve Directory. 
-    #outputDockerComposeFile: '$(Build.StagingDirectory)/docker-compose.yml' # string. Required when action = Lock services || action = Combine configuration. Output Docker Compose File. Default: $(Build.StagingDirectory)/docker-compose.yml.
-    #dockerComposeCommand: # string. Required when action = Run a Docker Compose command. Command. 
-    #arguments: # string. Optional. Use when action != Lock services && action != Combine configuration && action != Write service image digests. Arguments. 
-  # Advanced Options
-    #dockerHostEndpoint: # string. Docker Host Service Connection. 
-    #nopIfNoDockerComposeFile: false # boolean. No-op if no Docker Compose File. Default: false.
-    #requireAdditionalDockerComposeFiles: false # boolean. Require Additional Docker Compose Files. Default: false.
-    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
-```
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# Docker Compose v0
-# Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    dockerComposeFile: '**/docker-compose.yml' # string. Required. Docker Compose File. Default: **/docker-compose.yml.
-    #additionalDockerComposeFiles: # string. Additional Docker Compose Files. 
-    #dockerComposeFileArgs: # string. Environment Variables. 
-    #projectName: '$(Build.Repository.Name)' # string. Project Name. Default: $(Build.Repository.Name).
-    #qualifyImageNames: true # boolean. Qualify Image Names. Default: true.
-    action: 'Run a Docker Compose command' # 'Build services' | 'Push services' | 'Run services' | 'Run a specific service' | 'Lock services' | 'Write service image digests' | 'Combine configuration' | 'Run a Docker Compose command'. Required. Action. Default: Run a Docker Compose command.
-    #additionalImageTags: # string. Optional. Use when action = Build services || action = Push services. Additional Image Tags. 
-    #includeSourceTags: false # boolean. Optional. Use when action = Build services || action = Push services. Include Source Tags. Default: false.
-    #includeLatestTag: false # boolean. Optional. Use when action = Build services || action = Push services. Include Latest Tag. Default: false.
-    #buildImages: true # boolean. Optional. Use when action = Run services. Build Images. Default: true.
-    #serviceName: # string. Required when action = Run a specific service. Service Name. 
-    #containerName: # string. Optional. Use when action = Run a specific service. Container Name. 
-    #ports: # string. Optional. Use when action = Run a specific service. Ports. 
-    #workingDirectory: # string. Alias: workDir. Optional. Use when action = Run a specific service. Working Directory. 
-    #entrypoint: # string. Optional. Use when action = Run a specific service. Entry Point Override. 
-    #containerCommand: # string. Optional. Use when action = Run a specific service. Command. 
-    #detached: true # boolean. Optional. Use when action = Run services || action = Run a specific service. Run in Background. Default: true.
-    #abortOnContainerExit: true # boolean. Optional. Use when action = Run services && detached == false. Abort on Container Exit. Default: true.
-    #imageDigestComposeFile: '$(Build.StagingDirectory)/docker-compose.images.yml' # string. Required when action = Write service image digests. Image Digest Compose File. Default: $(Build.StagingDirectory)/docker-compose.images.yml.
-    #removeBuildOptions: false # boolean. Optional. Use when action = Lock services || action = Combine configuration. Remove Build Options. Default: false.
-    #baseResolveDirectory: # string. Optional. Use when action = Lock services || action = Combine configuration. Base Resolve Directory. 
-    #outputDockerComposeFile: '$(Build.StagingDirectory)/docker-compose.yml' # string. Required when action = Lock services || action = Combine configuration. Output Docker Compose File. Default: $(Build.StagingDirectory)/docker-compose.yml.
-    #dockerComposeCommand: # string. Required when action = Run a Docker Compose command. Command. 
-  # Advanced Options
-    #dockerHostEndpoint: # string. Docker Host Service Connection. 
-    #nopIfNoDockerComposeFile: false # boolean. No-op if no Docker Compose File. Default: false.
-    #requireAdditionalDockerComposeFiles: false # boolean. Require Additional Docker Compose Files. Default: false.
-    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -184,7 +96,7 @@ Specifies an Azure Container Registry type if using ACR. Specify a Container Reg
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryEndpoint`** - **Docker Registry Service Connection**<br>
 `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
@@ -199,7 +111,7 @@ Specifies a Docker registry service connection. Required when commands need to a
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription. Name of the Azure Service Connection. To manually set up the connection, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure).
 <!-- :::editable-content-end::: -->
@@ -384,7 +296,7 @@ Specifies ports in the service container to publish to the host. Add each `host-
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the working directory for the service container.
 <!-- :::editable-content-end::: -->
@@ -393,7 +305,7 @@ Specifies the working directory for the service container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="entrypoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`entrypoint`** - **Entry Point Override**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
@@ -417,7 +329,7 @@ Specifies the command to run in the service container. For example, if the image
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="detached"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`detached`** - **Run in Background**<br>
 `boolean`. Optional. Use when `action = Run services || action = Run a specific service`. Default value: `true`.<br>
@@ -501,7 +413,7 @@ Specifies the Docker Compose command to execute with arguments. For example, `rm
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `action != Lock services && action != Combine configuration && action != Write service image digests`.<br>
@@ -515,7 +427,7 @@ Example: For the build command, `--pull --compress --parallel`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerHostEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerHostEndpoint`** - **Docker Host Service Connection**<br>
 `string`.<br>
@@ -554,7 +466,7 @@ Specifies a value to produce an error if the additional Docker Compose files do 
 :::moniker range="<=azure-pipelines"
 
 **`currentWorkingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the working directory for the Docker Compose command.
 <!-- :::editable-content-end::: -->
@@ -563,7 +475,7 @@ Specifies the working directory for the Docker Compose command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerComposePath"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`dockerComposePath`** - **Docker Compose executable Path**<br>
 `string`.<br>
@@ -583,7 +495,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -595,11 +507,6 @@ The path to the files which contain the output of the command. This can contain 
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-None.
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->

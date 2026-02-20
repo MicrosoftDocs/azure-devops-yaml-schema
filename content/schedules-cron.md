@@ -1,14 +1,16 @@
 ---
 title: schedules.cron definition
 description: A scheduled trigger specifies a schedule on which branches are built.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # schedules.cron definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A scheduled trigger specifies a schedule on which branches are built.
@@ -28,12 +30,12 @@ schedules:
     include: [ string ] # List of items to include.
     exclude: [ string ] # List of items to exclude.
   batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false.
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
+  always: boolean # Whether to always run the pipeline or only if there have been source code or pipeline settings changes since the last successful scheduled run. The default is false.
 ```
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 schedules:
@@ -42,14 +44,14 @@ schedules:
   branches: # Branch names to include or exclude for triggering a run.
     include: [ string ] # List of items to include.
     exclude: [ string ] # List of items to exclude.
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
+  always: boolean # Whether to always run the pipeline or only if there have been source code or pipeline settings changes since the last successful scheduled run. The default is false.
 ```
 
 :::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [schedules](schedules.md)
 
@@ -60,7 +62,7 @@ Definitions that reference this definition: [schedules](schedules.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="cron"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`cron`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Cron syntax defining a schedule in UTC time.
@@ -69,7 +71,7 @@ Cron syntax defining a schedule in UTC time.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Optional friendly name given to a specific schedule.
@@ -78,7 +80,7 @@ Optional friendly name given to a specific schedule.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
@@ -90,25 +92,22 @@ Branch names to include or exclude for triggering a run.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`batch`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Whether to run the pipeline if the previously scheduled run is in-progress; the default is `false`. This is regardless of the version of the pipeline repository.
+The `batch` property configures whether to run the pipeline if the previously scheduled run is in-progress. When `batch` is `true`, a new pipeline run won't start due to the schedule if a previous pipeline run is still in-progress. The default is `false`.
 
-The following table describes how `always` and `batch` interact.
+The `batch` property is affected by the setting of the `always` property. When `always` is `true`, the pipeline runs according to the cron schedule, even when `batch` is `true` and there is an in-progress run.
 
 | Always | Batch | Behavior |
 |--------|-------|----------|
 | `false` | `false` | Pipeline runs only if there's a change with respect to the last successful scheduled pipeline run. |
 | `false` | `true` | Pipeline runs only if there's a change with respect to the last successful scheduled pipeline run, and there's no in-progress scheduled pipeline run. |
 | `true` | `false` | Pipeline runs according to the cron schedule. |
-| `true` | `true` | Pipeline runs according to the cron schedule. |
-
-> [!IMPORTANT]
-> When `always` is `true`, the pipeline runs according to the cron schedule, even when `batch` is `true`.
+| `true` | `true` | Pipeline runs according to the cron schedule even if there is an in-progress run. |
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="always"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`always`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.

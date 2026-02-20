@@ -1,14 +1,16 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 10/10/2024
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # UseDotNet@2 - Use dotnet v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire a specific version of the .NET Core SDK from the internet or the local cache and add it to the PATH. Use this task to change the version of .NET Core that is used in subsequent tasks. This task also provides proxy support.
@@ -20,7 +22,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Use .NET Core v2
@@ -41,7 +43,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Use .NET Core v2
@@ -61,48 +63,13 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Use .NET Core v2
-# Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-- task: UseDotNet@2
-  inputs:
-    #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
-    #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
-    #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
-  # Advanced
-    #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
-    #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Use dotnet v2
-# Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-- task: UseDotNet@2
-  inputs:
-    #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
-    #version: # string. Version. 
-    #includePreviewVersions: false # boolean. Include Preview Versions. Default: false.
-  # Advanced
-    #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
-    #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="packageType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`packageType`** - **Package to install**<br>
 `string`. Allowed values: `runtime`, `sdk` (SDK (contains runtime)). Default value: `sdk`.<br>
@@ -114,7 +81,7 @@ Specifies whether to install only the .NET runtime or the SDK.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useGlobalJson"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`useGlobalJson`** - **Use global json**<br>
 `boolean`. Optional. Use when `packageType = sdk`. Default value: `false`.<br>
@@ -132,7 +99,7 @@ For more information on `global.json`, see [Select the .NET version to use](/dot
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
 `string`. Optional. Use when `useGlobalJson = true`.<br>
@@ -144,7 +111,7 @@ Specifies the path from where `global.json` files should be searched when using 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
 `string`. Optional. Use when `useGlobalJson = false || packageType = runtime`.<br>
@@ -155,45 +122,28 @@ Specifies the version of the .NET Core SDK or runtime to install. The version va
 - `3.1.x`: Installs the latest SDK or runtime with the specified major and minor versions, `3` and `1`.
 - `3.1.402`: Installs the specified SDK or runtime version, `3.1.402`.
 
-The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`version`** - **Version**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of the .NET Core SDK or runtime to install. The version value formats are shown with examples:
-
-- `2.x`: Installs the latest SDK or runtime with the specified major version, `2`.
-- `3.1.x`: Installs the latest SDK or runtime with the specified major and minor versions, `3` and `1`.
-- `3.1.402`: Installs the specified SDK or runtime version, `3.1.402`.
-
-The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
+The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://builds.dotnet.microsoft.com/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vsVersion"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`vsVersion`** - **Compatible Visual Studio version**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a compatible Visual Studio version for a corresponding .NET Core SDK installation. The value must be a complete version number, such as `16.6.4`, which contains a major version, a minor version, and a patch number.
 
-The version values for SDK or runtime installations, which are used for the `version` string, are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
+The version values for SDK or runtime installations, which are used for the `version` string, are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://builds.dotnet.microsoft.com/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includePreviewVersions"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`includePreviewVersions`** - **Include Preview Versions**<br>
 `boolean`. Optional. Use when `useGlobalJson = false  || packageType = runtime`. Default value: `false`.<br>
@@ -203,20 +153,9 @@ If set to `true`, includes preview versions when the task searches for latest ru
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`includePreviewVersions`** - **Include Preview Versions**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If set to `true`, includes preview versions when the task searches for latest runtime/SDK versions, such as searching for `2.2.x` or `3.1.x`. This setting is ignored if you specify an exact version, such as `3.0.100-preview3-010431`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="installationPath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`installationPath`** - **Path To Install .Net Core**<br>
 `string`. Default value: `$(Agent.ToolsDirectory)/dotnet`.<br>
@@ -235,7 +174,7 @@ Specifies where the .NET Core SDK/Runtime should be installed. Different paths c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="performMultiLevelLookup"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`performMultiLevelLookup`** - **Perform Multi Level Lookup**<br>
 `boolean`. Default value: `false`.<br>
@@ -257,7 +196,7 @@ Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-se
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="requestTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`requestTimeout`** - **Set timeout for package download request**<br>
 `string`. Default value: `300000`.<br>
@@ -277,7 +216,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -303,7 +242,7 @@ The tool installer approach also allows you to decouple from the agent update cy
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -318,20 +257,6 @@ The tool installer approach also allows you to decouple from the agent update cy
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: DotNetCore |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

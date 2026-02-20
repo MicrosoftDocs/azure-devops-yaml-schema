@@ -1,8 +1,10 @@
 ---
 title: variables.group definition
 description: Reference variables from a variable group.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # variables.group definition

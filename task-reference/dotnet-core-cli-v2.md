@@ -1,14 +1,14 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-ms.date: 10/15/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DotNetCoreCLI@2 - .NET Core v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
@@ -16,22 +16,12 @@ Build, test, package, or publish a .NET application, or run a custom .NET CLI co
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet.
-
-> [!IMPORTANT]
-> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # .NET Core v2
@@ -59,6 +49,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
     #includesymbols: false # boolean. Optional. Use when command = pack. Include Symbols. Default: false.
     #includesource: false # boolean. Optional. Use when command = pack. Include Source. Default: false.
+    #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
   # Feeds and authentication
     #feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
     #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts feed. Select from the dropdown or enter [project name/]feed name. 
@@ -70,7 +61,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Normal' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Normal.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
@@ -81,7 +72,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Normal' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Normal.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
@@ -124,7 +115,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
@@ -135,12 +126,12 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 ```yaml
 # .NET Core v2
@@ -178,7 +169,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
@@ -189,112 +180,10 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# .NET Core v2
-# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
-    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish Web Projects. Default: true.
-    #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
-    #custom: # string. Required when command = custom. Custom command. 
-    #arguments: # string. Optional. Use when command = build || command = publish || command = run || command = test || command = custom. Arguments. 
-    #publishTestResults: true # boolean. Optional. Use when command = test. Publish test results and code coverage. Default: true.
-    #testRunTitle: # string. Optional. Use when command = test. Test run title. 
-    #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip Published Projects. Default: true.
-    #modifyOutputPath: true # boolean. Optional. Use when command = publish. Add project name to publish path. Default: true.
-    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Alias: searchPatternPush. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/*.nupkg.
-    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
-    #publishVstsFeed: # string. Alias: feedPublish. Required when command = push && nuGetFeedType = internal. Target feed. 
-    #publishFeedCredentials: # string. Alias: externalEndpoint. Required when command = push && nuGetFeedType = external. NuGet server. 
-    #packagesToPack: '**/*.csproj' # string. Alias: searchPatternPack. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
-    #configuration: '$(BuildConfiguration)' # string. Alias: configurationToPack. Optional. Use when command = pack. Configuration to Package. Default: $(BuildConfiguration).
-    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package Folder. Default: $(Build.ArtifactStagingDirectory).
-    #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
-    #includesymbols: false # boolean. Optional. Use when command = pack. Include Symbols. Default: false.
-    #includesource: false # boolean. Optional. Use when command = pack. Include Source. Default: false.
-  # Feeds and authentication
-    #feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
-    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts feed. 
-    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
-    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this organization/collection. 
-  # Advanced
-    #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
-    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
-    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Detailed.
-  # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
-  # Pack options
-    #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
-    #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
-    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Major. Default: 1.
-    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Minor. Default: 0.
-    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Patch. Default: 0.
-  # Advanced
-    #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
-    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
-  # Advanced
-    #workingDirectory: # string. Optional. Use when command != pack && command != push && command != restore. Working Directory.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# .NET Core v2
-# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
-    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish Web Projects. Default: true.
-    #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
-    #custom: # string. Required when command = custom. Custom command. 
-    #arguments: # string. Optional. Use when command = build || command = publish || command = run || command = test || command = custom. Arguments. 
-    #publishTestResults: true # boolean. Optional. Use when command = test. Publish test results and code coverage. Default: true.
-    #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip Published Projects. Default: true.
-    #modifyOutputPath: true # boolean. Optional. Use when command = publish. Add project name to publish path. Default: true.
-    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Alias: searchPatternPush. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/*.nupkg.
-    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
-    #publishVstsFeed: # string. Alias: feedPublish. Required when command = push && nuGetFeedType = internal. Target feed. 
-    #publishFeedCredentials: # string. Alias: externalEndpoint. Required when command = push && nuGetFeedType = external. NuGet server. 
-    #packagesToPack: '**/*.csproj' # string. Alias: searchPatternPack. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
-    #configuration: '$(BuildConfiguration)' # string. Alias: configurationToPack. Optional. Use when command = pack. Configuration to Package. Default: $(BuildConfiguration).
-    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package Folder. Default: $(Build.ArtifactStagingDirectory).
-    #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
-  # Feeds and authentication
-    #feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
-    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts/TFS feed. 
-    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
-    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this organization/collection. 
-  # Advanced
-    #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
-    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
-    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Detailed.
-  # Pack options
-    #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
-    #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
-    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Major. Default: 1.
-    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Minor. Default: 0.
-    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Patch. Default: 0.
-  # Advanced
-    #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
-    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
-  # Advanced
-    #workingDirectory: # string. Optional. Use when command != pack && command != push && command != restore. Working Directory.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -302,10 +191,10 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `ConnectedServiceName`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify an Azure Resource Manager service connection configured with workload identity federation to use [AzurePipelinesCredential](https://devblogs.microsoft.com/azure-sdk/improve-security-posture-in-azure-service-connections-with-azurepipelinescredential/) in integration tests. For more information, see [Use AzurePipelinesCredential in integration tests](#use-azurepipelinescredential-in-integration-tests).
 
@@ -332,20 +221,9 @@ The dotnet command to run. Specify `custom` to add arguments or use a command no
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishWebProjects"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`publishWebProjects`** - **Publish web projects**<br>
-`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If this input is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`publishWebProjects`** - **Publish Web Projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
@@ -408,7 +286,7 @@ This input currently only accepts arguments for `build`, `publish`, `run`, `test
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="restoreArguments"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`restoreArguments`** - **Arguments**<br>
 `string`. Optional. Use when `command = restore`.<br>
@@ -420,24 +298,24 @@ Writes the additional arguments to be passed to the `restore` command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishTestResults"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`publishTestResults`** - **Publish test results and code coverage**<br>
 `boolean`. Optional. Use when `command = test`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enabling this option will generate a `test results` TRX file in `$(Agent.TempDirectory)`, and the results will be published to the server.
 
-This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
+For VSTest, this option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
+For Microsoft.Testing.Platform, when detected as the test runner in `global.json`, this option appends `--report-trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
-
-Code coverage can be collected by adding the `--collect "Code coverage"` option to the command line arguments.
+Code coverage can be collected by adding the `--collect "Code coverage"` (for VSTest), or `--coverage` (for Microsoft.Testing.Platform) option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test run title**<br>
 `string`. Optional. Use when `command = test`.<br>
@@ -449,7 +327,7 @@ Provides a name for the test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="zipAfterPublish"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`zipAfterPublish`** - **Zip published projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
@@ -459,33 +337,11 @@ If this input is set to `true`, folders created by the publish command will be z
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`zipAfterPublish`** - **Zip Published Projects**<br>
-`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If this input is set to `true`, the folder created by the publish command will be zipped and deleted.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="modifyOutputPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`modifyOutputPath`** - **Add project's folder name to publish path**<br>
-`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If this input is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`modifyOutputPath`** - **Add project name to publish path**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
@@ -498,7 +354,7 @@ If this input is set to `true`, folders created by the publish command will have
 :::moniker range="<=azure-pipelines"
 
 **`feedsToUse`** - **Feeds to use**<br>
-Input alias: `selectOrConfig`. `string`. Required when `command = restore`. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `selectOrConfig`. `string`. Required when `command = restore`. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or you can commit a `nuget.config` file to your source code repository and set its path using the `nugetConfigPath` input.
 <!-- :::editable-content-end::: -->
@@ -507,10 +363,10 @@ You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or yo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeed"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts feed. Select from the dropdown or enter [project name/]feed name.**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are used for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the `test` command.
 <!-- :::editable-content-end::: -->
@@ -518,23 +374,12 @@ Includes the selected feed in the generated `NuGet.config`. You must have Packag
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts feed**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are used for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are used for for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -565,12 +410,12 @@ The `NuGet.config` in your repository that specifies the feeds from which to res
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externalFeedCredentials"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
-Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization/collection, leave this input blank; the build's credentials are used automatically.
+The name of the service connection to use for external registries listed in the selected `NuGet.config`. For feeds within the same organization or collection, leave this input blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -592,7 +437,7 @@ Prevents NuGet from using packages from local machine caches.
 :::moniker range="<=azure-pipelines"
 
 **`restoreDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder in which packages are installed. If no folder is specified, packages are restored into the default NuGet package cache.
 <!-- :::editable-content-end::: -->
@@ -601,7 +446,7 @@ Specifies the folder in which packages are installed. If no folder is specified,
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosityRestore"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`verbosityRestore`** - **Verbosity**<br>
 `string`. Optional. Use when `command = restore`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Normal`.<br>
@@ -627,7 +472,7 @@ Specifies the amount of detail displayed in the output for the `restore` command
 :::moniker range="<=azure-pipelines"
 
 **`packagesToPush`** - **Path to NuGet package(s) to publish**<br>
-Input alias: `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/*.nupkg`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/*.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The pattern to match or path to `nupkg` files to be uploaded. Multiple patterns can be separated by a semicolon, and you can make a pattern negative by prefixing it with `!`. Example: `**/*.nupkg;!**/*.Tests.nupkg`.
 <!-- :::editable-content-end::: -->
@@ -636,7 +481,7 @@ The pattern to match or path to `nupkg` files to be uploaded. Multiple patterns 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="nuGetFeedType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`nuGetFeedType`** - **Target feed location**<br>
 `string`. Required when `command = push`. Allowed values: `internal` (This organization/collection), `external` (External NuGet server (including other organizations/collections)). Default value: `internal`.<br>
@@ -651,7 +496,7 @@ Specifies whether the target feed is internal or external.
 :::moniker range="<=azure-pipelines"
 
 **`publishVstsFeed`** - **Target feed**<br>
-Input alias: `feedPublish`. `string`. Required when `command = push && nuGetFeedType = internal`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedPublish`. `string`. Required when `command = push && nuGetFeedType = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed hosted in this organization. You must have Package Management installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
@@ -660,10 +505,10 @@ Specifies a feed hosted in this organization. You must have Package Management i
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishPackageMetadata"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Optional. Use when `command = push && nuGetFeedType = internal && command = push`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Associates this build/release pipeline's metadata (run #, source code information) with the package.
 <!-- :::editable-content-end::: -->
@@ -675,7 +520,7 @@ Associates this build/release pipeline's metadata (run #, source code informatio
 :::moniker range="<=azure-pipelines"
 
 **`publishFeedCredentials`** - **NuGet server**<br>
-Input alias: `externalEndpoint`. `string`. Required when `command = push && nuGetFeedType = external`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoint`. `string`. Required when `command = push && nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The NuGet [service connection](/azure/devops/pipelines/library/service-endpoints) that contains the external NuGet server's credentials.
 <!-- :::editable-content-end::: -->
@@ -687,7 +532,7 @@ The NuGet [service connection](/azure/devops/pipelines/library/service-endpoints
 :::moniker range="<=azure-pipelines"
 
 **`packagesToPack`** - **Path to csproj or nuspec file(s) to pack**<br>
-Input alias: `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The pattern to search for `.csproj` or `.nuspec` files to pack.
 
@@ -701,7 +546,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration to Package**<br>
-Input alias: `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When using a `.csproj` file, this input specifies the configuration to package.
 <!-- :::editable-content-end::: -->
@@ -713,7 +558,7 @@ When using a `.csproj` file, this input specifies the configuration to package.
 :::moniker range="<=azure-pipelines"
 
 **`packDirectory`** - **Package Folder**<br>
-Input alias: `outputDir`. `string`. Optional. Use when `command = pack`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `outputDir`. `string`. Optional. Use when `command = pack`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The folder where packages will be created. If this folder is empty, packages will be created alongside the `csproj` file.
 <!-- :::editable-content-end::: -->
@@ -734,7 +579,7 @@ Specifies that the task will not build the project before packing. This task cor
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includesymbols"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`includesymbols`** - **Include Symbols**<br>
 `boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
@@ -746,7 +591,7 @@ Creates symbol NuGet packages. This task corresponds to the `--include-symbols` 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includesource"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`includesource`** - **Include Source**<br>
 `boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
@@ -789,7 +634,7 @@ Specifies the variable name without `$`, `$env`, or `%`.
 :::moniker range="<=azure-pipelines"
 
 **`majorVersion`** - **Major**<br>
-Input alias: `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `1`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -801,7 +646,7 @@ The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`minorVersion`** - **Minor**<br>
-Input alias: `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -813,7 +658,7 @@ The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`patchVersion`** - **Patch**<br>
-Input alias: `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -834,7 +679,7 @@ Specifies a list of `token = value` pairs, separated by semicolons, where each o
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosityPack"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`verbosityPack`** - **Verbosity**<br>
 `string`. Optional. Use when `command = pack`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Normal`.<br>
@@ -857,23 +702,24 @@ Specifies the amount of detail displayed in the output for the `pack` command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-`string`. Optional. Use when `command != restore && command != push && command != pack && command != pack && command != push && command != restore`.<br>
+`string`. Optional. Use when `command != restore && command != push && command != pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The current working directory where the script is run. `Empty` is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="requestTimeout"::: -->
+:::moniker range=">=azure-pipelines-server"
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`workingDirectory`** - **Working Directory**<br>
-`string`. Optional. Use when `command != pack && command != push && command != restore`.<br>
+**`requestTimeout`** - **Set timeout for package download request**<br>
+`string`. Default value: `300000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The current working directory where the script is run. `Empty` is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
+Provide a timeout value for HTTP requests that the task makes to obtain the .NET package. The value is in milliseconds. Default is 300000 milliseconds (5 minutes). Cannot be more than 600000 milliseconds (10 minutes).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -966,7 +812,6 @@ However, for situations where a team of developers works on a large range of pro
 * [Restore examples](#restore-examples)
 * [Test examples](#test-examples)
 
-
 ### Build examples
 
 #### Build a project
@@ -1048,11 +893,11 @@ However, for situations where a team of developers works on a large range of pro
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '**/*.csproj'
     arguments: '-o $(Build.ArtifactStagingDirectory)/Output'
     zipAfterPublish: true
     modifyOutputPath: true
 ```
+
 ### Restore examples
 
 ```YAML
@@ -1098,7 +943,7 @@ However, for situations where a team of developers works on a large range of pro
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -1113,20 +958,6 @@ However, for situations where a team of developers works on a large range of pro
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.0.0 or greater |
-| Task category | Build |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

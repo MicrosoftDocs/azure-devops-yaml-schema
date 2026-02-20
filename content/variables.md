@@ -1,8 +1,10 @@
 ---
 title: variables definition
 description: Define variables using name/value pairs.
-ms.date: 11/20/2024
+ms.date: 01/23/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # variables definition
@@ -18,17 +20,12 @@ Define variables using name/value pairs.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## Implementations
@@ -110,7 +107,7 @@ variables: { string: string }
 
 Variables defined at different scopes:
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 ```yaml
 variables:      # pipeline-level
@@ -128,23 +125,6 @@ stages:
       JOB_VAR: 'a job var'
     steps:
     - script: echo $(MY_VAR) $(STAGE_VAR) $(JOB_VAR)
-```
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-```yaml
-variables:      # pipeline-level
-  MY_VAR: 'my value'
-  ANOTHER_VAR: 'another value'
-
-jobs:
-- job: FirstJob
-  variables:  # job-level
-    JOB_VAR: 'a job var'
-  steps:
-  - script: echo $(MY_VAR) $(STAGE_VAR) $(JOB_VAR)
 ```
 
 ::: moniker-end
@@ -214,7 +194,7 @@ variables:
   readonly: true
 ```
 
-::: moniker range=">=azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 You can also include [variables from templates](/azure/devops/pipelines/process/templates#variable-reuse).
 

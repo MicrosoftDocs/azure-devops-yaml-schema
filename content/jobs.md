@@ -1,14 +1,16 @@
 ---
 title: jobs definition
 description: Specifies the jobs that make up the work of a stage.
-ms.date: 11/20/2024
+ms.date: 01/23/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # jobs definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Specifies the jobs that make up the work of a stage.
@@ -16,17 +18,10 @@ Specifies the jobs that make up the work of a stage.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Specifies the jobs that make up the work of a pipeline.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 jobs: [ job | deployment | template ] # Specifies the jobs that make up the work of a stage.
@@ -34,33 +29,21 @@ jobs: [ job | deployment | template ] # Specifies the jobs that make up the work
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-jobs: [ job ] # Specifies the jobs that make up the work of a pipeline.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-Definitions that reference this definition: [pipeline](pipeline.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|
@@ -70,13 +53,6 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-| Type | Description |
-|---|---|
-| [jobs.job](jobs-job.md) | A job is a collection of steps run by an agent or on a server. |
-
-:::moniker-end
 <!-- :::list-types-end::: -->
 
 <!-- :::remarks::: -->

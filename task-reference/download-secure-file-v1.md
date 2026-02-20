@@ -1,14 +1,16 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # DownloadSecureFile@1 - Download secure file v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a secure file to the agent machine.
@@ -16,27 +18,12 @@ Use this task to download a secure file to the agent machine.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download a secure file to a temporary location on the agent machine.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download a secure file to a temporary location on the build or release agent.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download secure file v1
@@ -49,44 +36,6 @@ Use this task to download a secure file to a temporary location on the build or 
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Download secure file v1
-# Download a secure file to the agent machine.
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: # string. Required. Secure File. 
-    #retryCount: '5' # string. Retry Count. Default: 5.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Download secure file v1
-# Download a secure file to a temporary location on the agent machine.
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: # string. Required. Secure File.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Download Secure File v1
-# Download a secure file to a temporary location on the build or release agent.
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: # string. Required. Secure File.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -106,7 +55,7 @@ Specifies the name or unique identifier (GUID) of the secure file that is downlo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCount"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`retryCount`** - **Retry Count**<br>
 `string`. Default value: `8`.<br>
@@ -116,20 +65,9 @@ Optional. Specifies the number of times to retry downloading a secure file if th
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-**`retryCount`** - **Retry Count**<br>
-`string`. Default value: `5`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the number of times to retry downloading a secure file if the download fails.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="socketTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`socketTimeout`** - **Socket Timeout**<br>
 `string`.<br>
@@ -168,6 +106,9 @@ Specifies the location of the secure file that was downloaded.
 
 Use this task in a pipeline to download a [secure file](/azure/devops/pipelines/library/secure-files) to the agent machine. When specifying the name of the file (using the `secureFile` input), use the name you specified when uploading it, rather than the actual file name.
 
+> [!NOTE]
+> This task runs at the beginning of its stage, regardless of where it is located within its job.
+
 Once downloaded, use the `name` value that is set on the task (or "Reference name" in the classic editor) to reference the path to the secure file on the agent machine. For example, if the task is given the name `mySecureFile`, its path can be referenced in the pipeline as `$(mySecureFile.secureFilePath)`. Alternatively, downloaded secure files can be found in the directory given by `$(Agent.TempDirectory)`. See a full example [below](#examples).
 
 When the pipeline job completes, whether it succeeds, fails, or is canceled, the secure file is deleted from its download location.
@@ -181,6 +122,8 @@ This task currently supports only one file task per instance.
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
+
+#### [Linux](#tab/linux/)
 
 This example downloads a secure certificate file and installs it to a trusted certificate authority (CA) directory on Linux:
 
@@ -197,13 +140,60 @@ This example downloads a secure certificate file and installs it to a trusted ce
     sudo chmod a+r $(caCertificate.secureFilePath)
     sudo ln -s $(caCertificate.secureFilePath) /etc/ssl/certs/ 
 ```
+
+#### [Windows](#tab/windows/)
+
+- **Import certificate to CurrentUser root store**:
+
+    ```yaml
+    ## Download a secure file to the agent machine
+    - task: DownloadSecureFile@1
+      displayName: 'Download CA certificate'
+      inputs:
+        secureFile: 'myCACertificate.pem'
+    
+    - powershell: |
+        $certPath = "$(caCertificate.secureFilePath)"
+        $certStoreLocation = 'Cert:\CurrentUser\Root'
+        Write-Host "Importing certificate $certPath to $certStoreLocation..."
+        $params = @{
+          FilePath = $certPath
+          CertStoreLocation = $certStoreLocation
+        }
+        Import-Certificate @params
+      displayName: 'Import CA certificate to CurrentUser root store'
+    ```
+
+- **Import certificate to LocalMachine root store**:
+
+    ```yaml
+    ## Download a secure file to the agent machine
+    - task: DownloadSecureFile@1
+      displayName: 'Download CA certificate'
+      inputs:
+        secureFile: 'myCACertificate.pem'
+    
+    - powershell: |
+        $certPath = "$(caCertificate.secureFilePath)"
+        $certStoreLocation = 'Cert:\LocalMachine\Root'
+    
+        Write-Host "Importing certificate $certPath to $certStoreLocation..."
+        $params = @{
+          FilePath = $certPath
+          CertStoreLocation = $certStoreLocation
+        }
+        Import-Certificate @params
+      displayName: 'Import CA certificate to LocalMachine root store'
+    ```
+
+* * *
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -218,20 +208,6 @@ This example downloads a secure certificate file and installs it to a trusted ce
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

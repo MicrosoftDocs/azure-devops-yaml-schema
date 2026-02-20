@@ -1,24 +1,26 @@
 ---
 title: steps.reviewApp definition
 description: Downloads creates a resource dynamically under a deploy phase provider.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # steps.reviewApp definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-The `reviewApp` step creates a resource dynamically under a deploy phase provider.
+The `reviewApp` step deploys every pull request from your Git repository to a dynamic environment resource.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -37,27 +39,10 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-steps:
-- reviewApp: string # Required as first property. Use this task under deploy phase provider to create a resource dynamically.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  target: string | target # Environment in which to run this task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [steps](steps.md)
 
@@ -68,7 +53,7 @@ Definitions that reference this definition: [steps](steps.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="reviewApp"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`reviewApp`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Use this task under deploy phase provider to create a resource dynamically.
@@ -77,7 +62,7 @@ Use this task under deploy phase provider to create a resource dynamically.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
@@ -86,7 +71,7 @@ Evaluate this condition expression to determine whether to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
@@ -95,7 +80,7 @@ Continue running even on failure?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
@@ -104,7 +89,7 @@ Human-readable name for the task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
@@ -113,7 +98,7 @@ Environment in which to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
@@ -122,7 +107,7 @@ Run this task when the job runs?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
@@ -131,7 +116,7 @@ Variables to map into the process's environment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
@@ -140,7 +125,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.
@@ -151,7 +136,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.
@@ -166,11 +151,33 @@ Number of retries if the task fails.
 ## Remarks
 
 The `reviewApp` keyword is a shortcut for the [Review App task](/azure/devops/pipelines/tasks/reference/review-app-v0).
+
+`ReviewApp` deploys every pull request from your Git repository to a dynamic environment resource. Reviewers can see how those changes look as well as work with other dependent services before they’re merged into the main branch and deployed to production. This will make it easy for you to create and manage **reviewApp** resources and benefit from all the traceability and diagnosis capability of the environment features. By using the **reviewApp** keyword, you can create a clone of a resource (dynamically create a new resource based on an existing resource in an environment) and add the new resource to the environment.
+
+For more information, see [Kubernetes resource - Set up Review App](/azure/devops/pipelines/process/environments-kubernetes#set-up-review-app) and [What’s new in Azure DevOps Sprint 160](https://devblogs.microsoft.com/devops/whats-new-in-azure-devops-sprint-160/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The following is a sample YAML snippet of using reviewApp under environments.
+
+```yaml
+jobs:
+- deployment:
+  environment: 
+     name: smarthotel-dev      
+     resourceName: $(System.PullRequest.PullRequestId) 
+  pool:
+    name: 'ubuntu-latest'
+  strategy:                 
+    runOnce:            
+      pre-deploy: 
+        steps:       
+        - reviewApp: MainNamespace
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
@@ -179,5 +186,7 @@ The `reviewApp` keyword is a shortcut for the [Review App task](/azure/devops/pi
 ## See also
 
 - [Review App task](/azure/devops/pipelines/tasks/reference/review-app-v0)
+- [What’s new in Azure DevOps Sprint 160](https://devblogs.microsoft.com/devops/whats-new-in-azure-devops-sprint-160/)
+- [Kubernetes resource - Set up Review App](/azure/devops/pipelines/process/environments-kubernetes#set-up-review-app)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

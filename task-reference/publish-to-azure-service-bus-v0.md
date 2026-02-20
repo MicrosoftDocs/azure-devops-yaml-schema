@@ -1,8 +1,8 @@
 ---
 title: PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
 description: Sends a message to Azure Service Bus using a service connection, with no agent required (task version 0).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
@@ -20,7 +20,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish To Azure Service Bus v0
@@ -34,7 +34,6 @@ Use this task to send a message to Azure Service Bus using a service connection 
 
 :::moniker-end
 
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -44,7 +43,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure service bus connection**<br>
-Input alias: `connectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure Service Bus connection.
 <!-- :::editable-content-end::: -->

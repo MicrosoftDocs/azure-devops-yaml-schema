@@ -1,14 +1,14 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's back-end address pool.
@@ -36,7 +36,7 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Network Load Balancer v1
@@ -51,22 +51,6 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure Network Load Balancer v1
-# Connect/Disconnect an Azure virtual machine's network interface to a Load Balancer's backend address pool.
-- task: AzureNLBManagement@1
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
-    ResourceGroupName: # string. Required. Resource Group. 
-    LoadBalancer: # string. Required. Load Balancer Name. 
-    Action: # 'Disconnect' | 'Connect'. Required. Action.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -76,7 +60,7 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->

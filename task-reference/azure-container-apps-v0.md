@@ -1,14 +1,16 @@
 ---
 title: AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps (task version 0).
-ms.date: 08/27/2024
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 An Azure DevOps Task to build and deploy Azure Container Apps.
@@ -71,7 +73,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
@@ -97,7 +99,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify an Azure Resource Manager service connection for the deployment. This service connection must be linked to the user's Azure Subscription where the Container App will be created/updated. This service connection _must_ have proper permissions to make these changes within the subscription, for example Contributor role.
 <!-- :::editable-content-end::: -->
@@ -431,9 +433,8 @@ Registry. For more information on how to install Docker on the agent, please see
 [this document](https://docs.docker.com/get-docker/).
 
 In addition, users running this task with a Windows agent may encounter an issue with not being able to pull down
-Linux-based images; to resolve this, please visit
-[this site](https://docs.docker.com/desktop/faqs/windowsfaqs/#how-do-i-switch-between-windows-and-linux-containers) or
-located the `DockerCli.exe` file on your agent (typically in the `Program Files\Docker\Docker` folder) and run
+Linux-based images; to resolve this, 
+locate the `DockerCli.exe` file on your agent (typically in the `Program Files\Docker\Docker` folder) and run
 
 ```
 & `.\DockerCli.exe` -SwitchDaemon

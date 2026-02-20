@@ -1,14 +1,16 @@
 ---
 title: TwineAuthenticate@0 - Python twine upload authenticate v0 task
 description: Authenticate for uploading Python distributions using twine (task version 0).
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # TwineAuthenticate@0 - Python twine upload authenticate v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Provides `twine` credentials to a `PYPIRC_PATH` environment variable for the scope of the build. This enables you to publish Python packages to feeds with `twine` from your build.
@@ -20,7 +22,7 @@ Provides `twine` credentials to a `PYPIRC_PATH` environment variable for the sco
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Python twine upload authenticate v0
@@ -36,29 +38,16 @@ Provides `twine` credentials to a `PYPIRC_PATH` environment variable for the sco
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Python Twine Upload Authenticate v0
-# Authentication for uploading python distributions using twine. Please add "-r FeedName/EndpointName --config-file $(PYPIRC_PATH)" to your twine upload command. For feeds present in this organization use feed name as repository(-r) otherwise use the endpoint name defined in the service connection.
-- task: TwineAuthenticate@0
-  inputs:
-  # Feeds and Authentication
-    #artifactFeeds: # string. Alias: feedList. My feeds (select below). 
-    #externalFeeds: # string. Alias: externalSources. Feeds from external organizations.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="artifactFeeds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`artifactFeeds`** - **My feeds (select below)**<br>
-Input alias: `feedList`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedList`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure artifact's feed name to authenticate with twine. The authenticating feed must be present within the organization. For project-scoped feeds, use the syntax `projectName/feedNameSelect`.
 <!-- :::editable-content-end::: -->
@@ -67,10 +56,10 @@ Specifies the Azure artifact's feed name to authenticate with twine. The authent
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externalFeeds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`externalFeeds`** - **Feeds from external organizations**<br>
-Input alias: `externalSources`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalSources`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A [twine service connection](/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection) name from an external organization to authenticate with twine. The credentials stored in the endpoint must have package upload permissions.
 <!-- :::editable-content-end::: -->
@@ -79,7 +68,7 @@ A [twine service connection](/azure/devops/pipelines/library/service-endpoints#p
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishPackageMetadata"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Default value: `true`.<br>
@@ -99,7 +88,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -149,7 +138,7 @@ If the pipeline is running in a different project than the project hosting the f
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

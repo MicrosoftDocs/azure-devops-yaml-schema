@@ -1,8 +1,8 @@
 ---
 title: DotNetCoreCLI@0 - .NET Core v0 task
 description: Build, test and publish using dotnet core command-line (task version 0).
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DotNetCoreCLI@0 - .NET Core v0 task
@@ -26,7 +26,7 @@ This task is deprecated; use [DotNetCoreCLI@2](./dotnet-core-cli-v2.md).
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # .NET Core v0
@@ -41,7 +41,6 @@ This task is deprecated; use [DotNetCoreCLI@2](./dotnet-core-cli-v2.md).
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

@@ -1,8 +1,8 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishSymbols@2 - Index sources and publish symbols v2 task
@@ -24,7 +24,36 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-server"
+
+```yaml
+# Index sources and publish symbols v2
+# Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
+- task: PublishSymbols@2
+  inputs:
+    #SymbolsFolder: '$(Build.SourcesDirectory)' # string. Path to symbols folder. Default: $(Build.SourcesDirectory).
+    SearchPattern: '**/bin/**/*.pdb' # string. Required. Search pattern. Default: **/bin/**/*.pdb.
+    #Manifest: # string. Manifest. 
+    #IndexSources: true # boolean. Index sources. Default: true.
+    #PublishSymbols: true # boolean. Publish symbols. Default: true.
+    SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
+    #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
+    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
+    #SymbolExpirationInDays: '36530' # string. Optional. Use when PublishSymbols = true && SymbolServerType = TeamServices. Symbol Expiration (in days). Default: 36530.
+  # Advanced
+    #IndexableFileFormats: 'Default' # 'Default' | 'Pdb' | 'SourceMap' | 'All'. Optional. Use when PublishSymbols = true && SymbolServerType = TeamServices. Symbol file formats to publish. Default: Default.
+    #DetailedLog: true # boolean. Verbose logging. Default: true.
+    #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
+    #UseNetCoreClientTool: false # boolean. Use NetCore client tool. Default: false.
+    #SymbolsMaximumWaitTime: # string. Max wait time (min). 
+    #SymbolsProduct: # string. Product. 
+    #SymbolsVersion: # string. Version. 
+    #SymbolsArtifactName: 'Symbols_$(BuildConfiguration)' # string. Artifact name. Default: Symbols_$(BuildConfiguration).
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Index sources and publish symbols v2
@@ -51,57 +80,6 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-```yaml
-# Index sources and publish symbols v2
-# Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-- task: PublishSymbols@2
-  inputs:
-    #SymbolsFolder: '$(Build.SourcesDirectory)' # string. Path to symbols folder. Default: $(Build.SourcesDirectory).
-    SearchPattern: '**/bin/**/*.pdb' # string. Required. Search pattern. Default: **/bin/**/*.pdb.
-    #IndexSources: true # boolean. Index sources. Default: true.
-    #PublishSymbols: true # boolean. Publish symbols. Default: true.
-    SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
-    #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
-  # Advanced
-    #DetailedLog: true # boolean. Verbose logging. Default: true.
-    #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
-    #SymbolsMaximumWaitTime: # string. Max wait time (min). 
-    #SymbolsProduct: # string. Product. 
-    #SymbolsVersion: # string. Version. 
-    #SymbolsArtifactName: 'Symbols_$(BuildConfiguration)' # string. Artifact name. Default: Symbols_$(BuildConfiguration).
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Index sources and publish symbols v2
-# Index your source code and publish symbols to a file share or Azure Artifacts Symbol Server.
-- task: PublishSymbols@2
-  inputs:
-    #SymbolsFolder: '$(Build.SourcesDirectory)' # string. Path to symbols folder. Default: $(Build.SourcesDirectory).
-    SearchPattern: '**/bin/**/*.pdb' # string. Required. Search pattern. Default: **/bin/**/*.pdb.
-    #IndexSources: true # boolean. Index sources. Default: true.
-    #PublishSymbols: true # boolean. Publish symbols. Default: true.
-    SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
-    #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
-  # Advanced
-    #DetailedLog: true # boolean. Verbose logging. Default: true.
-    #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
-    #SymbolsMaximumWaitTime: # string. Max wait time (min). 
-    #SymbolsProduct: # string. Product. 
-    #SymbolsVersion: # string. Version. 
-    #SymbolsArtifactName: 'Symbols_$(BuildConfiguration)' # string. Artifact name. Default: Symbols_$(BuildConfiguration).
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -134,6 +112,18 @@ Specifies the pattern used to discover the PDB files to publish. See [File match
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="Manifest"::: -->
+:::moniker range=">=azure-pipelines-server"
+
+**`Manifest`** - **Manifest**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The path to a file containing more symbol client keys to publish.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="IndexSources"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,7 +149,7 @@ Specifies whether to publish the symbol files.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SymbolServerType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SymbolServerType`** - **Symbol server type**<br>
 `string`. Required when `PublishSymbols = true`. Allowed values: `TeamServices` (Symbol Server in this organization/collection (requires Azure Artifacts)), `FileShare` (File share).<br>
@@ -189,7 +179,7 @@ If you leave this argument blank, your symbols will be source indexed but not pu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CompressSymbols"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`CompressSymbols`** - **Compress symbols**<br>
 `boolean`. Optional. Use when `SymbolServerType = FileShare`. Default value: `false`.<br>
@@ -201,7 +191,7 @@ Compresses symbols when publishing to file share.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SymbolExpirationInDays"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`SymbolExpirationInDays`** - **Symbol Expiration (in days)**<br>
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = TeamServices`. Default value: `36530`.<br>
@@ -213,12 +203,17 @@ Specifies the number of days that symbols should be retained.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="IndexableFileFormats"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`IndexableFileFormats`** - **Symbol file formats to publish**<br>
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = TeamServices`. Allowed values: `Default` (The Default set of symbols to upload), `Pdb` (Only Pdb based symbols Windows pdb's and managed Portable pdb's.), `SourceMap` (Only JavaScript based SourceMap symbols (*.js.map)), `All` (All supported symbol formats). Default value: `Default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies which debug formats to publish to the symbol server.
+
+- `Default`: The default is `Pdb`
+- `Pdb`: Only Pdb based symbols Windows pdb's and managed Portable pdb's
+- `SourceMap`: Only JavaScript based SourceMap symbols (`*.js.map`)
+- `All`: `Pdb` and `SourceMap`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -249,7 +244,7 @@ Specifies whether to warn if sources are not indexed for a PDB file. Otherwise, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="UseNetCoreClientTool"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`UseNetCoreClientTool`** - **Use NetCore client tool**<br>
 `boolean`. Default value: `false`.<br>
@@ -365,7 +360,7 @@ Symbols are associated with the build that published to Azure Pipelines they are
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -380,20 +375,6 @@ Symbols are associated with the build that published to Azure Pipelines they are
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.95.0 or greater |
-| Task category | Build |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

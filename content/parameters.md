@@ -1,14 +1,16 @@
 ---
 title: pipeline.parameters definition
 description: Pipeline template parameters.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/23/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # pipeline.parameters definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The parameters list specifies the runtime parameters passed to a pipeline.
@@ -18,7 +20,7 @@ The parameters list specifies the runtime parameters passed to a pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 parameters: [ parameter ] # Specifies the runtime parameters passed to a pipeline.
@@ -28,7 +30,7 @@ parameters: [ parameter ] # Specifies the runtime parameters passed to a pipelin
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -38,7 +40,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

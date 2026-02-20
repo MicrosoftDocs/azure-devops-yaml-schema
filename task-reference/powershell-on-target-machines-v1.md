@@ -1,8 +1,10 @@
 ---
 title: PowerShellOnTargetMachines@1 - PowerShell on Target Machines v1 task
 description: Execute PowerShell scripts on remote machine(s) (task version 1).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # PowerShellOnTargetMachines@1 - PowerShell on Target Machines v1 task
@@ -20,7 +22,7 @@ Use this task to execute PowerShell scripts on remote machine(s).
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # PowerShell on Target Machines v1
@@ -44,7 +46,6 @@ Use this task to execute PowerShell scripts on remote machine(s).
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -228,7 +229,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -242,7 +243,6 @@ None.
 | Task category | Deploy |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

@@ -1,14 +1,14 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Docker@0 - Docker v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Build, tag, push, run Docker images, or run a Docker command. Use this task with Docker or the Azure Container registry.
@@ -36,7 +36,7 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Docker v0
@@ -81,93 +81,6 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-```yaml
-# Docker v0
-# Build, tag, push, or run Docker images, or run a Docker command.
-- task: Docker@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    action: 'Build an image' # 'Build an image' | 'Tag images' | 'Push an image' | 'Push images' | 'Run an image' | 'Run a Docker command'. Required. Action. Default: Build an image.
-    #dockerFile: '**/Dockerfile' # string. Required when action = Build an image. Docker File. Default: **/Dockerfile.
-    #buildArguments: # string. Optional. Use when action = Build an image. Build Arguments. 
-    #defaultContext: true # boolean. Optional. Use when action = Build an image. Use Default Build Context. Default: true.
-    #context: # string. Optional. Use when action = Build an image && defaultContext = false. Build Context. 
-    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when action == Build an image || action == Push an image || action == Run an image. Image Name. Default: $(Build.Repository.Name):$(Build.BuildId).
-    #imageNamesPath: # string. Required when action == Tag images || action == Push images. Image Names Path. 
-    #qualifyImageName: true # boolean. Optional. Use when action = Build an image || action = Tag images || action = Push an image || action = Push images || action = Run an image. Qualify Image Name. Default: true.
-    #additionalImageTags: # string. Optional. Use when action = Build an image || action = Tag images || action = Push an image || action = Push images. Additional Image Tags. 
-    #includeSourceTags: false # boolean. Optional. Use when action = Build an image || action = Tag image || action = Push an image || action = Push images. Include Source Tags. Default: false.
-    #includeLatestTag: false # boolean. Optional. Use when action = Build an image || action = Push an image || action = Push images. Include Latest Tag. Default: false.
-    #imageDigestFile: # string. Optional. Use when action = Push an image || action = Push images. Image Digest File. 
-    #containerName: # string. Optional. Use when action = Run an image. Container Name. 
-    #ports: # string. Optional. Use when action = Run an image. Ports. 
-    #volumes: # string. Optional. Use when action = Run an image. Volumes. 
-    #envVars: # string. Optional. Use when action = Run an image. Environment Variables. 
-    #workDir: # string. Optional. Use when action = Run an image. Working Directory. 
-    #entrypoint: # string. Optional. Use when action = Run an image. Entry Point Override. 
-    #containerCommand: # string. Optional. Use when action = Run an image. Command. 
-    #detached: true # boolean. Optional. Use when action = Run an image. Run In Background. Default: true.
-    #restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when action = Run an image && detached = true. Restart Policy. Default: no.
-    #restartMaxRetries: # string. Optional. Use when action = Run an image && detached = true && restartPolicy = onFailure. Maximum Restart Retries. 
-    #customCommand: # string. Required when action = Run a Docker command. Command. 
-  # Advanced Options
-    #dockerHostEndpoint: # string. Docker Host Service Connection. 
-    #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
-    #memory: # string. Memory limit.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Docker v0
-# Build, tag, push, or run Docker images, or run a Docker command. Task can be used with Docker or Azure Container registry.
-- task: Docker@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    action: 'Build an image' # 'Build an image' | 'Tag images' | 'Push an image' | 'Push images' | 'Run an image' | 'Run a Docker command'. Required. Action. Default: Build an image.
-    #dockerFile: '**/Dockerfile' # string. Required when action = Build an image. Docker File. Default: **/Dockerfile.
-    #buildArguments: # string. Optional. Use when action = Build an image. Build Arguments. 
-    #defaultContext: true # boolean. Optional. Use when action = Build an image. Use Default Build Context. Default: true.
-    #context: # string. Optional. Use when action = Build an image && defaultContext = false. Build Context. 
-    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when action == Build an image || action == Push an image || action == Run an image. Image Name. Default: $(Build.Repository.Name):$(Build.BuildId).
-    #imageNamesPath: # string. Required when action == Tag images || action == Push images. Image Names Path. 
-    #qualifyImageName: true # boolean. Optional. Use when action = Build an image || action = Tag images || action = Push an image || action = Push images || action = Run an image. Qualify Image Name. Default: true.
-    #additionalImageTags: # string. Optional. Use when action = Build an image || action = Tag images || action = Push an image || action = Push images. Additional Image Tags. 
-    #includeSourceTags: false # boolean. Optional. Use when action = Build an image || action = Tag image || action = Push an image || action = Push images. Include Source Tags. Default: false.
-    #includeLatestTag: false # boolean. Optional. Use when action = Build an image || action = Push an image || action = Push images. Include Latest Tag. Default: false.
-    #imageDigestFile: # string. Optional. Use when action = Push an image || action = Push images. Image Digest File. 
-    #containerName: # string. Optional. Use when action = Run an image. Container Name. 
-    #ports: # string. Optional. Use when action = Run an image. Ports. 
-    #volumes: # string. Optional. Use when action = Run an image. Volumes. 
-    #envVars: # string. Optional. Use when action = Run an image. Environment Variables. 
-    #workDir: # string. Optional. Use when action = Run an image. Working Directory. 
-    #entrypoint: # string. Optional. Use when action = Run an image. Entry Point Override. 
-    #containerCommand: # string. Optional. Use when action = Run an image. Command. 
-    #detached: true # boolean. Optional. Use when action = Run an image. Run In Background. Default: true.
-    #restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when action = Run an image && detached = true. Restart Policy. Default: no.
-    #restartMaxRetries: # string. Optional. Use when action = Run an image && detached = true && restartPolicy = onFailure. Maximum Restart Retries. 
-    #customCommand: # string. Required when action = Run a Docker command. Command. 
-  # Advanced Options
-    #dockerHostEndpoint: # string. Docker Host Service Connection. 
-    #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
-    #memory: # string. Memory limit.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -186,10 +99,10 @@ Select 'Azure Container Registry' to connect to it by using an Azure Service Con
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpoint`. `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
@@ -201,7 +114,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->
@@ -246,7 +159,7 @@ Specifies the path to the Docker file. The task uses the first Docker file it fi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addBaseImageData"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
@@ -438,7 +351,7 @@ Specifies the working directory for the Docker container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="entrypoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`entrypoint`** - **Entry Point Override**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
@@ -510,7 +423,7 @@ Specifies the Docker command and arguments to execute. For example, `rmi -f imag
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerHostEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerHostEndpoint`** - **Docker Host Service Connection**<br>
 `string`.<br>
@@ -537,7 +450,7 @@ If enabled, modifies the Docker image name according to Docker naming convention
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the working directory for the Docker command.
 <!-- :::editable-content-end::: -->
@@ -566,7 +479,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -582,19 +495,6 @@ The path of the file which contains the output of the build command.
 <!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
-
-This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
-
-<!-- :::item name="DockerOutput"::: -->
-**`DockerOutput`**<br><!-- :::editable-content name="Value"::: -->
-Stores the output of the docker command
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
 
 <!-- :::outputVariables-end::: -->
 

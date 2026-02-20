@@ -1,8 +1,10 @@
 ---
 title: DownloadBuildArtifacts@1 - Download build artifacts v1 task
 description: Download files that were saved as artifacts of a completed build.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # DownloadBuildArtifacts@1 - Download build artifacts v1 task
@@ -84,7 +86,7 @@ The project from which to download the build artifacts.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`pipeline`** - **Build pipeline**<br>
-Input alias: `definition`. `string`. Required when `buildType == specific`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `definition`. `string`. Required when `buildType == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the build pipeline name.
 <!-- :::editable-content-end::: -->

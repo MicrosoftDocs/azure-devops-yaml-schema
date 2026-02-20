@@ -1,14 +1,14 @@
 ---
 title: FtpUpload@1 - FTP upload v1 task
 description: Upload files using FTP (task version 1).
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # FtpUpload@1 - FTP upload v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to upload files to a remote machine using FTP or securely with FTPS.
@@ -32,7 +32,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # FTP upload v1
@@ -57,42 +57,16 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# FTP Upload v1
-# FTP Upload.
-- task: FtpUpload@1
-  inputs:
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required. Authentication Method. Default: serviceEndpoint.
-    serverEndpoint: # string. Required when credsType = serviceEndpoint. FTP Service Connection. 
-    #serverUrl: # string. Required when credsType = inputs. Server URL. 
-    #username: # string. Required when credsType = inputs. Username. 
-    #password: # string. Required when credsType = inputs. Password. 
-    rootDirectory: # string. Alias: rootFolder. Required. Root folder. 
-    filePatterns: '**' # string. Required. File patterns. Default: **.
-    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Alias: remotePath. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
-  # Advanced
-    #clean: false # boolean. Delete remote directory. Default: false.
-    #cleanContents: false # boolean. Optional. Use when clean = false. Clear remote directory contents. Default: false.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #preservePaths: false # boolean. Preserve file paths. Default: false.
-    #trustSSL: false # boolean. Trust server certificate. Default: false.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="credentialsOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`credentialsOption`** - **Authentication Method**<br>
-Input alias: `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP service connection), `inputs` (Enter credentials). Default value: `serviceEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP service connection), `inputs` (Enter credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the authentication method. Use an FTP service connection or enter the connection credentials.
 <!-- :::editable-content-end::: -->
@@ -101,7 +75,7 @@ Specifies the authentication method. Use an FTP service connection or enter the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serverEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **FTP Service Connection**<br>
 `string`. Required when `credsType = serviceEndpoint`.<br>
@@ -154,7 +128,7 @@ Specifies the password for the FTP connection.
 :::moniker range="<=azure-pipelines"
 
 **`rootDirectory`** - **Root folder**<br>
-Input alias: `rootFolder`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `rootFolder`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the source folder to upload files from.
 <!-- :::editable-content-end::: -->
@@ -178,7 +152,7 @@ Specifies the file paths or patterns of the files to upload. The string supports
 :::moniker range="<=azure-pipelines"
 
 **`remoteDirectory`** - **Remote directory**<br>
-Input alias: `remotePath`. `string`. Required. Default value: `/upload/$(Build.BuildId)/`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `remotePath`. `string`. Required. Default value: `/upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the directory on the remote FTP server where the task uploads files.
 <!-- :::editable-content-end::: -->
@@ -270,7 +244,7 @@ None.
 
 Use this task to upload files to a remote machine using FTP or securely with FTPS.
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
 > There is a newer version of this task available at [FtpUpload@2](./ftp-upload-v2.md).
@@ -291,7 +265,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -306,20 +280,6 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

@@ -1,14 +1,15 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 08/27/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+ms.custom: sfi-ropc-nochange
 ---
 
 # ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy a Docker Compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the Compose file.
@@ -36,7 +37,7 @@ Use this task to deploy a Docker Compose application to a Service Fabric cluster
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Service Fabric Compose deploy v0
@@ -62,43 +63,16 @@ Use this task to deploy a Docker Compose application to a Service Fabric cluster
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Service Fabric Compose Deploy v0
-# Deploy a docker-compose application to a Service Fabric cluster.
-- task: ServiceFabricComposeDeploy@0
-  inputs:
-    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
-    composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: **/docker-compose.yml.
-    applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: fabric:/Application1.
-  # Registry Settings
-    registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpointName. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
-    azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
-    #registryUserName: # string. Optional. Use when registryCredentials = UsernamePassword. Registry User Name. 
-    #registryPassword: # string. Optional. Use when registryCredentials = UsernamePassword. Registry Password. 
-    #passwordEncrypted: true # boolean. Optional. Use when registryCredentials = UsernamePassword. Password Encrypted. Default: true.
-  # Advanced Settings
-    #upgrade: false # boolean. Upgrade. Default: false.
-    #deployTimeoutSec: # string. Deploy Timeout (s). 
-    #removeTimeoutSec: # string. Remove Timeout (s). 
-    #getStatusTimeoutSec: # string. Get Status Timeout (s).
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="clusterConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`clusterConnection`** - **Cluster Service Connection**<br>
-Input alias: `serviceConnectionName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
 <!-- :::editable-content-end::: -->
@@ -133,7 +107,7 @@ Specifies the Service Fabric application name of the deployed application. Use `
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="registryCredentials"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager service connection), `ContainerRegistryEndpoint` (Container Registry service connection), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
@@ -150,10 +124,10 @@ Specifies how credentials for the Docker container registry will be provided to 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
-Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
 <!-- :::editable-content-end::: -->
@@ -165,7 +139,7 @@ Specifies a Docker registry service connection. If a certificate matching the Se
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `registryCredentials = AzureResourceManagerEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->
@@ -210,7 +184,7 @@ Encrypts your password using [Invoke-ServiceFabricEncryptText](/azure/service-fa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="upgrade"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`upgrade`** - **Upgrade**<br>
 `boolean`. Default value: `false`.<br>

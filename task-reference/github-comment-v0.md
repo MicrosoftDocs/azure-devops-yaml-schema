@@ -1,14 +1,14 @@
 ---
 title: GitHubComment@0 - GitHub Comment v0 task
 description: Write a comment to your GitHub entity i.e. issue or a Pull Request (PR).
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # GitHubComment@0 - GitHub Comment v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to write a comment to your GitHub entity, for example an issue or a Pull Request (PR).
@@ -20,7 +20,7 @@ Use this task to write a comment to your GitHub entity, for example an issue or 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # GitHub Comment v0
@@ -40,19 +40,22 @@ Use this task to write a comment to your GitHub entity, for example an issue or 
 ## Inputs
 
 <!-- :::item name="gitHubConnection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`gitHubConnection`** - **GitHub connection (OAuth or PAT)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. For more information about service connections, see [Manage service connections](https://aka.ms/AA3am5s).
+Specifies the name of the [GitHub service connection](/azure/devops/pipelines/library/service-endpoints#github-service-connection) to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. For more information about service connections, see [Manage service connections](https://aka.ms/AA3am5s).
+
+>[!IMPORTANT]
+> [GitHub service connection](/azure/devops/pipelines/library/service-endpoints#github-service-connection) and [GitHub Enterprise Server service connection](/azure/devops/pipelines/library/service-endpoints#github-enterprise-server-service-connection) are not the same type of service connection. This task supports [GitHub service connection](/azure/devops/pipelines/library/service-endpoints#github-service-connection).
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repositoryName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`repositoryName`** - **Repository**<br>
 `string`. Required. Default value: `$(Build.Repository.Name)`.<br>
@@ -64,7 +67,7 @@ Specifies the name of the GitHub repository where the GitHub comment will be cre
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="id"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`id`** - **ID of the github pr/issue**<br>
 `string`.<br>
@@ -76,7 +79,7 @@ Specifies the issue or PR number. If used in a PR pipeline, leave this field emp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="comment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`comment`** - **Comment**<br>
 `string`.<br>
@@ -96,7 +99,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -116,7 +119,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

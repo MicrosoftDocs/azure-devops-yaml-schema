@@ -1,14 +1,16 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # UsePythonVersion@0 - Use Python version v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download or select a version of Python to run on an agent, and optionally add it to PATH.
@@ -38,7 +40,7 @@ Use this task to download or select a version of Python to run on an agent, and 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Use Python version v0
@@ -53,27 +55,13 @@ Use this task to download or select a version of Python to run on an agent, and 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Use Python Version v0
-# Retrieves the specified version of Python from the tool cache. Optionally add it to PATH.
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x' # string. Required. Version spec. Default: 3.x.
-    #addToPath: true # boolean. Add to PATH. Default: true.
-  # Advanced
-    architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: x64.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="versionSpec"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **Version spec**<br>
 `string`. Required. Default value: `3.x`.<br>
@@ -121,7 +109,7 @@ Specifies the GitHub token that enforces the anonymous requests limit in the [Gi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addToPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`addToPath`** - **Add to PATH**<br>
 `boolean`. Default value: `true`.<br>
@@ -133,7 +121,7 @@ Prepends the retrieved Python version to the PATH environment variable to make i
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="architecture"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`architecture`** - **Architecture**<br>
 `string`. Required. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
@@ -153,7 +141,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -182,7 +170,7 @@ This task will fail if no Python versions are found in `Agent.ToolsDirectory`. A
 > [!Note]
 > x86 and x64 versions of Python are available on Microsoft-hosted Windows agents, but not on Linux or macOS agents.
 
-::: moniker range="> azure-pipelines-2019"
+::: moniker range="<=azure-pipelines"
 
 As of version 0.150 of the task, version spec will also accept `pypy2` or `pypy3`.
 
@@ -254,7 +242,7 @@ Also note that the embeddable ZIP release of Python requires [extra configuratio
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -269,20 +257,6 @@ Also note that the embeddable ZIP release of Python requires [extra configuratio
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

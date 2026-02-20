@@ -1,14 +1,14 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 08/19/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish a local directory or file as a named artifact for the current pipeline.
@@ -18,7 +18,19 @@ There is a newer version of this task. For more information, see [PublishPipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
+:::moniker range="=azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to publish a local directory or file as a named artifact for the current pipeline.
+
+There is a newer version of this task. For more information, see [PublishPipelineArtifact@1](./publish-pipeline-artifact-v1.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish a local directory or file as a named artifact for the current pipeline.
@@ -35,7 +47,7 @@ Use this task to publish a local directory or file as a named artifact for the c
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish Pipeline Artifacts v0
@@ -49,38 +61,13 @@ Use this task to publish a local directory or file as a named artifact for the c
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-# Publish Pipeline Artifacts v0
-# Publish a local directory or file as a named artifact for the current pipeline.
-- task: PublishPipelineArtifact@0
-  inputs:
-    artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
-    targetPath: # string. Required. Path to publish.
-```
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# Publish Pipeline Artifacts v0
-# Publish Pipeline Artifact.
-- task: PublishPipelineArtifact@0
-  inputs:
-    artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
-    targetPath: # string. Required. Path to publish.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="artifactName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`artifactName`** - **The name of this artifact**<br>
 `string`. Required. Default value: `drop`.<br>
@@ -92,7 +79,7 @@ Specifies the name of the artifact.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targetPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`targetPath`** - **Path to publish**<br>
 `string`. Required.<br>
@@ -104,7 +91,7 @@ Specifies the folder or file path to publish. This can be a fully qualified path
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="properties"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`properties`** - **Custom properties**<br>
 `string`.<br>
@@ -125,7 +112,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -168,7 +155,7 @@ There is a newer version of this task. For more information, see [PublishPipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -183,35 +170,6 @@ There is a newer version of this task. For more information, see [PublishPipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.155.1 or greater |
-| Task category | Utility |
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.140.1 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

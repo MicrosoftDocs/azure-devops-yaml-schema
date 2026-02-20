@@ -1,8 +1,8 @@
 ---
 title: AzureCLI@0 - Azure CLI Preview v0 task
 description: Run a Shell or Batch script with Azure CLI commands against an azure subscription.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureCLI@0 - Azure CLI Preview v0 task
@@ -20,7 +20,7 @@ Run a shell or batch script with Azure CLI commands against an Azure subscriptio
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure CLI Preview v0
@@ -40,7 +40,6 @@ Run a shell or batch script with Azure CLI commands against an Azure subscriptio
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

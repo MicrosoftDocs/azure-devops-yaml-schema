@@ -1,8 +1,10 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # JenkinsQueueJob@2 - Jenkins queue job v2 task
@@ -20,7 +22,7 @@ Use this task to queue a job on a Jenkins server.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Jenkins queue job v2
@@ -43,54 +45,13 @@ Use this task to queue a job on a Jenkins server.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-```yaml
-# Jenkins queue job v2
-# Queue a job on a Jenkins server.
-- task: JenkinsQueueJob@2
-  inputs:
-    serverEndpoint: # string. Required. Jenkins service connection. 
-    jobName: # string. Required. Job name. 
-    #isMultibranchJob: false # boolean. Job is of multibranch pipeline type. Default: false.
-    #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch pipeline branch. 
-    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
-    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
-  # Advanced
-    #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
-    #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Jenkins Queue Job v2
-# Queue a job on a Jenkins server.
-- task: JenkinsQueueJob@2
-  inputs:
-    serverEndpoint: # string. Required. Jenkins service connection. 
-    jobName: # string. Required. Job name. 
-    #isMultibranchJob: false # boolean. Job is of multibranch pipeline type. Default: false.
-    #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch pipeline branch. 
-    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
-    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
-  # Advanced
-    #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
-    #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="serverEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **Jenkins service connection**<br>
 `string`. Required.<br>
@@ -165,7 +126,7 @@ If specified, this task captures the full Jenkins build pipeline console output,
 :::moniker range="<=azure-pipelines"
 
 **`isParameterizedJob`** - **Parameterized job**<br>
-Input alias: `parameterizedJob`. `boolean`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `parameterizedJob`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies if the Jenkins job accepts parameters. Use this input even if all default parameter values are used and no parameters are actually specified.
 <!-- :::editable-content-end::: -->
@@ -197,7 +158,7 @@ The supported Jenkins parameter types are:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnUnstableResult"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`failOnUnstableResult`** - **Fail on unstable result**<br>
 `boolean`. Default value: `false`.<br>
@@ -209,7 +170,7 @@ Specifies strictness of a success definition, or whether to consider unstable as
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCount"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCount`** - **Number of retries for failed connection**<br>
 `string`. Default value: `3`.<br>
@@ -221,7 +182,7 @@ Specifies the amount of connection retries when connection failure or error occu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenRetries"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`delayBetweenRetries`** - **Time between retries**<br>
 `string`. Default value: `60`.<br>
@@ -299,7 +260,7 @@ Results will be downloaded to the **$(Build.StagingDirectory)/jenkinsResults/Job
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

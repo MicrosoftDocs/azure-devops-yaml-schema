@@ -1,14 +1,14 @@
 ---
 title: GitHubRelease@1 - GitHub Release v1 task
 description: Create, edit, or delete a GitHub release.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # GitHubRelease@1 - GitHub Release v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to create, edit, or delete a GitHub release.
@@ -20,7 +20,40 @@ Use this task to create, edit, or delete a GitHub release.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# GitHub Release v1
+# Create, edit, or delete a GitHub release.
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: # string. Required. GitHub connection (OAuth or PAT). 
+    repositoryName: '$(Build.Repository.Name)' # string. Required. Repository. Default: $(Build.Repository.Name).
+    action: 'create' # 'create' | 'edit' | 'delete'. Required. Action. Default: create.
+    #target: '$(Build.SourceVersion)' # string. Required when action = create || action = edit. Target. Default: $(Build.SourceVersion).
+    tagSource: 'gitTag' # 'gitTag' | 'userSpecifiedTag'. Required when action = create. Tag source. Default: gitTag.
+    #tagPattern: # string. Optional. Use when tagSource = gitTag. Tag Pattern. 
+    #tag: # string. Required when action = edit || action = delete || tagSource = userSpecifiedTag. Tag. 
+    #title: # string. Optional. Use when action = create || action = edit. Release title. 
+    #releaseNotesSource: 'filePath' # 'filePath' | 'inline'. Optional. Use when action = create || action = edit. Release notes source. Default: filePath.
+    #releaseNotesFilePath: # string. Optional. Use when releaseNotesSource = filePath. Release notes file path. 
+    #releaseNotesInline: # string. Optional. Use when releaseNotesSource = inline. Release notes. 
+    #assets: '$(Build.ArtifactStagingDirectory)/*' # string. Optional. Use when action = create || action = edit. Assets. Default: $(Build.ArtifactStagingDirectory)/*.
+    #assetUploadMode: 'delete' # 'delete' | 'replace'. Optional. Use when action = edit. Asset upload mode. Default: delete.
+    #isDraft: false # boolean. Optional. Use when action = create || action = edit. Draft release. Default: false.
+    #isPreRelease: false # boolean. Optional. Use when action = create || action = edit. Pre-release. Default: false.
+    #makeLatest: 'true' # 'true' | 'false' | 'legacy'. Optional. Use when action = create || action = edit. Make Latest. Default: true.
+    #addChangeLog: true # boolean. Optional. Use when action = create || action = edit. Add changelog. Default: true.
+  # Changelog configuration
+    changeLogCompareToRelease: 'lastFullRelease' # 'lastFullRelease' | 'lastNonDraftRelease' | 'lastNonDraftReleaseByTag'. Required when addChangeLog = true. Compare to. Default: lastFullRelease.
+    #changeLogCompareToReleaseTag: # string. Required when changeLogCompareToRelease = lastNonDraftReleaseByTag && addChangeLog = true. Release Tag. 
+    changeLogType: 'commitBased' # 'commitBased' | 'issueBased'. Required when addChangeLog = true. Changelog type. Default: commitBased.
+    #changeLogLabels: '[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]' # string. Optional. Use when changeLogType = issueBased && addChangeLog = true. Categories. Default: [{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }].
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # GitHub Release v1
@@ -57,7 +90,7 @@ Use this task to create, edit, or delete a GitHub release.
 ## Inputs
 
 <!-- :::item name="gitHubConnection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`gitHubConnection`** - **GitHub connection (OAuth or PAT)**<br>
 `string`. Required.<br>
@@ -69,7 +102,7 @@ Specifies the name of the GitHub service connection to use to connect to the Git
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repositoryName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`repositoryName`** - **Repository**<br>
 `string`. Required. Default value: `$(Build.Repository.Name)`.<br>
@@ -81,7 +114,7 @@ Specifies the name of the GitHub repository where you will create, edit, or dele
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="action"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `create`, `edit`, `delete`. Default value: `create`.<br>
@@ -93,7 +126,7 @@ Specifies the type of release operation to perform. This task can create, edit, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`target`** - **Target**<br>
 `string`. Required when `action = create || action = edit`. Default value: `$(Build.SourceVersion)`.<br>
@@ -105,7 +138,7 @@ Specifies the commit SHA or branch name you want to use to create the GitHub rel
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tagSource"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tagSource`** - **Tag source**<br>
 `string`. Required when `action = create`. Allowed values: `gitTag` (Git tag), `userSpecifiedTag` (User specified tag). Default value: `gitTag`.<br>
@@ -117,7 +150,7 @@ Specifies the tag you want to use for release creation. The `gitTag` option auto
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tagPattern"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tagPattern`** - **Tag Pattern**<br>
 `string`. Optional. Use when `tagSource = gitTag`.<br>
@@ -129,7 +162,7 @@ Specifies the Git tag pattern by using regex, for example `release-v1.*`. A GitH
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tag"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tag`** - **Tag**<br>
 `string`. Required when `action = edit || action = delete || tagSource = userSpecifiedTag`.<br>
@@ -141,7 +174,7 @@ Specifies the tag you want to use when you create, edit, or delete a release. Yo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="title"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`title`** - **Release title**<br>
 `string`. Optional. Use when `action = create || action = edit`.<br>
@@ -153,7 +186,7 @@ Specifies the title of the GitHub release. If left empty, the tag will be used a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseNotesSource"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`releaseNotesSource`** - **Release notes source**<br>
 `string`. Optional. Use when `action = create || action = edit`. Allowed values: `filePath` (Release notes file), `inline` (Inline release notes). Default value: `filePath`.<br>
@@ -165,7 +198,7 @@ Specifies the description of the GitHub release. Use the `filePath` (Release not
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseNotesFilePath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`releaseNotesFilePath`** - **Release notes file path**<br>
 `string`. Optional. Use when `releaseNotesSource = filePath`.<br>
@@ -177,7 +210,7 @@ Specifies the file that contains the release notes.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseNotesInline"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`releaseNotesInline`** - **Release notes**<br>
 `string`. Optional. Use when `releaseNotesSource = inline`.<br>
@@ -189,7 +222,7 @@ Specifies the release notes. Markdown is supported.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="assets"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`assets`** - **Assets**<br>
 `string`. Optional. Use when `action = create || action = edit`. Default value: `$(Build.ArtifactStagingDirectory)/*`.<br>
@@ -203,7 +236,7 @@ You can also specify multiple patterns, one per line. By default, all files in t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="assetUploadMode"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`assetUploadMode`** - **Asset upload mode**<br>
 `string`. Optional. Use when `action = edit`. Allowed values: `delete` (Delete exisiting assets), `replace` (Replace existing assets). Default value: `delete`.<br>
@@ -215,7 +248,7 @@ Specifies the asset upload mode you want to use. Use the `delete` (Delete existi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isDraft"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`isDraft`** - **Draft release**<br>
 `boolean`. Optional. Use when `action = create || action = edit`. Default value: `false`.<br>
@@ -227,7 +260,7 @@ Indicates whether the release should be saved as a draft (unpublished). If `fals
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isPreRelease"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`isPreRelease`** - **Pre-release**<br>
 `boolean`. Optional. Use when `action = create || action = edit`. Default value: `false`.<br>
@@ -238,8 +271,20 @@ Indicates whether the release should be marked as a pre-release.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="makeLatest"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`makeLatest`** - **Make Latest**<br>
+`string`. Optional. Use when `action = create || action = edit`. Allowed values: `true`, `false`, `legacy`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify whether to designate this release as the 'latest' release for the repository. Set to 'false' to prevent marking this release as latest, or 'legacy' to use GitHub's legacy latest-release determination based on creation date and semantic versioning.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="addChangeLog"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`addChangeLog`** - **Add changelog**<br>
 `boolean`. Optional. Use when `action = create || action = edit`. Default value: `true`.<br>
@@ -251,7 +296,7 @@ Specifies if you want to include a changelog. If set to `true`, a list of change
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="changeLogCompareToRelease"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`changeLogCompareToRelease`** - **Compare to**<br>
 `string`. Required when `addChangeLog = true`. Allowed values: `lastFullRelease` (Last full release), `lastNonDraftRelease` (Last non-draft release), `lastNonDraftReleaseByTag` (Last non-draft release by tag). Default value: `lastFullRelease`.<br>
@@ -267,7 +312,7 @@ Indicates which release to compare with to generate the changelog:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="changeLogCompareToReleaseTag"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`changeLogCompareToReleaseTag`** - **Release Tag**<br>
 `string`. Required when `changeLogCompareToRelease = lastNonDraftReleaseByTag && addChangeLog = true`.<br>
@@ -279,7 +324,7 @@ Specifies the regex for release tag. Release matching this tag will be used as b
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="changeLogType"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`changeLogType`** - **Changelog type**<br>
 `string`. Required when `addChangeLog = true`. Allowed values: `commitBased` (Commit based), `issueBased` (Issue based). Default value: `commitBased`.<br>
@@ -291,7 +336,7 @@ Specifies the changelog type. A changelog can be commit-based or issue-based. A 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="changeLogLabels"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`changeLogLabels`** - **Categories**<br>
 `string`. Optional. Use when `changeLogType = issueBased && addChangeLog = true`. Default value: `[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]`.<br>
@@ -311,7 +356,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -343,7 +388,7 @@ The following YAML creates a GitHub release every time the task runs. The build 
   inputs:
     gitHubConnection: zenithworks
     repositoryName: zenithworks/javaAppWithMaven
-    tagSource: manual
+    tagSource: gitTag
     tag: $(Build.BuildNumber)      
     assets: |
       $(Build.ArtifactStagingDirectory)/*.exe
@@ -425,7 +470,7 @@ The following YAML create a GitHub release and add inline release notes.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

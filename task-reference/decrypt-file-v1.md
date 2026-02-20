@@ -1,14 +1,14 @@
 ---
 title: DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 description: Decrypt a file using OpenSSL.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to decrypt files using OpenSSL.
@@ -16,19 +16,12 @@ Use this task to decrypt files using OpenSSL.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-A thin utility task for file decryption using OpenSSL.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Decrypt file (OpenSSL) v1
@@ -44,24 +37,6 @@ A thin utility task for file decryption using OpenSSL.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Decrypt File (OpenSSL) v1
-# A thin utility task for file decryption using OpenSSL.
-- task: DecryptFile@1
-  inputs:
-    cipher: 'des3' # string. Required. Cypher. Default: des3.
-    inFile: # string. Required. Encrypted file. 
-    passphrase: # string. Required. Passphrase. 
-    #outFile: # string. Decrypted file path. 
-  # Advanced
-    #workingDirectory: # string. Alias: cwd. Working directory.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -120,7 +95,7 @@ The optional filename for the decrypted file. Defaults to the encrypted file wit
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The optional working directory for decryption. Defaults to the root of the repository.
 <!-- :::editable-content-end::: -->
@@ -160,7 +135,7 @@ Use this task to decrypt files using OpenSSL.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -175,20 +150,6 @@ Use this task to decrypt files using OpenSSL.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

@@ -1,8 +1,10 @@
 ---
 title: AzureFunction@0 - Invoke Azure Function v0 task
 description: Invoke Azure function as a part of your process.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureFunction@0 - Invoke Azure Function v0 task
@@ -20,7 +22,7 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Invoke Azure Function v0
@@ -39,7 +41,6 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

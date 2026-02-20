@@ -1,14 +1,16 @@
 ---
 title: UseRubyVersion@0 - Use Ruby version v0 task
 description: Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # UseRubyVersion@0 - Use Ruby version v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to select a version of Ruby to run on an agent. Optionally, the task can add the Ruby version to PATH.
@@ -20,7 +22,7 @@ Use this task to select a version of Ruby to run on an agent. Optionally, the ta
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Use Ruby version v0
@@ -33,25 +35,13 @@ Use this task to select a version of Ruby to run on an agent. Optionally, the ta
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Use Ruby Version v0
-# Retrieves the specified version of Ruby from the tool cache. Optionally add it to PATH.
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.4' # string. Required. Version spec. Default: >= 2.4.
-    #addToPath: true # boolean. Add to PATH. Default: true.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="versionSpec"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **Version spec**<br>
 `string`. Required. Default value: `>= 2.4`.<br>
@@ -63,7 +53,7 @@ Specifies the version range or a version of a Ruby version to use.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addToPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`addToPath`** - **Add to PATH**<br>
 `boolean`. Default value: `true`.<br>
@@ -83,7 +73,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -126,7 +116,7 @@ You can run this task on a self-hosted agent with your own Ruby versions. To run
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -141,20 +131,6 @@ You can run this task on a self-hosted agent with your own Ruby versions. To run
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.115.0 or greater |
-| Task category | Tool |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

@@ -1,8 +1,8 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InstallSSHKey@0 - Install SSH key v0 task
@@ -20,7 +20,7 @@ Use this task in a pipeline to install an SSH key prior to a build or release st
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Install SSH key v0
@@ -41,62 +41,16 @@ Use this task in a pipeline to install an SSH key prior to a build or release st
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Install SSH key v0
-# Install an SSH key prior to a build or deployment.
-- task: InstallSSHKey@0
-  inputs:
-    knownHostsEntry: # string. Alias: hostName. Required. Known Hosts Entry. 
-    #sshPublicKey: # string. SSH Public Key. 
-    #sshPassphrase: # string. SSH Passphrase. 
-    sshKeySecureFile: # string. Required. SSH Key.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Install SSH key v0
-# Install an SSH key prior to a build or deployment.
-- task: InstallSSHKey@0
-  inputs:
-    knownHostsEntry: # string. Alias: hostName. Required. Known Hosts Entry. 
-    sshPublicKey: # string. Required. SSH Public Key. 
-    #sshPassphrase: # string. SSH Passphrase. 
-    sshKeySecureFile: # string. Required. SSH Key.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Install SSH Key v0
-# Install an SSH key prior to a build or release.
-- task: InstallSSHKey@0
-  inputs:
-    hostName: # string. Required. Known Hosts Entry. 
-    sshPublicKey: # string. Required. SSH Public Key. 
-    #sshPassphrase: # string. SSH Passphrase. 
-    sshKeySecureFile: # string. Required. SSH Key.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="knownHostsEntry"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`knownHostsEntry`** - **Known Hosts Entry**<br>
-Input alias: `hostName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `hostName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the SSH key entry for the known_hosts file.
 <!-- :::editable-content-end::: -->
@@ -105,23 +59,12 @@ Specifies the SSH key entry for the known_hosts file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sshPublicKey"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`sshPublicKey`** - **SSH Public Key**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the contents of the public SSH key.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`sshPublicKey`** - **SSH Public Key**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the public SSH key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +95,7 @@ Specifies the SSH key that was uploaded to `Secure Files` to install on the agen
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addEntryToConfig"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`addEntryToConfig`** - **Add entry to SSH config**<br>
 `boolean`. Default value: `false`.<br>
@@ -164,7 +107,7 @@ Optional. Adds an entry related to the key that was installed to the SSH config 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configHostAlias"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`configHostAlias`** - **Alias**<br>
 `string`. Required when `addEntryToConfig = true`.<br>
@@ -176,7 +119,7 @@ Specifies the name of the SSH config entry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configHostname"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`configHostname`** - **Host name**<br>
 `string`. Required when `addEntryToConfig = true`.<br>
@@ -188,7 +131,7 @@ Specifies the host name property of SSH config entry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configUser"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`configUser`** - **User**<br>
 `string`. Optional. Use when `addEntryToConfig = true`.<br>
@@ -200,24 +143,12 @@ Specifies the user name property of the SSH config entry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configPort"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`configPort`** - **Port**<br>
 `string`. Optional. Use when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the port of the SSH config entry.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="hostName"::: -->
-:::moniker range="=azure-pipelines-2019"
-
-**`hostName`** - **Known Hosts Entry**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SSH key entry for the known_hosts file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -404,7 +335,7 @@ The SSH keys are now installed, and you can proceed with the script to connect b
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -419,20 +350,6 @@ The SSH keys are now installed, and you can proceed with the script to connect b
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.117.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

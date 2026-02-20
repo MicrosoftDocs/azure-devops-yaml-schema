@@ -1,8 +1,10 @@
 ---
 title: AzureWebPowerShellDeployment@1 - Azure App Service Classic (Deprecated) v1 task
 description: Create or update Azure App Service using Azure PowerShell.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureWebPowerShellDeployment@1 - Azure App Service Classic (Deprecated) v1 task
@@ -24,7 +26,7 @@ This task is deprecated.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure App Service Classic (Deprecated) v1
@@ -41,7 +43,6 @@ This task is deprecated.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

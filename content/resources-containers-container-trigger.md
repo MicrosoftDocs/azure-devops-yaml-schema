@@ -1,14 +1,16 @@
 ---
 title: resources.containers.container.trigger definition
 description: Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/23/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.containers.container.trigger definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Specifies the trigger conditions for a container resource.
@@ -18,7 +20,7 @@ Specifies the trigger conditions for a container resource.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.containers.container](resources-containers-container.md)
 
@@ -28,7 +30,7 @@ Definitions that reference this definition: [resources.containers.container](res
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -55,7 +57,7 @@ Specify none to disable, true to trigger on all image tags, or use the full synt
 <!-- :::implementation-item name="trigger: object properties"::: -->
 <a name="triggerobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: enabled, tags
@@ -124,7 +126,7 @@ resources:
 <!-- :::implementation-item name="trigger: string"::: -->
 <a name="triggerstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: none | true

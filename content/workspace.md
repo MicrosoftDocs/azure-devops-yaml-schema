@@ -1,8 +1,10 @@
 ---
 title: workspace definition
 description: Workspace options on the agent.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # workspace definition
@@ -18,61 +20,39 @@ Workspace options on the agent.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 workspace:
-  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # What to clean up before the job runs.
 ```
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-workspace:
-  clean: outputs | resources | all # Scorch the repo before fetching?
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
+> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
 
 Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-> [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
-
-Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## Properties
 
 <!-- :::properties::: -->
 <!-- :::item name="clean"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Which parts of the workspace should be scorched before fetching. outputs | resources | all.
-<!-- :::editable-content-end::: -->
+Which parts of the workspace should be cleaned before the run. Valid values are `outputs`, `resources`, or `all`.
 
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Scorch the repo before fetching? outputs | resources | all.
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

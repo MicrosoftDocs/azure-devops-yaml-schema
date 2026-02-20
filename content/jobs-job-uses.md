@@ -1,24 +1,26 @@
 ---
 title: jobs.job.uses definition
 description: Any resources required by this job that are not already referenced.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020.1"
+ms.date: 01/27/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # jobs.job.uses definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Any resources required by this job that are not already referenced.
+Specifies resources required by a job that are not already referenced elsewhere in the pipeline, for example by a [checkout](./steps-checkout.md) step or a [repository resource](./resources-repositories-repository.md). For more information about `uses`, see [Limit job authorization scope](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope) and ["uses" statement for pre-declaring resources](/azure/devops/release-notes/2021/sprint-181-update#uses-statement-for-pre-declaring-resources).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 uses:
@@ -30,7 +32,7 @@ uses:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
@@ -41,19 +43,19 @@ Definitions that reference this definition: [jobs.job](jobs-job.md), [jobs.deplo
 
 <!-- :::properties::: -->
 <!-- :::item name="repositories"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`repositories`** string list.<br><!-- :::editable-content name="propDescription"::: -->
-Repository references.
+Specifies Azure Repos repositories required by a job that are not already referenced elsewhere in the pipeline, for example by a [checkout](./steps-checkout.md) step or a [repository resource](./resources-repositories-repository.md). For more information, see [Limit job authorization scope](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope) and ["uses" statement for pre-declaring resources](/azure/devops/release-notes/2021/sprint-181-update#uses-statement-for-pre-declaring-resources).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pools"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`pools`** string list.<br><!-- :::editable-content name="propDescription"::: -->
-Pool references.
+Specifies pools required by this job, typically when using a [matrix](./jobs-job-strategy.md#strategy-matrix-maxparallel) job strategy. For more information, see ["uses" statement for pre-declaring resources](/azure/devops/release-notes/2021/sprint-181-update#uses-statement-for-pre-declaring-resources).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

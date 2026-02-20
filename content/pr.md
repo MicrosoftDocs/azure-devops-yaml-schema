@@ -1,8 +1,10 @@
 ---
 title: pr definition
 description: Pull request trigger.
-ms.date: 11/20/2024
+ms.date: 01/23/2026
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # pr definition
@@ -28,7 +30,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -38,25 +40,6 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-| Implementation | Description |
-|---|---|
-| [pr: none](#prstring) | Disable pull request triggers. |
-| [pr: string list](#prstringlist) | List of branches that trigger a run. |
-| [pr: autoCancel, branches, paths](#probjectproperties) | Full syntax for complete control. |
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-| Implementation | Description |
-|---|---|
-| [pr: none](#prstring) | Disable pull request triggers. |
-| [pr: string list](#prstringlist) | List of branches that trigger a run. |
-| [pr: branches, paths](#probjectproperties) | Full syntax for complete control. |
-
-:::moniker-end
 <!-- :::implementations-list-end::: -->
 
 <!-- :::remarks::: -->
@@ -65,9 +48,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 If you specify no pull request trigger, pull requests to any branch trigger a build.
 
-
 There are three distinct syntax options for the `pr` keyword: a list of branches to include, a way to disable PR triggers, and the full syntax for complete control.
-
 
 ::: moniker range="azure-pipelines"
 
@@ -77,26 +58,9 @@ There are three distinct syntax options for the `pr` keyword: a list of branches
 
 ::: moniker-end
 
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-> [!IMPORTANT]
-> YAML PR triggers are supported only in GitHub.
-> If you use Azure Repos Git, you can configure a [branch policy for build validation](/azure/devops/repos/git/branch-policies#build-validation) to trigger your build pipeline for validation.
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 If you specify an `exclude` clause without an `include` clause for `branches` or `paths`, it is equivalent to specifying `*` in the `include` clause.
-
-::: moniker-end
-
-::: moniker range="<= azure-pipelines-2019.1"
-
-> [!IMPORTANT]
-> When you specify a pull request trigger, only branches that you explicitly configure for inclusion trigger a pipeline.
-> Inclusions are processed first, and then exclusions are removed from that list.
-> If you specify an exclusion but no inclusions, nothing triggers.
 
 ::: moniker-end
 <!-- :::editable-content-end::: -->
@@ -213,7 +177,7 @@ pr:
 <!-- :::implementation-item name="pr: object properties"::: -->
 <a name="probjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## pr: autoCancel, branches, paths, drafts
@@ -266,93 +230,6 @@ Whether to start a run when a draft PR is created. Default: true.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-<!-- :::implementation-signature::: -->
-## pr: autoCancel, branches, paths
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Full syntax for complete control.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch. Default: true.
-  branches: # Branch names to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-  paths: # File paths to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="autoCancel"::: -->
-**`autoCancel`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Whether to cancel running PR builds when a new commit lands in the branch. Default: true.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-Branch names to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-File paths to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::implementation-signature::: -->
-## pr: branches, paths
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Full syntax for complete control.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-pr:
-  branches: # Branch names to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-  paths: # File paths to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-Branch names to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-File paths to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
 <!-- :::objectAnyOf-end::: -->
 
 <!-- :::remarks::: -->

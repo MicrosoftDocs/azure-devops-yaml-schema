@@ -1,14 +1,14 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy an Azure Resource Manager (ARM) template to all deployment scopes.
@@ -36,10 +36,10 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
     #location: # string. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Location. 
   # Template
     #templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Template location. Default: Linked artifact.
-    #csmFileLink: # string. Required when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template link. 
-    #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters link. 
-    #csmFile: # string. Required when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template. 
-    #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters. 
+    #csmFileLink: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template link. 
+    #csmParametersFileLink: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template parameters link. 
+    #csmFile: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template. 
+    #csmParametersFile: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template parameters. 
     #overrideParameters: # string. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Override template parameters. 
     #deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Deployment mode. Default: Incremental.
   # Advanced
@@ -51,7 +51,7 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # ARM template deployment v3
@@ -67,10 +67,10 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
     #location: # string. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Location. 
   # Template
     #templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Template location. Default: Linked artifact.
-    #csmFileLink: # string. Required when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template link. 
-    #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters link. 
-    #csmFile: # string. Required when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template. 
-    #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters. 
+    #csmFileLink: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template link. 
+    #csmParametersFileLink: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template parameters link. 
+    #csmFile: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template. 
+    #csmParametersFile: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template parameters. 
     #overrideParameters: # string. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Override template parameters. 
     #deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Deployment mode. Default: Incremental.
   # Advanced
@@ -86,7 +86,7 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 ## Inputs
 
 <!-- :::item name="deploymentScope"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentScope`** - **Deployment scope**<br>
 `string`. Required. Allowed values: `Management Group`, `Subscription`, `Resource Group`. Default value: `Resource Group`.<br>
@@ -98,10 +98,10 @@ The scope of the deployment. Learn more about [deployment scopes](/Azure/azure-r
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceManagerConnection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`azureResourceManagerConnection`** - **Azure Resource Manager connection**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager service connection with access to the selected deployment scope.
 <!-- :::editable-content-end::: -->
@@ -110,10 +110,10 @@ Specifies the Azure Resource Manager service connection with access to the selec
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="subscriptionId"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`subscriptionId`** - **Subscription**<br>
-Input alias: `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure subscription.
 
@@ -125,7 +125,7 @@ Specifies the Azure subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="action"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
 `string`. Required when `deploymentScope = Resource Group`. Allowed values: `Create Or Update Resource Group`, `DeleteRG` (Delete resource group). Default value: `Create Or Update Resource Group`.<br>
@@ -137,7 +137,7 @@ The action to be performed on the Azure resources or resource group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deploymentScope = Resource Group`.<br>
@@ -149,7 +149,7 @@ Provides the name of a resource group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="location"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`location`** - **Location**<br>
 `string`. Required when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -162,7 +162,7 @@ Other deployment scopes: The location to store deployment metadata.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateLocation"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`templateLocation`** - **Template location**<br>
 `string`. Required when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Allowed values: `Linked artifact`, `URL of the file`. Default value: `Linked artifact`.<br>
@@ -174,10 +174,10 @@ The location of the Template and the Parameters JSON files. Choose **Linked arti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmFileLink"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmFileLink`** - **Template link**<br>
-`string`. Required when `templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Required when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the URL of the template file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json`
 
@@ -190,10 +190,10 @@ To  view the template parameters in a grid, click on `...` next to the override 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmParametersFileLink"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmParametersFileLink`** - **Template parameters link**<br>
-`string`. Optional. Use when `templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Optional. Use when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
 
@@ -206,10 +206,10 @@ To  view the template parameters in a grid, click on `...` next to Override temp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmFile`** - **Template**<br>
-`string`. Required when `templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Required when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).  Supports Bicep files when the Azure CLI version > 2.20.0.
 <!-- :::editable-content-end::: -->
@@ -218,10 +218,10 @@ Specifies the path or a pattern pointing to the Azure Resource Manager template.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmParametersFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmParametersFile`** - **Template parameters**<br>
-`string`. Optional. Use when `templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Optional. Use when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template. Supports [Bicep Param](/azure/azure-resource-manager/bicep/parameter-files?tabs=Bicep) files when the Azure CLI version > 2.47.0.
 <!-- :::editable-content-end::: -->
@@ -230,7 +230,7 @@ Specify the path or a pattern pointing for the parameters file for the Azure Res
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideParameters"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`overrideParameters`** - **Override template parameters**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -243,15 +243,15 @@ Example: `-storageName fabrikam -adminUsername $(vmusername) -adminPassword (Con
 
 If the parameter value has multiple words, enclose the words in quotes, even if you're passing the value by using variables.
 For example, `-name "parameter value" -name2 "$(var)"`.
-To override object type parameters, use stringified JSON objects.
-For example, `-options ["option1"] -map {"key1": "value1" }`.
+
+If the parameter you're overriding is an object, you can provide a value using a single line stringified JSON object. For example, to override a parameter named `settings` that has two properties, you can use the following format: `-settings "{\"key1\": \"value1\", \"key2\": \"value2\"}"`.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMode"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentMode`** - **Deployment mode**<br>
 `string`. Required when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Allowed values: `Incremental`, `Complete`, `Validation` (Validation only). Default value: `Incremental`.<br>
@@ -273,7 +273,7 @@ Learn more about [deployment modes](/azure/azure-resource-manager/deployment-mod
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentName`** - **Deployment name**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -285,7 +285,7 @@ Specifies the name of the resource group deployment to create.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentOutputs"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentOutputs`** - **Deployment outputs**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -297,7 +297,7 @@ Provides a name for the variable for the output variable, which contains the out
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addSpnToEnvironment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`addSpnToEnvironment`** - **Access service principal details in override parameters**<br>
 `boolean`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Default value: `false`.<br>
@@ -329,7 +329,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -356,7 +356,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

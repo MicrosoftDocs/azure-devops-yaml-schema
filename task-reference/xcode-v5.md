@@ -1,14 +1,14 @@
 ---
 title: Xcode@5 - Xcode v5 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Xcode@5 - Xcode v5 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build, test, or archive an Xcode workspace on macOS, and optionally package an app.
@@ -20,7 +20,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xcode v5
@@ -66,190 +66,13 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# Xcode v5
-# Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-- task: Xcode@5
-  inputs:
-    actions: 'build' # string. Required. Actions. Default: build.
-    #configuration: '$(Configuration)' # string. Configuration. Default: $(Configuration).
-    #sdk: '$(SDK)' # string. SDK. Default: $(SDK).
-    #xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace' # string. Workspace or project path. Default: **/*.xcodeproj/project.xcworkspace.
-    #scheme: # string. Scheme. 
-    #xcodeVersion: 'default' # '8' | '9' | '10' | '11' | 'default' | 'specifyPath'. Xcode version. Default: default.
-    #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
-  # Package options
-    #packageApp: false # boolean. Create app package. Default: false.
-    #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
-    #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
-    #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
-    #exportMethod: 'development' # string. Required when exportOptions == specify. Export method. Default: development.
-    #exportTeamId: # string. Optional. Use when exportOptions == specify. Team ID. 
-    #exportOptionsPlist: # string. Required when exportOptions == plist. Export options plist. 
-    #exportArgs: # string. Optional. Use when packageApp == true. Export arguments. 
-  # Signing & provisioning
-    #signingOption: 'nosign' # 'nosign' | 'default' | 'manual' | 'auto'. Signing style. Default: nosign.
-    #signingIdentity: # string. Optional. Use when signingOption = manual. Signing identity. 
-    #provisioningProfileUuid: # string. Optional. Use when signingOption = manual. Provisioning profile UUID. 
-    #provisioningProfileName: # string. Optional. Use when signingOption = manual. Provisioning profile name. 
-    #teamId: # string. Optional. Use when signingOption = auto. Team ID. 
-  # Devices & simulators
-    #destinationPlatformOption: 'default' # 'default' | 'iOS' | 'tvOS' | 'macOS' | 'custom'. Destination platform. Default: default.
-    #destinationPlatform: # string. Optional. Use when destinationPlatformOption == custom. Custom destination platform. 
-    #destinationTypeOption: 'simulators' # 'simulators' | 'devices'. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS. Destination type. Default: simulators.
-    #destinationSimulators: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators. Simulator. 
-    #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
-  # Advanced
-    #args: # string. Arguments. 
-    #workingDirectory: # string. Alias: cwd. Working directory. 
-    #useXcpretty: true # boolean. Use xcpretty. Default: true.
-    #xcprettyArgs: # string. Optional. Use when useXcpretty == true. Xcpretty arguments. 
-    #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines. Default: false.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults == true. Test run title.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Xcode v5
-# Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-- task: Xcode@5
-  inputs:
-    actions: 'build' # string. Required. Actions. Default: build.
-    #configuration: '$(Configuration)' # string. Configuration. Default: $(Configuration).
-    #sdk: '$(SDK)' # string. SDK. Default: $(SDK).
-    #xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace' # string. Workspace or project path. Default: **/*.xcodeproj/project.xcworkspace.
-    #scheme: # string. Scheme. 
-    #xcodeVersion: 'default' # '8' | '9' | '10' | '11' | 'default' | 'specifyPath'. Xcode version. Default: default.
-    #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
-  # Package options
-    #packageApp: false # boolean. Create app package. Default: false.
-    #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
-    #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
-    #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
-    #exportMethod: 'development' # string. Required when exportOptions == specify. Export method. Default: development.
-    #exportTeamId: # string. Optional. Use when exportOptions == specify. Team ID. 
-    #exportOptionsPlist: # string. Required when exportOptions == plist. Export options plist. 
-    #exportArgs: # string. Optional. Use when packageApp == true. Export arguments. 
-  # Signing & provisioning
-    #signingOption: 'nosign' # 'nosign' | 'default' | 'manual' | 'auto'. Signing style. Default: nosign.
-    #signingIdentity: # string. Optional. Use when signingOption = manual. Signing identity. 
-    #provisioningProfileUuid: # string. Optional. Use when signingOption = manual. Provisioning profile UUID. 
-    #provisioningProfileName: # string. Optional. Use when signingOption = manual. Provisioning profile name. 
-    #teamId: # string. Optional. Use when signingOption = auto. Team ID. 
-  # Devices & simulators
-    #destinationPlatformOption: 'default' # 'default' | 'iOS' | 'tvOS' | 'macOS' | 'custom'. Destination platform. Default: default.
-    #destinationPlatform: # string. Optional. Use when destinationPlatformOption == custom. Custom destination platform. 
-    #destinationTypeOption: 'simulators' # 'simulators' | 'devices'. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS. Destination type. Default: simulators.
-    #destinationSimulators: 'iPhone 7' # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators. Simulator. Default: iPhone 7.
-    #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
-  # Advanced
-    #args: # string. Arguments. 
-    #workingDirectory: # string. Alias: cwd. Working directory. 
-    #useXcpretty: true # boolean. Use xcpretty. Default: true.
-    #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Xcode v5
-# Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-- task: Xcode@5
-  inputs:
-    actions: 'build' # string. Required. Actions. Default: build.
-    #configuration: '$(Configuration)' # string. Configuration. Default: $(Configuration).
-    #sdk: '$(SDK)' # string. SDK. Default: $(SDK).
-    #xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace' # string. Workspace or project path. Default: **/*.xcodeproj/project.xcworkspace.
-    #scheme: # string. Scheme. 
-    #xcodeVersion: 'default' # '8' | '9' | '10' | 'default' | 'specifyPath'. Xcode version. Default: default.
-    #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
-  # Package options
-    #packageApp: false # boolean. Create app package. Default: false.
-    #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
-    #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
-    #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
-    #exportMethod: 'development' # string. Required when exportOptions == specify. Export method. Default: development.
-    #exportTeamId: # string. Optional. Use when exportOptions == specify. Team ID. 
-    #exportOptionsPlist: # string. Required when exportOptions == plist. Export options plist. 
-    #exportArgs: # string. Optional. Use when packageApp == true. Export arguments. 
-  # Signing & provisioning
-    #signingOption: 'nosign' # 'nosign' | 'default' | 'manual' | 'auto'. Signing style. Default: nosign.
-    #signingIdentity: # string. Optional. Use when signingOption = manual. Signing identity. 
-    #provisioningProfileUuid: # string. Optional. Use when signingOption = manual. Provisioning profile UUID. 
-    #provisioningProfileName: # string. Optional. Use when signingOption = manual. Provisioning profile name. 
-    #teamId: # string. Optional. Use when signingOption = auto. Team ID. 
-  # Devices & simulators
-    #destinationPlatformOption: 'default' # 'default' | 'iOS' | 'tvOS' | 'macOS' | 'custom'. Destination platform. Default: default.
-    #destinationPlatform: # string. Optional. Use when destinationPlatformOption == custom. Custom destination platform. 
-    #destinationTypeOption: 'simulators' # 'simulators' | 'devices'. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS. Destination type. Default: simulators.
-    #destinationSimulators: 'iPhone 7' # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators. Simulator. Default: iPhone 7.
-    #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
-  # Advanced
-    #args: # string. Arguments. 
-    #workingDirectory: # string. Alias: cwd. Working directory. 
-    #useXcpretty: true # boolean. Use xcpretty. Default: true.
-    #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Xcode v5
-# Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-- task: Xcode@5
-  inputs:
-    actions: 'build' # string. Required. Actions. Default: build.
-    #configuration: '$(Configuration)' # string. Configuration. Default: $(Configuration).
-    #sdk: '$(SDK)' # string. SDK. Default: $(SDK).
-    #xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace' # string. Workspace or project path. Default: **/*.xcodeproj/project.xcworkspace.
-    #scheme: # string. Scheme. 
-    #xcodeVersion: 'default' # '8' | '9' | '10' | 'default' | 'specifyPath'. Xcode version. Default: default.
-    #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
-  # Package options
-    #packageApp: false # boolean. Create app package. Default: false.
-    #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
-    #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
-    #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
-    #exportMethod: 'development' # string. Required when exportOptions == specify. Export method. Default: development.
-    #exportTeamId: # string. Optional. Use when exportOptions == specify. Team ID. 
-    #exportOptionsPlist: # string. Required when exportOptions == plist. Export options plist. 
-    #exportArgs: # string. Optional. Use when packageApp == true. Export arguments. 
-  # Signing & provisioning
-    #signingOption: 'nosign' # 'nosign' | 'default' | 'manual' | 'auto'. Signing style. Default: nosign.
-    #signingIdentity: # string. Optional. Use when signingOption = manual. Signing identity. 
-    #provisioningProfileUuid: # string. Optional. Use when signingOption = manual. Provisioning profile UUID. 
-    #provisioningProfileName: # string. Optional. Use when signingOption = manual. Provisioning profile name. 
-    #teamId: # string. Optional. Use when signingOption = auto. Team ID. 
-  # Devices & simulators
-    #destinationPlatformOption: 'default' # 'default' | 'iOS' | 'tvOS' | 'macOS' | 'custom'. Destination platform. Default: default.
-    #destinationPlatform: # string. Optional. Use when destinationPlatformOption == custom. Custom destination platform. 
-    #destinationTypeOption: 'simulators' # 'simulators' | 'devices'. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS. Destination type. Default: simulators.
-    #destinationSimulators: 'iPhone 7' # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators. Simulator. Default: iPhone 7.
-    #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
-  # Advanced
-    #args: # string. Arguments. 
-    #workingDirectory: # string. Alias: cwd. Working directory. 
-    #useXcpretty: true # boolean. Use xcpretty. Default: true.
-    #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines/TFS. Default: false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="actions"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`actions`** - **Actions**<br>
 `string`. Required. Default value: `build`.<br>
@@ -261,7 +84,7 @@ Specifies a space-delimited list of actions. Some valid options are `build`, `cl
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration**<br>
 `string`. Default value: `$(Configuration)`.<br>
@@ -273,7 +96,7 @@ Specifies the Xcode project or workspace configuration to build. When using a va
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sdk"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`sdk`** - **SDK**<br>
 `string`. Default value: `$(SDK)`.<br>
@@ -285,7 +108,7 @@ Specifies an SDK to use when building the Xcode project or workspace. From the m
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xcWorkspacePath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`xcWorkspacePath`** - **Workspace or project path**<br>
 `string`. Default value: `**/*.xcodeproj/project.xcworkspace`.<br>
@@ -297,7 +120,7 @@ Optional. Specifies a relative path from the root of the repository to the Xcode
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="scheme"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`scheme`** - **Scheme**<br>
 `string`.<br>
@@ -309,7 +132,7 @@ Optional. Specifies an Xcode scheme name. *Must be a shared scheme* (shared chec
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xcodeVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`xcodeVersion`** - **Xcode version**<br>
 `string`. Allowed values: `8` (Xcode 8), `9` (Xcode 9), `10` (Xcode 10), `11` (Xcode 11), `12` (Xcode 12), `13` (Xcode 13), `default`, `specifyPath` (Specify path). Default value: `default`.<br>
@@ -319,31 +142,9 @@ Specifies the target version of Xcode. Select `Default` to use the default versi
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-**`xcodeVersion`** - **Xcode version**<br>
-`string`. Allowed values: `8` (Xcode 8), `9` (Xcode 9), `10` (Xcode 10), `11` (Xcode 11), `default`, `specifyPath` (Specify path). Default value: `default`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Specifying a version number (for example, `Xcode 9`) relies on the version's location to be set by environment variables on the agent machine (for example, `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`xcodeVersion`** - **Xcode version**<br>
-`string`. Allowed values: `8` (Xcode 8), `9` (Xcode 9), `10` (Xcode 10), `default`, `specifyPath` (Specify path). Default value: `default`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Specifying a version number (for example, `Xcode 9`) relies on the version's location to be set by environment variables on the agent machine (for example, `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xcodeDeveloperDir"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`xcodeDeveloperDir`** - **Xcode developer path**<br>
 `string`. Optional. Use when `xcodeVersion == specifyPath`.<br>
@@ -355,7 +156,7 @@ Specifies a path to a specific Xcode developer directory (for example, `/Applica
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packageApp"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packageApp`** - **Create app package**<br>
 `boolean`. Default value: `false`.<br>
@@ -367,7 +168,7 @@ Specifies whether an IPA app package file is generated as a part of the build.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="archivePath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`archivePath`** - **Archive path**<br>
 `string`. Optional. Use when `packageApp == true`.<br>
@@ -379,7 +180,7 @@ Specifies a directory where created archives are placed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="exportPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`exportPath`** - **Export path**<br>
 `string`. Optional. Use when `packageApp == true`. Default value: `output/$(SDK)/$(Configuration)`.<br>
@@ -391,7 +192,7 @@ Specifies the destination for the product exported from the archive.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="exportOptions"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`exportOptions`** - **Export options**<br>
 `string`. Optional. Use when `packageApp == true`. Allowed values: `auto` (Automatic), `plist`, `specify`. Default value: `auto`.<br>
@@ -403,7 +204,7 @@ Specifies options for exporting the archive. When the default value of `Automati
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="exportMethod"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`exportMethod`** - **Export method**<br>
 `string`. Required when `exportOptions == specify`. Default value: `development`.<br>
@@ -415,7 +216,7 @@ Specifies the method that Xcode uses to export the archive. For example: `app-st
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="exportTeamId"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`exportTeamId`** - **Team ID**<br>
 `string`. Optional. Use when `exportOptions == specify`.<br>
@@ -427,7 +228,7 @@ Specifies the Apple Developer Portal 10-character team ID to use during the expo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="exportOptionsPlist"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`exportOptionsPlist`** - **Export options plist**<br>
 `string`. Required when `exportOptions == plist`.<br>
@@ -439,7 +240,7 @@ Specifies the path to the plist file that contains options to use during the exp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="exportArgs"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`exportArgs`** - **Export arguments**<br>
 `string`. Optional. Use when `packageApp == true`.<br>
@@ -451,7 +252,7 @@ Specifies additional command line arguments used during the export.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signingOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`signingOption`** - **Signing style**<br>
 `string`. Allowed values: `nosign` (Do not code sign), `default` (Project defaults), `manual` (Manual signing), `auto` (Automatic signing). Default value: `nosign`.<br>
@@ -463,7 +264,7 @@ Specifies the method of signing the build. Select `Do not code sign` to disable 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signingIdentity"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`signingIdentity`** - **Signing identity**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
@@ -475,7 +276,7 @@ Specifies a signing identity override with which to sign the build. Unlocking th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="provisioningProfileUuid"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`provisioningProfileUuid`** - **Provisioning profile UUID**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
@@ -487,7 +288,7 @@ Specifies the UUID of an installed provisioning profile used for the build. Use 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="provisioningProfileName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`provisioningProfileName`** - **Provisioning profile name**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
@@ -499,7 +300,7 @@ Specifies the name of an installed provisioning profile used for the build. If s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="teamId"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`teamId`** - **Team ID**<br>
 `string`. Optional. Use when `signingOption = auto`.<br>
@@ -511,7 +312,7 @@ Specifies the name of an installed provisioning profile used for the build. If s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destinationPlatformOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`destinationPlatformOption`** - **Destination platform**<br>
 `string`. Allowed values: `default`, `iOS` (iOS and watchOS), `tvOS`, `macOS`, `custom`. Default value: `default`.<br>
@@ -523,7 +324,7 @@ Specifies the destination device's platform used for UI testing when the generic
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destinationPlatform"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`destinationPlatform`** - **Custom destination platform**<br>
 `string`. Optional. Use when `destinationPlatformOption == custom`.<br>
@@ -535,7 +336,7 @@ Specifies a destination device's platform used for UI testing when the generic b
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destinationTypeOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`destinationTypeOption`** - **Destination type**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS`. Allowed values: `simulators` (Simulator), `devices` (Connected Device). Default value: `simulators`.<br>
@@ -547,7 +348,7 @@ Specifies the destination type to use for UI testing. Devices must be connected 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destinationSimulators"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`destinationSimulators`** - **Simulator**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators`.<br>
@@ -557,20 +358,9 @@ Specifies an Xcode simulator name used for UI testing. For example, `iPhone X` (
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
-
-**`destinationSimulators`** - **Simulator**<br>
-`string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators`. Default value: `iPhone 7`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Xcode simulator name used for UI testing. For example, `iPhone X` (iOS and watchOS) or `Apple TV 4K` (tvOS). An optional target OS version can be specified in the format `OS=<versionNumber>`, such as `iPhone X,OS=11.1`. See this [list of simulators installed on the **Hosted macOS** agent](/appcenter/build/software) for more information.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destinationDevices"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`destinationDevices`** - **Device**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices`.<br>
@@ -582,7 +372,7 @@ Specifies the name of the device used for UI testing, such as `Raisa's iPad`. On
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="args"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`args`** - **Arguments**<br>
 `string`.<br>
@@ -594,10 +384,10 @@ Optional. Specifies additional command line arguments with which to build. This 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the working directory in which to run the build. If no value is entered, the root of the repository is used.
 <!-- :::editable-content-end::: -->
@@ -606,7 +396,7 @@ Optional. Specifies the working directory in which to run the build. If no value
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useXcpretty"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`useXcpretty`** - **Use xcpretty**<br>
 `boolean`. Default value: `true`.<br>
@@ -618,7 +408,7 @@ Specifies whether to use `xcpretty` to format `xcodebuild` output. `xcpretty` mu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xcprettyArgs"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`xcprettyArgs`** - **Xcpretty arguments**<br>
 `string`. Optional. Use when `useXcpretty == true`.<br>
@@ -630,7 +420,7 @@ If `xcpretty` is enabled, this input specifies arguments for `xcpretty`. See [a 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishJUnitResults"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish test results to Azure Pipelines**<br>
 `boolean`. Default value: `false`.<br>
@@ -640,20 +430,9 @@ Specifies whether to publish JUnit test results to Azure Pipelines. This require
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`publishJUnitResults`** - **Publish test results to Azure Pipelines/TFS**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether to publish JUnit test results to Azure Pipelines/TFS. This requires `xcpretty` to be enabled to generate JUnit test results.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test run title**<br>
 `string`. Optional. Use when `publishJUnitResults == true`.<br>
@@ -673,7 +452,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -703,7 +482,7 @@ Currently there's no support of multiple provisioning profiles for the Xcode tas
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

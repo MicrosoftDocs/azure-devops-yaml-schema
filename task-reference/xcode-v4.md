@@ -1,8 +1,8 @@
 ---
 title: Xcode@4 - Xcode v4 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app (task version 4).
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Xcode@4 - Xcode v4 task
@@ -20,7 +20,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xcode v4
@@ -63,7 +63,6 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -374,7 +373,7 @@ Optional. Specifies additional command line arguments with which to build. This 
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the working directory in which to run the build. If no value is entered, the root of the repository is used.
 <!-- :::editable-content-end::: -->

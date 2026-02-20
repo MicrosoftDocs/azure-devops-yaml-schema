@@ -1,14 +1,14 @@
 ---
 title: DeleteFiles@1 - Delete files v1 task
 description: Delete folders, or files matching a pattern.
-ms.date: 07/02/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DeleteFiles@1 - Delete files v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Delete folders, or files matching a pattern.
@@ -16,19 +16,12 @@ Delete folders, or files matching a pattern.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Delete files or folders. (The minimatch patterns will only match file paths, not folder paths).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Delete files v1
@@ -43,47 +36,6 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-# Delete files v1
-# Delete folders, or files matching a pattern.
-- task: DeleteFiles@1
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
-    #RemoveSourceFolder: false # boolean. Remove SourceFolder. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Delete files v1
-# Delete folders, or files matching a pattern.
-- task: DeleteFiles@1
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Delete Files v1
-# Delete files or folders. (The minimatch patterns will only match file paths, not folder paths).
-- task: DeleteFiles@1
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -123,7 +75,7 @@ For example:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RemoveSourceFolder"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`RemoveSourceFolder`** - **Remove SourceFolder**<br>
 `boolean`. Default value: `false`.<br>
@@ -135,7 +87,7 @@ Attempts to remove the source folder after attempting to remove `Contents`. If y
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RemoveDotFiles"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`RemoveDotFiles`** - **Remove files starting with a dot**<br>
 `boolean`. Default value: `false`.<br>
@@ -234,7 +186,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -249,20 +201,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.92.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

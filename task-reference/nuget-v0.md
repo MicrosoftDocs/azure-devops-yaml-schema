@@ -1,8 +1,10 @@
 ---
 title: NuGet@0 - NuGet command v0 task
 description: NuGet@0 is deprecated. Use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # NuGet@0 - NuGet command v0 task
@@ -22,10 +24,10 @@ NuGet@0 is deprecated. Use the [NuGetCommand](nuget-command-v2.md) task instead.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
-# NuGet command v0
+# NuGet v0
 # Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
 - task: NuGet@0
   inputs:
@@ -34,20 +36,6 @@ NuGet@0 is deprecated. Use the [NuGetCommand](nuget-command-v2.md) task instead.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# NuGet Command v0
-# Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
-- task: NuGet@0
-  inputs:
-    command: # string. Required. Command. 
-    #arguments: # string. Arguments.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -122,7 +110,7 @@ None.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

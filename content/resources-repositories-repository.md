@@ -1,8 +1,10 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.repositories.repository definition
@@ -18,7 +20,21 @@ The `repository` keyword lets you specify an external repository. Use a reposito
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-server"
+
+```yaml
+repositories:
+- repository: string # Required as first property. Alias for the repository.
+  endpoint: string # ID of the service endpoint connecting to this repository.
+  trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # repository name (format depends on 'type'; does not accept variables).
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
+  type: git | github | githubenterprise | bitbucket # Type of repository: git, github, githubenterprise, and bitbucket.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 repositories:
@@ -32,7 +48,7 @@ repositories:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 repositories:
@@ -46,18 +62,6 @@ repositories:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-repositories:
-- repository: string # Required as first property. Alias for the repository.
-  endpoint: string # ID of the service endpoint connecting to this repository.
-  name: string # repository name (format depends on 'type'; does not accept variables).
-  type: string # Type of repository: git, github, githubenterprise, and bitbucket.
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -90,7 +94,7 @@ ID of the service endpoint connecting to this repository.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 CI trigger for this repository, no CI trigger if omitted.
@@ -120,7 +124,7 @@ ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by d
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`ref`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
@@ -143,7 +147,7 @@ Type of repository: git, github, githubenterprise, and bitbucket.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-::: moniker range="<= azure-pipelines-2022"
+::: moniker range="=azure-pipelines-2022"
 
 > [!IMPORTANT]
 > Repository resource does not allow pipeline variables in `name` and `ref`. Wildcards are supported in triggers.
@@ -156,7 +160,7 @@ Type of repository: git, github, githubenterprise, and bitbucket.
 
 ::: moniker-end
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 > [!IMPORTANT]
 > Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
@@ -166,13 +170,7 @@ Type of repository: git, github, githubenterprise, and bitbucket.
 
 ::: moniker-end
 
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-If your pipeline has [templates in another repository](/azure/devops/pipelines/process/templates#using-other-repositories), you must let the system know about that repository.
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 If your pipeline has [templates in another repository](/azure/devops/pipelines/process/templates#use-other-repositories), or if you want to use [multi-repo checkout](/azure/devops/pipelines/repos/multi-repo-checkout) with a repository that requires a service connection, you must let the system know about that repository.
 
@@ -241,7 +239,7 @@ steps:
 
 ::: moniker-end
 
-:::moniker range=">=azure-pipelines-2020 < azure-pipelines"
+:::moniker range="<azure-pipelines"
 
 ### Variables
 

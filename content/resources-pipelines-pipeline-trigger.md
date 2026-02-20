@@ -1,14 +1,16 @@
 ---
 title: resources.pipelines.pipeline.trigger definition
 description: Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/23/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.pipelines.pipeline.trigger definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
@@ -18,7 +20,7 @@ Specify none to disable, true to include all branches, or use the full syntax as
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.pipelines.pipeline](resources-pipelines-pipeline.md)
 
@@ -28,7 +30,7 @@ Definitions that reference this definition: [resources.pipelines.pipeline](resou
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -37,14 +39,6 @@ Definitions that reference this definition: [resources.pipelines.pipeline](resou
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-| Implementation | Description |
-|---|---|
-| [trigger: enabled, branches](#triggerobjectproperties) | Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. |
-| [trigger: none | true](#triggerstring) | Specify none to disable or true to include all branches. |
-
-:::moniker-end
 <!-- :::implementations-list-end::: -->
 
 <!-- :::remarks::: -->
@@ -103,7 +97,7 @@ resources:
       - develop
 ```
 
-:::moniker range=">= azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 To filter by stages or tags, use the following `trigger` syntax.
 
@@ -139,7 +133,7 @@ For more information, see [Pipeline completion triggers](/azure/devops/pipelines
 <!-- :::implementation-item name="trigger: object properties"::: -->
 <a name="triggerobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: enabled, branches, stages, tags
@@ -188,42 +182,6 @@ List of tags that when matched will trigger the pipeline.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-<!-- :::implementation-signature::: -->
-## trigger: enabled, branches
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-trigger:
-  enabled: boolean # Whether the trigger is enabled; defaults to true.
-  branches: branches # Branches to include or exclude for triggering a run.
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Whether the trigger is enabled; defaults to true.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="branches"::: -->
-**`branches`** [resources.pipelines.pipeline.trigger.branches](resources-pipelines-pipeline-trigger-branches.md).<br><!-- :::editable-content name="propDescription"::: -->
-Branch names to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
 <!-- :::objectAnyOf-end::: -->
 
 <!-- :::remarks::: -->
@@ -239,7 +197,7 @@ Branch names to include or exclude for triggering a run.
 <!-- :::implementation-item name="trigger: string"::: -->
 <a name="triggerstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: none | true

@@ -1,8 +1,10 @@
 ---
 title: steps.pwsh definition
 description: Runs a script in PowerShell Core on Windows, macOS, and Linux.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # steps.pwsh definition
@@ -18,7 +20,7 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -41,48 +43,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-steps:
-- pwsh: string # Required as first property. Inline PowerShell script.
-  errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
-  failOnStderr: string # Fail the task if output is sent to Stderr?
-  ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
-  workingDirectory: string # Start the script with this working directory.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  target: string | target # Environment in which to run this task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-steps:
-- pwsh: string # Required as first property. Inline PowerShell script.
-  errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
-  failOnStderr: string # Fail the task if output is sent to Stderr?
-  ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
-  workingDirectory: string # Start the script with this working directory.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -169,7 +129,7 @@ Human-readable name for the task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
@@ -216,7 +176,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.
@@ -242,7 +202,6 @@ Each PowerShell session lasts only for the duration of the job in which it runs.
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
-
 
 ```yaml
 steps:

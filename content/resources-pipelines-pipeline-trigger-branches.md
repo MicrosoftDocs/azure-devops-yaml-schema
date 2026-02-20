@@ -1,14 +1,16 @@
 ---
 title: resources.pipelines.pipeline.trigger.branches definition
 description: Branches to include or exclude for triggering a run using a pipeline resource.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/23/2026
+monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.pipelines.pipeline.trigger.branches definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Branches to include or exclude for triggering a run using a pipeline resource.
@@ -18,7 +20,7 @@ Branches to include or exclude for triggering a run using a pipeline resource.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md)
 
@@ -28,7 +30,7 @@ Definitions that reference this definition: [resources.pipelines.pipeline.trigge
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -52,7 +54,44 @@ Definitions that reference this definition: [resources.pipelines.pipeline.trigge
 <!-- :::implementation-item name="branches: object properties"::: -->
 <a name="branchesobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-server"
+
+<!-- :::implementation-signature::: -->
+## branches: include, exclude
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Lists of branches to include and exclude.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+branches:
+  include: [ string ] # List of branches to include.
+  exclude: [ string ] # List of branches to exclude.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="include"::: -->
+**`include`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+List of branches to include.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="exclude"::: -->
+**`exclude`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+List of branches to exclude.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::implementation-signature::: -->
 ## branches: include, exclude
@@ -101,7 +140,7 @@ branches:
 <!-- :::implementation-item name="branches: string list"::: -->
 <a name="branchesstringlist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## branches: string list

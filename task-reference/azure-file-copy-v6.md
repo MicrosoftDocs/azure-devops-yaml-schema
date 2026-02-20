@@ -1,14 +1,14 @@
 ---
 title: AzureFileCopy@6 - Azure file copy v6 task
 description: Copy files to Azure Blob Storage or virtual machines.
-ms.date: 07/02/2024
-monikerRange: "=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server"
 ---
 
 # AzureFileCopy@6 - Azure file copy v6 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.
@@ -23,7 +23,7 @@ As a result of us using Azure RBAC, SAS tokens are no longer used. For more info
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Azure file copy v6
@@ -57,7 +57,7 @@ As a result of us using Azure RBAC, SAS tokens are no longer used. For more info
 ## Inputs
 
 <!-- :::item name="SourcePath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`SourcePath`** - **Source**<br>
 `string`. Required.<br>
@@ -73,10 +73,10 @@ Expression should return a single folder or a file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of an [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) configured for the subscription where the target Azure service, virtual machine, or storage account is located. See [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview) for more details.
 <!-- :::editable-content-end::: -->
@@ -85,7 +85,7 @@ Specify the name of an [Azure Resource Manager service connection](/azure/devops
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Destination"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`Destination`** - **Destination Type**<br>
 `string`. Required. Allowed values: `AzureBlob` (Azure Blob), `AzureVMs` (Azure VMs).<br>
@@ -97,10 +97,10 @@ Specify the destination type.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="storage"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`storage`** - **RM Storage Account**<br>
-Input alias: `StorageAccountRM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `StorageAccountRM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a pre-existing ARM storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
@@ -109,7 +109,7 @@ Specify a pre-existing ARM storage account. This is the storage account used as 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ContainerName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`ContainerName`** - **Container Name**<br>
 `string`. Required when `Destination = AzureBlob`.<br>
@@ -123,7 +123,7 @@ To create a virtual directory inside the container, use the blob prefix input. F
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="BlobPrefix"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`BlobPrefix`** - **Blob Prefix**<br>
 `string`. Optional. Use when `Destination = AzureBlob`.<br>
@@ -141,10 +141,10 @@ In the case that the `SourcePath` is a single item with no wildcard, this blob p
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`resourceGroup`** - **Resource Group**<br>
-Input alias: `EnvironmentNameRM`. `string`. Required when `Destination = AzureVMs`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `EnvironmentNameRM`. `string`. Required when `Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the target Resource Group into which the files will be copied.
 <!-- :::editable-content-end::: -->
@@ -153,7 +153,7 @@ Specify the name of the target Resource Group into which the files will be copie
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ResourceFilteringMethod"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`ResourceFilteringMethod`** - **Select Machines By**<br>
 `string`. Optional. Use when `Destination = AzureVMs`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
@@ -165,7 +165,7 @@ Specify a VM host name or tag that identifies a subset of VMs in a resource grou
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="MachineNames"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`MachineNames`** - **Filter Criteria**<br>
 `string`. Optional. Use when `Destination = AzureVMs`.<br>
@@ -183,7 +183,7 @@ Provide a list of VM names or tag names that identify the VMs the task will targ
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vmsAdminUserName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`vmsAdminUserName`** - **Admin Login**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
@@ -198,7 +198,7 @@ Provide the user name of an account with administrative permissions on all of th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vmsAdminPassword"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`vmsAdminPassword`** - **Password**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
@@ -212,7 +212,7 @@ To find the variable, locate the `Admin Login` parameter. Select the padlock ico
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TargetPath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`TargetPath`** - **Destination Folder**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
@@ -226,7 +226,7 @@ Environment variables such as `$env:windir` and `$env:systemroot` are supported.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AdditionalArgumentsForBlobCopy"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`AdditionalArgumentsForBlobCopy`** - **Optional Arguments (for uploading files to blob)**<br>
 `string`.<br>
@@ -242,7 +242,7 @@ Default arguments include `--log-level=INFO` (default) and `--recursive` (if the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AdditionalArgumentsForVMCopy"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`AdditionalArgumentsForVMCopy`** - **Optional Arguments (for downloading files to VM)**<br>
 `string`. Optional. Use when `Destination = AzureVMs`.<br>
@@ -260,7 +260,7 @@ If no optional arguments are specified, the following are added by default:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableCopyPrerequisites"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`enableCopyPrerequisites`** - **Enable Copy Prerequisites**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `false`.<br>
@@ -275,7 +275,7 @@ When enabled, this option uses a self-signed certificate to configure the Window
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CopyFilesInParallel"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`CopyFilesInParallel`** - **Copy in Parallel**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `true`.<br>
@@ -287,7 +287,7 @@ Specify `true` to copy files in parallel to the target VMs.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CleanTargetBeforeCopy"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
 `boolean`. Default value: `false`.<br>
@@ -299,7 +299,7 @@ Specify `true` to clean-up the destination folder before copying files.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="skipCACheck"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`skipCACheck`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `true`.<br>
@@ -321,7 +321,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -431,7 +431,7 @@ The hosted agents are assigned randomly every time a build is triggered, the [ag
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

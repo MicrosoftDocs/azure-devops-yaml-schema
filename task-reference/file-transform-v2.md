@@ -1,14 +1,14 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # FileTransform@2 - File transform v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to replace tokens with variable values in XML or JSON configuration files.
@@ -20,7 +20,25 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-server"
+
+```yaml
+# File transform v2
+# Replace tokens with variable values in XML or JSON configuration files.
+- task: FileTransform@2
+  inputs:
+    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #enableXmlTransform: true # boolean. XML transformation. Default: true.
+    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. Optional. Use when enableXmlTransform == true. XML Transformation rules. Default: -transform **\*.Release.config -xml **\*.config.
+    #errorOnInvalidSubstitution: false # boolean. Error on empty files and invalid substitution. Default: false.
+  # Variable Substitution
+    #jsonTargetFiles: # string. JSON target files. 
+    #xmlTargetFiles: # string. XML target files.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # File transform v2
@@ -41,7 +59,7 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 ## Inputs
 
 <!-- :::item name="folderPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`folderPath`** - **Package or folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
@@ -56,8 +74,35 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="enableXmlTransform"::: -->
+:::moniker range=">=azure-pipelines-server"
+
+**`enableXmlTransform`** - **XML transformation**<br>
+`boolean`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Config transforms will be run prior to the Variable Substitution.
+
+> [!IMPORTANT]
+> XML transformations are supported only for the Windows platform.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="xmlTransformationRules"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-server"
+
+**`xmlTransformationRules`** - **XML Transformation rules**<br>
+`string`. Optional. Use when `enableXmlTransform == true`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provides a newline-separated list of transformation file rules using the syntax:
+`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional, and if not specified, the source configuration file will be replaced with the transformed result file.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
 `string`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
@@ -70,14 +115,14 @@ Provides a newline-separated list of transformation file rules using the syntax:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jsonTargetFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`jsonTargetFiles`** - **JSON target files**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
 
-For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
+For example, to replace the value of `ConnectionString` in the sample file below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
 
 ```json
 {
@@ -91,7 +136,6 @@ For example, to replace the value of `ConnectionString` in the sample below, you
 
  Variable Substitution is run after configuration transforms. 
 
-
 Note: Only custom variables that are defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
@@ -99,7 +143,7 @@ Note: Only custom variables that are defined in build/release pipelines are used
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xmlTargetFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`xmlTargetFiles`** - **XML target files**<br>
 `string`.<br>
@@ -116,6 +160,18 @@ Note: Only custom variables defined in build/release pipelines are used in subst
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="errorOnInvalidSubstitution"::: -->
+:::moniker range=">=azure-pipelines-server"
+
+**`errorOnInvalidSubstitution`** - **Error on empty files and invalid substitution.**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If selected, the pipeline fails if the target files are empty or if the substitution fails.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 
 ### Task control options
 
@@ -125,7 +181,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -150,7 +206,7 @@ For details of how translations are processed, see [File transforms and variable
 ### File transformations
 
 * At present, file transformations are supported for only XML files.
-* To apply an XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-t ransform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
+* To apply an XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-transform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
 * File transformations are useful in many scenarios, particularly when you are deploying to an App service and want to add,
   remove or modify configurations for different environments (such as Dev, Test, or Prod) by following the standard
   [Web.config Transformation Syntax](/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations).
@@ -215,7 +271,7 @@ as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (o
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

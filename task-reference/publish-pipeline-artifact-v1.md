@@ -1,14 +1,14 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish (upload) a file or directory as a named artifact for the current run.
@@ -16,7 +16,7 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish (upload) a file or directory as a named artifact for the current run.
@@ -31,7 +31,7 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish Pipeline Artifacts v1
@@ -49,32 +49,16 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-```yaml
-# Publish Pipeline Artifacts v1
-# Publish (upload) a file or directory as a named artifact for the current run.
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Alias: path. Required. File or directory path. Default: $(Pipeline.Workspace).
-    #artifact: # string. Alias: artifactName. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Alias: artifactType. Required. Artifact publish location. Default: pipeline.
-    #fileSharePath: # string. Required when artifactType = filepath. File share path. 
-    #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
-    #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="targetPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`targetPath`** - **File or directory path**<br>
-Input alias: `path`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `path`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path of the file or directory to publish. Can be absolute or relative to the default working directory. Can include [variables](https://go.microsoft.com/fwlink/?LinkID=550988), but wildcards are not supported. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts) for more information.
 <!-- :::editable-content-end::: -->
@@ -83,10 +67,10 @@ Specifies the path of the file or directory to publish. Can be absolute or relat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifact"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`artifact`** - **Artifact name**<br>
-Input alias: `artifactName`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `artifactName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the artifact to publish. It can be any name you choose, for example `drop`. If not set, the default is a unique ID scoped to the job.
 
@@ -98,10 +82,10 @@ Specifies the name of the artifact to publish. It can be any name you choose, fo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishLocation"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`publishLocation`** - **Artifact publish location**<br>
-Input alias: `artifactType`. `string`. Required. Allowed values: `pipeline` (Azure Pipelines), `filepath` (A file share). Default value: `pipeline`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `artifactType`. `string`. Required. Allowed values: `pipeline` (Azure Pipelines), `filepath` (A file share). Default value: `pipeline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether to store the artifact in Azure Pipelines or to copy it to a file share that must be accessible from the pipeline agent.
 <!-- :::editable-content-end::: -->
@@ -110,7 +94,7 @@ Specifies whether to store the artifact in Azure Pipelines or to copy it to a fi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="fileSharePath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`fileSharePath`** - **File share path**<br>
 `string`. Required when `artifactType = filepath`.<br>
@@ -122,7 +106,7 @@ Specifies the file share where the artifact files are copied. This can include v
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parallel"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`parallel`** - **Parallel copy**<br>
 `boolean`. Optional. Use when `artifactType = filepath`. Default value: `false`.<br>
@@ -134,7 +118,7 @@ Specifies whether to copy files in parallel using multiple threads for greater p
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parallelCount"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`parallelCount`** - **Parallel count**<br>
 `string`. Optional. Use when `artifactType = filepath && parallel = true`. Default value: `8`.<br>
@@ -146,7 +130,7 @@ Specifies the degree of parallelism, or the number of threads used, to perform t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="properties"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`properties`** - **Custom properties**<br>
 `string`.<br>
@@ -166,7 +150,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -199,7 +183,7 @@ The `publish` and `download` keywords are shortcuts for the PublishPipelineArtif
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -214,7 +198,7 @@ The `publish` and `download` keywords are shortcuts for the PublishPipelineArtif
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -229,20 +213,6 @@ The `publish` and `download` keywords are shortcuts for the PublishPipelineArtif
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.159.2 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

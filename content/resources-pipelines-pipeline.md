@@ -1,8 +1,10 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.pipelines.pipeline definition
@@ -18,7 +20,7 @@ If you have an Azure Pipeline that produces artifacts, your pipeline can consume
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 pipelines:
@@ -37,35 +39,6 @@ pipelines:
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.
-  project: string # Project for the source; defaults to current project.
-  source: string # Name of the pipeline that produces the artifact.
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
-  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
-  trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-    enabled: boolean # Whether the trigger is enabled; defaults to true.
-    branches: branches # Branches to include or exclude for triggering a run.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.
-  project: string # Project for the source; defaults to current project.
-  source: string # Name of the pipeline that produces the artifact.
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -125,7 +98,7 @@ Branch to pick the artifact. Optional; defaults to all branches, used only for m
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tags`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
@@ -134,7 +107,7 @@ List of tags required on the pipeline to pickup default artifacts. Optional; use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trigger`** [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
@@ -151,19 +124,13 @@ Specify none to disable, true to include all branches, or use the full syntax as
 > [!NOTE]
 > `pipeline:` specifies the name of the pipeline resource. Use the label defined here when referring to the pipeline resource from other parts of the pipeline, such as when using pipeline resource variables or downloading artifacts.
 
-:::moniker range=">= azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 For more information about `stages` and `tags` in the pipeline resource trigger, see [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
 
 :::moniker-end
 
-:::moniker range="azure-pipelines-2020"
-
-For more information about pipeline resource triggers, see [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
-
-:::moniker-end
-
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ### Pipeline resource trigger syntax
 
@@ -172,7 +139,7 @@ For more information about pipeline resource triggers, see [pipeline-completion 
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 There are several ways to define triggers in a pipeline resource. To trigger a run when any run of the referenced pipeline completes, use `trigger: true`.
 
@@ -228,7 +195,7 @@ resources:
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 To filter by stages or tags, use the following `trigger` syntax.
 
@@ -247,13 +214,13 @@ resources:
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 For more information, see [Pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 > [!IMPORTANT]
 > When you define a resource trigger, if its pipeline resource is from the same repo as the current pipeline, triggering follows the same branch and commit on which the event is raised.
@@ -261,7 +228,7 @@ For more information, see [Pipeline completion triggers](/azure/devops/pipelines
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ### Pipeline resource metadata as predefined variables
 
@@ -325,7 +292,7 @@ pool:
 - bash: printenv | sort
 ```
 
-Whe this pipeline is run, the first `bash` task outputs the `projectName` of the the pipeline resource named `source-pipeline`, which is `FabrikamFiber`.
+When this pipeline is run, the first `bash` task outputs the `projectName` of the the pipeline resource named `source-pipeline`, which is `FabrikamFiber`.
 
 The second `bash` task outputs all of the environment variables available to the task, including the pipeline resource variables described in this section. Listing environment variables isn't typically done in a production pipeline, but it can be useful for troubleshooting. In this example there are two pipeline resources, and the output contains the following two lines.
 
@@ -342,7 +309,6 @@ RESOURCES_PIPELINE_SOURCE-PIPELINE_PROJECTNAME=FabrikamFiber
 :::moniker-end
 
 You can consume artifacts from a pipeline resource by using a `download` task. See the [steps.download](steps-download.md) keyword.
-
 
 ## Examples
 

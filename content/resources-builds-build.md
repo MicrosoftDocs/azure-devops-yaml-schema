@@ -1,8 +1,10 @@
 ---
 title: resources.builds.build definition
 description: A build resource used to reference artifacts from a run.
-ms.date: 11/20/2024
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.builds.build definition
@@ -18,7 +20,7 @@ A build resource used to reference artifacts from a run.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 builds:
@@ -33,19 +35,6 @@ builds:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-builds:
-- build: string # Required as first property. Alias or name of build artifact.
-  type: string # Required. Name of the artifact type.
-  connection: string # Required. Name of the connection. This connection will be used for all the communication related to this artifact.
-  source: string # Required. Name of the source definition/build/job.
-  version: string
-  branch: string
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -112,7 +101,7 @@ Name of the source definition/build/job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trigger`** string.<br><!-- :::editable-content name="propDescription"::: -->
 When the artifact mentioned in this build resource completes a build, it is allowed to trigger this pipeline. none | true.

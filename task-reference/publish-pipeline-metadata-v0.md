@@ -1,17 +1,22 @@
 ---
 title: PublishPipelineMetadata@0 - Publish Pipeline Metadata v0 task
 description: Publish Pipeline Metadata to Evidence store.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishPipelineMetadata@0 - Publish Pipeline Metadata v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to publish Pipeline Metadata to the Evidence store.
+This task is automatically injected into your pipelines when **Publish metadata from pipelines** is enabled in your project settings, and is used to support the [Evaluate artifact check](/azure/devops/pipelines/process/approvals#evaluate-artifact).
+
+> [!IMPORTANT]
+> This task is not intended for direct use in your pipelines.
+>
+> For more information, see [Evaluate artifact check](/azure/devops/release-notes/2019/sprint-160-update#evaluate-artifact-check) and [Collect automatic and user-specified metadata from pipeline](/azure/devops/release-notes/2019/sprint-162-update#collect-automatic-and-user-specified-metadata-from-pipeline).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,7 +25,7 @@ Use this task to publish Pipeline Metadata to the Evidence store.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish Pipeline Metadata v0
@@ -36,7 +41,7 @@ Use this task to publish Pipeline Metadata to the Evidence store.
 ## Inputs
 
 <!-- :::item name="emptyCollectionValue"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -51,7 +56,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -60,6 +65,14 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task is automatically injected into your pipelines when **Publish metadata from pipelines** is enabled in your project settings, and is used to support the [Evaluate artifact check](/azure/devops/pipelines/process/approvals#evaluate-artifact).
+
+> [!IMPORTANT]
+> This task is not intended for direct use in your pipelines.
+>
+> For more information, see [Evaluate artifact check](/azure/devops/release-notes/2019/sprint-160-update#evaluate-artifact-check) and [Collect automatic and user-specified metadata from pipeline](/azure/devops/release-notes/2019/sprint-162-update#collect-automatic-and-user-specified-metadata-from-pipeline).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -86,7 +99,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

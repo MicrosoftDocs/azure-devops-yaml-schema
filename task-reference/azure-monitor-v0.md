@@ -1,14 +1,14 @@
 ---
 title: AzureMonitor@0 - Query Classic Azure Monitor alerts v0 task
 description: Observe the configured classic Azure Monitor rules for active alerts.
-ms.date: 08/19/2024
-monikerRange: "<=azure-pipelines"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureMonitor@0 - Query Classic Azure Monitor alerts v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Observe the configured classic Azure Monitor rules for active alerts.
@@ -21,7 +21,7 @@ Observe the configured classic Azure Monitor rules for active alerts.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Observe the configured classic Azure Monitor rules for active alerts.
@@ -33,27 +33,12 @@ This task is deprecated; use [AzureMonitor@1](./azure-monitor-v1.md).
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
-
-<!-- :::editable-content name="description"::: -->
-Observe the configured classic Azure Monitor rules for active alerts.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Observe the configured Azure monitor rules for active alerts.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Query Classic Azure Monitor alerts v0
@@ -68,23 +53,6 @@ Observe the configured Azure monitor rules for active alerts.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Query Azure Monitor Alerts v0
-# Observe the configured Azure monitor rules for active alerts.
-- task: AzureMonitor@0
-  inputs:
-    connectedServiceNameARM: # string. Required. Azure subscription. 
-    ResourceGroupName: # string. Required. Resource group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource type. Default: Microsoft.Insights/components.
-    resourceName: # string. Required. Resource name. 
-    alertRules: # string. Required. Alert rules.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

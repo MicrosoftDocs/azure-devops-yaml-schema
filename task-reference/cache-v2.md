@@ -1,17 +1,19 @@
 ---
 title: Cache@2 - Cache v2 task
 description: Cache files between runs.
-ms.date: 08/07/2024
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # Cache@2 - Cache v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Improve build performance by using this task to cache files, like dependencies, between pipeline runs. See [Cache task: how it works](/azure/devops/pipelines/release/caching#cache-task-:-how-it-works) and [Reduce build time using caching](/azure/devops/pipelines/release/caching) for specific examples and more details.
+Improve build performance by using this task to cache files, such as dependencies, between pipeline runs. To add the task, search for **Cache** (cache files between runs) in Classic pipelines or the YAML editor. See [Cache task: how it works](/azure/devops/pipelines/release/caching#cache-task-:-how-it-works) and [Reduce build time using caching](/azure/devops/pipelines/release/caching) for specific examples and more details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,7 +22,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Cache v2
@@ -40,7 +42,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 ## Inputs
 
 <!-- :::item name="key"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`key`** - **Key**<br>
 `string`. Required.<br>
@@ -54,7 +56,7 @@ While there is no defined maximum number of segments for a key, if you are getti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="path"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`path`** - **Path**<br>
 `string`. Required.<br>
@@ -66,7 +68,7 @@ The path of the folder to cache. Can be fully qualified or relative to `$(System
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cacheHitVar"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`cacheHitVar`** - **Cache hit variable**<br>
 `string`.<br>
@@ -78,7 +80,7 @@ The variable to set based on cache restoration. It will be `true` when the cache
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="restoreKeys"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`restoreKeys`** - **Additional restore key prefixes**<br>
 `string`.<br>
@@ -98,7 +100,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -121,7 +123,7 @@ Improve build performance by caching files, like dependencies, between pipeline 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,14 +1,14 @@
 ---
 title: GoTool@0 - Go tool installer v0 task
 description: Find in cache or download a specific version of Go and add it to the PATH.
-ms.date: 07/02/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 01/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # GoTool@0 - Go tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to find in the tools cache or download a specific version of Go and add it to the PATH.
@@ -16,19 +16,28 @@ Use this task to find in the tools cache or download a specific version of Go an
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this task to set the version of Go used in subsequent tasks.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Go tool installer v0
+# Find in cache or download a specific version of Go and add it to the PATH.
+- task: GoTool@0
+  inputs:
+    version: '1.10' # string. Required. Version. Default: 1.10.
+  # Advanced
+    #goPath: # string. GOPATH. 
+    #goBin: # string. GOBIN. 
+    #goDownloadUrl: 'https://go.dev/dl' # string. Go download URL. Default: https://go.dev/dl.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Go tool installer v0
@@ -43,27 +52,13 @@ Finds or downloads a specific version of Go in the tools cache and adds it to th
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Go Tool Installer v0
-# Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this to set the version of Go used in subsequent tasks.
-- task: GoTool@0
-  inputs:
-    version: '1.10' # string. Required. Version. Default: 1.10.
-  # Advanced
-    #goPath: # string. GOPATH. 
-    #goBin: # string. GOBIN.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
 `string`. Required. Default value: `1.10`.<br>
@@ -75,7 +70,7 @@ The Go version to download (if necessary) and use, for example `1.9.3`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="goPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`goPath`** - **GOPATH**<br>
 `string`.<br>
@@ -87,12 +82,30 @@ A custom value for the GOPATH environment variable.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="goBin"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`goBin`** - **GOBIN**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A custom value for the GOBIN environment variable.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="goDownloadUrl"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`goDownloadUrl`** - **Go download URL**<br>
+`string`. Default value: `https://go.dev/dl`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+URL for downloading Go binaries. The following values are supported:
+
+- `https://go.dev/dl` - [Official Go distribution](https://go.dev/dl). This is the default if this parameter is not set.
+- `https://aka.ms/golang/release/latest` - the [Microsoft build of Go](https://github.com/microsoft/go) prefix, a fork of the official Go distribution. See [the Migration Guide](https://github.com/microsoft/go/blob/microsoft/main/eng/doc/MigrationGuide.md) for an introduction to the Microsoft build of Go.
+
+> [!NOTE]
+> You can optionally specify the download URL for Go binaries by setting the `GOTOOL_GODOWNLOADURL` environment variable. If both the **Go download URL** task parameter and the `GOTOOL_GODOWNLOADURL` environment variable are set, the task parameter takes precedence.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +120,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -130,7 +143,7 @@ Use this task to find or download a specific version of the Go tool into the too
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
