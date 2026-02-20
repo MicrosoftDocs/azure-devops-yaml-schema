@@ -37,7 +37,7 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # npm authenticate (for task runners) v0

@@ -39,7 +39,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Python pip authenticate v1

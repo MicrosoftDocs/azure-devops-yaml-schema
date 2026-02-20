@@ -36,7 +36,7 @@ Use this task to provide credentials for Azure Artifacts feeds and external Mave
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Maven Authenticate v0
