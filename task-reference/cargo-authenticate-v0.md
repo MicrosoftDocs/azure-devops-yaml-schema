@@ -1,7 +1,7 @@
 ---
 title: CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
 description: Authentication task for the cargo client used for installing Cargo crates distribution.
-ms.date: 01/27/2026
+ms.date: 03/02/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: ramiMSFT
 ms.author: rabououn
@@ -40,7 +40,7 @@ Authentication task for the cargo client used for installing Cargo crates.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 ```yaml
 # Cargo authenticate (for task runners) v0
@@ -58,10 +58,10 @@ Authentication task for the cargo client used for installing Cargo crates.
 ## Inputs
 
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
-Input alias: `workloadIdentityServiceConnection`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is set, feedUrl is required. All other inputs are ignored.
 <!-- :::editable-content-end::: -->
@@ -70,7 +70,7 @@ If this is set, feedUrl is required. All other inputs are ignored.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="registryNames"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`registryNames`** - **Registry names from config.toml**<br>
 `string`.<br>

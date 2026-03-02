@@ -1,7 +1,7 @@
 ---
 title: npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 description: Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
-ms.date: 01/27/2026
+ms.date: 03/02/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -37,7 +37,7 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # npm authenticate (for task runners) v0
@@ -56,10 +56,10 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 ## Inputs
 
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
-Input alias: `workloadIdentityServiceConnection`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is set, `feedUrl` is required. Service Connections for external organizations/collection and custom endpoints are not compatible.
 <!-- :::editable-content-end::: -->
@@ -68,7 +68,7 @@ If this is set, `feedUrl` is required. Service Connections for external organiza
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedUrl"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`feedUrl`** - **Azure Artifacts URL**<br>
 `string`.<br>

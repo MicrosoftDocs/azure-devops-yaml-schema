@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@1 - Python pip authenticate v1 task
 description: Authentication task for the pip client used for installing Python distributions.
-ms.date: 01/27/2026
+ms.date: 03/02/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -39,7 +39,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Python pip authenticate v1
@@ -59,10 +59,10 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 ## Inputs
 
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
-Input alias: `workloadIdentityServiceConnection`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is set, `feedUrl` is required. All other inputs are ignored.
 <!-- :::editable-content-end::: -->
@@ -71,7 +71,7 @@ If this is set, `feedUrl` is required. All other inputs are ignored.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedUrl"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`feedUrl`** - **Azure Artifacts Feeds url.**<br>
 `string`.<br>
