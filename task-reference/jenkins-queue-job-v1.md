@@ -14,6 +14,9 @@ ms.author: rabououn
 
 <!-- :::editable-content name="description"::: -->
 Use this task to queue a job on a Jenkins server.
+
+> [!NOTE]
+> This task is deprecated; use [JenkinsQueueJob@2](jenkins-queue-job-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
