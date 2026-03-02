@@ -1034,12 +1034,12 @@ items:
     displayName: SSH v0
 - name: Universal packages
   items:
-  - name: UniversalPackages@0
-    href: universal-packages-v0.md
-    displayName: Universal Packages v0
   - name: UniversalPackages@1
     href: universal-packages-v1.md
-    displayName: Universal Packages v1
+    displayName: Universal packages v1
+  - name: UniversalPackages@0
+    href: universal-packages-v0.md
+    displayName: Universal packages v0
 - name: Update Service Fabric App Versions
   items:
   - name: ServiceFabricUpdateAppVersions@1

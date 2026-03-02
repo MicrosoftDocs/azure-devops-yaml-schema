@@ -138,7 +138,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **PyPI publisher**<br>[PyPIPublisher@0](py-pi-publisher-v0.md) | Create and upload an sdist or wheel to a PyPI-compatible index using Twine. |
 | **Python pip authenticate**<br>[PipAuthenticate@1](pip-authenticate-v1.md)<br>[PipAuthenticate@0](pip-authenticate-v0.md) | Authentication task for the pip client used for installing Python distributions. |
 | **Python twine upload authenticate**<br>[TwineAuthenticate@1](twine-authenticate-v1.md)<br>[TwineAuthenticate@0](twine-authenticate-v0.md) | Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection. |
-| **Universal packages**<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
+| **Universal packages**<br>[UniversalPackages@1](universal-packages-v1.md)<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
 ## Test tasks
 
 | Task | Description |
