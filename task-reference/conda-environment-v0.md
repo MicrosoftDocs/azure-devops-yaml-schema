@@ -1,14 +1,27 @@
 ---
 title: CondaEnvironment@0 - Conda environment v0 task
 description: Create and activate a Conda environment.
-ms.date: 01/27/2026
+ms.date: 03/02/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CondaEnvironment@0 - Conda environment v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to create and activate a Conda environment.
+
+> [!IMPORTANT]
+> This task has been deprecated. Use [conda commands](https://conda.io/projects/conda/en/latest/commands/index.html) directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to create and activate a Conda environment.
