@@ -179,12 +179,12 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="packageName"::: -->
 **`packageName`**<br><!-- :::editable-content name="Value"::: -->
-The name of the published package. Only set when command is 'publish'.
+The name of the published package. Only set when command is `publish`.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="packageVersion"::: -->
 **`packageVersion`**<br><!-- :::editable-content name="Value"::: -->
-The version of the published package. Only set when command is 'publish'. Especially useful with versionIncrement, where the version is computed at runtime.
+The version of the published package. Only set when command is `publish`. Especially useful with `versionIncrement`, where the version is computed at runtime.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
