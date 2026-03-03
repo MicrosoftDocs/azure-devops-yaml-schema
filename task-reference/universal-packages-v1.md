@@ -1,10 +1,8 @@
 ---
 title: UniversalPackages@1 - Universal packages v1 task
 description: Download or publish Universal Packages.
-ms.date: 03/02/2026
+ms.date: 03/03/2026
 monikerRange: "=azure-pipelines"
-author: ramiMSFT
-ms.author: rabououn
 ---
 
 # UniversalPackages@1 - Universal packages v1 task
@@ -30,6 +28,8 @@ Use this task to publish or download Universal Packages to and from Azure Artifa
 - task: UniversalPackages@1
   inputs:
     command: 'download' # 'download' | 'publish'. Required. Command. Default: download.
+    #workloadIdentityServiceConnection: # string. Alias: adoServiceConnection | azureDevOpsServiceConnection. Azure DevOps Service Connection. 
+    #organization: # string. Optional. Use when adoServiceConnection != ''. Organization. 
     feed: # string. Required. Feed. 
     packageName: # string. Required. Package name. 
     #packageVersion: # string. Package version. 
@@ -45,6 +45,7 @@ Use this task to publish or download Universal Packages to and from Azure Artifa
 ## Inputs
 
 <!-- :::item name="command"::: -->
+:::moniker range=">azure-pipelines-server"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `download`, `publish`. Default value: `download`.<br>
@@ -53,47 +54,50 @@ Specifies the Universal Package command to run: download a package from a feed, 
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="workloadIdentityServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
 
-<!-- :::item name="adoServiceConnection"::: -->
-
-**`adoServiceConnection`** - **Azure DevOps Service Connection**<br>
-[Input aliases](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`, `azureDevOpsServiceConnection`.  
-`string`. Optional.<br>
+**`workloadIdentityServiceConnection`** - **Azure DevOps Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `adoServiceConnection | azureDevOpsServiceConnection`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of an Azure DevOps Service Connection that uses Workload Identity Federation (WIF) for authentication. When specified, the task uses the service connection identity instead of the pipeline's build service identity. This enables scenarios such as cross-organization feed access and WIF-based authentication without PATs.
 
-When not specified, the task authenticates using the pipeline’s built‑in build service identity. See [Setting up an Azure DevOps Service Connection]() for setup instructions.
+When not specified, the task authenticates using the pipeline’s built‑in build service identity. See [Setting up an Azure DevOps Service Connection](/azure/devops/pipelines/library/service-endpoints) for setup instructions.
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
-
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="organization"::: -->
+:::moniker range=">azure-pipelines-server"
 
 **`organization`** - **Organization**<br>
-`string`. Optional. Use when `adoServiceConnection` is specified.<br>
+`string`. Optional. Use when `adoServiceConnection != ''`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Azure DevOps organization that hosts the target feed. Use this input when the feed is in a different organization than the one running the pipeline.
-If not specified, the task uses the current pipeline’s organization.
 
+If not specified, the task uses the current pipeline’s organization.
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
-
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="feed"::: -->
+:::moniker range=">azure-pipelines-server"
 
-**`feed`** - **Feed name**<br>
+**`feed`** - **Feed**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Azure Artifacts feed. For organization-scoped feeds, specify only the feed name. For project-scoped feeds, use the format `project/feed`, where `project` is the project name and `feed` is the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
-
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="packageName"::: -->
+:::moniker range=">azure-pipelines-server"
 
 **`packageName`** - **Package name**<br>
 `string`. Required.<br>
@@ -102,12 +106,13 @@ The name of the Universal Package to download or publish. Package names must be 
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
-
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="packageVersion"::: -->
+:::moniker range=">azure-pipelines-server"
 
 **`packageVersion`** - **Package version**<br>
-`string`. Optional.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of the package. Required for `download`. For `publish`, specify either this input or `versionIncrement`, but not both.
 
@@ -115,12 +120,13 @@ For downloads, this can be a wildcard expression such as `*` to get the latest v
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
-
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="versionIncrement"::: -->
+:::moniker range=">azure-pipelines-server"
 
 **`versionIncrement`** - **Version increment**<br>
-`string`. Optional. Use when `command = publish`. Allowed values: `major` (Major), `minor` (Minor), `patch` (Patch).<br>
+`string`. Optional. Use when `command = publish`. Allowed values: `major`, `minor`, `patch`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically increments the package version. The task queries the feed for the latest existing version of the package and increments the specified component. Cannot be used together with `packageVersion`.
 
@@ -128,25 +134,26 @@ For new packages with no existing versions in the feed, the starting version is:
 
 - `major`: 1.0.0  
 - `minor`: 0.1.0  
-- `patch`: 0.0.1  
-
+- `patch`: 0.0.1
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
-
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="directory"::: -->
+:::moniker range=">azure-pipelines-server"
 
 **`directory`** - **Directory**<br>
-`filePath`. Required. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+`string`. Required. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 For downloads, specifies the folder path where the package contents will be downloaded. For publish, specifies the path to the directory that contains the files to publish.
 <!-- :::editable-content-end::: -->
 <br>
 
-<!-- :::item-end::: --> 
-
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="packageDescription"::: -->
+:::moniker range=">azure-pipelines-server"
 
 **`packageDescription`** - **Description**<br>
 `string`. Optional. Use when `command = publish`.<br>
@@ -155,11 +162,12 @@ Description of the package contents and/or the changes included in this version 
 <!-- :::editable-content-end::: -->
 <br>
 
+:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
-All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->
