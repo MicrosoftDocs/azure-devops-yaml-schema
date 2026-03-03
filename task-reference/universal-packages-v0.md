@@ -1,6 +1,6 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
-description: Download or publish Universal Packages.
+description: Download or publish Universal Packages (task version 0).
 ms.date: 03/02/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
