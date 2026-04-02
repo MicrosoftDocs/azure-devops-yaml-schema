@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@6 - Prepare Analysis Configuration v6 task
 description: Prepare SonarQube analysis configuration (task version 6).
-ms.date: 03/02/2026
+ms.date: 04/02/2026
 monikerRange: "=azure-pipelines"
 ---
 
