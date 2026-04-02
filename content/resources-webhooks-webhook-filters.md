@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook.filters definition
 description: List of trigger filters.
-ms.date: 03/02/2026
+ms.date: 04/02/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
