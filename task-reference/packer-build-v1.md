@@ -1,7 +1,7 @@
 ---
 title: PackerBuild@1 - Build machine image v1 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-ms.date: 03/02/2026
+ms.date: 04/02/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn

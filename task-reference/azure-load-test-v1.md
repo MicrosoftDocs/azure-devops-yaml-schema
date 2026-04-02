@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 03/02/2026
+ms.date: 04/02/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -34,9 +34,10 @@ Automate performance regression testing with Azure Load Testing.
     #loadTestRunName: # string. Load Test Run Name. 
     #loadTestRunDescription: # string. Load Test Run Description. 
     #secrets: # string. Secrets. 
-    #env: # string. env. 
+    #env: # string. Environment Variables. 
     #overrideParameters: # string. Override parameters. 
     #outputVariableName: 'ALTOutputVar' # string. Output Variable Name. Default: ALTOutputVar.
+    #waitForCompletion: true # boolean. Wait for Load test run Completion. Default: true.
 ```
 
 :::moniker-end
@@ -146,7 +147,7 @@ An array of JSON objects that consist of the name and value for each secret. The
 <!-- :::item name="env"::: -->
 :::moniker range=">azure-pipelines-server"
 
-**`env`** - **env**<br>
+**`env`** - **Environment Variables**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 An array of JSON objects that consist of the name and value for each environment variable. The name should match the variable name used in the Apache JMeter test script. Add or update the environment variables using the JSON syntax as shown in the following example.
@@ -200,6 +201,18 @@ Override parameters in the YAML config file using the following JSON format:
 `string`. Default value: `ALTOutputVar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the output variable that stores the test run ID for use in subsequent tasks.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="waitForCompletion"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`waitForCompletion`** - **Wait for Load test run Completion**<br>
+`boolean`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Indicates whether to wait for the load test run to complete before proceeding.
 <!-- :::editable-content-end::: -->
 <br>
 

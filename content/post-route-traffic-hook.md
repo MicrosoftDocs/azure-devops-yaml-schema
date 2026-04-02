@@ -1,7 +1,7 @@
 ---
 title: postRouteTrafficHook definition
 description: Used to run the steps after the traffic is routed.
-ms.date: 03/02/2026
+ms.date: 04/02/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
