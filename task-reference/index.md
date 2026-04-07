@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 04/02/2026
+ms.date: 04/07/2026
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -76,7 +76,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@5](azure-rm-web-app-deployment-v5.md)<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md)<br>[AzureRmWebAppDeployment@2](azure-rm-web-app-deployment-v2.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
 | **Azure App Service manage**<br>[AzureAppServiceManage@0](azure-app-service-manage-v0.md) | Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service. |
 | **Azure App Service Settings**<br>[AzureAppServiceSettings@1](azure-app-service-settings-v1.md) | Update/Add App settings an Azure Web App for Linux or Windows. |
-| **Azure CLI**<br>[AzureCLI@2](azure-cli-v2.md)<br>[AzureCLI@1](azure-cli-v1.md) | Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent. |
+| **Azure CLI**<br>[AzureCLI@3](azure-cli-v3.md)<br>[AzureCLI@2](azure-cli-v2.md)<br>[AzureCLI@1](azure-cli-v1.md) | Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent. |
 | **Azure CLI Preview**<br>[AzureCLI@0](azure-cli-v0.md) | Run a Shell or Batch script with Azure CLI commands against an azure subscription. |
 | **Azure Cloud Service deployment**<br>[AzureCloudPowerShellDeployment@2](azure-cloud-powershell-deployment-v2.md)<br>[AzureCloudPowerShellDeployment@1](azure-cloud-powershell-deployment-v1.md) | Deploy an Azure Cloud Service. |
 | **Azure Container Apps Deploy**<br>[AzureContainerApps@1](azure-container-apps-v1.md)<br>[AzureContainerApps@0](azure-container-apps-v0.md) | An Azure DevOps Task to build and deploy Azure Container Apps. |
