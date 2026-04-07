@@ -22,7 +22,24 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Python pip authenticate v1
+# Authentication task for the pip client used for installing Python distributions.
+- task: PipAuthenticate@1
+  inputs:
+  # Feeds and Authentication
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
+    #feedUrl: # string. Azure Artifacts Feeds url. 
+    #artifactFeeds: # string. My feeds (select below). 
+    #pythonDownloadServiceConnections: # string. Feeds from external organizations. 
+    #onlyAddExtraIndex: false # boolean. Don't set primary index URL. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Python pip authenticate v1
@@ -41,6 +58,30 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `feedUrl` is required. All other inputs are ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`feedUrl`** - **Azure Artifacts Feeds url.**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `workloadIdentityServiceConnection` is required. All other inputs are ignored. Not compatible with `pythonDownloadServiceConnections`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="artifactFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 
