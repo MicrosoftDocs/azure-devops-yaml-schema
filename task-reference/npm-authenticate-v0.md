@@ -22,7 +22,22 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# npm authenticate (for task runners) v0
+# Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
+- task: npmAuthenticate@0
+  inputs:
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
+    #feedUrl: # string. Azure Artifacts URL. 
+    workingFile: # string. Required. .npmrc file to authenticate. 
+    #customEndpoint: # string. Credentials for registries outside this organization/collection.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # npm authenticate (for task runners) v0
@@ -40,6 +55,30 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `feedUrl` is required. Service Connections for external organizations/collection and custom endpoints are not compatible.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`feedUrl`** - **Azure Artifacts URL**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `workloadIdentityServiceConnection` is required. Not compatible with `customEndpoint`. Feed Url should be in the `npm` registry format: `https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/npm/registry/`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="workingFile"::: -->
 :::moniker range="<=azure-pipelines"
 

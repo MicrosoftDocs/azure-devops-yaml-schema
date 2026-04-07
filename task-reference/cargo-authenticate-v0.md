@@ -25,7 +25,22 @@ Authentication task for the cargo client used for installing Cargo crates.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Cargo authenticate (for task runners) v0
+# Authentication task for the cargo client used for installing Cargo crates distribution.
+- task: CargoAuthenticate@0
+  inputs:
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
+    #registryNames: # string. Registry names from config.toml. 
+    configFile: # string. Required. config.toml file to authenticate. 
+    #cargoServiceConnections: # string. Credentials for registries outside this organization/collection.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 ```yaml
 # Cargo authenticate (for task runners) v0
@@ -42,6 +57,30 @@ Authentication task for the cargo client used for installing Cargo crates.
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, feedUrl is required. All other inputs are ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="registryNames"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`registryNames`** - **Registry names from config.toml**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Comma seperated list of registry names specified in your config.toml to authenticate. If this is set, workloadIdentityServiceConnection is required. All other inputs are ignored. Not compatible with cargoServiceConnections.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="configFile"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

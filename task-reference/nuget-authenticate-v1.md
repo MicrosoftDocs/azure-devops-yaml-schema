@@ -29,6 +29,8 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 # Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
 - task: NuGetAuthenticate@1
   inputs:
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. Optional. Use when nuGetServiceConnections == ''. 'Azure DevOps' Service Connection. 
+    #feedUrl: # string. Optional. Use when workloadIdentityServiceConnection != ''. Azure Artifacts URL. 
     #forceReinstallCredentialProvider: false # boolean. Reinstall the credential provider even if already installed. Default: false.
     #nuGetServiceConnections: # string. Service connection credentials for feeds outside this organization.
 ```
@@ -52,13 +54,37 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`. Optional. Use when `nuGetServiceConnections == ''`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `feedUrl` is required. All other inputs are ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`feedUrl`** - **Azure Artifacts URL**<br>
+`string`. Optional. Use when `workloadIdentityServiceConnection != ''`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `workloadIdentityServiceConnection` is required. All other inputs are ignored. Not compatible with `nuGetServiceConnections`. Feed Url should be in the NuGet service index format: `https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/nuget/v3/index.json`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="forceReinstallCredentialProvider"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Reinstalls the credential provider to the user profile directory, even if it's already installed. If the credential provider is already installed in the user profile, the task determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
+If the credential provider is already installed in the user profile, determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
 <!-- :::editable-content-end::: -->
 <br>
 

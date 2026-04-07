@@ -12,6 +12,9 @@ monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2
 
 <!-- :::editable-content name="description"::: -->
 Use this task to create and upload an sdist or wheel to a PyPI-compatible index using Twine.
+
+> [!NOTE]
+> The PyPI Publisher task has been deprecated. You can now publish PyPI packages using Twine authentication and custom scripts.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->

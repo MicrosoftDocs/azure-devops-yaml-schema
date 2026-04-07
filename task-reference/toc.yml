@@ -139,6 +139,9 @@ items:
     displayName: Azure App Service Settings v1
 - name: Azure CLI
   items:
+  - name: AzureCLI@3
+    href: azure-cli-v3.md
+    displayName: Azure CLI v3
   - name: AzureCLI@2
     href: azure-cli-v2.md
     displayName: Azure CLI v2
