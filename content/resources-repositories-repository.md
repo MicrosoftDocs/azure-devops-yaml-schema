@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 01/27/2026
+ms.date: 04/02/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -102,6 +102,7 @@ CI trigger for this repository, no CI trigger if omitted.
 > [!IMPORTANT]
 > * Repository resource triggers are supported only for Azure Repos Git repositories.
 > * Repository resource triggers don't support `batch`.
+> * Ensure that your trigger items like paths are indented correctly; incorrect indentation can cause your trigger to not work as expected.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

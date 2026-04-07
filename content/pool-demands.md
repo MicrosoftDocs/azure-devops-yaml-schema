@@ -1,7 +1,7 @@
 ---
 title: pool.demands definition
 description: Demands (for a private pool).
-ms.date: 01/23/2026
+ms.date: 04/02/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
