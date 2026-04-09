@@ -83,7 +83,7 @@ Valid `name` values include: `description`, `helpMarkDown`, `remarks`,
 
 - YAML schema articles use moniker range `<=azure-pipelines`.
 - The `docfx.json` group range is `>= azure-pipelines-2022 <= azure-pipelines`.
-- Valid monikers: `azure-pipelines` (current cloud), `azure-pipelines-2022`, `azure-pipelines-2022.1`, `azure-pipelines-2022.2`, `azure-pipelines-2020`, `azure-pipelines-2020.1`, `azure-pipelines-2019`, `azure-pipelines-2019.1`.
+- Valid monikers: `azure-pipelines` (current cloud), `azure-pipelines-server`, `azure-pipelines-2022.2`, `azure-pipelines-2022.1`, `azure-pipelines-2022`.
 - Every `:::moniker range="..."` must have a matching `:::moniker-end`.
 - Default to `<=azure-pipelines` for new editable content unless the feature is version-specific.
 - **DISCARD** content scoped only to `tfs-2018` or earlier unless explicitly requested.
@@ -114,7 +114,7 @@ ms.author: sdanie
 ---
 ```
 
-`ms.date` should reflect the date of the last meaningful content change.
+`ms.date` should reflect the date of the last meaningful content change. It is acceptable to update the `ms.date` value even though it is not in an **editable-content** section.
 
 ## 6. File Naming Conventions
 
@@ -180,7 +180,7 @@ jobs:
 - Link to other schema definitions using relative paths: `[jobs](jobs.md)`, `[pool](pool.md)`.
 - Link to the main Azure DevOps docs using absolute Learn paths: `[Customize your pipeline](/azure/devops/pipelines/customize-pipeline)`.
 - Link to the task index: `[Azure Pipelines tasks index](/azure/devops/pipelines/tasks/reference)`.
-- Link to REST APIs: `https://learn.microsoft.com/rest/api/azure/devops/`.
+- Link to REST APIs: `[Azure DevOps Services REST API Reference](/rest/api/azure/devops/)`.
 - For task issues, link to: `https://github.com/microsoft/azure-pipelines-tasks`.
 
 ## 10. Common Article Patterns
