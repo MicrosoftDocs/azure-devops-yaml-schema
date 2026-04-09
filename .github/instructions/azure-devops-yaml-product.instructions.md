@@ -43,7 +43,7 @@ defaults shipped with doc-kit.
 
 **Critical:** Most article content in this repo is auto-generated from task
 metadata and YAML schema definitions. Contributions must only touch
-**editable content regions**.
+**editable content regions** or the article metadata values such as the ms.date value.
 
 ### Editable content tags
 
