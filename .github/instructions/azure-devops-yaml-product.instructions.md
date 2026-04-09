@@ -21,7 +21,7 @@ defaults shipped with doc-kit.
 | REST API reference                 | `https://learn.microsoft.com/rest/api/azure/devops/`              |
 | Feedback mechanism                 | Azure DevOps Developer Community (`developercommunity.visualstudio.com`) |
 | Tasks source repo                  | `https://github.com/microsoft/azure-pipelines-tasks`              |
-| YAML validation schema source      | `https://github.com/Microsoft/azure-pipelines-vscode`             |
+| YAML validation schema source      | `https://github.com/Microsoft/azure-pipelines-vscode`  There is additional information about how developers release the code at https://github.com/microsoft/azure-pipelines-vscode/blob/main/RELEASE.md#bumping-service-schema           |
 | `ms.service`                       | `azure-devops-pipelines`                                          |
 | `ms.topic`                         | `reference` (set globally in `docfx.json`)                        |
 
