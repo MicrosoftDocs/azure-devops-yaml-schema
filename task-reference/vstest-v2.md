@@ -392,7 +392,14 @@ Specifies the path to a `runsettings` or `testsettings` file to use with the tes
 **`overrideTestrunParameters`** - **Override test run parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Overrides the parameters defined in the `TestRunParameters` section of a `runsettings` file or the `Properties` section of a `testsettings` file. For example: `-key1 value1 -key2 value2`. *Note:* Properties specified in a `testsettings` file can be accessed via the `TestContext` using Visual Studio 2017 (update 4 or higher).
+Overrides the parameters defined in the `TestRunParameters` section of a `runsettings` file or the `Properties` section of a `testsettings` file. For example: `-key1 value1 -key2 value2`. Parameter key-value-pairs must be separated by *space* characters, other whitespace characters like linebreaks are not be considered valid separators.  This is relevant when using multiline yaml blocks, where the _folded_ style (`>`) must be used instead of the _literal_ style (`|`). For example:<br>
+```
+overrideTestrunParameters: >
+  -key1 value1
+  -key2 value2
+```
+<br>
+*Note:* Properties specified in a `testsettings` file can be accessed via the `TestContext` using Visual Studio 2017 (update 4 or higher).
 <!-- :::editable-content-end::: -->
 <br>
 
