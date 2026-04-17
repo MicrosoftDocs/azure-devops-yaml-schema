@@ -1,7 +1,7 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 04/02/2026
+ms.date: 04/17/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
@@ -31,12 +31,12 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
   inputs:
     #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
     #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory.
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version.
     #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
     #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
   # Advanced
-    #vsVersion: # string. Compatible Visual Studio version. 
+    #vsVersion: # string. Compatible Visual Studio version.
     #checkForExistingVersion: false # boolean. Check for existing installation. Default: false.
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
@@ -53,12 +53,12 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
   inputs:
     #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
     #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory.
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version.
     #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
     #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
   # Advanced
-    #vsVersion: # string. Compatible Visual Studio version. 
+    #vsVersion: # string. Compatible Visual Studio version.
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
 ```
@@ -74,11 +74,11 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
   inputs:
     #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
     #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory.
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version.
     #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
   # Advanced
-    #vsVersion: # string. Compatible Visual Studio version. 
+    #vsVersion: # string. Compatible Visual Studio version.
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
 ```
@@ -109,6 +109,8 @@ Specifies whether to install only the .NET runtime or the SDK.
 `boolean`. Optional. Use when `packageType = sdk`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs all SDKs from `global.json` files. These files are searched from `system.DefaultWorkingDirectory`. You can change the search root path by setting the working directory input.
+
+The task also reads the `sdk.rollForward` property from `global.json` and installs the latest version that satisfies the specified roll-forward policy. For example, if your `global.json` specifies `"version": "8.0.302"` with `"rollForward": "latestFeature"`, the task installs the latest `8.0.x` SDK instead of the exact version. If `sdk.rollForward` is not present, the task installs the exact version specified in `sdk.version`, which matches the previous behavior. For more information about supported `rollForward` values, see the [Remarks](#remarks) section and the [global.json overview](/dotnet/core/tools/global-json).
 
 The `6.x` and `6.1.x` format (using `.x` as a wildcard) described in the `UseDotNet@2.version` input is for use in the `version` input in the task, not the `sdk.version` parameter in `global.json`.
 
@@ -217,8 +219,8 @@ Configures the behavior of the .NET host process when it searches for a suitable
 
 - **`false`**: The host process searches only for versions that are present in the folder that is specified by the task.
 - **`true`**: The host process will search in predefined global locations using multi-level lookup. The default global locations are:
-    - `C:\Program Files\dotnet` (64-bit processes)
-    - `C:\Program Files (x86)\dotnet` (32-bit processes)
+  - `C:\Program Files\dotnet` (64-bit processes)
+  - `C:\Program Files (x86)\dotnet` (32-bit processes)
 
 Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/multilevel-sharedfx-lookup.md).
 
@@ -265,11 +267,83 @@ The Use .NET Core task acquires a specific version of [.NET Core](/dotnet/core/t
 Adding this task before the [DotNetCoreCLI@2](dotnet-core-cli-v2.md) in a build definition ensures that the version would be available at the time of building, testing and publishing your app.
 
 The tool installer approach also allows you to decouple from the agent update cycles. If the .NET Core version you are looking for is missing from the Azure Pipelines agent (Hosted or Private), then you can use this task to get the right version installed on the agent.
+
+### Roll-forward support with global.json
+
+When `useGlobalJson` is set to `true`, the task reads the `sdk.rollForward` property from your `global.json` file and installs the latest SDK version that satisfies the specified roll-forward policy. This behavior matches how the .NET CLI resolves SDK versions locally.
+
+If `sdk.rollForward` is not present in your `global.json`, the task installs the exact version specified in `sdk.version`. This matches the previous behavior.
+
+The following table shows how each `rollForward` value affects version resolution:
+
+| rollForward value | Behavior | Example: version `8.0.302` resolves to |
+|---|---|---|
+| `disable` | Installs the exact version specified. | `8.0.302` |
+| `patch` | Installs the latest patch within the same feature band. | Latest `>=8.0.300 <8.0.400` |
+| `latestPatch` | Same as `patch`. | Latest `>=8.0.300 <8.0.400` |
+| `feature` | Installs the latest feature band within the same major.minor version. | Latest `8.0.x` |
+| `latestFeature` | Same as `feature`. | Latest `8.0.x` |
+| `minor` | Installs the latest minor version within the same major version. | Latest `8.x` |
+| `latestMinor` | Same as `minor`. | Latest `8.x` |
+| `major` | Installs the latest version within the same major version. | Latest `8.x` |
+| `latestMajor` | Same as `major`. | Latest `8.x` |
+
+> [!NOTE]
+> The `major` and `latestMajor` policies currently resolve within the same major version only. Cross-major version resolution is not yet supported.
+
+If `global.json` contains an unrecognized `rollForward` value, the task logs a warning and falls back to installing the exact version specified in `sdk.version`.
+
+For the full specification of `rollForward` values, see [global.json overview](/dotnet/core/tools/global-json).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Install the latest feature band using global.json
+
+The following `global.json` file specifies SDK version `8.0.302` with `rollForward` set to `latestFeature`. The task installs the latest `8.0.x` SDK available.
+
+```json
+{
+  "sdk": {
+    "version": "8.0.302",
+    "rollForward": "latestFeature"
+  }
+}
+```
+
+```yaml
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET SDK from global.json'
+  inputs:
+    packageType: 'sdk'
+    useGlobalJson: true
+```
+
+### Install the latest patch within a feature band using global.json
+
+The following `global.json` file specifies SDK version `8.0.302` with `rollForward` set to `latestPatch`. The task installs the latest SDK version within the `8.0.3xx` feature band.
+
+```json
+{
+  "sdk": {
+    "version": "8.0.302",
+    "rollForward": "latestPatch"
+  }
+}
+```
+
+```yaml
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET SDK from global.json'
+  inputs:
+    packageType: 'sdk'
+    useGlobalJson: true
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
@@ -295,5 +369,10 @@ The tool installer approach also allows you to decouple from the agent update cy
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+- [global.json overview](/dotnet/core/tools/global-json)
+- [Select the .NET version to use](/dotnet/core/versions/selection)
+- [DotNetCoreCLI@2 task](dotnet-core-cli-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
