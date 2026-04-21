@@ -311,6 +311,11 @@ items:
   - name: BatchScript@1
     href: batch-script-v1.md
     displayName: Batch script v1
+- name: Bicep Deploy
+  items:
+  - name: BicepDeploy@0
+    href: bicep-deploy-v0.md
+    displayName: Bicep Deploy v0
 - name: Build machine image
   items:
   - name: PackerBuild@1

@@ -95,6 +95,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure VM scale set deployment**<br>[AzureVmssDeployment@1](azure-vmss-deployment-v1.md)<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
 | **Azure Web App**<br>[AzureWebApp@1](azure-web-app-v1.md) | Deploy an Azure Web App for Linux or Windows. |
 | **Azure Web App for Containers**<br>[AzureWebAppContainer@1](azure-web-app-container-v1.md) | Deploy containers to Azure App Service. |
+| **Bicep Deploy**<br>[BicepDeploy@0](bicep-deploy-v0.md) | Deploy and Manage Azure Resources using Bicep Files. |
 | **Build machine image**<br>[PackerBuild@1](packer-build-v1.md)<br>[PackerBuild@0](packer-build-v0.md) | Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment. |
 | **Check Azure Policy compliance**<br>[AzurePolicyCheckGate@0](azure-policy-check-gate-v0.md) | Security and compliance assessment for Azure Policy. |
 | **Chef**<br>[Chef@1](chef-v1.md) | Deploy to Chef environments by editing environment attributes. |
