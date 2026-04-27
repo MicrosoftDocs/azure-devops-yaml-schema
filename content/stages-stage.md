@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 04/02/2026
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
