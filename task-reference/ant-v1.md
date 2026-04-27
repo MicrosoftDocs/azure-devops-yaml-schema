@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 04/02/2026
+ms.date: 04/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
@@ -47,7 +47,7 @@ Use this task to build with Apache Ant.
     javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
     #jdkVersionOption: 'default' # 'default' | '1.25' | '1.21' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
     #jdkUserInputDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64' | 'arm64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -292,7 +292,18 @@ Sets JAVA_HOME to the given path.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkArchitectureOption"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`jdkArchitectureOption`** - **JDK architecture**<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`, `arm64`. Default value: `x64`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Optionally supplies the architecture (x86, x64) of the JDK.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 [Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>

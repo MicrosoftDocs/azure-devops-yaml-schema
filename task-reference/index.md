@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 04/07/2026
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -150,8 +150,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@3](vstest-v3.md)<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2 and later). |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
@@ -347,8 +346,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@3](vstest-v3.md)<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2 and later). |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
@@ -537,8 +535,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
@@ -725,8 +722,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish Cobertura or JaCoCo code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |

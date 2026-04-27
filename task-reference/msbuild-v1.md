@@ -1,7 +1,7 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 04/02/2026
+ms.date: 04/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -33,7 +33,7 @@ Use this task to build with MSBuild.
     solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
     #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
     #msbuildVersion: 'latest' # 'latest' | '18.0' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64' | 'arm64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -137,7 +137,18 @@ If the preferred version cannot be found, the latest version found is used inste
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildArchitecture"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`msbuildArchitecture`** - **MSBuild Architecture**<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64), `arm64` (MSBuild arm64). Default value: `x86`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Supplies the MSBuild architecture (x86, x64) to run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
