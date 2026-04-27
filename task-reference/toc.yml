@@ -925,7 +925,7 @@ items:
     displayName: Publish Test Results v2
   - name: PublishTestResults@1
     href: publish-test-results-v1.md
-    displayName: Publish test results v1
+    displayName: Publish Test Results v1
 - name: Publish To Azure Service Bus
   items:
   - name: PublishToAzureServiceBus@2
