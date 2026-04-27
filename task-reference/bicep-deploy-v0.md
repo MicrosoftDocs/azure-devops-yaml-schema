@@ -1,7 +1,7 @@
 ---
 title: BicepDeploy@0 - Bicep Deploy v0 task
 description: Deploy and Manage Azure Resources using Bicep Files. (task version 0)
-ms.date: 04/20/2026
+ms.date: 04/27/2026
 monikerRange: "=azure-pipelines"
 ---
 

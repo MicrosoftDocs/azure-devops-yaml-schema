@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@0 - Manual validation v0 task
 description: Pause a YAML pipeline run to wait for manual interaction - Preview (task version 0).
-ms.date: 04/02/2026
+ms.date: 04/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
@@ -149,8 +149,8 @@ a message bar with a link that opens the Manual validation dialog, which contain
       timeoutInMinutes: 1440 # task times out in 1 day
       inputs:
         notifyUsers: |
-          test@test.com
-          example@example.com
+          test@contoso.com
+          example@fabrikam.com
         instructions: 'Please validate the build configuration and resume'
         onTimeout: 'resume'
 ```
