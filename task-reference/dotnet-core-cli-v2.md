@@ -835,7 +835,7 @@ In addition, the `test` command does not recognize the `feedRestore` or `vstsFee
 
 ### Why am I getting NU1507 warnings with [Package Source Mapping](/nuget/consume-packages/package-source-mapping) although when building on my machine it has no warnings?
 
-The the various commands that do a NuGet restore or access a NuGet feed build a special temporary `NuGet.config` file that add NuGet authentication for azure artifacts NuGet feeds. The way this is done is in conflict with the schema that Package Source Mapping uses to map the packages to the sources and breaks the Package Source Mappin configuration in the `NuGet.config` file in your repository.
+The various commands that do a NuGet restore or access a NuGet feed build a special temporary `NuGet.config` file that add NuGet authentication for azure artifacts NuGet feeds. The way this is done is in conflict with the schema that Package Source Mapping uses to map the packages to the sources and breaks the Package Source Mappin configuration in the `NuGet.config` file in your repository.
 To work around this conflict you can use the [NuGet Authenticate](nuget-authenticate-v1.md) task to authenticate and afterwards the custom command to invoke the desired dotnet command without the `NuGet.config` modification.
 
 ```YAML
