@@ -14,9 +14,9 @@ ms.author: rabououn
 
 <!-- :::editable-content name="description"::: -->
 > [!IMPORTANT]
-> To authenticate with Azure Artifacts, public registries, or to push packages, use the [NuGetAuthenticate@1](./nuget-authenticate-v1.md) task combined with the [.NET CLI task](dotnet-core-cli-v2.md) or other command-line tools. The `NuGetCommand@2` task is maintained for package restore and pack operations only.
+> To authenticate and publish packages to Azure Artifacts or public registries, use the [NuGetAuthenticate@1](./nuget-authenticate-v1.md) task combined with the [.NET CLI task](dotnet-core-cli-v2.md). The `NuGetCommand@2` task is no longer being updated with new features; only critical bugs are addressed.
 
-Use this task to restore or pack NuGet packages, or run a NuGet command. This task supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. This task also uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+Use this task to pack or restore NuGet packages, or run a NuGet command. This task uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
