@@ -3,8 +3,8 @@ title: extends definition
 description: Extends a pipeline using a template.
 ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ai-usage: ai-assisted
 ---
 

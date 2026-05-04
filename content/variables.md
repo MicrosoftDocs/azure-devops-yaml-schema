@@ -3,8 +3,8 @@ title: variables definition
 description: Define variables using name/value pairs.
 ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # variables definition
