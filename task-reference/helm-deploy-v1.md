@@ -3,8 +3,8 @@ title: HelmDeploy@1 - Package and deploy Helm charts v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
 ms.date: 04/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # HelmDeploy@1 - Package and deploy Helm charts v1 task
