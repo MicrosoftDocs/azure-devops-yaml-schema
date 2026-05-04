@@ -3,8 +3,8 @@ title: AndroidBuild@1 - Android Build v1 task
 description: AndroidBuild@1 is deprecated. Use Gradle.
 ms.date: 04/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AndroidBuild@1 - Android Build v1 task

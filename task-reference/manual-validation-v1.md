@@ -3,8 +3,8 @@ title: ManualValidation@1 - Manual validation v1 task
 description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
 ms.date: 04/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # ManualValidation@1 - Manual validation v1 task
