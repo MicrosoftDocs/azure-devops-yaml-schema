@@ -3,8 +3,8 @@ title: steps.script definition
 description: Runs a script using cmd.exe on Windows and Bash on other platforms.
 ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # steps.script definition

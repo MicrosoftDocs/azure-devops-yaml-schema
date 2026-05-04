@@ -3,8 +3,8 @@ title: target.settableVariables definition
 description: Restrictions on which variables that can be set.
 ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # target.settableVariables definition
