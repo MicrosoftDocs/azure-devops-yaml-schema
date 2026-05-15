@@ -664,6 +664,9 @@ items:
     displayName: Install SSH key v0
 - name: Invoke Azure Function
   items:
+  - name: AzureFunction@2
+    href: azure-function-v2.md
+    displayName: Invoke Azure Function v2
   - name: AzureFunction@1
     href: azure-function-v1.md
     displayName: Invoke Azure Function v1

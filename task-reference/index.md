@@ -211,7 +211,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
 | **Install Apple Provisioning Profile**<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent. |
 | **Install SSH key**<br>[InstallSSHKey@0](install-ssh-key-v0.md) | Install an SSH key prior to a build or deployment. |
-| **Invoke Azure Function**<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
+| **Invoke Azure Function**<br>[AzureFunction@2](azure-function-v2.md)<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
 | **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@2](jenkins-download-artifacts-v2.md)<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |
 | **Node.js tasks runner installer**<br>[NodeTaskRunnerInstaller@0](node-task-runner-installer-v0.md) | Install specific Node.js version to run node tasks. |
 | **Notation**<br>[Notation@0](notation-v0.md) | Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation. |

@@ -1,16 +1,14 @@
 ---
-title: AzureFunction@1 - Invoke Azure Function v1 task
-description: Invoke an Azure Function (task version 1).
-ms.date: 05/15/2026
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: ramiMSFT
-ms.author: rabououn
+title: AzureFunction@2 - Invoke Azure Function v2 task
+description: Invoke an Azure Function.
+ms.date: 04/09/2026
+monikerRange: "=azure-pipelines"
 ---
 
-# AzureFunction@1 - Invoke Azure Function v1 task
+# AzureFunction@2 - Invoke Azure Function v2 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to invoke an HTTP triggered function in a function app and parse the response. The function app must be created and hosted in Azure Functions.
@@ -22,15 +20,16 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 ```yaml
-# Invoke Azure Function v1
+# Invoke Azure Function v2
 # Invoke an Azure Function.
-- task: AzureFunction@1
+- task: AzureFunction@2
   inputs:
+    #azureSubscription: # string. Alias: azureServiceConnection | connectedServiceARM. Azure Service Connection. 
     function: # string. Required. Azure function URL. 
-    key: # string. Required. Function key. 
+    #key: # string. Function key. 
     method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
     #headers: # string. Headers. 
     #queryParameters: # string. Query parameters. 
@@ -41,29 +40,40 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 ```
 
 :::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureSubscription"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureSubscription`** - **Azure Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureServiceConnection | connectedServiceARM`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Service connection used to authenticate when invoking the Azure Function. Provides an Entra Access Token for Service Principal or Managed Identity access.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="function"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`function`** - **Azure function URL**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The URL of the Azure function to be invoked​. Example: `https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1`.
+URL of the Azure function that needs to be invoked​. Example: `https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1`.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="key"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`key`** - **Function key**<br>
-`string`. Required.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The function or the host key used to access and invoke the function. To keep the key secure, use a secret pipeline variable to store the function key. Example: `$(myFunctionKey)`. `myFunctionKey` is an environment-level secret variable with a value as the secret key.
 <!-- :::editable-content-end::: -->
@@ -72,7 +82,7 @@ The function or the host key used to access and invoke the function. To keep the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="method"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`method`** - **Method**<br>
 `string`. Required. Allowed values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`. Default value: `POST`.<br>
@@ -84,7 +94,7 @@ The HTTP method with which the function will be invoked.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="headers"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`headers`** - **Headers**<br>
 `string`. Default value: `{\n"Content-Type":"application/json", \n"PlanUrl": "$(system.CollectionUri)", \n"ProjectId": "$(system.TeamProjectId)", \n"HubName": "$(system.HostType)", \n"PlanId": "$(system.PlanId)", \n"JobId": "$(system.JobId)", \n"TimelineId": "$(system.TimelineId)", \n"TaskInstanceId": "$(system.TaskInstanceId)", \n"AuthToken": "$(system.AccessToken)"\n}`.<br>
@@ -96,7 +106,7 @@ The header in JSON format to be attached to the request sent to the function.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="queryParameters"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`queryParameters`** - **Query parameters**<br>
 `string`.<br>
@@ -108,19 +118,19 @@ The string query to append to the function URL. Must not start with `?` or `&`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="body"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`body`** - **Body**<br>
 `string`. Optional. Use when `method != GET && method != HEAD`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The request body in JSON format.
+JSON-formatted message body for the request.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForCompletion"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`waitForCompletion`** - **Completion event**<br>
 `string`. Required. Allowed values: `true` (Callback), `false` (ApiResponse). Default value: `false`.<br>
@@ -135,12 +145,12 @@ How the task reports completion.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="successCriteria"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`successCriteria`** - **Success criteria**<br>
 `string`. Optional. Use when `waitForCompletion = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The criteria for a successful task. By default, the task returns `200 OK` status when successful.
+The criteria for a successful task. By default, the task returns `200 OK` status when successful. If this input is not specified, the response content does not influence the result.
 
 Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. Learn more about [specifying conditions](/azure/devops/pipelines/process/conditions)​.
 <!-- :::editable-content-end::: -->
@@ -157,7 +167,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 None.
 
@@ -193,68 +203,38 @@ If the function executes for more than 1 minute, use the **Callback** completion
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-### Example of an Azure Function that uses the callback completion mode
+The following two examples are functionally equivalent. The first example uses an Azure Resource Manager service connection for authentication, while the second example directly uses a function key for authentication.
 
+```yml
+trigger: none
+ 
+pool: server
+ 
+steps:
+- task: AzureFunction@2
+  inputs:
+    # Authenticate using Azure Resource Manager service connection
+    authenticationType: 'azureServiceConnection'
+    azureServiceConnection: 'working-app-registration'
+    function: 'https://myfuction.azurewebsites.net/api/my-test-trigger-function'
+    method: 'GET'
+    waitForCompletion: 'false'
 ```
-#r "Newtonsoft.Json"
 
-using System;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-
-public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-{
-    var url = req.Headers["PlanUrl"];
-    var projectId = req.Headers["ProjectId"];
-    var hubName = req.Headers["HubName"];
-    var planId = req.Headers["PlanId"];
-    var jobId = req.Headers["JobId"];
-    var timelineId = req.Headers["TimelineId"];
-    var taskInstanceId = req.Headers["TaskinstanceId"];
-    var authToken = req.Headers["AuthToken"];
-
-    var callbackUrl = $"{url}/{projectId}/_apis/distributedtask/hubs/{hubName}/plans/{planId}/events?api-version=2.0-preview.1";
-  
-    var successBody = JsonConvert.SerializeObject(new {
-        name = "TaskCompleted",
-        taskId = taskInstanceId.ToString(),
-        jobId = jobId.ToString(),
-        result = "succeeded"
-    });
-
-    // the following call does not block
-    Task.Run(() =>
-    {
-        Thread.Sleep(70000); // simulate long running work
-        PostEvent(callbackUrl, successBody, authToken, log);
-    });
-   
-    return new OkObjectResult("Long-running job successfully scheduled!");
-}
-    
-public static void PostEvent(String callbackUrl, String body, String authToken, ILogger log)
-{
-    try
-    {
-        var client = new HttpClient();
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
-        var requestContent = new StringContent(body, Encoding.UTF8, "application/json");
-        var response = client.PostAsync(new Uri(callbackUrl), requestContent).Result;
-        var responseContent = response.Content.ReadAsStringAsync().Result;
-        log.LogInformation(response.StatusCode.ToString());
-        log.LogInformation(responseContent);
-    }
-    catch (Exception ex)
-    {
-        log.LogError(ex.Message);
-    }
-}
+```yml
+trigger: none
+ 
+pool: server
+ 
+steps:
+- task: AzureFunction@2
+  inputs:
+    # Authenticate using function key
+    authenticationType: 'functionKey'
+    key: 'aaaaaaaa-0b0b-1c1c-2d2d-333333333333'
+    function: 'https://myfuction.azurewebsites.net/api/my-test-trigger-function'
+    method: 'GET'
+    waitForCompletion: 'false'
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
@@ -262,7 +242,7 @@ public static void PostEvent(String callbackUrl, String body, String authToken, 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -280,9 +260,5 @@ public static void PostEvent(String callbackUrl, String body, String authToken, 
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-## See also
-
-* [Automate Azure Functions deployments with Azure Pipelines](/training/modules/deploy-azure-functions/)
-* [Agentless job](/azure/devops/pipelines/process/phases#server-jobs)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
