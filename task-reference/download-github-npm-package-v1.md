@@ -1,7 +1,7 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 04/27/2026
+ms.date: 05/15/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -10,10 +10,24 @@ ms.author: rabououn
 # DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install npm packages from GitHub.
+
+This task is deprecated; use [Npm@1](./npm-v1.md) with GitHub service connections instead.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to install npm packages from GitHub.
+
+This task is deprecated; use [Npm@1](./npm-v1.md) with GitHub service connections instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -22,7 +36,22 @@ Use this task to install npm packages from GitHub.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Download Github Npm Package v1
+# Deprecated: this task is no longer maintained. Use the Npm@1 task with GitHub service connections instead.
+- task: DownloadGithubNpmPackage@1
+  inputs:
+    packageName: # string. Required. Package Name. 
+    version: # string. Required. Package Version. 
+    externalRegistryCredentials: # string. Alias: externalEndpoints. Required. Credentials for registry from GitHub. 
+    #installDirectory: # string. Alias: packagesDirectory. Destination directory.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Download Github Npm Package v1
@@ -107,6 +136,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task is deprecated; use [Npm@1](./npm-v1.md) with GitHub service connections instead.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

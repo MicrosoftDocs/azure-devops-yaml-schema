@@ -42,8 +42,20 @@ defaults shipped with doc-kit.
 ## 3. Auto-Generated vs. Editable Content
 
 **Critical:** Most article content in this repo is auto-generated from task
-metadata and YAML schema definitions. Contributions must only touch
-**editable content regions** or the article metadata values such as the ms.date value.
+metadata and YAML schema definitions. Unless a change is being made by the
+repository's approved automation workflow described below, contributions must
+only touch **editable content regions** or article metadata values such as
+`ms.date`.
+
+These instructions are for doc-kit agents, skills, and prompts. The exception
+below is intended only for automation-generated pull requests that carry the
+label `task-automation` or `yaml-schema-automation`; it does not change the
+default guidance for normal contributor-authored PRs.
+
+Pull requests with the label `task-automation` or `yaml-schema-automation`
+are produced by the tooling that generates the task reference documentation,
+so those automation PRs may create new articles or update non-editable
+content regions.
 
 ### Editable content tags
 
