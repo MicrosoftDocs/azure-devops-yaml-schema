@@ -1,29 +1,17 @@
 ---
-title: AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
-description: Run your scripts and make changes to your Azure Database for MySQL.
-ms.date: 05/15/2026
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+title: AzureMysqlDeployment@2 - Azure Database for MySQL deployment v2 task
+description: Run your scripts and make changes to your Azure Database for MySQL Flexible Server. (task version 2)
+ms.date: 05/13/2026
+monikerRange: "=azure-pipelines"
 ---
 
-# AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
+# AzureMysqlDeployment@2 - Azure Database for MySQL deployment v2 task
 
 <!-- :::description::: -->
 :::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run your scripts and make changes to your database in Azure Database for MySQL. The Azure Database for MySQL Deployment task only works with [Azure Database for MySQL Single Server](/azure/mysql/single-server-overview).
-
-This task is deprecated; use [AzureMysqlDeployment@2](./azure-mysql-deployment-v2.md).
-<!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-server"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to run your scripts and make changes to your database in Azure Database for MySQL. The Azure Database for MySQL Deployment task only works with [Azure Database for MySQL Single Server](/azure/mysql/single-server-overview).
+This task deploys scripts to [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview). You can deploy using a SQL script file or by writing the script inline.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -35,9 +23,9 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Azure Database for MySQL deployment v1
-# Deprecated: This task is no longer maintained. Use the AzureMysqlDeployment@2 task instead.
-- task: AzureMysqlDeployment@1
+# Azure Database for MySQL deployment v2
+# Run your scripts and make changes to your Azure Database for MySQL Flexible Server.
+- task: AzureMysqlDeployment@2
   inputs:
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
   # DB Details
@@ -58,41 +46,13 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 ```
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-server"
-
-```yaml
-# Azure Database for MySQL deployment v1
-# Run your scripts and make changes to your Azure Database for MySQL.
-- task: AzureMysqlDeployment@1
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
-  # DB Details
-    ServerName: # string. Required. Host Name. 
-    #DatabaseName: # string. Database Name. 
-    SqlUsername: # string. Required. Server Admin Login. 
-    SqlPassword: # string. Required. Password. 
-  # Deployment Package
-    #TaskNameSelector: 'SqlTaskFile' # 'SqlTaskFile' | 'InlineSqlTask'. Type. Default: SqlTaskFile.
-    SqlFile: # string. Required when TaskNameSelector = SqlTaskFile. MySQL Script. 
-    #SqlInline: # string. Required when TaskNameSelector = InlineSqlTask. Inline MySQL Script. 
-    #SqlAdditionalArguments: # string. Additional MySQL Arguments. 
-  # Firewall
-    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: AutoDetect.
-    #StartIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. Start IP Address. 
-    #EndIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. End IP Address. 
-    #DeleteFirewallRule: true # boolean. Delete Rule After Task Ends. Default: true.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`azureSubscription`** - **Azure Subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -108,7 +68,7 @@ If your subscription is not listed or if you want to use an existing Service Pri
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ServerName"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`ServerName`** - **Host Name**<br>
 `string`. Required.<br>
@@ -126,7 +86,7 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DatabaseName"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`DatabaseName`** - **Database Name**<br>
 `string`.<br>
@@ -142,7 +102,7 @@ Note: MySQL database names are case-sensitive.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlUsername"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`SqlUsername`** - **Server Admin Login**<br>
 `string`. Required.<br>
@@ -156,7 +116,7 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlPassword"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`SqlPassword`** - **Password**<br>
 `string`. Required.<br>
@@ -172,7 +132,7 @@ Also, you may mark the variable type as `secret` to secure it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TaskNameSelector"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`TaskNameSelector`** - **Type**<br>
 `string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
@@ -189,14 +149,14 @@ Optional. Selects one of the options between Script File & Inline Script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlFile"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`SqlFile`** - **MySQL Script**<br>
 `string`. Required when `TaskNameSelector = SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The full path of the script file on the automation agent or on a UNC path accessible to the automation agent. For example: `\BudgetIT\DeployBuilds\script.sql`.
+The full path of the script file on the automation agent or on a UNC path accessible to the automation agent. For example: `\\BudgetIT\DeployBuilds\script.sql`.
 
-Predefined system variables, such as `$(agent.releaseDirectory)`, and files containing SQL statements can be used here.​
+Predefined system variables, such as `$(agent.releaseDirectory)`, and files containing SQL statements can be used here.
 
 Note: The MySQL client prefers Unix style paths, so from version 1.183.0 on, the task will convert Windows style paths to Unix style paths.
 Example: from `c:\foo\bar\myscript.sql` to `c:/foo/bar/myscript.sql`.
@@ -208,7 +168,7 @@ When the task is used on Linux platforms, paths remain unchanged. There is no ne
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlInline"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`SqlInline`** - **Inline MySQL Script**<br>
 `string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
@@ -220,7 +180,7 @@ Enters the MySQL script to execute on the database selected above.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlAdditionalArguments"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`SqlAdditionalArguments`** - **Additional MySQL Arguments**<br>
 `string`.<br>
@@ -240,7 +200,7 @@ All available options are described in the MySQL client documentation.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="IpDetectionMethod"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`IpDetectionMethod`** - **Specify Firewall Rules Using**<br>
 `string`. Required. Allowed values: `AutoDetect`, `IPAddressRange`. Default value: `AutoDetect`.<br>
@@ -261,7 +221,7 @@ Accepted values:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="StartIpAddress"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`StartIpAddress`** - **Start IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
@@ -273,7 +233,7 @@ The starting IP Address of the automation agent machine pool. For example: `196.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="EndIpAddress"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`EndIpAddress`** - **End IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
@@ -285,7 +245,7 @@ The ending IP Address of the automation agent machine pool. For example: `196.21
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DeleteFirewallRule"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`DeleteFirewallRule`** - **Delete Rule After Task Ends**<br>
 `boolean`. Default value: `true`.<br>
@@ -305,7 +265,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 None.
 
@@ -316,14 +276,26 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-:::moniker range=">azure-pipelines-server"
+This task deploys scripts to [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview). You can deploy using a SQL script file or by writing the script inline.
 
-> [!NOTE]
-> This task is deprecated; use [AzureMysqlDeployment@2](./azure-mysql-deployment-v2.md).
+Azure Database for MySQL Single Server is on the retirement path. **Flexible Server** is the recommended deployment model going forward. `AzureMysqlDeployment@2` uses the Flexible Server resource provider (`Microsoft.DBforMySQL/flexibleServers`) and its management APIs.
 
-:::moniker-end
+### Prerequisites
 
-Use this task to run your scripts and make changes to your database in Azure Database for MySQL. Note that this is a preview version. The Azure Database for MySQL Deployment task only works with [Azure Database for MySQL Single Server](/azure/mysql/single-server-overview).
+The following prerequisites need to be set up for the task to work properly.
+
+#### Azure Subscription
+
+To deploy to Azure Database for MySQL, an Azure subscription must be linked to Azure DevOps using the Service Connections tab in the project settings. Use the [Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#azure-resource-manager-service-connection) endpoint type. For more information, see [Connect to Azure with an Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure).
+
+#### Azure Database for MySQL Flexible Server
+
+This task expects an [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview) resource to already exist in the [Azure portal](https://portal.azure.com/). The task can create a new database and run MySQL commands, but it does not create the server itself.
+
+#### MySQL Client on the Agent
+
+- **Windows Agent:** Use this [script](https://aka.ms/window-mysqlcli-installer) to install the MySQL client.
+- **Linux Agent:** Run `apt-get install mysql-client`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -335,7 +307,7 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

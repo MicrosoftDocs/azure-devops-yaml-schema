@@ -171,6 +171,9 @@ items:
     displayName: Azure Container Apps Deploy v0
 - name: Azure Database for MySQL deployment
   items:
+  - name: AzureMysqlDeployment@2
+    href: azure-mysql-deployment-v2.md
+    displayName: Azure Database for MySQL deployment v2
   - name: AzureMysqlDeployment@1
     href: azure-mysql-deployment-v1.md
     displayName: Azure Database for MySQL deployment v1
@@ -489,11 +492,11 @@ items:
   - name: DownloadGithubNpmPackage@1
     href: download-github-npm-package-v1.md
     displayName: Download Github Npm Package v1
-- name: Download GitHub Nuget Packages
+- name: Download GitHub NuGet
   items:
   - name: DownloadGitHubNugetPackage@1
     href: download-github-nuget-package-v1.md
-    displayName: Download GitHub Nuget Packages v1
+    displayName: Download GitHub NuGet v1
 - name: Download GitHub Release
   items:
   - name: DownloadGitHubRelease@0

@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 04/27/2026
+ms.date: 05/15/2026
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -46,7 +46,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Build**<br>[ContainerBuild@0](container-build-v0.md) | Container Build Task. |
 | **Docker**<br>[Docker@2](docker-v2.md)<br>[Docker@1](docker-v1.md)<br>[Docker@0](docker-v0.md) | Build or push Docker images, login or logout, start or stop containers, or run a Docker command. |
 | **Docker Compose**<br>[DockerCompose@1](docker-compose-v1.md)<br>[DockerCompose@0](docker-compose-v0.md) | Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry. |
-| **Download GitHub Nuget Packages**<br>[DownloadGitHubNugetPackage@1](download-github-nuget-package-v1.md) | Restore your nuget packages using dotnet CLI. |
+| **Download GitHub NuGet**<br>[DownloadGitHubNugetPackage@1](download-github-nuget-package-v1.md) | Deprecated: this task is no longer maintained. Use the NuGetCommand@2 or DotNetCoreCLI@2 task with GitHub service connections instead. |
 | **Go**<br>[Go@0](go-v0.md) | Get, build, or test a Go application, or run a custom Go command. |
 | **Gradle**<br>[Gradle@4](gradle-v4.md)<br>[Gradle@3](gradle-v3.md)<br>[Gradle@2](gradle-v2.md)<br>[Gradle@1](gradle-v1.md) | Build using a Gradle wrapper script. |
 | **Grunt**<br>[Grunt@0](grunt-v0.md) | Run the Grunt JavaScript task runner. |
@@ -80,7 +80,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure CLI Preview**<br>[AzureCLI@0](azure-cli-v0.md) | Run a Shell or Batch script with Azure CLI commands against an azure subscription. |
 | **Azure Cloud Service deployment**<br>[AzureCloudPowerShellDeployment@2](azure-cloud-powershell-deployment-v2.md)<br>[AzureCloudPowerShellDeployment@1](azure-cloud-powershell-deployment-v1.md) | Deploy an Azure Cloud Service. |
 | **Azure Container Apps Deploy**<br>[AzureContainerApps@1](azure-container-apps-v1.md)<br>[AzureContainerApps@0](azure-container-apps-v0.md) | An Azure DevOps Task to build and deploy Azure Container Apps. |
-| **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
+| **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@2](azure-mysql-deployment-v2.md)<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL Flexible Server. |
 | **Azure file copy**<br>[AzureFileCopy@6](azure-file-copy-v6.md)<br>[AzureFileCopy@5](azure-file-copy-v5.md)<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@1](azure-function-on-kubernetes-v1.md)<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
 | **Azure Functions Deploy**<br>[AzureFunctionApp@2](azure-function-app-v2.md)<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
@@ -126,11 +126,11 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Cargo authenticate (for task runners)**<br>[CargoAuthenticate@0](cargo-authenticate-v0.md) | Authentication task for the cargo client used for installing Cargo crates distribution. |
 | **CocoaPods**<br>[CocoaPods@0](cocoa-pods-v0.md) | Install CocoaPods dependencies for Swift and Objective-C Cocoa projects. |
 | **Conda environment**<br>[CondaEnvironment@1](conda-environment-v1.md)<br>[CondaEnvironment@0](conda-environment-v0.md) | This task is deprecated. Use `conda` directly in script to work with Anaconda environments. |
-| **Download Github Npm Package**<br>[DownloadGithubNpmPackage@1](download-github-npm-package-v1.md) | Install npm packages from GitHub. |
+| **Download Github Npm Package**<br>[DownloadGithubNpmPackage@1](download-github-npm-package-v1.md) | Deprecated: this task is no longer maintained. Use the Npm@1 task with GitHub service connections instead. |
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
@@ -327,7 +327,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
@@ -517,7 +517,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
@@ -704,7 +704,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
