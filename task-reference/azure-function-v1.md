@@ -168,6 +168,8 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+[AzureFunction@2](azure-function-v2.md) is a newer version of the Invoke Azure Function task.
+
 Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to invoke an HTTP triggered function in a function app that is created and hosted in Azure Functions and parse the response.
 
 ### Where should a task signal completion when **Callback** is chosen as the completion event?
@@ -284,5 +286,6 @@ public static void PostEvent(String callbackUrl, String body, String authToken, 
 
 * [Automate Azure Functions deployments with Azure Pipelines](/training/modules/deploy-azure-functions/)
 * [Agentless job](/azure/devops/pipelines/process/phases#server-jobs)
+* [AzureFunction@2](azure-function-v2.md) is a newer version of the Invoke Azure Function task.
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

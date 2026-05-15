@@ -168,7 +168,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-[AzureFunction@2](azure-function-v1.md) is a newer version of the Invoke Azure Function task.
+[AzureFunction@2](azure-function-v2.md) is a newer version of the Invoke Azure Function task.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
