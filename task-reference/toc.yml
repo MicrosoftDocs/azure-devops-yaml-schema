@@ -139,6 +139,9 @@ items:
     displayName: Azure App Service Settings v1
 - name: Azure CLI
   items:
+  - name: AzureCLI@3
+    href: azure-cli-v3.md
+    displayName: Azure CLI v3
   - name: AzureCLI@2
     href: azure-cli-v2.md
     displayName: Azure CLI v2
@@ -168,6 +171,9 @@ items:
     displayName: Azure Container Apps Deploy v0
 - name: Azure Database for MySQL deployment
   items:
+  - name: AzureMysqlDeployment@2
+    href: azure-mysql-deployment-v2.md
+    displayName: Azure Database for MySQL deployment v2
   - name: AzureMysqlDeployment@1
     href: azure-mysql-deployment-v1.md
     displayName: Azure Database for MySQL deployment v1
@@ -308,6 +314,11 @@ items:
   - name: BatchScript@1
     href: batch-script-v1.md
     displayName: Batch script v1
+- name: Bicep Deploy
+  items:
+  - name: BicepDeploy@0
+    href: bicep-deploy-v0.md
+    displayName: Bicep Deploy v0
 - name: Build machine image
   items:
   - name: PackerBuild@1
@@ -481,11 +492,11 @@ items:
   - name: DownloadGithubNpmPackage@1
     href: download-github-npm-package-v1.md
     displayName: Download Github Npm Package v1
-- name: Download GitHub Nuget Packages
+- name: Download GitHub NuGet
   items:
   - name: DownloadGitHubNugetPackage@1
     href: download-github-nuget-package-v1.md
-    displayName: Download GitHub Nuget Packages v1
+    displayName: Download GitHub NuGet v1
 - name: Download GitHub Release
   items:
   - name: DownloadGitHubRelease@0
@@ -653,6 +664,9 @@ items:
     displayName: Install SSH key v0
 - name: Invoke Azure Function
   items:
+  - name: AzureFunction@2
+    href: azure-function-v2.md
+    displayName: Invoke Azure Function v2
   - name: AzureFunction@1
     href: azure-function-v1.md
     displayName: Invoke Azure Function v1
@@ -917,7 +931,7 @@ items:
     displayName: Publish Test Results v2
   - name: PublishTestResults@1
     href: publish-test-results-v1.md
-    displayName: Publish test results v1
+    displayName: Publish Test Results v1
 - name: Publish To Azure Service Bus
   items:
   - name: PublishToAzureServiceBus@2

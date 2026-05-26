@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 description: Restore your nuget packages using dotnet CLI.
-ms.date: 03/02/2026
+ms.date: 05/15/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -10,10 +10,24 @@ ms.author: rabououn
 # DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to restore your NuGet packages using dotnet CLI.
+
+This task is deprecated; use [NuGetCommand@2](./nuget-command-v2.md) or [DotNetCoreCLI@2](./dotnet-core-cli-v2.md) with GitHub service connections instead.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to restore your NuGet packages using dotnet CLI.
+
+This task is deprecated; use [NuGetCommand@2](./nuget-command-v2.md) or [DotNetCoreCLI@2](./dotnet-core-cli-v2.md) with GitHub service connections instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -22,7 +36,24 @@ Use this task to restore your NuGet packages using dotnet CLI.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Download GitHub NuGet v1
+# Deprecated: this task is no longer maintained. Use the NuGetCommand@2 or DotNetCoreCLI@2 task with GitHub service connections instead.
+- task: DownloadGitHubNugetPackage@1
+  inputs:
+    packageName: # string. Required. Package Name. 
+    version: # string. Required. Package Version. 
+  # Feeds and authentication
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Required when selectOrConfig = config && command = restore. Credentials for feed from GitHub. 
+  # Advanced
+    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Download GitHub Nuget Packages v1
@@ -109,6 +140,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task is deprecated; use [NuGetCommand@2](./nuget-command-v2.md) or [DotNetCoreCLI@2](./dotnet-core-cli-v2.md) with GitHub service connections instead.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

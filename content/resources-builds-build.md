@@ -1,10 +1,10 @@
 ---
 title: resources.builds.build definition
 description: A build resource used to reference artifacts from a run.
-ms.date: 03/02/2026
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # resources.builds.build definition

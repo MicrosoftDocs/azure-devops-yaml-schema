@@ -1,7 +1,7 @@
 ---
 title: MavenAuthenticate@0 - Maven Authenticate v0 task
 description: Provides credentials for Azure Artifacts feeds and external maven repositories.
-ms.date: 03/02/2026
+ms.date: 04/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -22,7 +22,21 @@ Use this task to provide credentials for Azure Artifacts feeds and external Mave
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Maven Authenticate v0
+# Provides credentials for Azure Artifacts feeds and external maven repositories.
+- task: MavenAuthenticate@0
+  inputs:
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
+    #artifactsFeeds: # string. Feeds. 
+    #mavenServiceConnections: # string. Credentials for repositories outside this organization/collection.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Maven Authenticate v0
@@ -39,6 +53,18 @@ Use this task to provide credentials for Azure Artifacts feeds and external Mave
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+This is an Entra Workload ID-backed Azure DevOps user Service Connection. If this is set, the input mavenServiceConnections will be ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="artifactsFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 

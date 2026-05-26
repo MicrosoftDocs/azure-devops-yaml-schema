@@ -1,10 +1,10 @@
 ---
 title: AdvancedSecurity-Publish@1 - Advanced Security Publish Results v1 task
 description: Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service.
-ms.date: 03/02/2026
+ms.date: 04/27/2026
 monikerRange: "=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AdvancedSecurity-Publish@1 - Advanced Security Publish Results v1 task
