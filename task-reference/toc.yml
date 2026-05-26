@@ -1048,6 +1048,9 @@ items:
     displayName: SSH v0
 - name: Universal packages
   items:
+  - name: UniversalPackages@1
+    href: universal-packages-v1.md
+    displayName: Universal packages v1
   - name: UniversalPackages@0
     href: universal-packages-v0.md
     displayName: Universal packages v0
