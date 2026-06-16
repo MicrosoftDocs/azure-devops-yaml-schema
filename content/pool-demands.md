@@ -112,23 +112,23 @@ On Windows agents, the agent uses the following PowerShell scripts to scan for t
 
 | Tool scanning script | Capabilities |
 |----------------------|-------------|
-| Add-AndroidSdkCapabilities.ps1 | `AndroidSDK`<br>`AndroidSDK_{version}` |
-| Add-AntCapabilities.ps1 | `ant` |
-| Add-ApplicationCapabilities.ps1 | `npm`<br>`gulp`<br>`node.js`<br>`bower`<br>`grunt`<br>`svn`<br>`cmake`<br>`docker` |
-| Add-AzureGuestAgentCapabilities.ps1 | `AzureGuestAgent` |
-| Add-AzurePowerShellCapabilities.ps1 | `AzurePS` |
-| Add-ChefCapabilities.ps1 | `Chef`<br>`KnifeReporting` |
-| Add-DotNetFrameworkCapabilities.ps1 | `DotNetFramework_{major.minor}`<br>`DotNetFramework_{major.minor}_x64`<br>`DotNetFramework` |
-| Add-JavaCapabilities.ps1 | `java_6`<br>`java_7`<br>`java_8`<br>`java_{major}` (for versions 9 and later)<br>`java_6_x64`<br>`java_7_x64`<br>`java_8_x64`<br>`java_{major}_x64` (for versions 9 and later)<br>`java`<br>`jdk_6`<br>`jdk_7`<br>`jdk_8`<br>`jdk_{major}` (for versions 9 and later)<br>`jdk_6_x64`<br>`jdk_7_x64`<br>`jdk_8_x64`<br>`jdk_{major}_x64` (for versions 9 and later)<br>`jdk`<br><br>Detected JDK distributions include Oracle JavaSoft, AdoptOpenJDK, Eclipse Adoptium, Eclipse Foundation, and IBM Semeru. |
-| Add-MavenCapabilities.ps1 | `maven` |
-| Add-MSBuildCapabilities.ps1 | `MSBuild_2.0`<br>`MSBuild_3.5`<br>`MSBuild_4.0`<br>`MSBuild_12.0`<br>`MSBuild_14.0`<br>`MSBuild_15.0`<br>`MSBuild_16.0`<br>`MSBuild_17.0`<br>`MSBuild_18.0`<br>`MSBuild`<br>`MSBuild_2.0_x64`<br>`MSBuild_3.5_x64`<br>`MSBuild_4.0_x64`<br>`MSBuild_12.0_x64`<br>`MSBuild_14.0_x64`<br>`MSBuild_15.0_x64`<br>`MSBuild_16.0_x64`<br>`MSBuild_17.0_x64`<br>`MSBuild_18.0_x64`<br>`MSBuild_x64` |
-| Add-PowerShellCapabilities.ps1 | `PowerShell` |
-| Add-ScvmmAdminConsoleCapabilities.ps1 | `SCVMMAdminConsole` |
-| Add-SqlPackageCapabilities.ps1 | `SqlPackage` |
-| Add-VisualStudioCapabilities.ps1 | `VisualStudio_10.0`<br>`VisualStudio_IDE_10.0`<br>`VisualStudio_11.0`<br>`VisualStudio_IDE_11.0`<br>`VisualStudio_12.0`<br>`VisualStudio_IDE_12.0`<br>`VSTest_12.0`<br>`VisualStudio_14.0`<br>`VisualStudio_IDE_14.0`<br>`VSTest_14.0`<br>`VisualStudio_15.0`<br>`VisualStudio_IDE_15.0`<br>`VSTest_15.0`<br>`VisualStudio_16.0`<br>`VisualStudio_IDE_16.0`<br>`VSTest_16.0`<br>`VisualStudio_17.0`<br>`VisualStudio_IDE_17.0`<br>`VSTest_17.0`<br>`VisualStudio_18.0`<br>`VisualStudio_IDE_18.0`<br>`VSTest_18.0`<br>`VisualStudio`<br>`VisualStudio_IDE`<br>`VSTest` |
-| Add-WindowsKitCapabilities.ps1 | `WindowsKit_{major.minor}`<br>`WindowsKit` |
-| Add-WindowsSdkCapabilities.ps1 | `WindowsSdk_{major.minor}`<br>`WindowsSdk_{major.minor}_{toolName}`<br>`WindowsSdk_{major.minor}_{toolName}_x64`<br>`WindowsSdk` |
-| Add-XamarinAndroidCapabilities.ps1 | `Xamarin.Android` |
+| [Add-AndroidSdkCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-AndroidSdkCapabilities.ps1) | `AndroidSDK`<br>`AndroidSDK_{version}` |
+| [Add-AntCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-AntCapabilities.ps1) | `ant` |
+| [Add-ApplicationCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-ApplicationCapabilities.ps1) | `npm`<br>`gulp`<br>`node.js`<br>`bower`<br>`grunt`<br>`svn`<br>`cmake`<br>`docker` |
+| [Add-AzureGuestAgentCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-AzureGuestAgentCapabilities.ps1) | `AzureGuestAgent` |
+| [Add-AzurePowerShellCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-AzurePowerShellCapabilities.ps1) | `AzurePS` |
+| [Add-ChefCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-ChefCapabilities.ps1) | `Chef`<br>`KnifeReporting` |
+| [Add-DotNetFrameworkCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-DotNetFrameworkCapabilities.ps1) | `DotNetFramework_{major.minor}`<br>`DotNetFramework_{major.minor}_x64`<br>`DotNetFramework` |
+| [Add-JavaCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-JavaCapabilities.ps1) | `java_6`<br>`java_7`<br>`java_8`<br>`java_{major}` (for versions 9 and later)<br>`java_6_x64`<br>`java_7_x64`<br>`java_8_x64`<br>`java_{major}_x64` (for versions 9 and later)<br>`java`<br>`jdk_6`<br>`jdk_7`<br>`jdk_8`<br>`jdk_{major}` (for versions 9 and later)<br>`jdk_6_x64`<br>`jdk_7_x64`<br>`jdk_8_x64`<br>`jdk_{major}_x64` (for versions 9 and later)<br>`jdk`<br><br>Detected JDK distributions include Oracle JavaSoft, AdoptOpenJDK, Eclipse Adoptium, Eclipse Foundation, and IBM Semeru. |
+| [Add-MavenCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-MavenCapabilities.ps1) | `maven` |
+| [Add-MSBuildCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-MSBuildCapabilities.ps1) | `MSBuild_2.0`<br>`MSBuild_3.5`<br>`MSBuild_4.0`<br>`MSBuild_12.0`<br>`MSBuild_14.0`<br>`MSBuild_15.0`<br>`MSBuild_16.0`<br>`MSBuild_17.0`<br>`MSBuild_18.0`<br>`MSBuild`<br>`MSBuild_2.0_x64`<br>`MSBuild_3.5_x64`<br>`MSBuild_4.0_x64`<br>`MSBuild_12.0_x64`<br>`MSBuild_14.0_x64`<br>`MSBuild_15.0_x64`<br>`MSBuild_16.0_x64`<br>`MSBuild_17.0_x64`<br>`MSBuild_18.0_x64`<br>`MSBuild_x64` |
+| [Add-PowerShellCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-PowerShellCapabilities.ps1) | `PowerShell` |
+| [Add-ScvmmAdminConsoleCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-ScvmmAdminConsoleCapabilities.ps1) | `SCVMMAdminConsole` |
+| [Add-SqlPackageCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-SqlPackageCapabilities.ps1) | `SqlPackage` |
+| [Add-VisualStudioCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-VisualStudioCapabilities.ps1) | `VisualStudio_10.0`<br>`VisualStudio_IDE_10.0`<br>`VisualStudio_11.0`<br>`VisualStudio_IDE_11.0`<br>`VisualStudio_12.0`<br>`VisualStudio_IDE_12.0`<br>`VSTest_12.0`<br>`VisualStudio_14.0`<br>`VisualStudio_IDE_14.0`<br>`VSTest_14.0`<br>`VisualStudio_15.0`<br>`VisualStudio_IDE_15.0`<br>`VSTest_15.0`<br>`VisualStudio_16.0`<br>`VisualStudio_IDE_16.0`<br>`VSTest_16.0`<br>`VisualStudio_17.0`<br>`VisualStudio_IDE_17.0`<br>`VSTest_17.0`<br>`VisualStudio_18.0`<br>`VisualStudio_IDE_18.0`<br>`VSTest_18.0`<br>`VisualStudio`<br>`VisualStudio_IDE`<br>`VSTest` |
+| [Add-WindowsKitCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-WindowsKitCapabilities.ps1) | `WindowsKit_{major.minor}`<br>`WindowsKit` |
+| [Add-WindowsSdkCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-WindowsSdkCapabilities.ps1) | `WindowsSdk_{major.minor}`<br>`WindowsSdk_{major.minor}_{toolName}`<br>`WindowsSdk_{major.minor}_{toolName}_x64`<br>`WindowsSdk` |
+| [Add-XamarinAndroidCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-XamarinAndroidCapabilities.ps1) | `Xamarin.Android` |
 
 #### [Linux/macOS agent](#tab/linux-macos/)
 
