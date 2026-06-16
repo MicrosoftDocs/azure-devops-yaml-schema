@@ -119,9 +119,9 @@ A list of tags on separate lines. These tags are used in the `build`, `push`, an
 
 Example:
 ```yaml
-  tags: |
-    Tag1
-    Tag2
+tags: |
+  Tag1
+  Tag2
 ```
 <!-- :::editable-content-end::: -->
 <br>
