@@ -1,7 +1,7 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 04/27/2026
+ms.date: 06/16/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -115,7 +115,14 @@ Specifies the path to the build context. Pass `**` to indicate the directory tha
 **`tags`** - **Tags**<br>
 `string`. Optional. Use when `command = build || command = push || command = buildAndPush`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a list of comma-separated tags. These tags are used in `build`, `push` and `buildAndPush` commands.
+A list of tags on separate lines. These tags are used in the `build`, `push`, and `buildAndPush` commands.
+
+Example:
+```yaml
+tags: |
+  tag1
+  tag2
+```
 <!-- :::editable-content-end::: -->
 <br>
 
