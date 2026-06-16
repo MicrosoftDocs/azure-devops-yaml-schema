@@ -104,7 +104,7 @@ When the agent software starts, it scans for the following software and tools an
 >
 > After you install new software on a self-hosted agent, you must restart the agent for the new capability to show up. For more information, see [Restart Windows agent](/azure/devops/pipelines/agents/windows-agent#how-do-i-restart-the-agent), [Restart Linux agent](/azure/devops/pipelines/agents/linux-agent#how-do-i-restart-the-agent), and [Restart Mac agent](/azure/devops/pipelines/agents/osx-agent#how-do-i-restart-the-agent).
 
-#### [Windows agent](#tab/windows/)
+#### [Windows agent](#tab/windows)
 
 On Windows agents, the agent uses the following PowerShell scripts to scan for tools and software, and registers the corresponding capabilities. These scripts are part of the [agent open source software](https://github.com/microsoft/azure-pipelines-agent) and are located in the [/src/Misc/layoutbin/powershell](https://github.com/microsoft/azure-pipelines-agent/tree/master/src/Misc/layoutbin/powershell) folder.
 
@@ -130,7 +130,7 @@ On Windows agents, the agent uses the following PowerShell scripts to scan for t
 | [Add-WindowsSdkCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-WindowsSdkCapabilities.ps1) | `WindowsSdk_{major.minor}`<br>`WindowsSdk_{major.minor}_{toolName}`<br>`WindowsSdk_{major.minor}_{toolName}_x64`<br>`WindowsSdk` |
 | [Add-XamarinAndroidCapabilities.ps1](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/powershell/Add-XamarinAndroidCapabilities.ps1) | `Xamarin.Android` |
 
-#### [Linux/macOS agent](#tab/linux-macos/)
+#### [Linux/macOS agent](#tab/linux-macos)
 
 On Linux and macOS agents, the agent software uses the [NixCapabilitiesProvider](https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Microsoft.VisualStudio.Services.Agent/Capabilities/NixCapabilitiesProvider.cs) class (part of the [agent open source software](https://github.com/microsoft/azure-pipelines-agent)) to scan for tools and software, and registers the corresponding capabilities.
 
