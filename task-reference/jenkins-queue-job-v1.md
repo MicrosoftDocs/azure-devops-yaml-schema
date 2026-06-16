@@ -1,8 +1,8 @@
 ---
 title: JenkinsQueueJob@1 - Jenkins Queue Job v1 task
 description: Queue a job on a Jenkins server (task version 1).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -14,6 +14,9 @@ ms.author: rabououn
 
 <!-- :::editable-content name="description"::: -->
 Use this task to queue a job on a Jenkins server.
+
+> [!NOTE]
+> This task is deprecated; use [JenkinsQueueJob@2](jenkins-queue-job-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

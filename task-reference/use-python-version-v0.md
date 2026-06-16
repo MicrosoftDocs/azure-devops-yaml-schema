@@ -1,10 +1,10 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # UsePythonVersion@0 - Use Python version v0 task
@@ -22,7 +22,25 @@ Use this task to download or select a version of Python to run on an agent, and 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Use Python version v0
+# Use the specified version of Python from the tool cache, optionally adding it to the PATH.
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x' # string. Required. Version spec. Default: 3.x.
+    #disableDownloadFromRegistry: false # boolean. Disable downloading releases from the GitHub registry. Default: false.
+    #allowUnstable: false # boolean. Optional. Use when disableDownloadFromRegistry = false. Allow downloading unstable releases. Default: false.
+    #githubToken: # string. Optional. Use when disableDownloadFromRegistry = false. GitHub token for GitHub Actions python registry. 
+    #addToPath: true # boolean. Add to PATH. Default: true.
+  # Advanced
+    architecture: 'x64' # 'x86' | 'x64' | 'arm64'. Required. Architecture. Default: x64.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 ```yaml
 # Use Python version v0
@@ -40,7 +58,7 @@ Use this task to download or select a version of Python to run on an agent, and 
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Use Python version v0
@@ -121,7 +139,18 @@ Prepends the retrieved Python version to the PATH environment variable to make i
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="architecture"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`architecture`** - **Architecture**<br>
+`string`. Required. Allowed values: `x86`, `x64`, `arm64`. Default value: `x64`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the target architecture (`x86` or `x64`) of the Python interpreter.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`architecture`** - **Architecture**<br>
 `string`. Required. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
@@ -242,7 +271,7 @@ Also note that the embeddable ZIP release of Python requires [extra configuratio
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -257,20 +286,6 @@ Also note that the embeddable ZIP release of Python requires [extra configuratio
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

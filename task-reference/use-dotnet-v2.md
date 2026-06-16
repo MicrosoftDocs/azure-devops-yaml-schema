@@ -1,10 +1,10 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # UseDotNet@2 - Use dotnet v2 task
@@ -37,13 +37,35 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
     #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
   # Advanced
     #vsVersion: # string. Compatible Visual Studio version. 
+    #checkForExistingVersion: false # boolean. Check for existing installation. Default: false.
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
 ```
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range="=azure-pipelines-server"
+
+```yaml
+# Use .NET Core v2
+# Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
+- task: UseDotNet@2
+  inputs:
+    #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
+    #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
+    #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
+    #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
+  # Advanced
+    #vsVersion: # string. Compatible Visual Studio version. 
+    #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
+    #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Use .NET Core v2
@@ -57,25 +79,6 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
     #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
   # Advanced
     #vsVersion: # string. Compatible Visual Studio version. 
-    #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
-    #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Use .NET Core v2
-# Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-- task: UseDotNet@2
-  inputs:
-    #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
-    #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
-    #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
-  # Advanced
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
 ```
@@ -148,7 +151,7 @@ The version values for SDK or runtime installations are in the `releases.json` f
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vsVersion"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`vsVersion`** - **Compatible Visual Studio version**<br>
 `string`.<br>
@@ -156,6 +159,18 @@ The version values for SDK or runtime installations are in the `releases.json` f
 Specifies a compatible Visual Studio version for a corresponding .NET Core SDK installation. The value must be a complete version number, such as `16.6.4`, which contains a major version, a minor version, and a patch number.
 
 The version values for SDK or runtime installations, which are used for the `version` string, are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://builds.dotnet.microsoft.com/dotnet/release-metadata/3.1/releases.json).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="checkForExistingVersion"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`checkForExistingVersion`** - **Check for existing installation**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select if you want to detect if the specified version is already installed before attempting to download. Use only when installationPath is Empty i.e. set to default value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -215,7 +230,7 @@ Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-se
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="requestTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`requestTimeout`** - **Set timeout for package download request**<br>
 `string`. Default value: `300000`.<br>

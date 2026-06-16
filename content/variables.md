@@ -1,10 +1,10 @@
 ---
 title: variables definition
 description: Define variables using name/value pairs.
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # variables definition
@@ -107,7 +107,7 @@ variables: { string: string }
 
 Variables defined at different scopes:
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 ```yaml
 variables:      # pipeline-level
@@ -194,7 +194,7 @@ variables:
   readonly: true
 ```
 
-::: moniker range=">=azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 You can also include [variables from templates](/azure/devops/pipelines/process/templates#variable-reuse).
 

@@ -1,8 +1,8 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
-description: Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+description: Restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -13,10 +13,10 @@ ms.author: rabououn
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to restore, pack, or push NuGet packages, or run a NuGet command. This task supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. This task also uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+> [!IMPORTANT]
+> To authenticate and publish packages to Azure Artifacts or public registries, use the [NuGetAuthenticate@1](./nuget-authenticate-v1.md) task combined with the [.NET CLI task](dotnet-core-cli-v2.md). The `NuGetCommand@2` task is no longer being updated with new features; only critical bugs are addressed.
 
-> [!TIP]
-> Use [NuGetAuthenticate@1](./nuget-authenticate-v1.md) in your pipeline before this task. For more information, see [Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?](#why-is-my-build-pipeline-failing-and-prompting-for-single-sign-on-sso-authentication).
+Use this task to pack or restore NuGet packages, or run a NuGet command. This task uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -25,11 +25,11 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # NuGet v2
-# Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+# Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 - task: NuGetCommand@2
   inputs:
     command: 'restore' # 'restore' | 'pack' | 'push' | 'custom'. Required. Command. Default: restore.
@@ -79,7 +79,7 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
 
 ```yaml
 # NuGet v2
-# Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+# Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 - task: NuGetCommand@2
   inputs:
     command: 'restore' # 'restore' | 'pack' | 'push' | 'custom'. Required. Command. Default: restore.
@@ -167,7 +167,7 @@ Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeed"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed. Select from the dropdown or enter [project name/]feed name.**<br>
 [Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
@@ -580,14 +580,14 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+Use this task to restore or pack NuGet packages, or run a NuGet command. This task uses *NuGet.exe* and works with *.NET* Framework apps. If you are working with *.NET Core* or *.NET Standard*, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and is currently supported by dotnet.
+
 > [!IMPORTANT]
-> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. This task no longer takes new features, and only critical bugs are addressed.
+> For authenticating and publishing packages to Azure Artifacts or other package registries, use the [NuGetAuthenticate@1](nuget-authenticate-v1.md) task combined with the [.NET CLI task](dotnet-core-cli-v2.md).
 
-Use this task to install and update NuGet package dependencies, or package and publish NuGet packages. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+If your code depends on NuGet packages and you need to restore those dependencies before building your project with the [Visual Studio Build task](vsbuild-v1.md) task, you can use the *nugetAuthenticate* and *command line* tasks to restore your packages. Place both tasks before the build step to ensure all dependencies are available before the build starts. See [Restore NuGet packages](/azure/devops/pipelines/packages/nuget-restore) for more details.
 
-If your code depends on NuGet packages, make sure to add this step before your [Visual Studio Build task](vsbuild-v1.md). Also make sure to clear the deprecated **Restore NuGet Packages** checkbox in that task.
-
-If you are working with .NET Core or .NET Standard, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and is currently supported by dotnet.
+When using the [Visual Studio Build task](vsbuild-v1.md) task, make sure to leave the **restoreNugetPackages** argument blank, as the "Restore NuGet Packages" option is deprecated in the *VSBuild@1* task.
 
 > [!TIP]
 > This version of the NuGet task uses NuGet 4.1.0 by default. To select a different version of NuGet, use the [Tool Installer](nuget-tool-installer-v1.md).
@@ -654,7 +654,6 @@ steps:
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -665,6 +664,8 @@ steps:
 ### Restore
 
 Restore all your solutions with packages from a selected feed.
+
+#### [Windows](#tab/windows/)
 
 ```YAML
 # Restore from a project scoped feed in the same organization
@@ -709,6 +710,25 @@ Restore all your solutions with packages from a selected feed.
     nugetConfigPath: 'nuget.config'
 ```
 
+#### [Linux](#tab/linux/)
+
+```YAML
+- task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    version: 9.x
+    performMultiLevelLookup: true
+    includePreviewVersions: true
+
+- task: NuGetAuthenticate@1
+  displayName: 'NuGet Authenticate'
+
+- script: |
+      dotnet restore <SOLUTION_PATH>
+```
+
+---
+
 ### Package
 
 Create a NuGet package in the destination folder.
@@ -722,59 +742,9 @@ Create a NuGet package in the destination folder.
     packDestination: '$(Build.ArtifactStagingDirectory)'
 ```
 
-### Push
-
-> [!NOTE]
-> Pipeline artifacts are downloaded to the `Pipeline.Workspace` directory, and to the `System.ArtifactsDirectory` directory for classic release pipelines. `packagesToPush` value can be set to `$(Pipeline.Workspace)/**/*.nupkg` or `$(System.ArtifactsDirectory)/**/*.nupkg` respectively.
-
-* Push/Publish a package to a feed defined in your NuGet.config.
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
-        feedsToUse: 'config'
-        nugetConfigPath: '$(Build.WorkingDirectory)/NuGet.config'
-    ```
-
-* Push/Publish a package to an organization scoped feed
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        nuGetFeedType: 'internal'
-        publishVstsFeed: 'my-organization-scoped-feed'
-    ```
-    
-* Push/Publish a package to a project scoped feed
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        nuGetFeedType: 'internal'
-        publishVstsFeed: 'my-project/my-project-scoped-feed'
-    ```
-
-* Push/Publish a package to NuGet.org
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        feedsToUse: 'config'
-        includeNugetOrg: 'true'
-    ```
-
 ### Custom
 
-Run any other NuGet command besides the default ones: pack, push, and restore.
+Run any other NuGet command besides the default ones:
 
 ```YAML
 # list local NuGet resources.
@@ -805,7 +775,7 @@ Run any other NuGet command besides the default ones: pack, push, and restore.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

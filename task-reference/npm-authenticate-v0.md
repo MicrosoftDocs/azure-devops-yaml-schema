@@ -1,8 +1,8 @@
 ---
 title: npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 description: Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -22,7 +22,22 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# npm authenticate (for task runners) v0
+# Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
+- task: npmAuthenticate@0
+  inputs:
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
+    #feedUrl: # string. Azure Artifacts URL. 
+    workingFile: # string. Required. .npmrc file to authenticate. 
+    #customEndpoint: # string. Credentials for registries outside this organization/collection.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # npm authenticate (for task runners) v0
@@ -40,6 +55,30 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `feedUrl` is required. Service Connections for external organizations/collection and custom endpoints are not compatible.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`feedUrl`** - **Azure Artifacts URL**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `workloadIdentityServiceConnection` is required. Not compatible with `customEndpoint`. Feed Url should be in the `npm` registry format: `https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/npm/registry/`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="workingFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,10 +146,13 @@ This task will only add authentication details to one `.npmrc` file at a time. I
 ```YAML
 - task: npmAuthenticate@0
   inputs:
-    workingFile: $(agent.tempdirectory)/.npmrc
-- script: echo ##vso[task.setvariable variable=NPM_CONFIG_USERCONFIG]$(agent.tempdirectory)/.npmrc
+    workingFile: $(Agent.TempDirectory)/.npmrc
+
+- script: echo "##vso[task.setvariable variable=NPM_CONFIG_USERCONFIG]$(Agent.TempDirectory)/.npmrc"
+
 - script: npm ci
   workingDirectory: project1
+
 - script: npm ci
   workingDirectory: project2
 ```
@@ -124,8 +166,8 @@ To do so, you can either:
 * Set the environment variables `http_proxy`/`https_proxy` and optionally `no_proxy` to your proxy settings. See [npm config](https://docs.npmjs.com/misc/config#https-proxy) for details. Note that these are commonly used variables which other non-`npm` tools (e.g. curl) may also use.
 
 * Add the proxy settings to the [npm configuration](https://docs.npmjs.com/misc/config), either manually, by using [npm config set](https://docs.npmjs.com/cli/config#set), or by setting [environment variables](https://docs.npmjs.com/misc/config#environment-variables) prefixed with `NPM_CONFIG_`.
-  >**Caution:**  
-  >`npm` task runners may not be compatible with all methods of proxy configuration supported by `npm`.
+  > [!IMPORTANT]  
+  > `npm` task runners may not be compatible with all methods of proxy configuration supported by `npm`.
 
 * Specify the proxy with a command line flag when calling `npm`.
   ```YAML
@@ -159,18 +201,20 @@ If the pipeline is running in a different project than the project hosting the f
 If the only authenticated registries you use are Azure Artifacts registries in your organization, you only need to specify the path to an `.npmrc` file to the `npmAuthenticate` task.
 
 #### `.npmrc`
+
 ```
 registry=https://pkgs.dev.azure.com/{organization}/_packaging/{feed}/npm/registry/
 always-auth=true
 ```
 
 #### `npm`
+
 ```YAML
 - task: npmAuthenticate@0
   inputs:
     workingFile: .npmrc
 - script: npm ci
-# ...
+
 - script: npm publish
 ```
 
@@ -191,15 +235,17 @@ always-auth=true
 The registry URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and the URL for an organization scoped feed must not contain the project. Learn more about [project scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 #### npm
+
 ```YAML
 - task: npmAuthenticate@0
   inputs:
     workingFile: .npmrc
-    customEndpoint: OtherOrganizationNpmConnection, ThirdPartyRepositoryNpmConnection
+    customEndpoint: OtherOrganizationNpmConnection, ThirdPartyRepositoryNpmConnection # Name of your service connection
 - script: npm ci
-# ...
+
 - script: npm publish -registry https://pkgs.dev.azure.com/{otherorganization}/_packaging/{feed}/npm/registry/
 ```
+
 `OtherOrganizationNpmConnection` and `ThirdPartyRepositoryNpmConnection` are the names of [npm service connections](/azure/devops/pipelines/library/service-endpoints#npm-service-connection) that have been configured and authorized for use in your pipeline, and have URLs that match those in the specified `.npmrc` file.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->

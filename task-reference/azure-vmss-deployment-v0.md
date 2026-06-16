@@ -1,8 +1,8 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image (task version 0).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
@@ -234,7 +234,7 @@ Next, try adding a command line task before the virtual machine scale set task:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,8 +1,8 @@
 ---
 title: Xcode@4 - Xcode v4 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app (task version 4).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Xcode@4 - Xcode v4 task

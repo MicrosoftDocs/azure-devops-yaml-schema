@@ -1,8 +1,8 @@
 ---
 title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
@@ -60,7 +60,7 @@ Deploy an Azure Resource Manager (ARM) template to a resource group and manage v
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Azure resource group deployment v2

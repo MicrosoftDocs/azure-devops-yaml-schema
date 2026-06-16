@@ -1,10 +1,10 @@
 ---
 title: AzureFunctionAppContainer@1 - Azure Functions for container v1 task
 description: Update a function app with a Docker container.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureFunctionAppContainer@1 - Azure Functions for container v1 task

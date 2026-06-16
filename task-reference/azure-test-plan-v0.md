@@ -1,17 +1,17 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
 description: Run manual and automated tests in test plan in Java and Python language.
-ms.date: 05/06/2025
-monikerRange: "=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server"
 ---
 
 # AzureTestPlan@0 - Azure Test Plan v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
-Run manual and automated tests in test plan in Java and Python language.
+Run manual and automated tests in test plan in Java, JavaScript and Python language.
 
 > [!NOTE]
 > This task is in Public Preview.
@@ -23,7 +23,7 @@ Run manual and automated tests in test plan in Java and Python language.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Azure Test Plan v0
@@ -53,7 +53,7 @@ Run manual and automated tests in test plan in Java and Python language.
 ## Inputs
 
 <!-- :::item name="testSelector"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`testSelector`** - **Test cases to be executed**<br>
 `string`. Required. Allowed values: `manualTests` (Manual tests), `automatedTests` (Automated tests).<br>
@@ -65,7 +65,7 @@ Run manual and automated tests in test plan in Java and Python language.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testPlanOrRunSelector"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`testPlanOrRunSelector`** - **Select tests using**<br>
 `string`. Required. Allowed values: `testPlan` (Test plan), `testRun` (Test run). Default value: `testPlan`.<br>
@@ -77,7 +77,7 @@ Run manual and automated tests in test plan in Java and Python language.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunId"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`testRunId`** - **Test Run**<br>
 `string`. Required when `testPlanOrRunSelector = testRun`. Default value: `$(test.RunId)`.<br>
@@ -89,7 +89,7 @@ Test run based selection is used when triggering automated test runs from the te
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testPlan"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`testPlan`** - **Test plan**<br>
 `string`. Required when `testPlanOrRunSelector = testPlan`.<br>
@@ -101,7 +101,7 @@ Type or paste the test plan ID containing test suites with test cases.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testSuite"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`testSuite`** - **Test suite**<br>
 `string`. Required when `testPlanOrRunSelector = testPlan`.<br>
@@ -113,7 +113,7 @@ Select one or more test suites containing test cases.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testConfiguration"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`testConfiguration`** - **Test configuration**<br>
 `string`. Required.<br>
@@ -125,7 +125,7 @@ Select Test Configuration.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testLanguageInput"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`testLanguageInput`** - **Select Test framework language**<br>
 `string`. Allowed values: `JavaMaven` (Java - Maven), `JavaGradle` (Java - Gradle), `Python` (Python - PyTest), `JavaScriptJest` (JavaScript - Jest).<br>
@@ -137,7 +137,7 @@ Test Framework Language of automated tests in test plan.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pomFilePath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`pomFilePath`** - **Pom file path**<br>
 `string`. Optional. Use when `testLanguageInput = JavaMaven`.<br>
@@ -149,7 +149,7 @@ Relative path from the repository root to the Maven POM file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="gradleFilePath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`gradleFilePath`** - **Gradle file path**<br>
 `string`. Optional. Use when `testLanguageInput = JavaGradle`.<br>
@@ -161,7 +161,7 @@ Relative path from the repository root to the build.gradle file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishRunAttachments"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`publishRunAttachments`** - **Upload test results files**<br>
 `boolean`. Default value: `true`.<br>
@@ -173,7 +173,7 @@ Upload logs and other files containing diagnostic information collected when the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnFailedTests"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`failTaskOnFailedTests`** - **Fail if there are test failures**<br>
 `boolean`. Default value: `true`.<br>
@@ -185,7 +185,7 @@ Fail the task if there are any test failures. Check this option to fail the task
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnFailureToPublishResults"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`failTaskOnFailureToPublishResults`** - **Fail if there is failure in publishing test results**<br>
 `boolean`. Default value: `false`.<br>
@@ -197,7 +197,7 @@ Fail if there is failure in publishing test results. Check this option to fail t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnMissingResultsFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`failTaskOnMissingResultsFile`** - **Fail if no result files are found**<br>
 `boolean`. Default value: `false`.<br>
@@ -217,7 +217,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
@@ -226,6 +226,121 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+### Integrate your automated tests with a test plan
+
+Follow the steps below to integrate your automated tests with manual test cases and execute them from Test Plans or via the Azure Test Plan task in your build pipelines:
+
+1. Ensure your project is in Azure DevOps Repos (or GitHub Repos).
+2. Create a pipeline that runs the tests using tasks such as Gradle or Maven. If your tests are already executed as part of an existing pipeline, you can skip this step. Running the tests is essential—only after they have been executed at least once will they be available for association with manual test cases.
+
+    # [Gradle](#tab/gradle)
+    
+    ```yaml
+     trigger: none
+    
+     pool:
+       vmImage: ubuntu-latest
+    
+     steps:
+     - task: Gradle@3
+       inputs:
+         gradleWrapperFile: 'gradlew'
+         workingDirectory: '$(Build.SourcesDirectory)'
+         tasks: 'build'
+         publishJUnitResults: true
+         testResultsFiles: '**/TEST-*.xml'
+         testRunTitle: 'gridinitialexecution'
+         javaHomeOption: 'JDKVersion'
+         sonarQubeRunAnalysis: false
+         spotBugsAnalysis: false
+    ```
+    
+    # [Maven](#tab/maven)
+    
+    ```yaml
+      trigger: none
+    
+      variables:
+      - name: system.debug
+        value: true
+    
+      pool:
+        vmImage: ubuntu-latest
+      
+      steps:
+      - task: Maven@4
+        inputs:
+          mavenPomFile: 'pom.xml'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          mavenVersionOption: 'Default'
+          mavenAuthenticateFeed: false
+          effectivePomSkip: false
+          sonarQubeRunAnalysis: false
+    ```
+    
+    # [Python](#tab/python)
+    
+     ```yaml
+     trigger: none    
+     pool:
+       vmImage: windows-latest
+    
+     steps:
+     - task: UsePythonVersion@0
+       inputs:
+         versionSpec: '3.8.10'
+         addToPath: true
+         displayName: 'Use Python $(python.version)'
+    
+     - script: |
+        pip install pytest pytest-azurepipelines
+        pytest
+       displayName: 'pytest'
+    ```
+    
+    * * *
+
+3. The next step is to link the test cases from the Test tab of the pipeline run summary to a manual test case work item. To do this, create a new test case or use an existing one (note the Automation Status column for TC4):
+
+   :::image type="content" source="media/azure-test-plan/test-case-without-automation.png" alt-text="Screenshot of a test case without automation.":::
+
+4. Once you have a test case, return to the pipeline run summary page and associate your automated test with the test case.
+
+   :::image type="content" source="media/azure-test-plan/association-experience.png" alt-text="Screenshot of the association experience in Azure Pipelines":::
+
+5. Here’s how you can tell if a manual test case has an associated automated test:
+
+   :::image type="content" source="media/azure-test-plan/test-case-with-automation.png" alt-text="Screenshot of a test case with automation.":::
+
+   :::image type="content" source="media/azure-test-plan/test-case-associated-automation-tab.png" alt-text="Screenshot of a test case with an associated automated test.":::
+
+6. Now that the test case is associated with a manual test case work item, you can execute it as part of a pipeline by passing the test plan as an argument in the Azure Test Plan task.
+
+    ```yaml
+    trigger: none
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - task: AzureTestPlan@0
+      inputs:
+        testSelector: 'automatedTests'
+        testPlanOrRunSelector: 'testPlan'
+        testPlan: '21294'
+        testSuite: '229461'
+        testConfiguration: '82'
+        testLanguageInput: 'JavaGradle'
+    ```
+
+Save and run the pipeline.
+
+Here is the pipeline result summary, which shows the outcome for TC4 along with other test cases:
+
+:::image type="content" source="media/azure-test-plan/test-run-results.png" alt-text="Screenshot of the associated automation tab.":::
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -237,7 +352,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

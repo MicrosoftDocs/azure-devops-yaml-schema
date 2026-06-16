@@ -1,8 +1,8 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -22,7 +22,23 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Python twine upload authenticate v1
+# Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
+- task: TwineAuthenticate@1
+  inputs:
+  # Feeds and Authentication
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
+    #feedUrl: # string. Azure Artifacts Feed url. 
+    #artifactFeed: # string. My feed name (select below). 
+    #pythonUploadServiceConnection: # string. Feed from external organizations.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 ```yaml
 # Python twine upload authenticate v1
@@ -36,7 +52,7 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Python twine upload authenticate v1
@@ -54,6 +70,30 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+[Input alias](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `feedUrl` is required. All other inputs are ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`feedUrl`** - **Azure Artifacts Feed url.**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `workloadIdentityServiceConnection` is required. All other inputs are ignored. Not compatible with `pythonUploadServiceConnections`. Feed Url should be in the `pypi` upload registry format: `https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/pypi/upload/`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="artifactFeed"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -66,7 +106,7 @@ Specifies the Azure artifact's feed name to authenticate with twine. The authent
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`artifactFeed`** - **My feed (select below)**<br>
 `string`.<br>
@@ -155,12 +195,11 @@ In this example, we are setting authentication for publishing to a private Azure
 - task: TwineAuthenticate@1
   displayName: Twine Authenticate
   inputs:
-    # In this case, name of the feed is 'myTestFeed' in the project 'myTestProject'. Project is needed because the feed is project scoped.
-    artifactFeed: myTestProject/myTestFeed
+    artifactFeed: projectName/feedName    # For project scoped feeds use: projectName/FeedName, or just feedName for organization scoped feeds
   
-# Use command line script to 'twine upload', use -r to pass the repository name and --config-file to pass the environment variable set by the authenticate task.
 - script: |
-     python -m twine upload -r myTestFeed --config-file $(PYPIRC_PATH) dist/*.whl
+     python -m twine upload -r feedName --config-file $(PYPIRC_PATH) dist/*.whl # Use -r to pass the repository name (defined in the .pypirc file), and --config-file to point to the .pypirc path set by the TwineAuthenticate task
+  displayName: Upload package with Twine
 ```
 
 The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
@@ -182,12 +221,11 @@ In this example, we are setting up authentication for publishing to the official
 - task: TwineAuthenticate@1
   displayName: Twine Authenticate
   inputs:
-    # In this case, name of the service connection is "pypitest".
-    pythonUploadServiceConnection: pypitest
+    pythonUploadServiceConnection: pypitest # Name of the Python package upload service connection
   
-# Use command line script to 'twine upload', use -r to pass the repository name and --config-file to pass the environment variable set by the authenticate task.
 - script: |
-     python -m twine upload -r "pypitest" --config-file $(PYPIRC_PATH) dist/*.whl
+     python -m twine upload -r "pypitest" --config-file $(PYPIRC_PATH) dist/*.whl # Use -r to pass the repository name, and --config-file to point to the .pypirc path set by the TwineAuthenticate task
+  displayName: Upload package with Twine
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
@@ -210,7 +248,7 @@ In this example, we are setting up authentication for publishing to the official
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

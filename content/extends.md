@@ -1,10 +1,11 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
+ai-usage: ai-assisted
 ---
 
 # extends definition
@@ -64,12 +65,152 @@ Parameters used in the extend.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Usage
+
+The `extends` keyword allows a pipeline to use another pipeline (or template) as a base. This is useful for:
+
+- **Reusing pipeline structure**: Create a base pipeline that multiple projects can extend
+- **Enforcing standards**: Define required stages, jobs, or steps that all pipelines must include
+- **Reducing duplication**: Share common configuration across pipelines
+- **Template inheritance**: Build pipelines from templates with parameters
+
+A pipeline can extend a single template. The template file should be a complete, valid pipeline structure. When you use `extends`, your pipeline YAML becomes a template that references the base template and optionally overrides parameters.
+
+### Extends vs includes
+
+- **`extends`**: Creates a pipeline that inherits from a template. Used at the root level of a pipeline.
+- **`include`**: Imports template content directly. Used at specific points within a pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
+
+### Basic extends example
+
+The simplest way to use `extends` is to have a pipeline inherit stages and jobs from a base template.
+
+```yaml
+# File: base-pipeline.yml
+# This is the base template that other pipelines extend
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: echo Building...
+      displayName: 'Build step'
+```
+
+```yaml
+# File: azure-pipelines.yml
+# This pipeline extends the base template
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+extends:
+  template: base-pipeline.yml
+```
+
+In this example, the pipeline in `azure-pipelines.yml` extends the base template to inherit the stages and jobs. The `trigger` and `pool` are defined in the consuming pipeline, not in the template.
+
+### Extends with parameters
+
+You can pass parameters to a template when extending it:
+
+```yaml
+# File: base-pipeline.yml
+parameters:
+- name: buildConfiguration
+  type: string
+  default: 'Debug'
+
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: echo Building with configuration ${{ parameters.buildConfiguration }}
+      displayName: 'Build step'
+```
+
+```yaml
+# File: azure-pipelines.yml
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+extends:
+  template: base-pipeline.yml
+  parameters:
+    buildConfiguration: 'Release'
+```
+
+In this example, the template defines parameters and stages, while the consuming pipeline defines `trigger` and `pool` alongside the `extends` keyword.
+
+### Multi-stage pipeline with extends
+
+You can use `extends` to inherit multiple stages from a template. This is useful for teams that want a consistent pipeline structure across projects.
+
+```yaml
+# File: multi-stage-template.yml
+# This template defines a three-stage pipeline structure
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+  - job: BuildJob
+    displayName: 'Build Job'
+    steps:
+    - script: npm install
+      displayName: 'Install dependencies'
+    - script: npm run build
+      displayName: 'Build application'
+
+- stage: Test
+  displayName: 'Test Stage'
+  dependsOn: Build
+  jobs:
+  - job: TestJob
+    displayName: 'Run Tests'
+    steps:
+    - script: npm run test
+      displayName: 'Run unit tests'
+    - script: npm run lint
+      displayName: 'Run linter'
+
+- stage: Deploy
+  displayName: 'Deploy Stage'
+  dependsOn: Test
+  jobs:
+  - job: DeployJob
+    displayName: 'Deploy Job'
+    steps:
+    - script: npm run deploy
+      displayName: 'Deploy to production'
+```
+
+```yaml
+# File: azure-pipelines.yml
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+extends:
+  template: multi-stage-template.yml
+```
+
+In this example, the pipeline extends the template to inherit all three stages (Build, Test, and Deploy) with their dependencies and job definitions. The `trigger` and `pool` are defined in the consuming pipeline.
+
+### Type-safe parameters with extends
 
 Templates and their parameters are turned into constants before the pipeline runs.
 Template parameters provide type safety to input parameters.

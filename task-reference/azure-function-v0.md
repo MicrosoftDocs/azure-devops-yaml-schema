@@ -1,10 +1,10 @@
 ---
 title: AzureFunction@0 - Invoke Azure Function v0 task
 description: Invoke Azure function as a part of your process.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureFunction@0 - Invoke Azure Function v0 task
@@ -168,7 +168,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-[AzureFunction@2](azure-function-v1.md) is a newer version of the Invoke Azure Function task.
+[AzureFunction@2](azure-function-v2.md) is a newer version of the Invoke Azure Function task.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -1,10 +1,10 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureWebApp@1 - Azure Web App v1 task
@@ -23,6 +23,34 @@ This task deploys an Azure Web App for Linux or Windows.
 ## Syntax
 
 :::moniker range="=azure-pipelines"
+
+```yaml
+# Azure Web App v1
+# Deploy an Azure Web App for Linux or Windows.
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: # string. Required. Azure subscription. 
+    appType: # 'webApp' | 'webAppLinux'. Required. App type. 
+    appName: # string. Required. App name. 
+    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #customDeployFolder: # string. Optional. Use when package EndsWith .war. Custom Deploy Folder. 
+    #runtimeStack: # 'DOTNETCORE|9.0' | 'DOTNETCORE|8.0' | 'DOTNETCORE|7.0' | 'DOTNETCORE|6.0' | 'NODE|24-lts' | 'NODE|22-lts' | 'NODE|20-lts' | 'NODE|18-lts' | 'NODE|16-lts' | 'PYTHON|3.13' | 'PYTHON|3.12' | 'PYTHON|3.11' | 'PYTHON|3.10' | 'PYTHON|3.9' | 'PYTHON|3.8' | 'PHP|8.3' | 'PHP|8.2' | 'PHP|8.1' | 'PHP|8.0' | 'JAVA|21-java21' | 'JAVA|17-java17' | 'JAVA|11-java11' | 'JAVA|8-jre8' | 'JBOSSEAP|8-java17' | 'JBOSSEAP|8-java11' | 'JBOSSEAP|7-java17' | 'JBOSSEAP|7-java11' | 'JBOSSEAP|7-java8' | 'TOMCAT|10.1-java21' | 'TOMCAT|10.1-java17' | 'TOMCAT|10.1-java11' | 'TOMCAT|10.0-java17' | 'TOMCAT|10.0-java11' | 'TOMCAT|10.0-jre8' | 'TOMCAT|9.0-java21' | 'TOMCAT|9.0-java17' | 'TOMCAT|9.0-java11' | 'TOMCAT|9.0-jre8' | 'TOMCAT|8.5-java11' | 'TOMCAT|8.5-jre8'. Optional. Use when appType = webAppLinux. Runtime stack. 
+    #startUpCommand: # string. Optional. Use when appType = webAppLinux. Startup command. 
+    #siteContainersConfig: # string. Site Containers Config. 
+  # Application and Configuration Settings
+    #customWebConfig: # string. Optional. Use when appType != webAppLinux && package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
+    #appSettings: # string. App settings. 
+    #configurationStrings: # string. Configuration settings. 
+  # Additional Deployment Options
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar. Deployment method. Default: auto.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
 
 ```yaml
 # Azure Web App v1
@@ -185,7 +213,18 @@ In all other instances, it is deployed to `<appname>.azurewebsited.net/<customWa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`runtimeStack`** - **Runtime stack**<br>
+`string`. Optional. Use when `appType = webAppLinux`. Allowed values: `DOTNETCORE|9.0` (.NET 9.0), `DOTNETCORE|8.0` (.NET 8.0), `DOTNETCORE|7.0` (.NET 7.0), `DOTNETCORE|6.0` (.NET 6.0), `NODE|24-lts` (Node 24 LTS), `NODE|22-lts` (Node 22 LTS), `NODE|20-lts` (Node 20 LTS), `NODE|18-lts` (Node 18 LTS), `NODE|16-lts` (Node 16 LTS), `PYTHON|3.13` (Python 3.13), `PYTHON|3.12` (Python 3.12), `PYTHON|3.11` (Python 3.11), `PYTHON|3.10` (Python 3.10), `PYTHON|3.9` (Python 3.9), `PYTHON|3.8` (Python 3.8), `PHP|8.3` (PHP 8.3), `PHP|8.2` (PHP 8.2), `PHP|8.1` (PHP 8.1), `PHP|8.0` (PHP 8.0), `JAVA|21-java21` (Java 21), `JAVA|17-java17` (Java 17), `JAVA|11-java11` (Java 11), `JAVA|8-jre8` (Java 8), `JBOSSEAP|8-java17` (JBoss EAP 8 (Java 17)), `JBOSSEAP|8-java11` (JBoss EAP 8 (Java 11)), `JBOSSEAP|7-java17` (JBoss EAP 7 (Java 17)), `JBOSSEAP|7-java11` (JBoss EAP 7 (Java 11)), `JBOSSEAP|7-java8` (JBoss EAP 7 (Java 8)), `TOMCAT|10.1-java21` (Tomcat 10.1 (Java 21)), `TOMCAT|10.1-java17` (Tomcat 10.1 (Java 17)), `TOMCAT|10.1-java11` (Tomcat 10.1 (Java 11)), `TOMCAT|10.0-java17` (Tomcat 10.0 (Java 17)), `TOMCAT|10.0-java11` (Tomcat 10.0 (Java 11)), `TOMCAT|10.0-jre8` (Tomcat 10.0 (Java 8)), `TOMCAT|9.0-java21` (Tomcat 9.0 (Java 21)), `TOMCAT|9.0-java17` (Tomcat 9.0 (Java 17)), `TOMCAT|9.0-java11` (Tomcat 9.0 (Java 11)), `TOMCAT|9.0-jre8` (Tomcat 9.0 (Java 8)), `TOMCAT|8.5-java11` (Tomcat 8.5 (Java 11)), `TOMCAT|8.5-jre8` (Tomcat 8.5 (Java 8)).<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Web App on Linux offers two different options to publish your application: custom image deployment (Web App for Containers) and app deployment with a built-in platform image (Web App on Linux). This parameter is only available when **Linux Web App** is selected as an app type in the task.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = webAppLinux`. Allowed values: `DOTNETCORE|9.0` (.NET 9.0), `DOTNETCORE|8.0` (.NET 8.0), `DOTNETCORE|7.0` (.NET 7.0), `DOTNETCORE|6.0` (.NET 6.0), `NODE|22-lts` (Node 22 LTS), `NODE|20-lts` (Node 20 LTS), `NODE|18-lts` (Node 18 LTS), `NODE|16-lts` (Node 16 LTS), `PYTHON|3.13` (Python 3.13), `PYTHON|3.12` (Python 3.12), `PYTHON|3.11` (Python 3.11), `PYTHON|3.10` (Python 3.10), `PYTHON|3.9` (Python 3.9), `PYTHON|3.8` (Python 3.8), `PHP|8.3` (PHP 8.3), `PHP|8.2` (PHP 8.2), `PHP|8.1` (PHP 8.1), `PHP|8.0` (PHP 8.0), `JAVA|21-java21` (Java 21), `JAVA|17-java17` (Java 17), `JAVA|11-java11` (Java 11), `JAVA|8-jre8` (Java 8), `JBOSSEAP|8-java17` (JBoss EAP 8 (Java 17)), `JBOSSEAP|8-java11` (JBoss EAP 8 (Java 11)), `JBOSSEAP|7-java17` (JBoss EAP 7 (Java 17)), `JBOSSEAP|7-java11` (JBoss EAP 7 (Java 11)), `JBOSSEAP|7-java8` (JBoss EAP 7 (Java 8)), `TOMCAT|10.1-java21` (Tomcat 10.1 (Java 21)), `TOMCAT|10.1-java17` (Tomcat 10.1 (Java 17)), `TOMCAT|10.1-java11` (Tomcat 10.1 (Java 11)), `TOMCAT|10.0-java17` (Tomcat 10.0 (Java 17)), `TOMCAT|10.0-java11` (Tomcat 10.0 (Java 11)), `TOMCAT|10.0-jre8` (Tomcat 10.0 (Java 8)), `TOMCAT|9.0-java21` (Tomcat 9.0 (Java 21)), `TOMCAT|9.0-java17` (Tomcat 9.0 (Java 17)), `TOMCAT|9.0-java11` (Tomcat 9.0 (Java 11)), `TOMCAT|9.0-jre8` (Tomcat 9.0 (Java 8)), `TOMCAT|8.5-java11` (Tomcat 8.5 (Java 11)), `TOMCAT|8.5-jre8` (Tomcat 8.5 (Java 8)).<br>
@@ -265,6 +304,18 @@ Specify the web app configuration settings using the syntax `-key value` (for ex
 `string`. Required when `appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app#deployment-methods) for the app. Acceptable values are **auto**, **zipDeploy**, and **runFromPackage**.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="siteContainersConfig"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`siteContainersConfig`** - **Site Containers Config**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provide siteContainers-config JSON for SiteContainers deployments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -411,7 +462,7 @@ If not specified, `auto` is the default value.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

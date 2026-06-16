@@ -1,10 +1,10 @@
 ---
 title: PowerShell@1 - PowerShell v1 task
 description: Run a PowerShell script.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # PowerShell@1 - PowerShell v1 task

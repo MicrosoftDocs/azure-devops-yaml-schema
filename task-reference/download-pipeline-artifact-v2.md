@@ -1,8 +1,8 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -10,7 +10,7 @@ ms.author: rabououn
 # DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
@@ -231,7 +231,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -247,17 +247,6 @@ Learn more about [build variables](/azure/devops/pipelines/build/variables#build
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
-
-<!-- :::item name="BuildNumber"::: -->
-**`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
-Stores the build number of the pipeline artifact source.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->

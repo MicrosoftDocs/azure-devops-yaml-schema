@@ -1,17 +1,32 @@
 ---
 title: AzureCLI@1 - Azure CLI v1 task
 description: Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 05/15/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureCLI@1 - Azure CLI v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Run Azure CLI commands against an Azure subscription in a shell script when running on Linux agent or batch script when running on Windows agent.
+
+This task is deprecated; use [AzureCLI@2](./azure-cli-v2.md) or [AzureCLI@3](./azure-cli-v3.md) instead.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Run Azure CLI commands against an Azure subscription in a shell script when running on Linux agent or batch script when running on Windows agent.
+
+> [!NOTE]
+> There is a newer version of this task available; see [AzureCLI@2](./azure-cli-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -21,7 +36,28 @@ Run Azure CLI commands against an Azure subscription in a shell script when runn
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure CLI v1
+# Deprecated: this task is no longer maintained. Use the AzureCLI@2 task instead.
+- task: AzureCLI@1
+  inputs:
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure subscription. 
+    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
+    scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
+    #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
+    #arguments: # string. Alias: args. Arguments. 
+  # Advanced
+    #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
+    #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
+    #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Azure CLI v1
@@ -185,6 +221,22 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+:::moniker range=">azure-pipelines-server"
+
+> [!NOTE]
+> This task is deprecated; use [AzureCLI@2](./azure-cli-v2.md) or [AzureCLI@3](./azure-cli-v3.md) instead.
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
+
+> [!NOTE]
+> There is a newer version of this task available; see [AzureCLI@2](./azure-cli-v2.md).
+
+:::moniker-end
+
+
 
 What's new in Version 1.0:
    - Supports the new Azure CLI 2.0 which is Python based

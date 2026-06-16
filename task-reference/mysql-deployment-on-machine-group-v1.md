@@ -1,16 +1,16 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy: using a script file or writing the script in our inline editor. Since this task is server based, it appears on Deployment group jobs.
@@ -122,7 +122,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`SqlUsername`** - **Mysql User Name**<br>
 `string`. Required.<br>

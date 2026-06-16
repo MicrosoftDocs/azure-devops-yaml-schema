@@ -1,10 +1,10 @@
 ---
 title: steps.template definition
 description: Define a set of steps in one file and use it multiple times in another file.
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # steps.template definition

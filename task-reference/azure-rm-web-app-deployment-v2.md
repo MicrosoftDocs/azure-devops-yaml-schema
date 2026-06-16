@@ -1,10 +1,10 @@
 ---
 title: AzureRmWebAppDeployment@2 - Azure App Service Deploy v2 task
 description: Update Azure App Service using Web Deploy / Kudu REST APIs (task version 2).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureRmWebAppDeployment@2 - Azure App Service Deploy v2 task

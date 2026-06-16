@@ -1,7 +1,7 @@
 ---
 title: YAML schema reference
 description: Azure Pipelines YAML schema reference
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -125,7 +125,7 @@ Execution strategy for this job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.job.uses"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.job.uses**](jobs-job-uses.md)<br><!-- :::editable-content name="description"::: -->
 Any resources required by this job that are not already referenced.
@@ -314,7 +314,7 @@ A repository resource is used to reference an additional repository in your pipe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks**](resources-webhooks.md)<br><!-- :::editable-content name="description"::: -->
 List of webhooks.
@@ -323,7 +323,7 @@ List of webhooks.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks.webhook"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks.webhook**](resources-webhooks-webhook.md)<br><!-- :::editable-content name="description"::: -->
 A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
@@ -332,7 +332,7 @@ A webhook resource enables you to integrate your pipeline with an external servi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks.webhook.filters"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks.webhook.filters**](resources-webhooks-webhook-filters.md)<br><!-- :::editable-content name="description"::: -->
 List of trigger filters.
@@ -341,7 +341,7 @@ List of trigger filters.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks.webhook.filters.filter"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks.webhook.filters.filter**](resources-webhooks-webhook-filters-filter.md)<br><!-- :::editable-content name="description"::: -->
 Webhook resource trigger filter.
@@ -521,7 +521,7 @@ Tasks run in an execution context, which is either the agent host or a container
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target.settableVariables"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 [**target.settableVariables**](target-settable-variables.md)<br><!-- :::editable-content name="description"::: -->
 Restrictions on which variables that can be set.
@@ -610,7 +610,7 @@ Items to include or exclude.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mountReadOnly"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**mountReadOnly**](mount-read-only.md)<br><!-- :::editable-content name="description"::: -->
 Volumes to mount read-only, the default is all false.
@@ -699,6 +699,13 @@ Here are the syntax conventions used in the YAML schema reference.
   For instance, `{ string: string }` is a mapping of strings to strings.
 * The symbol `|` indicates there are multiple data types available for the keyword.
   For instance, `job | template` means either a job definition or a template reference is allowed.
+
+## Previous versions
+
+* [Azure DevOps Server 2020.1 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2020&pivots=azure-pipelines-2020-1&preserve-view=true)
+* [Azure DevOps Server 2020 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2020&pivots=azure-pipelines-2020&preserve-view=true)
+* [Azure DevOps Server 2019.1 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2019&pivots=azure-pipelines-2019-1&preserve-view=true)
+* [Azure DevOps Server 2019 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2019&pivots=azure-pipelines-2019&preserve-view=true)
 
 ## See also
 

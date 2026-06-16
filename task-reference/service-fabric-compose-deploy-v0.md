@@ -1,14 +1,15 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+ms.custom: sfi-ropc-nochange
 ---
 
 # ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy a Docker Compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the Compose file.

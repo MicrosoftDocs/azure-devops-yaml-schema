@@ -1,8 +1,8 @@
 ---
 title: NuGetRestore@1 - NuGet Restore v1 task
 description: Restores NuGet packages in preparation for a Visual Studio Build step.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -10,7 +10,7 @@ ms.author: rabououn
 # NuGetRestore@1 - NuGet Restore v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to restore NuGet packages in preparation for a Visual Studio Build step.
@@ -230,7 +230,6 @@ steps:
   inputs:
     solution: '**/*.sln'
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

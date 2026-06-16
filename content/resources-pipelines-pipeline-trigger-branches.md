@@ -1,10 +1,10 @@
 ---
 title: resources.pipelines.pipeline.trigger.branches definition
 description: Branches to include or exclude for triggering a run using a pipeline resource.
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # resources.pipelines.pipeline.trigger.branches definition
@@ -54,7 +54,7 @@ Definitions that reference this definition: [resources.pipelines.pipeline.trigge
 <!-- :::implementation-item name="branches: object properties"::: -->
 <a name="branchesobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::implementation-signature::: -->
 ## branches: include, exclude

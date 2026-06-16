@@ -1,8 +1,8 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
@@ -51,7 +51,7 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # ARM template deployment v3

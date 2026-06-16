@@ -1,10 +1,10 @@
 ---
 title: stages.template definition
 description: You can define a set of stages in one file and use it multiple times in other files.
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # stages.template definition

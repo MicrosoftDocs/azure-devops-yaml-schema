@@ -1,8 +1,8 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # MSBuild@1 - MSBuild v1 task
@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build with MSBuild.
+
+> [!NOTE]
+> For more information on MSBuild, see [How MSBuild builds projects](/visualstudio/msbuild/build-process-overview).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,7 +23,7 @@ Use this task to build with MSBuild.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 # MSBuild v1
@@ -29,8 +32,8 @@ Use this task to build with MSBuild.
   inputs:
     solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
     #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
+    #msbuildVersion: 'latest' # 'latest' | '18.0' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64' | 'arm64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -46,7 +49,7 @@ Use this task to build with MSBuild.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # MSBuild v1
@@ -55,7 +58,7 @@ Use this task to build with MSBuild.
   inputs:
     solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
     #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
+    #msbuildVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
     #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
@@ -92,6 +95,8 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 
 > [!TIP]
 > If you are building a solution, we recommend you use the [Visual Studio build task](/azure/devops/pipelines/tasks/build/visual-studio-build) instead of the MSBuild task.
+>
+> For information on the differences between MSBuild and Visual Studio build, see [Visual Studio builds vs. MSBuild.exe builds](/visualstudio/msbuild/build-process-overview#visual-studio-builds-vs-msbuildexe-builds).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +114,18 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range=">azure-pipelines-server"
+
+**`msbuildVersion`** - **MSBuild Version**<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `18.0` (MSBuild 18.0), `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`msbuildVersion`** - **MSBuild Version**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
@@ -119,20 +135,20 @@ If the preferred version cannot be found, the latest version found is used inste
 <br>
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="msbuildArchitecture"::: -->
+:::moniker range=">azure-pipelines-server"
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`msbuildVersion`** - **MSBuild Version**<br>
-`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
+**`msbuildArchitecture`** - **MSBuild Architecture**<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64), `arm64` (MSBuild arm64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
+Supplies the MSBuild architecture (x86, x64) to run.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="msbuildArchitecture"::: -->
-:::moniker range="<=azure-pipelines"
+
+:::moniker range="<=azure-pipelines-server"
 
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>

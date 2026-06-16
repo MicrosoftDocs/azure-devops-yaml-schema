@@ -1,16 +1,16 @@
 ---
 title: HelmInstaller@0 - Helm tool installer v0 task
 description: Install Helm and Kubernetes on an agent machine (task version 0).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # HelmInstaller@0 - Helm tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install Helm and Kubernetes on an agent machine.

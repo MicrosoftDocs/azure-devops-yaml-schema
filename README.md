@@ -77,7 +77,9 @@ The following task article sections contain `editable-content` tags.
 
 Article sections that do not combine auto-generated content with editable content, like remarks, examples, and see also, can contain monikers within their `editable-content` tags.
 
-Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests that contain edits outside of an `editable-content` tag can't be merged and will be closed. Pull requests that contain new task articles can't be merged and will be closed.
+Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests (other than by the automated tooling that generates and updates the articles) that contain edits outside of an `editable-content` tag can't be merged and will be closed. Pull requests that contain new task articles can't be merged and will be closed.
+
+The `ms.date` in the front matter article metadata should reflect the date of the last meaningful content change. It is acceptable to update the `ms.date` value even though it is not in an `editable-content` section.
 
 To file issues with the tasks themselves, submit feedback to [the Azure Pipeline tasks open source repository](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks).
 
@@ -143,5 +145,5 @@ The following definition article sections contain `editable-content` tags.
 
 Article sections that do not combine auto-generated content with editable content, like remarks, examples, and see also, can contain monikers within their `editable-content` tags.
 
-Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests that contain edits outside of an `editable-content` tag can't be merged and will be closed. Pull requests that contain new definition articles can't be merged and will be closed. New definition articles are created automatically when the Azure DevOps sprint containing the new definition is deployed.
+Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests (other than by the automated tooling that generates and updates the articles) that contain edits outside of an `editable-content` tag can't be merged and will be closed. Pull requests that contain new definition articles can't be merged and will be closed. New definition articles are created automatically when the Azure DevOps sprint containing the new definition is deployed.
 

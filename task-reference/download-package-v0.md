@@ -1,8 +1,8 @@
 ---
 title: DownloadPackage@0 - Download package v0 task
 description: Download a package from a package management feed in Azure Artifacts (task version 0).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -22,7 +22,7 @@ This task is deprecated; use [DownloadPackage@1](./download-package-v1.md).
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a package from a package management feed in Azure Artifacts.
@@ -154,7 +154,7 @@ There is a newer version of this task available at [DownloadPackage@1](./downloa
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

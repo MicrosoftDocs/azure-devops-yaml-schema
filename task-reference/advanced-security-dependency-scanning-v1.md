@@ -1,16 +1,16 @@
 ---
 title: AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
 description: Scan for open source dependency vulnerabilities in your source code.
-ms.date: 05/06/2025
+ms.date: 04/27/2026
 monikerRange: "=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Scan your application for any vulnerabilities in open source components used in your source code. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
@@ -40,7 +40,7 @@ Scan your application for any vulnerabilities in open source components used in 
 ## Inputs
 
 <!-- :::item name="directoryExclusionList"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 **`directoryExclusionList`** - **Directory exclusion list**<br>
 `string`.<br>
@@ -60,7 +60,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
@@ -129,7 +129,7 @@ For the most accurate scanning results, add the Advanced Security dependency sca
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.206.1 or greater |
+| Agent version |  2.209.0 or greater |
 | Task category | Utility |
 
 :::moniker-end

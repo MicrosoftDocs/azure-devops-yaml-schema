@@ -1,8 +1,8 @@
 ---
 title: FuncToolsInstaller@0 - Install Azure Func Core Tools v0 task
 description: Install Azure Func Core Tools.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # FuncToolsInstaller@0 - Install Azure Func Core Tools v0 task

@@ -1,8 +1,8 @@
 ---
 title: Gradle@1 - Gradle v1 task
 description: Build using a Gradle wrapper script (task version 1).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Gradle@1 - Gradle v1 task
@@ -469,13 +469,6 @@ None.
 
 > [!NOTE]
 > There is a newer version of this task available at [Gradle@3](./gradle-v3.md).
-
-:::moniker-end
-
-:::moniker range="<azure-pipelines-2022"
-
-> [!NOTE]
-> There is a newer version of this task available at [Gradle@2](./gradle-v2.md).
 
 :::moniker-end
 

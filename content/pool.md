@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: Which pool to use for a job of the pipeline.
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -41,7 +41,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 | Implementation | Description |
 |---|---|
@@ -55,7 +55,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 You can specify a pool at the pipeline, stage, or job level.
 :::moniker-end
 
@@ -169,7 +169,7 @@ Name of the VM image you want to use; valid only in the Microsoft-hosted pool.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::implementation-signature::: -->
 ## pool: name, demands

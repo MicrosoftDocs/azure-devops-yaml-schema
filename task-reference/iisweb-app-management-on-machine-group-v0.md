@@ -1,10 +1,10 @@
 ---
 title: IISWebAppManagementOnMachineGroup@0 - IIS web app manage v0 task
 description: Create or update websites, web apps, virtual directories, or application pools.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+ms.date: 06/01/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # IISWebAppManagementOnMachineGroup@0 - IIS web app manage v0 task
@@ -34,14 +34,6 @@ Use this task to create or update websites, web apps, virtual directories, or ap
     ActionIISWebsite: 'CreateOrUpdateWebsite' # 'CreateOrUpdateWebsite' | 'StartWebsite' | 'StopWebsite'. Required when IISDeploymentType = IISWebsite. Action. Default: CreateOrUpdateWebsite.
     #ActionIISApplicationPool: 'CreateOrUpdateAppPool' # 'CreateOrUpdateAppPool' | 'StartAppPool' | 'StopAppPool' | 'RecycleAppPool'. Required when IISDeploymentType = IISApplicationPool. Action. Default: CreateOrUpdateAppPool.
     #StartStopWebsiteName: # string. Required when ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite. Website name. 
-    #Protocol: 'http' # 'https' | 'http'. Required when IISDeploymentType = randomDeployment. Protocol. Default: http.
-    #IPAddress: 'All Unassigned' # string. Required when IISDeploymentType = randomDeployment. IP address. Default: All Unassigned.
-    #Port: '80' # string. Required when IISDeploymentType = randomDeployment. Port. Default: 80.
-    #ServerNameIndication: false # boolean. Optional. Use when IISDeploymentType = randomDeployment. Server Name Indication required. Default: false.
-    #HostNameWithOutSNI: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
-    #HostNameWithHttp: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
-    #HostNameWithSNI: # string. Required when IISDeploymentType = randomDeployment. Host name. 
-    #SSLCertThumbPrint: # string. Required when IISDeploymentType = randomDeployment. SSL certificate thumbprint. 
     #StartStopRecycleAppPoolName: # string. Required when ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool. Application pool name. 
   # IIS Website
     WebsiteName: # string. Required when ActionIISWebsite = CreateOrUpdateWebsite. Website name. 
@@ -242,107 +234,6 @@ The best practice is to create a variable in the build or release pipeline, mark
 `boolean`. Optional. Use when `ActionIISWebsite = CreateOrUpdateWebsite`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to add port binding for the website.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="Protocol"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`Protocol`** - **Protocol**<br>
-`string`. Required when `IISDeploymentType = randomDeployment`. Allowed values: `https`, `http`. Default value: `http`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies either HTTP for the website to have an HTTP binding or HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="IPAddress"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`IPAddress`** - **IP address**<br>
-`string`. Required when `IISDeploymentType = randomDeployment`. Default value: `All Unassigned`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an IP address that end-users can use to access this website.  
-If **All Unassigned** is selected, then the website will respond to requests for all IP addresses on the port and for the host name. The website will not respond to requests if another website on the server has a binding on the same port but with a specific IP address.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="Port"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`Port`** - **Port**<br>
-`string`. Required when `IISDeploymentType = randomDeployment`. Default value: `80`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the port where the Hypertext Transfer Protocol Stack (HTTP.sys) will monitor the website requests.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="ServerNameIndication"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`ServerNameIndication`** - **Server Name Indication required**<br>
-`boolean`. Optional. Use when `IISDeploymentType = randomDeployment`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the option to set the Server Name Indication (SNI) for the website.  
-SNI extends the SSL and TLS protocols to indicate the host name that the clients are attempting to connect to. It allows multiple secure websites with different certificates to use the same IP address.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="HostNameWithOutSNI"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`HostNameWithOutSNI`** - **Host name**<br>
-`string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a host name (or domain name) for the website.  
-If a host name is specified, the clients must use the host name instead of the IP address to access the website.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="HostNameWithHttp"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`HostNameWithHttp`** - **Host name**<br>
-`string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a host name (or domain name) for the website.  
-If a host name is specified, the clients must use the host name instead of the IP address to access the website.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="HostNameWithSNI"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`HostNameWithSNI`** - **Host name**<br>
-`string`. Required when `IISDeploymentType = randomDeployment`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a host name (or domain name) for the website.  
-If a host name is specified, the clients must use the host name instead of the IP address to access the website.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="SSLCertThumbPrint"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`SSLCertThumbPrint`** - **SSL certificate thumbprint**<br>
-`string`. Required when `IISDeploymentType = randomDeployment`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the thumb-print of the Secure Socket Layer certificate that the website uses for the HTTPS communication. The thumb-print is a 40 character long hexadecimal string. The SSL certificate should already be installed on the computer in the Local Computer Personal store.
 <!-- :::editable-content-end::: -->
 <br>
 

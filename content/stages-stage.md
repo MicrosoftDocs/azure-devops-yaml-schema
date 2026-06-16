@@ -1,10 +1,10 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 05/14/2025
+ms.date: 04/27/2026
 monikerRange: "<=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: steved0x
+ms.author: sdanie
 ---
 
 # stages.stage definition
@@ -25,6 +25,7 @@ Stages are a collection of related jobs. By default, stages run sequentially. Ea
 ```yaml
 stages:
 - stage: string # Required as first property. ID of the stage.
+  group: string # Path to the group which the stage belongs to.
   displayName: string # Human-readable name for the stage.
   pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
   dependsOn: string | [ string ] # Any stages which must complete before this one.
@@ -39,7 +40,7 @@ stages:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 stages:
@@ -56,20 +57,6 @@ stages:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-stages:
-- stage: string # Required as first property. ID of the stage.
-  displayName: string # Human-readable name for the stage.
-  pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
-  dependsOn: string | [ string ] # Any stages which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this stage.
-  variables: variables | [ variable ] # Stage-specific variables.
-  jobs: [ job | deployment | template ] # Jobs which make up the stage.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -88,6 +75,17 @@ Definitions that reference this definition: [stages](stages.md)
 
 **`stage`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the stage.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="group"::: -->
+:::moniker range="=azure-pipelines"
+
+**`group`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Path to the group which the stage belongs to.
+
+For more information, see [Deployment history for stages](/azure/devops/release-notes/2026/sprint-271-update#deployment-history-for-stages).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -147,7 +145,7 @@ Jobs which make up the stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
@@ -174,7 +172,7 @@ Setting false prevents the stage from being skipped. By default it's always true
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateContext"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`templateContext`** templateContext.<br><!-- :::editable-content name="propDescription"::: -->
 Stage related information passed from a pipeline when extending a template. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
@@ -204,7 +202,7 @@ As an owner of a resource like an environment, you can define checks that are re
 Currently, manual approval checks are supported on [environments](/azure/devops/pipelines/process/environments).
 For more information, see [Approvals](/azure/devops/pipelines/process/approvals).
 
-:::moniker range="> azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ### Exclusive lock
 

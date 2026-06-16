@@ -1,8 +1,8 @@
 ---
 title: PackerBuild@0 - Build machine image v0 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment (task version 0).
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -10,7 +10,7 @@ ms.author: rabououn
 # PackerBuild@0 - Build machine image v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
@@ -82,6 +82,9 @@ Use this task to build a machine image using Packer, which may be used for Azure
 `string`. Required. Allowed values: `builtin` (Auto generated), `custom` (User provided). Default value: `builtin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether you want the task to auto generate a Packer template or use a custom template provided by you.
+
+> [!NOTE]
+> If you're using a custom template, make sure it is written in JSON format. HCL2 templates are not currently supported.
 <!-- :::editable-content-end::: -->
 <br>
 

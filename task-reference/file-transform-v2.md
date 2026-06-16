@@ -1,8 +1,8 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # FileTransform@2 - File transform v2 task
@@ -20,7 +20,7 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # File transform v2
@@ -75,21 +75,22 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlTransform"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`enableXmlTransform`** - **XML transformation**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Config transforms will be run prior to the Variable Substitution.
 
-XML transformations are supported only for Windows platform.
+> [!IMPORTANT]
+> XML transformations are supported only for the Windows platform.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xmlTransformationRules"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
 `string`. Optional. Use when `enableXmlTransform == true`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
@@ -121,7 +122,7 @@ Provides a newline-separated list of transformation file rules using the syntax:
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
 
-For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
+For example, to replace the value of `ConnectionString` in the sample file below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
 
 ```json
 {
@@ -134,7 +135,6 @@ For example, to replace the value of `ConnectionString` in the sample below, you
 ```
 
  Variable Substitution is run after configuration transforms. 
-
 
 Note: Only custom variables that are defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
@@ -161,7 +161,7 @@ Note: Only custom variables defined in build/release pipelines are used in subst
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorOnInvalidSubstitution"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`errorOnInvalidSubstitution`** - **Error on empty files and invalid substitution.**<br>
 `boolean`. Default value: `false`.<br>

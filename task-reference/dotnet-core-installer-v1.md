@@ -1,14 +1,14 @@
 ---
 title: DotNetCoreInstaller@1 - .NET Core SDK/runtime installer v1 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
-ms.date: 05/06/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 04/27/2026
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DotNetCoreInstaller@1 - .NET Core SDK/runtime installer v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
