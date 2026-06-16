@@ -118,7 +118,7 @@ Specifies the path to the build context. Pass `**` to indicate the directory tha
 A list of tags on separate lines. These tags are used in the `build`, `push`, and `buildAndPush` commands.
 
 Example:
-```yml
+```yaml
   tags: |
     Tag1
     Tag2
