@@ -115,9 +115,9 @@ Specifies the path to the build context. Pass `**` to indicate the directory tha
 **`tags`** - **Tags**<br>
 `string`. Optional. Use when `command = build || command = push || command = buildAndPush`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A list of tags in separate lines. These tags are used in `build`, `push` and `buildAndPush` commands.
+A list of tags on separate lines. These tags are used in the `build`, `push`, and `buildAndPush` commands.
 
-Examples:
+Example:
 ```yml
   tags: |
     Tag1
