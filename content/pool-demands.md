@@ -1,7 +1,7 @@
 ---
 title: pool.demands definition
 description: Demands (for a private pool).
-ms.date: 04/27/2026
+ms.date: 06/16/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -119,13 +119,13 @@ On Windows agents, the agent uses the following PowerShell scripts to scan for t
 | Add-AzurePowerShellCapabilities.ps1 | `AzurePS` |
 | Add-ChefCapabilities.ps1 | `Chef`<br>`KnifeReporting` |
 | Add-DotNetFrameworkCapabilities.ps1 | `DotNetFramework_{major.minor}`<br>`DotNetFramework_{major.minor}_x64`<br>`DotNetFramework` |
-| Add-JavaCapabilities.ps1 | `java_6`<br>`java_7`<br>`java_8`<br>`java_6_x64`<br>`java_7_x64`<br>`java_8_x64`<br>`java`<br>`jdk_6`<br>`jdk_7`<br>`jdk_8`<br>`jdk_6_x64`<br>`jdk_7_x64`<br>`jdk_8_x64`<br>`jdk` |
+| Add-JavaCapabilities.ps1 | `java_6`<br>`java_7`<br>`java_8`<br>`java_{major}` (for versions 9 and later)<br>`java_6_x64`<br>`java_7_x64`<br>`java_8_x64`<br>`java_{major}_x64` (for versions 9 and later)<br>`java`<br>`jdk_6`<br>`jdk_7`<br>`jdk_8`<br>`jdk_{major}` (for versions 9 and later)<br>`jdk_6_x64`<br>`jdk_7_x64`<br>`jdk_8_x64`<br>`jdk_{major}_x64` (for versions 9 and later)<br>`jdk`<br><br>Detected JDK distributions include Oracle JavaSoft, AdoptOpenJDK, Eclipse Adoptium, Eclipse Foundation, and IBM Semeru. |
 | Add-MavenCapabilities.ps1 | `maven` |
-| Add-MSBuildCapabilities.ps1 | `MSBuild_2.0`<br>`MSBuild_3.5`<br>`MSBuild_4.0`<br>`MSBuild_12.0`<br>`MSBuild_14.0`<br>`MSBuild_15.0`<br>`MSBuild_16.0`<br>`MSBuild_17.0`<br>`MSBuild`<br>`MSBuild_2.0_x64`<br>`MSBuild_3.5_x64`<br>`MSBuild_4.0_x64`<br>`MSBuild_12.0_x64`<br>`MSBuild_14.0_x64`<br>`MSBuild_15.0_x64`<br>`MSBuild_16.0_x64`<br>`MSBuild_17.0_x64`<br>`MSBuild_x64` |
+| Add-MSBuildCapabilities.ps1 | `MSBuild_2.0`<br>`MSBuild_3.5`<br>`MSBuild_4.0`<br>`MSBuild_12.0`<br>`MSBuild_14.0`<br>`MSBuild_15.0`<br>`MSBuild_16.0`<br>`MSBuild_17.0`<br>`MSBuild_18.0`<br>`MSBuild`<br>`MSBuild_2.0_x64`<br>`MSBuild_3.5_x64`<br>`MSBuild_4.0_x64`<br>`MSBuild_12.0_x64`<br>`MSBuild_14.0_x64`<br>`MSBuild_15.0_x64`<br>`MSBuild_16.0_x64`<br>`MSBuild_17.0_x64`<br>`MSBuild_18.0_x64`<br>`MSBuild_x64` |
 | Add-PowerShellCapabilities.ps1 | `PowerShell` |
 | Add-ScvmmAdminConsoleCapabilities.ps1 | `SCVMMAdminConsole` |
 | Add-SqlPackageCapabilities.ps1 | `SqlPackage` |
-| Add-VisualStudioCapabilities.ps1 | `VisualStudio_10.0`<br>`VisualStudio_IDE_10.0`<br>`VisualStudio_11.0`<br>`VisualStudio_IDE_11.0`<br>`VisualStudio_12.0`<br>`VisualStudio_IDE_12.0`<br>`VSTest_12.0`<br>`VisualStudio_14.0`<br>`VisualStudio_IDE_14.0`<br>`VSTest_14.0`<br>`VisualStudio_15.0`<br>`VisualStudio_IDE_15.0`<br>`VSTest_15.0`<br>`VisualStudio_16.0`<br>`VisualStudio_IDE_16.0`<br>`VSTest_16.0`<br>`VisualStudio_17.0`<br>`VisualStudio_IDE_17.0`<br>`VSTest_17.0`<br>`VisualStudio`<br>`VisualStudio_IDE`<br>`VSTest` |
+| Add-VisualStudioCapabilities.ps1 | `VisualStudio_10.0`<br>`VisualStudio_IDE_10.0`<br>`VisualStudio_11.0`<br>`VisualStudio_IDE_11.0`<br>`VisualStudio_12.0`<br>`VisualStudio_IDE_12.0`<br>`VSTest_12.0`<br>`VisualStudio_14.0`<br>`VisualStudio_IDE_14.0`<br>`VSTest_14.0`<br>`VisualStudio_15.0`<br>`VisualStudio_IDE_15.0`<br>`VSTest_15.0`<br>`VisualStudio_16.0`<br>`VisualStudio_IDE_16.0`<br>`VSTest_16.0`<br>`VisualStudio_17.0`<br>`VisualStudio_IDE_17.0`<br>`VSTest_17.0`<br>`VisualStudio_18.0`<br>`VisualStudio_IDE_18.0`<br>`VSTest_18.0`<br>`VisualStudio`<br>`VisualStudio_IDE`<br>`VSTest` |
 | Add-WindowsKitCapabilities.ps1 | `WindowsKit_{major.minor}`<br>`WindowsKit` |
 | Add-WindowsSdkCapabilities.ps1 | `WindowsSdk_{major.minor}`<br>`WindowsSdk_{major.minor}_{toolName}`<br>`WindowsSdk_{major.minor}_{toolName}_x64`<br>`WindowsSdk` |
 | Add-XamarinAndroidCapabilities.ps1 | `Xamarin.Android` |
