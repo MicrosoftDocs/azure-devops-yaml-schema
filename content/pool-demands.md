@@ -102,7 +102,7 @@ When the agent software starts, it scans for the following software and tools an
 
 > [!TIP]
 >
-> After you install new software on a self-hosted agent, you must restart the agent for the new capability to show up. For more information, see [Restart Windows agent](/azure/devops/pipelines/agents/windows-agent/windows-agent#how-do-i-restart-the-agent), [Restart Linux agent](/azure/devops/pipelines/agents/linux-agent#how-do-i-restart-the-agent), and [Restart Mac agent](/azure/devops/pipelines/agents/osx-agent#how-do-i-restart-the-agent).
+> After you install new software on a self-hosted agent, you must restart the agent for the new capability to show up. For more information, see [Restart Windows agent](/azure/devops/pipelines/agents/windows-agent#how-do-i-restart-the-agent), [Restart Linux agent](/azure/devops/pipelines/agents/linux-agent#how-do-i-restart-the-agent), and [Restart Mac agent](/azure/devops/pipelines/agents/osx-agent#how-do-i-restart-the-agent).
 
 #### [Windows agent](#tab/windows/)
 
