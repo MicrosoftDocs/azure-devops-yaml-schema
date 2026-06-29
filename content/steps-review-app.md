@@ -1,7 +1,7 @@
 ---
 title: steps.reviewApp definition
 description: Downloads creates a resource dynamically under a deploy phase provider.
-ms.date: 04/27/2026
+ms.date: 06/29/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie

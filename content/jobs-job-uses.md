@@ -1,7 +1,7 @@
 ---
 title: jobs.job.uses definition
 description: Any resources required by this job that are not already referenced.
-ms.date: 04/27/2026
+ms.date: 06/29/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie

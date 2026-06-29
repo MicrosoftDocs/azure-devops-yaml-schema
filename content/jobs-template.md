@@ -1,7 +1,7 @@
 ---
 title: jobs.template definition
 description: A set of jobs defined in a template.
-ms.date: 04/27/2026
+ms.date: 06/29/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
