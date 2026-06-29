@@ -1,7 +1,7 @@
 ---
 title: jobs definition
 description: Specifies the jobs that make up the work of a stage.
-ms.date: 04/27/2026
+ms.date: 06/29/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
