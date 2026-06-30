@@ -860,7 +860,7 @@ items:
     displayName: PowerShell on target machines v3
   - name: PowerShellOnTargetMachines@2
     href: powershell-on-target-machines-v2.md
-    displayName: PowerShell on Target Machines v2
+    displayName: PowerShell on target machines v2
   - name: PowerShellOnTargetMachines@1
     href: powershell-on-target-machines-v1.md
     displayName: PowerShell on Target Machines v1

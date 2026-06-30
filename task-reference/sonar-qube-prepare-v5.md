@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@5 - Prepare Analysis Configuration v5 task
 description: Prepare SonarQube analysis configuration (task version 5).
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -263,6 +263,6 @@ None.
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
+* [SonarQube Azure DevOps Integration](https://docs.sonarsource.com/sonarqube-cloud/discovering-sonarcloud/integration-with-devops-platforms/azure-devops)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

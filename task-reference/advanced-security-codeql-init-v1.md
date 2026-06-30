@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -32,6 +32,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 - task: AdvancedSecurity-Codeql-Init@1
   inputs:
     #enableAutomaticCodeQLInstall: false # boolean. Enable automatic CodeQL detection and installation. Default: false.
+    #cleanupOldAutomaticInstalls: false # boolean. Optional. Use when enableAutomaticCodeQLInstall = true. Clean up old CodeQL versions installed by this task. Default: false.
     #languages: # 'csharp' | 'cpp' | 'go' | 'java' | 'javascript' | 'python' | 'ruby' | 'rust' | 'swift'. Languages to analyze. 
     #querysuite: 'Select a query suite...' # 'Select a query suite...' | 'code-scanning' | 'security-extended' | 'security-experimental' | 'security-and-quality'. CodeQL Query Suite to use for analysis. Default: Select a query suite....
     #buildtype: 'Manual' # 'Manual' | 'None'. Select build mode (manual vs none). Default: Manual.
@@ -59,6 +60,18 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selecting this option will set the task to automatically check for CodeQL on the agent. If CodeQL is not correctly configured or at the latest version, the task will automatically install the latest version.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="cleanupOldAutomaticInstalls"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`cleanupOldAutomaticInstalls`** - **Clean up old CodeQL versions installed by this task**<br>
+`boolean`. Optional. Use when `enableAutomaticCodeQLInstall = true`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+After a successful automatic CodeQL installation, delete previous CodeQL versions that were installed by this task from the agent tool cache. Only versions installed via `enableAutomaticCodeQLInstall` are removed; CodeQL installations placed manually on the agent are left untouched. This option has no effect unless `enableAutomaticCodeQLInstall` is also enabled.
 <!-- :::editable-content-end::: -->
 <br>
 

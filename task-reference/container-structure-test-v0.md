@@ -1,7 +1,7 @@
 ---
 title: ContainerStructureTest@0 - Container Structure Test v0 task
 description: Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -10,7 +10,19 @@ ms.author: rabououn
 # ContainerStructureTest@0 - Container Structure Test v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
+
+This task is deprecated.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.

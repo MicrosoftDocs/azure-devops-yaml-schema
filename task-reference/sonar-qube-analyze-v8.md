@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@8 - Run Code Analysis v8 task
 description: Run scanner and upload the results to the SonarQube Server.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -86,7 +86,7 @@ None.
 |-------------|-------------|
 | Pipeline types | YAML, Classic build |
 | Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: java |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
@@ -98,5 +98,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [SonarQube Azure DevOps Integration](https://docs.sonarsource.com/sonarqube-cloud/discovering-sonarcloud/integration-with-devops-platforms/azure-devops)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

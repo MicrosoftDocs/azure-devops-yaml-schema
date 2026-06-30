@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@5 - Run Code Analysis v5 task
 description: Run scanner and upload the results to the SonarQube server (task version 5).
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -111,6 +111,6 @@ This task is to be used with the new version of the `Prepare Analysis Configurat
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
+* [SonarQube Azure DevOps Integration](https://docs.sonarsource.com/sonarqube-cloud/discovering-sonarcloud/integration-with-devops-platforms/azure-devops)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

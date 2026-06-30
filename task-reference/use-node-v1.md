@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -22,7 +22,25 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.2"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Use Node.js ecosystem v1
+# Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
+- task: UseNode@1
+  inputs:
+    #version: '10.x' # string. Version. Default: 10.x.
+    #checkLatest: false # boolean. Check for Latest Version. Default: false.
+    #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
+  # advanced
+    #nodejsMirror: 'https://nodejs.org/dist' # string. Set source for Node.js binaries. Default: https://nodejs.org/dist.
+    #retryCountOnDownloadFails: '5' # string. Set retry count when nodes downloads failed. Default: 5.
+    #delayBetweenRetries: '1000' # string. Set delay between retries. Default: 1000.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.2 <=azure-pipelines-server"
 
 ```yaml
 # Use Node.js ecosystem v1
@@ -89,6 +107,18 @@ Checks online for the latest available version that satisfies the version spec. 
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs the x86 version of Node.js on a 64-bit Windows agent. Only works on Windows agents.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="nodejsMirror"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`nodejsMirror`** - **Set source for Node.js binaries**<br>
+`string`. Default value: `https://nodejs.org/dist`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use an alternative installation mirror when sourcing the Node.js binaries.
 <!-- :::editable-content-end::: -->
 <br>
 

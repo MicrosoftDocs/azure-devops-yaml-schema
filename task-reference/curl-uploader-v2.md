@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@2 - cURL Upload Files v2 task
 description: Use cURL's supported protocols to upload files.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -182,7 +182,7 @@ such as FTP, FTPS, SFTP, HTTP, and more.
 
 ### Where can I learn FTP commands?
 
-* [List of raw FTP commands](https://www.nsftools.com/tips/RawFTP.htm)
+* [List of raw FTP commands](https://www.w3.org/Protocols/rfc959/5_Declarative)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
