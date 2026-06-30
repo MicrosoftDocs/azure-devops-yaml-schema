@@ -1,7 +1,7 @@
 ---
 title: AzureMysqlDeployment@2 - Azure Database for MySQL deployment v2 task
 description: Run your scripts and make changes to your Azure Database for MySQL Flexible Server. (task version 2)
-ms.date: 05/13/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 ---
 

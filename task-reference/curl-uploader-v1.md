@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@1 - cURL Upload Files v1 task
 description: Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -140,7 +140,7 @@ None.
 
 ### Where can I learn FTP commands?
 
-See the [list of raw FTP commands](https://www.nsftools.com/tips/RawFTP.htm).
+See the [list of raw FTP commands](https://www.w3.org/Protocols/rfc959/5_Declarative).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

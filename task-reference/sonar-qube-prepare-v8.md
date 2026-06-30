@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@8 - Prepare Analysis Configuration v8 task
 description: Prepare SonarQube Server analysis configuration.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -274,5 +274,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [SonarQube Azure DevOps Integration](https://docs.sonarsource.com/sonarqube-cloud/discovering-sonarcloud/integration-with-devops-platforms/azure-devops)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

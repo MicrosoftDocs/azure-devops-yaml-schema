@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@8 - Run Code Analysis v8 task
 description: Run scanner and upload the results to the SonarQube Server.
-ms.date: 06/29/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -98,5 +98,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [SonarQube Azure DevOps Integration](https://docs.sonarsource.com/sonarqube-cloud/discovering-sonarcloud/integration-with-devops-platforms/azure-devops)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

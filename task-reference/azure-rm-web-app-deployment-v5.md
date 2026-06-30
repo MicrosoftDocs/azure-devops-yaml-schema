@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@5 - Azure App Service deploy v5 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 04/27/2026
+ms.date: 06/30/2026
 monikerRange: "=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -599,7 +599,7 @@ The task can be used to deploy to a range of Azure App Services such as:
 * [Web Apps for Containers](/azure/app-service/containers/app-service-linux-intro)
 * [Function Apps on both Windows and Linux](/azure/azure-functions/)
 * [Function Apps for Containers](/azure/azure-functions/)
-* [WebJobs](https://azure.microsoft.com/blog/webjobs-goes-into-full-production/)
+* [WebJobs](/azure/app-service/overview-webjobs)
 * Apps configured under [Azure App Service Environments](/azure/app-service/environment/intro)
 
 ### Prerequisites for the task
