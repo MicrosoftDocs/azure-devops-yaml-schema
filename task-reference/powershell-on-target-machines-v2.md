@@ -1,7 +1,7 @@
 ---
 title: PowerShellOnTargetMachines@2 - PowerShell on Target Machines v2 task
 description: Execute PowerShell scripts on remote machine(s) (task version 2).
-ms.date: 04/27/2026
+ms.date: 06/29/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -10,7 +10,19 @@ ms.author: rabououn
 # PowerShellOnTargetMachines@2 - PowerShell on Target Machines v2 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to execute PowerShell scripts on remote machine(s).
+
+This task is deprecated; use [PowerShellOnTargetMachines@3](./powershell-on-target-machines-v3.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to execute PowerShell scripts on remote machine(s).
@@ -22,7 +34,32 @@ Use this task to execute PowerShell scripts on remote machine(s).
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# PowerShell on target machines v2
+# Execute PowerShell scripts on remote machines.
+- task: PowerShellOnTargetMachines@2
+  inputs:
+    EnvironmentName: # string. Required. Machines. 
+    #AdminUserName: # string. Admin Login. 
+    #AdminPassword: # string. Password. 
+    #Protocol: # 'Http' | 'Https'. Protocol. 
+    #TestCertificate: true # boolean. Optional. Use when Protocol = Https. Test Certificate. Default: true.
+  # Deployment
+    ScriptPath: # string. Required. PowerShell Script. 
+    #ScriptArguments: # string. Script Arguments. 
+    #InitializationScriptPath: # string. Initialization Script. 
+    #SessionVariables: # string. Session Variables. 
+  # Advanced Options
+    #RunPowershellInParallel: true # boolean. Run PowerShell in Parallel. Default: true.
+    #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Select Machines By. Default: machineNames.
+    #MachineNames: # string. Filter Criteria.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # PowerShell on Target Machines v2
@@ -220,6 +257,9 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+> [!NOTE]
+> This task is deprecated; use [PowerShellOnTargetMachines@3](./powershell-on-target-machines-v3.md).
 
 What's new in Version 2.0:
 * Removed support of legacy DTL machines.

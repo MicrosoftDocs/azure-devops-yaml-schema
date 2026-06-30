@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@1 - Universal Packages v1 task
 description: Publish or download Universal Packages using the Universal Packages v1 task.
-ms.date: 05/26/2026
+ms.date: 06/29/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -23,7 +23,7 @@ Use this task to publish or download Universal Packages to and from Azure Artifa
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Universal Packages v1
+# Universal packages v1
 # Download or publish Universal Packages.
 - task: UniversalPackages@1
   inputs:
