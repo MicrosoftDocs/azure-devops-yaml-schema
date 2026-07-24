@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 06/29/2026
+ms.date: 07/24/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -274,6 +274,13 @@ Volumes to mount read-only, the default is all false.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+> [!WARNING]
+> When you enable a trigger on a container resource whose image is hosted on Docker Hub,
+> Azure Pipelines can't verify the authenticity of the webhook notifications it receives on
+> Docker Hub's behalf. Because these notifications aren't signed, anyone who knows the webhook
+> endpoint can send a forged payload claiming a push to any image or tag and trigger pipeline
+> runs in your organization.
 
 [Container jobs](/azure/devops/pipelines/process/container-phases) let you isolate your tools and dependencies inside a container.
 
