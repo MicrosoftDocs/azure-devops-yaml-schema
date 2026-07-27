@@ -123,7 +123,7 @@ The custom command used to run Oryx when building application source code.
 **`output_location`** - **Output location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the compiled application code after building is complete, relative to the working directory. Set this an empty string (`''`) when bypassing automatic build and only deploy is required.
+The directory location of the compiled application code after building is complete, relative to the app_location. Set this an empty string (`''`) when bypassing automatic build and only deploy is required.
 <!-- :::editable-content-end::: -->
 <br>
 
