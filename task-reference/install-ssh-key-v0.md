@@ -1,7 +1,7 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -46,6 +46,7 @@ Use this task in a pipeline to install an SSH key prior to a build or release st
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="knownhostsentry-property"></a>
 <!-- :::item name="knownHostsEntry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -58,6 +59,7 @@ Specifies the SSH key entry for the known_hosts file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sshpublickey-property"></a>
 <!-- :::item name="sshPublicKey"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +72,7 @@ Optional. Specifies the contents of the public SSH key.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sshpassphrase-property"></a>
 <!-- :::item name="sshPassphrase"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +85,7 @@ Optional. Specifies the passphrase for the SSH key, if any.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sshkeysecurefile-property"></a>
 <!-- :::item name="sshKeySecureFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +98,7 @@ Specifies the SSH key that was uploaded to `Secure Files` to install on the agen
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addentrytoconfig-property"></a>
 <!-- :::item name="addEntryToConfig"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +111,7 @@ Optional. Adds an entry related to the key that was installed to the SSH config 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="confighostalias-property"></a>
 <!-- :::item name="configHostAlias"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +124,7 @@ Specifies the name of the SSH config entry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="confighostname-property"></a>
 <!-- :::item name="configHostname"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -130,6 +137,7 @@ Specifies the host name property of SSH config entry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuser-property"></a>
 <!-- :::item name="configUser"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +150,7 @@ Specifies the user name property of the SSH config entry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configport-property"></a>
 <!-- :::item name="configPort"::: -->
 :::moniker range="<=azure-pipelines"
 

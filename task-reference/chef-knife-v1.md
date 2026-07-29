@@ -1,7 +1,7 @@
 ---
 title: ChefKnife@1 - Chef Knife v1 task
 description: Run scripts with Knife commands on your Chef workstation.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -58,6 +58,7 @@ Run scripts with Knife commands on your Chef workstation.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicename-property"></a>
 <!-- :::item name="ConnectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +71,7 @@ The Chef subscription to configure before running knife commands.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="ScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +84,7 @@ The path of the script. This should be fully qualified path or a relative to the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptarguments-property"></a>
 <!-- :::item name="ScriptArguments"::: -->
 :::moniker range="<=azure-pipelines"
 

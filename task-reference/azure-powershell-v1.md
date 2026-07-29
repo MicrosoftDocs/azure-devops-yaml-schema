@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@1 - Azure PowerShell v1 task
 description: Run a PowerShell script within an Azure environment (task version 1).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -45,6 +45,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicenameselector-property"></a>
 <!-- :::item name="ConnectedServiceNameSelector"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -56,6 +57,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectedservicename-property"></a>
 <!-- :::item name="ConnectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +70,7 @@ The Azure Classic subscription to configure before running PowerShell.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectedservicenamearm-property"></a>
 <!-- :::item name="ConnectedServiceNameARM"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +83,7 @@ The Azure Resource Manager subscription to configure before running PowerShell.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="ScriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +96,7 @@ The type of the script: file path or inline.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="ScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +109,7 @@ The path of the script. This should be a fully qualified path or one relative to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inline-property"></a>
 <!-- :::item name="Inline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -116,6 +122,7 @@ Specifes the script to execute. The maximum supported inline script length is 50
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptarguments-property"></a>
 <!-- :::item name="ScriptArguments"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: ContainerStructureTest@0 - Container Structure Test v0 task
 description: Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -56,6 +56,7 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="dockerregistryserviceconnection-property"></a>
 <!-- :::item name="dockerRegistryServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +69,7 @@ Specify a Docker registry service connection. Required for commands that need to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="repository-property"></a>
 <!-- :::item name="repository"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +82,7 @@ The name of the repository.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tag-property"></a>
 <!-- :::item name="tag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +95,7 @@ The tag is used in pulling the image from docker registry service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configfile-property"></a>
 <!-- :::item name="configFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +108,7 @@ The config file path that contains container structure tests, either in .yaml or
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -116,6 +121,7 @@ Specify a name for the Test Run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failtaskonfailedtests-property"></a>
 <!-- :::item name="failTaskOnFailedTests"::: -->
 :::moniker range="<=azure-pipelines"
 

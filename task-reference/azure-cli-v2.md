@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent. (task verion 2)
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -75,6 +75,7 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +88,7 @@ Select an Azure Resource Manager service connection for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="scriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +101,7 @@ Type of script. Select a `bash` or `pscore` script when running on Linux agent. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptlocation-property"></a>
 <!-- :::item name="scriptLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +114,7 @@ Path to the script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="scriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +127,7 @@ Fully qualified path of the script. Use `.ps1`, `.bat`, or `.cmd` when using Win
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinescript-property"></a>
 <!-- :::item name="inlineScript"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -149,6 +154,7 @@ call az account show
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -161,6 +167,7 @@ Arguments passed to the script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="powershellerroractionpreference-property"></a>
 <!-- :::item name="powerShellErrorActionPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -173,6 +180,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your PowerShe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addspntoenvironment-property"></a>
 <!-- :::item name="addSpnToEnvironment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -195,6 +203,7 @@ The following list shows the syntax to access environment variables based on the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="useglobalconfig-property"></a>
 <!-- :::item name="useGlobalConfig"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -207,6 +216,7 @@ If this input is false, this task will use its own [Azure CLI configuration dire
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -219,6 +229,7 @@ Current working directory where the script is run. If left blank, this input is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -231,6 +242,7 @@ If this input is true, this task will fail when any errors are written to the St
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="powershellignorelastexitcode-property"></a>
 <!-- :::item name="powerShellIgnoreLASTEXITCODE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -243,6 +255,7 @@ If this input is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXIT
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="visibleazlogin-property"></a>
 <!-- :::item name="visibleAzLogin"::: -->
 :::moniker range=">=azure-pipelines-server"
 

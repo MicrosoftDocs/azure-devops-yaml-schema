@@ -1,7 +1,7 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -58,6 +58,7 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="folderpath-property"></a>
 <!-- :::item name="folderPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +75,7 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablexmltransform-property"></a>
 <!-- :::item name="enableXmlTransform"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -89,6 +91,7 @@ Config transforms will be run prior to the Variable Substitution.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xmltransformationrules-property"></a>
 <!-- :::item name="xmlTransformationRules"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -114,6 +117,7 @@ Provides a newline-separated list of transformation file rules using the syntax:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jsontargetfiles-property"></a>
 <!-- :::item name="jsonTargetFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +146,7 @@ Note: Only custom variables that are defined in build/release pipelines are used
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xmltargetfiles-property"></a>
 <!-- :::item name="xmlTargetFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +165,7 @@ Note: Only custom variables defined in build/release pipelines are used in subst
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="erroroninvalidsubstitution-property"></a>
 <!-- :::item name="errorOnInvalidSubstitution"::: -->
 :::moniker range=">=azure-pipelines-server"
 

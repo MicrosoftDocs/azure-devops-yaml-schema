@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@4 - Prepare Analysis Configuration v4 task
 description: Prepare SonarQube analysis configuration (task version 4).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -55,6 +55,7 @@ Use this task to prepare a SonarQube analysis configuration.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sonarqube-property"></a>
 <!-- :::item name="SonarQube"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -67,6 +68,7 @@ Specifies the SonarQube server endpoint for your project. To create one, click t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scannermode-property"></a>
 <!-- :::item name="scannerMode"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -88,6 +90,7 @@ Specifies the SonarQube server endpoint for your project. To create one, click t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configmode-property"></a>
 <!-- :::item name="configMode"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -100,6 +103,7 @@ Specifies your preferred configuration method.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configfile-property"></a>
 <!-- :::item name="configFile"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -112,6 +116,7 @@ Specifies the configuration settings and project properties. Learn more about th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cliprojectkey-property"></a>
 <!-- :::item name="cliProjectKey"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -124,6 +129,7 @@ Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectkey-property"></a>
 <!-- :::item name="projectKey"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -136,6 +142,7 @@ Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cliprojectname-property"></a>
 <!-- :::item name="cliProjectName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -148,6 +155,7 @@ Specifies the SonarQube project name. For example, `sonar.projectName`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectname-property"></a>
 <!-- :::item name="projectName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -160,6 +168,7 @@ Specifies the SonarQube project name. For example, `sonar.projectName`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cliprojectversion-property"></a>
 <!-- :::item name="cliProjectVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -172,6 +181,7 @@ Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectversion-property"></a>
 <!-- :::item name="projectVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -184,6 +194,7 @@ Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="clisources-property"></a>
 <!-- :::item name="cliSources"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -196,6 +207,7 @@ Specifies the path to the root directory containing source files. This value is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="extraproperties-property"></a>
 <!-- :::item name="extraProperties"::: -->
 :::moniker range=">azure-pipelines-server"
 

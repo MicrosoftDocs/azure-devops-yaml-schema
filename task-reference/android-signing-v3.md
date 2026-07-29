@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -52,6 +52,7 @@ Use this task in a pipeline to sign and align Android APK files.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="apkfiles-property"></a>
 <!-- :::item name="apkFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +68,7 @@ The relative path from the repo root to the APK(s) you want to sign. You can use
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksign-property"></a>
 <!-- :::item name="apksign"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +81,7 @@ Signs the APK with a provided Android Keystore file. Unsigned APKs can only run 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksignerkeystorefile-property"></a>
 <!-- :::item name="apksignerKeystoreFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +96,7 @@ The file can either be checked into source control or placed on the build machin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksignerkeystorepassword-property"></a>
 <!-- :::item name="apksignerKeystorePassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +111,7 @@ The key password for the provided Android Keystore file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksignerkeystorealias-property"></a>
 <!-- :::item name="apksignerKeystoreAlias"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +124,7 @@ The alias that identifies the public/private key pair to be used in the Android 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksignerkeypassword-property"></a>
 <!-- :::item name="apksignerKeyPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +140,7 @@ The key password for the alias and keystore file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksignerversion-property"></a>
 <!-- :::item name="apksignerVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -146,6 +153,7 @@ The Android SDK build-tools version that the `apksigner` executable uses for the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksignerarguments-property"></a>
 <!-- :::item name="apksignerArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -158,6 +166,7 @@ Provides options to pass to the `apksigner` command line. See the [apksigner doc
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apksignerfile-property"></a>
 <!-- :::item name="apksignerFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -170,6 +179,7 @@ Specifies the location of the apksigner executable used during signing. This def
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="zipalign-property"></a>
 <!-- :::item name="zipalign"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -182,6 +192,7 @@ Select if you want to zipalign your package. This reduces the amount of RAM cons
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="zipalignversion-property"></a>
 <!-- :::item name="zipalignVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -194,6 +205,7 @@ The Android SDK build-tools version that the `zipalign` executable uses for the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="zipalignfile-property"></a>
 <!-- :::item name="zipalignFile"::: -->
 :::moniker range="<=azure-pipelines"
 

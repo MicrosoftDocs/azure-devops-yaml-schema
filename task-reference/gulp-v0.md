@@ -1,7 +1,7 @@
 ---
 title: gulp@0 - gulp v0 task
 description: Run the gulp Node.js streaming task-based build system (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -52,6 +52,7 @@ Use this task to run the gulp Node.js streaming task-based build system.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="gulpfile-property"></a>
 <!-- :::item name="gulpFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -64,6 +65,7 @@ The relative path from the repo root of the gulp file script file you want to ru
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targets-property"></a>
 <!-- :::item name="targets"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -76,6 +78,7 @@ Optional space-delimited list of tasks to run. If this input isn't specified, th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +91,7 @@ Additional arguments passed to gulp. `--gulpfile` is not needed since it's alrea
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +104,7 @@ The current working directory to use when the script is run. This input defaults
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gulpjs-property"></a>
 <!-- :::item name="gulpjs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,6 +117,7 @@ Runs `gulp.js` when the agent can't find global-installed gulp.  This input defa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -124,6 +130,7 @@ Publishes JUnit test results from the gulp build to Azure Pipelines/TFS.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -136,6 +143,7 @@ The test results files path. You can use wildcards. For example, you can use `**
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -148,6 +156,7 @@ Provides a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablecodecoverage-property"></a>
 <!-- :::item name="enableCodeCoverage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +169,7 @@ Enables Code Coverage using Istanbul.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testframework-property"></a>
 <!-- :::item name="testFramework"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -172,6 +182,7 @@ Specifies your test framework.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="srcfiles-property"></a>
 <!-- :::item name="srcFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -184,6 +195,7 @@ Provides the path to the source files that you want to hookRequire().
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testfiles-property"></a>
 <!-- :::item name="testFiles"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -53,6 +53,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="enableautomaticcodeqlinstall-property"></a>
 <!-- :::item name="enableAutomaticCodeQLInstall"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -65,6 +66,7 @@ Selecting this option will set the task to automatically check for CodeQL on the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleanupoldautomaticinstalls-property"></a>
 <!-- :::item name="cleanupOldAutomaticInstalls"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -77,6 +79,7 @@ After a successful automatic CodeQL installation, delete previous CodeQL version
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="languages-property"></a>
 <!-- :::item name="languages"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -100,6 +103,7 @@ You can set the language here in the task, or you can specify the language in a 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="querysuite-property"></a>
 <!-- :::item name="querysuite"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -112,6 +116,7 @@ The query suite, i.e. ruleset, used for analysis. You can specify the value here
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildtype-property"></a>
 <!-- :::item name="buildtype"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -126,6 +131,7 @@ For more information on the different build modes including a comparison on the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ram-property"></a>
 <!-- :::item name="ram"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -140,6 +146,7 @@ You can specify `ram` here in the task, or you can specify it in a pipeline vari
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="threads-property"></a>
 <!-- :::item name="threads"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -154,6 +161,7 @@ You can specify `threads` here in the task, or you can specify it in a pipeline 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codeqlpathstoignore-property"></a>
 <!-- :::item name="codeqlpathstoignore"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -169,6 +177,7 @@ You can provide multiple paths separated by commas. The paths must be relative t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codeqlpathstoinclude-property"></a>
 <!-- :::item name="codeqlpathstoinclude"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -184,6 +193,7 @@ You can provide multiple paths separated by commas. The paths must be relative t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sourcesfolder-property"></a>
 <!-- :::item name="sourcesfolder"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -196,6 +206,7 @@ Value must be relative to `Build.SourcesDirectory` variable. If you don't provid
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loglevel-property"></a>
 <!-- :::item name="loglevel"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -210,6 +221,7 @@ You can specify `loglevel` here in the task, or you can specify it in a pipeline
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configfilepath-property"></a>
 <!-- :::item name="configfilepath"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -222,6 +234,7 @@ If path is not provided, then codeql analysis will proceed with default queries.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codeqltoolsdirectory-property"></a>
 <!-- :::item name="codeqltoolsdirectory"::: -->
 :::moniker range=">azure-pipelines-server"
 

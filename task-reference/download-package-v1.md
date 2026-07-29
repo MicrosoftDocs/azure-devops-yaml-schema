@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -66,6 +66,7 @@ Use this task to download a package from a package management feed in Azure Arti
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="packagetype-property"></a>
 <!-- :::item name="packageType"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -87,6 +88,7 @@ Use this task to download a package from a package management feed in Azure Arti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feed-property"></a>
 <!-- :::item name="feed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +101,7 @@ For project-scoped feeds, the format is `projectID/feedID`. See the following [r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="view-property"></a>
 <!-- :::item name="view"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +114,7 @@ Specifies a view that only uses versions promoted to that specific view.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="definition-property"></a>
 <!-- :::item name="definition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +127,7 @@ If you don't find the package in the list, you can provide the package ID, which
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +140,7 @@ Specifies the version of the package. Use `latest` to download the latest versio
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="files-property"></a>
 <!-- :::item name="files"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -147,6 +153,7 @@ Specifies which files to download using [file matching patterns](https://go.micr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="extract-property"></a>
 <!-- :::item name="extract"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,6 +166,7 @@ Extracts the package contents and contains the package archive in the artifact f
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloadpath-property"></a>
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="<=azure-pipelines"
 

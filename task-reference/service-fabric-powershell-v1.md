@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
 description: Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -43,6 +43,7 @@ Use this task to run a PowerShell script within the context of an Azure Service 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="clusterconnection-property"></a>
 <!-- :::item name="clusterConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ Specifies the Azure Service Fabric cluster which will have an established servic
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="ScriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +69,7 @@ Specifies whether the script is provided as a file or inline in the task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="ScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +84,7 @@ Specifies the path to the PowerShell script to run. Can include wildcards and va
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inline-property"></a>
 <!-- :::item name="Inline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +97,7 @@ Specifies the PowerShell commands to run on the build agent. Learn more about [P
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptarguments-property"></a>
 <!-- :::item name="ScriptArguments"::: -->
 :::moniker range="<=azure-pipelines"
 

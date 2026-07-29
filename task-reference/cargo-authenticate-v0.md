@@ -1,7 +1,7 @@
 ---
 title: CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
 description: Authentication task for the cargo client used for installing Cargo crates distribution.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: ramiMSFT
 ms.author: rabououn
@@ -57,6 +57,7 @@ Authentication task for the cargo client used for installing Cargo crates.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuredevopsserviceconnection-property"></a>
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -69,6 +70,7 @@ If this is set, feedUrl is required. All other inputs are ignored.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registrynames-property"></a>
 <!-- :::item name="registryNames"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -81,6 +83,7 @@ Comma seperated list of registry names specified in your config.toml to authenti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configfile-property"></a>
 <!-- :::item name="configFile"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -93,6 +96,7 @@ Path to the config.toml file that specifies the registries you want to work with
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cargoserviceconnections-property"></a>
 <!-- :::item name="cargoServiceConnections"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

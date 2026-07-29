@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -103,6 +103,7 @@ Use this task to deploy to Azure App Service a web, mobile, or API app using Doc
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -115,6 +116,7 @@ Specify the Azure Resource Manager subscription for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apptype-property"></a>
 <!-- :::item name="appType"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -142,6 +144,7 @@ Note: Specify Linux Web App for built-in platform images or custom container ima
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webappname-property"></a>
 <!-- :::item name="WebAppName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -154,6 +157,7 @@ Specify the name of an existing Azure App Service. App services based on the sel
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytoslotflag-property"></a>
 <!-- :::item name="DeployToSlotFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -166,6 +170,7 @@ Use this option to deploy to an existing slot other than the Production slot. If
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -178,6 +183,7 @@ Specify the Azure Resource group that contains the Azure App Service specified a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="SlotName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -190,6 +196,7 @@ Specify an existing slot other than the Production slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagesource-property"></a>
 <!-- :::item name="ImageSource"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -204,6 +211,7 @@ Custom image deployment or app deployment with a built-in platform image.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistry-property"></a>
 <!-- :::item name="AzureContainerRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -218,6 +226,7 @@ Note: A fully qualified image name will be of the format: **`<registry>`**/`<rep
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistryloginserver-property"></a>
 <!-- :::item name="AzureContainerRegistryLoginServer"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -230,6 +239,7 @@ Specify an Azure container registry login server name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistryimage-property"></a>
 <!-- :::item name="AzureContainerRegistryImage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -244,6 +254,7 @@ Note: A fully qualified image name will be of the format: `<registry>`/**`<repos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistrytag-property"></a>
 <!-- :::item name="AzureContainerRegistryTag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -258,6 +269,7 @@ Note: A fully qualified image name will be of the format: `<registry>`/`<reposit
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerrepositoryaccess-property"></a>
 <!-- :::item name="DockerRepositoryAccess"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -270,6 +282,7 @@ Specify the Docker repository access.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryconnection-property"></a>
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -282,6 +295,7 @@ Specify the registry connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="privateregistryimage-property"></a>
 <!-- :::item name="PrivateRegistryImage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -296,6 +310,7 @@ Note: A fully qualified image name will be of the format: `<registry>`**`<reposi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="privateregistrytag-property"></a>
 <!-- :::item name="PrivateRegistryTag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -310,6 +325,7 @@ Tags are the mechanism that registries use to give Docker images a version.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockernamespace-property"></a>
 <!-- :::item name="DockerNamespace"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -324,6 +340,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerrepository-property"></a>
 <!-- :::item name="DockerRepository"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -338,6 +355,7 @@ The name of the repository where the container images are stored.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerimagetag-property"></a>
 <!-- :::item name="DockerImageTag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -352,6 +370,7 @@ This is the mechanism that registries use to give Docker images a version.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="virtualapplication-property"></a>
 <!-- :::item name="VirtualApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -364,6 +383,7 @@ Specify the name of the Virtual Application that has been configured in the Azur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="package-property"></a>
 <!-- :::item name="Package"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -380,6 +400,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packageforlinux-property"></a>
 <!-- :::item name="packageForLinux"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -396,6 +417,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runtimestack-property"></a>
 <!-- :::item name="RuntimeStack"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -408,6 +430,7 @@ Specify the framework and version.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startupcommand-property"></a>
 <!-- :::item name="StartupCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -420,6 +443,7 @@ Specify the startup command.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webappuri-property"></a>
 <!-- :::item name="WebAppUri"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -432,6 +456,7 @@ Specify a name for the output variable that is generated for the URL of the Azur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="ScriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -444,6 +469,7 @@ Customizes the deployment by providing a script that will run on the Azure App s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinescript-property"></a>
 <!-- :::item name="InlineScript"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -455,6 +481,7 @@ Customizes the deployment by providing a script that will run on the Azure App s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="ScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -466,6 +493,7 @@ Customizes the deployment by providing a script that will run on the Azure App s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="generatewebconfig-property"></a>
 <!-- :::item name="GenerateWebConfig"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -478,6 +506,7 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webconfigparameters-property"></a>
 <!-- :::item name="WebConfigParameters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -490,6 +519,7 @@ Edits values like startup files in the generated `web.config` file. This edit fe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appsettings-property"></a>
 <!-- :::item name="AppSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -503,6 +533,7 @@ Examples: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `"Eastern Sta
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configurationsettings-property"></a>
 <!-- :::item name="ConfigurationSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -517,6 +548,7 @@ Examples: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="takeappofflineflag-property"></a>
 <!-- :::item name="TakeAppOfflineFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -529,6 +561,7 @@ Use this option to take the Azure App Service offline by placing an `app_offline
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usewebdeploy-property"></a>
 <!-- :::item name="UseWebDeploy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -541,6 +574,7 @@ Use this option to take the Azure App Service offline by placing an `app_offline
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="setparametersfile-property"></a>
 <!-- :::item name="SetParametersFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -553,6 +587,7 @@ The location of the `SetParameters.xml` file to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removeadditionalfilesflag-property"></a>
 <!-- :::item name="RemoveAdditionalFilesFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -567,6 +602,7 @@ Note: This will also remove all files related to any extension installed on this
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="excludefilesfromappdataflag-property"></a>
 <!-- :::item name="ExcludeFilesFromAppDataFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -579,6 +615,7 @@ Use this option to prevent files in the `App_Data` folder from being deployed to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -595,6 +632,7 @@ See more examples of [Web Deploy Operation Settings](https://go.microsoft.com/fw
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="renamefilesflag-property"></a>
 <!-- :::item name="RenameFilesFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -607,6 +645,7 @@ Use this option to enable msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablexmltransform-property"></a>
 <!-- :::item name="enableXmlTransform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -623,6 +662,7 @@ XML transformations are supported only for Windows platform.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablexmlvariablesubstitution-property"></a>
 <!-- :::item name="enableXmlVariableSubstitution"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -637,6 +677,7 @@ Note: If the same variables are defined in the release pipeline and in the envir
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jsonfiles-property"></a>
 <!-- :::item name="JSONFiles"::: -->
 :::moniker range="<=azure-pipelines"
 

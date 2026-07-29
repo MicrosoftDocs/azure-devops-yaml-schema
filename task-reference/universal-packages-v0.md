@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -65,6 +65,7 @@ Use this task to download, or package and publish Universal Packages.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,6 +78,7 @@ Specifies the Universal Package command to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloaddirectory-property"></a>
 <!-- :::item name="downloadDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -89,6 +91,7 @@ Specifies the folder path where the task downloads the package's contents.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedstouse-property"></a>
 <!-- :::item name="feedsToUse"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,6 +104,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="externalfeedcredentials-property"></a>
 <!-- :::item name="externalFeedCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -113,6 +117,7 @@ Specifies the credentials to use for external registries located in the selected
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstsfeed-property"></a>
 <!-- :::item name="vstsFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +130,7 @@ Includes the selected feed. You must have Azure Artifacts installed and licensed
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstsfeedpackage-property"></a>
 <!-- :::item name="vstsFeedPackage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,6 +143,7 @@ Specifies the name of the package for the task to download.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstspackageversion-property"></a>
 <!-- :::item name="vstsPackageVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -149,6 +156,7 @@ Specifies the package version or uses a variable containing the version to downl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feeddownloadexternal-property"></a>
 <!-- :::item name="feedDownloadExternal"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +171,7 @@ For project-scoped feeds, the value should be `Project/Feed`, where `Project` is
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagedownloadexternal-property"></a>
 <!-- :::item name="packageDownloadExternal"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +184,7 @@ Specifies the package name to download.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versiondownloadexternal-property"></a>
 <!-- :::item name="versionDownloadExternal"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +197,7 @@ Specifies the package version or uses a variable containing the version to downl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishdirectory-property"></a>
 <!-- :::item name="publishDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -199,6 +210,7 @@ Specifies the path to list of files to be published.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedstousepublish-property"></a>
 <!-- :::item name="feedsToUsePublish"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -211,6 +223,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishfeedcredentials-property"></a>
 <!-- :::item name="publishFeedCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -223,6 +236,7 @@ Specifies the credentials to use for external feeds.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstsfeedpublish-property"></a>
 <!-- :::item name="vstsFeedPublish"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -235,6 +249,7 @@ Specifies the project and the feed's name/GUID to publish to.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishpackagemetadata-property"></a>
 <!-- :::item name="publishPackageMetadata"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -247,6 +262,7 @@ Associates this build/release pipeline's metadata (such as run # and source code
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstsfeedpackagepublish-property"></a>
 <!-- :::item name="vstsFeedPackagePublish"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -259,6 +275,7 @@ Specifies a package ID to publish or creates a new package ID if you've never pu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedpublishexternal-property"></a>
 <!-- :::item name="feedPublishExternal"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -273,6 +290,7 @@ If the feed was created in a project, the value should be `Project/Feed`, where 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagepublishexternal-property"></a>
 <!-- :::item name="packagePublishExternal"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -285,6 +303,7 @@ Specifies the package name when publishing to an external feed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionoption-property"></a>
 <!-- :::item name="versionOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -297,6 +316,7 @@ Specifies a version increment strategy. The `custom` value to input your package
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionpublish-property"></a>
 <!-- :::item name="versionPublish"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -309,6 +329,7 @@ Specifies a custom version schema for the package.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagepublishdescription-property"></a>
 <!-- :::item name="packagePublishDescription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -321,6 +342,7 @@ Specifies the description of the package contents and/or the changes made in thi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbosity-property"></a>
 <!-- :::item name="verbosity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -333,6 +355,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishedpackagevar-property"></a>
 <!-- :::item name="publishedPackageVar"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionOnKubernetes@0 - Azure Function on Kubernetes v0 task
 description: Deploy Azure function to Kubernetes cluster (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -60,6 +60,7 @@ Deploy Azure function to Kubernetes cluster.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="dockerregistryserviceconnection-property"></a>
 <!-- :::item name="dockerRegistryServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -72,6 +73,7 @@ Select a Docker registry service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubernetesserviceconnection-property"></a>
 <!-- :::item name="kubernetesServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -84,6 +86,7 @@ Select a Kubernetes service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="namespace-property"></a>
 <!-- :::item name="namespace"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -96,6 +99,7 @@ Kubernetes namespace.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secretname-property"></a>
 <!-- :::item name="secretName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -108,6 +112,7 @@ Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerhubnamespace-property"></a>
 <!-- :::item name="dockerHubNamespace"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -120,6 +125,7 @@ Docker Hub namespace. Required for private Docker Hub repository.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -132,6 +138,7 @@ Application Name. The Kubernetes objects created use this name. This should foll
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="functionrootdirectory-property"></a>
 <!-- :::item name="functionRootDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -144,6 +151,7 @@ Function root directory. Should contain host.json. Docker build and push is perf
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforstability-property"></a>
 <!-- :::item name="waitForStability"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -156,6 +164,7 @@ Wait for the Kubernetes objects to reach the desired state.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 

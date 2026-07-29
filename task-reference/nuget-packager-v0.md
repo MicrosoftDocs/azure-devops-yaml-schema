@@ -1,7 +1,7 @@
 ---
 title: NuGetPackager@0 - NuGet packager v0 task
 description: NuGetPackager@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -55,6 +55,7 @@ NuGetPackager@0 is deprecated. Use the NuGet task instead. It works with the new
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="searchpattern-property"></a>
 <!-- :::item name="searchPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +70,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputdir-property"></a>
 <!-- :::item name="outputdir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +83,7 @@ The folder where the task creates packages. If this string is empty, packages wi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includereferencedprojects-property"></a>
 <!-- :::item name="includeReferencedProjects"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +96,7 @@ Includes referenced projects either as dependencies or as part of the package. C
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionbybuild-property"></a>
 <!-- :::item name="versionByBuild"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,6 +116,7 @@ Applies automatic package versioning depending on the specified value. This stri
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionenvvar-property"></a>
 <!-- :::item name="versionEnvVar"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -124,6 +129,7 @@ Specifies the variable name without `$`, `$env`, or `%`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="requestedmajorversion-property"></a>
 <!-- :::item name="requestedMajorVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -136,6 +142,7 @@ The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="requestedminorversion-property"></a>
 <!-- :::item name="requestedMinorVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -148,6 +155,7 @@ The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="requestedpatchversion-property"></a>
 <!-- :::item name="requestedPatchVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +168,7 @@ The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configurationtopack-property"></a>
 <!-- :::item name="configurationToPack"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -172,6 +181,7 @@ Specifies the configuration to package when using a `csproj` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildproperties-property"></a>
 <!-- :::item name="buildProperties"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -184,6 +194,7 @@ The semicolon delimited list of properties used to build the package.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetadditionalargs-property"></a>
 <!-- :::item name="nuGetAdditionalArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -196,6 +207,7 @@ The additional arguments passed to `NuGet.exe pack`. Learn more about [using the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetpath-property"></a>
 <!-- :::item name="nuGetPath"::: -->
 :::moniker range="<=azure-pipelines"
 

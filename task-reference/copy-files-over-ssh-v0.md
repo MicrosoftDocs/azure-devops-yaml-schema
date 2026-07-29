@@ -1,7 +1,7 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -73,6 +73,7 @@ Copy files or build artifacts to a remote machine over SSH.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sshendpoint-property"></a>
 <!-- :::item name="sshEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +89,7 @@ The name of an [SSH service connection](/azure/devops/pipelines/library/service-
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sourcefolder-property"></a>
 <!-- :::item name="sourceFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +102,7 @@ The source folder of the files to copy to the remote machine.  When empty, the r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="contents-property"></a>
 <!-- :::item name="contents"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -115,6 +118,7 @@ The file paths to include as part of the copy. Supports multiple lines of [minim
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetfolder-property"></a>
 <!-- :::item name="targetFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -127,6 +131,7 @@ The target folder on the remote machine, where files will be copied. Example: `/
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="iswindowsontarget-property"></a>
 <!-- :::item name="isWindowsOnTarget"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -139,6 +144,7 @@ Checks if the target machine is running Windows.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleantargetfolder-property"></a>
 <!-- :::item name="cleanTargetFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +157,7 @@ Deletes all existing files and sub-folders in the target folder before copying.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleanhiddenfilesintarget-property"></a>
 <!-- :::item name="cleanHiddenFilesInTarget"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +170,7 @@ When set to `true`, removes hidden files in the target folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="readytimeout-property"></a>
 <!-- :::item name="readyTimeout"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +183,7 @@ How long (in milliseconds) to wait for the SSH handshake to complete.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overwrite-property"></a>
 <!-- :::item name="overwrite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +196,7 @@ Replaces existing files in and beneath the target folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonemptysource-property"></a>
 <!-- :::item name="failOnEmptySource"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -199,6 +209,7 @@ Fails if no matching files to be copied are found under the source folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="flattenfolders-property"></a>
 <!-- :::item name="flattenFolders"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -211,6 +222,7 @@ Flattens the folder structure and copies all files into the specified target fol
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="concurrentuploads-property"></a>
 <!-- :::item name="concurrentUploads"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -223,6 +235,7 @@ Number of concurrent uploads when copying files. Default is 10.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="delaybetweenuploads-property"></a>
 <!-- :::item name="delayBetweenUploads"::: -->
 :::moniker range=">=azure-pipelines-server"
 

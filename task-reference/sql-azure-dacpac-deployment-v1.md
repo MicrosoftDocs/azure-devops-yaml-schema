@@ -1,7 +1,7 @@
 ---
 title: SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
 description: Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -65,6 +65,7 @@ Use this task to deploy an Azure SQL Database using DACPAC, or run scripts using
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azureconnectiontype-property"></a>
 <!-- :::item name="azureConnectionType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -76,6 +77,7 @@ Use this task to deploy an Azure SQL Database using DACPAC, or run scripts using
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureclassicsubscription-property"></a>
 <!-- :::item name="azureClassicSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +90,7 @@ Specifies the target Azure classic subscription for deploying SQL files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +103,7 @@ Specifies the target Azure Resource Manager subscription for deploying SQL files
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="authenticationtype-property"></a>
 <!-- :::item name="AuthenticationType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +118,7 @@ Specify the option to connect to the Azure SQL Server database. You can provide 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servername-property"></a>
 <!-- :::item name="ServerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +131,7 @@ Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net.placeho
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="databasename-property"></a>
 <!-- :::item name="DatabaseName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -138,6 +144,7 @@ Specifies the name of the Azure SQL database where the files are deployed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlusername-property"></a>
 <!-- :::item name="SqlUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -150,6 +157,7 @@ Specifies the Azure SQL Server administrator login.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlpassword-property"></a>
 <!-- :::item name="SqlPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -162,6 +170,7 @@ Specifies the password for the Azure SQL Server administrator. Variables defined
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="aadsqlusername-property"></a>
 <!-- :::item name="aadSqlUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -174,6 +183,7 @@ Specifies the Active Directory user name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="aadsqlpassword-property"></a>
 <!-- :::item name="aadSqlPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -186,6 +196,7 @@ Specifies the password for the Active Directory user. Variables defined in the b
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectionstring-property"></a>
 <!-- :::item name="ConnectionString"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -198,6 +209,7 @@ Specifies the Azure SQL Server connection string, like `Server=testServer.databa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytype-property"></a>
 <!-- :::item name="deployType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -209,6 +221,7 @@ Specifies the Azure SQL Server connection string, like `Server=testServer.databa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentaction-property"></a>
 <!-- :::item name="DeploymentAction"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -221,6 +234,7 @@ Specifies one of the SQL actions from the list. Learn more about the [SQL action
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dacpacfile-property"></a>
 <!-- :::item name="DacpacFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -233,6 +247,7 @@ Specifies the location of the DACPAC file on the automation agent or on a UNC pa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="bacpacfile-property"></a>
 <!-- :::item name="BacpacFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -245,6 +260,7 @@ Specifies the location of the BACPAC file on the automation agent or on a UNC pa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlfile-property"></a>
 <!-- :::item name="SqlFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -257,6 +273,7 @@ Specifies the location of the SQL script file on the automation agent or on a UN
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlinline-property"></a>
 <!-- :::item name="SqlInline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -269,6 +286,7 @@ Specifies the SQL script to execute on the previously selected database.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishprofile-property"></a>
 <!-- :::item name="PublishProfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -282,6 +300,7 @@ Specifies the path to the publish profile XML file on the automation agent machi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -294,6 +313,7 @@ Specifies the additional `SqlPackage.exe` arguments that will be applied when de
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqladditionalarguments-property"></a>
 <!-- :::item name="SqlAdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -306,6 +326,7 @@ Specifies the additional Invoke-Sqlcmd arguments that are applied when executing
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlineadditionalarguments-property"></a>
 <!-- :::item name="InlineAdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -318,6 +339,7 @@ Specifies the additional Invoke-Sqlcmd arguments that are applied when executing
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ipdetectionmethod-property"></a>
 <!-- :::item name="IpDetectionMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -330,6 +352,7 @@ For the task to run, the IP address of the automation agent must be added to the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startipaddress-property"></a>
 <!-- :::item name="StartIpAddress"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -342,6 +365,7 @@ Specifies the starting IP address of the automation agent machine pool, like `19
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="endipaddress-property"></a>
 <!-- :::item name="EndIpAddress"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -354,6 +378,7 @@ Specifies the ending IP address of the automation agent machine pool, like `196.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deletefirewallrule-property"></a>
 <!-- :::item name="DeleteFirewallRule"::: -->
 :::moniker range="<=azure-pipelines"
 

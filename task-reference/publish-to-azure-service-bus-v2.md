@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@2 - Publish To Azure Service Bus v2 task
 description: Sends a message to Azure Service Bus using a service connectionno, with no agent required.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 ---
 
@@ -48,6 +48,7 @@ This version of the task supports Entra ID and Workload identity federation thro
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -60,6 +61,7 @@ Specifies an [Azure Resource Manager service connection](/azure/devops/pipelines
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicebusqueuename-property"></a>
 <!-- :::item name="serviceBusQueueName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -72,6 +74,7 @@ Specify the name of the queue for which the message is intended.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicebusnamespace-property"></a>
 <!-- :::item name="serviceBusNamespace"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -84,6 +87,7 @@ Specify the namespace of your Azure Service Bus.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="messagebody-property"></a>
 <!-- :::item name="messageBody"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -96,6 +100,7 @@ Specifies the JSON `messageBody`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sessionid-property"></a>
 <!-- :::item name="sessionId"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -108,6 +113,7 @@ Specifies the session ID with which the message is published. For session-based 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signpayload-property"></a>
 <!-- :::item name="signPayload"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -120,6 +126,7 @@ If set to `true`, a private certificate will be added to the message.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="certificatestring-property"></a>
 <!-- :::item name="certificateString"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -132,6 +139,7 @@ Specifies the secret variable that contains the certificate content. This can al
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signaturekey-property"></a>
 <!-- :::item name="signatureKey"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -144,6 +152,7 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforcompletion-property"></a>
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -156,6 +165,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usedatacontractserializer-property"></a>
 <!-- :::item name="useDataContractSerializer"::: -->
 :::moniker range=">=azure-pipelines-server"
 

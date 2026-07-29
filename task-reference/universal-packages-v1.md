@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@1 - Universal Packages v1 task
 description: Publish or download Universal Packages using the Universal Packages v1 task.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -44,6 +44,7 @@ Use this task to publish or download Universal Packages to and from Azure Artifa
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -56,6 +57,7 @@ Specifies the Universal Package command to run: download a package from a feed, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workloadidentityserviceconnection-property"></a>
 <!-- :::item name="workloadIdentityServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -70,6 +72,7 @@ When not specified, the task authenticates using the pipeline’s built‑in bui
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="organization-property"></a>
 <!-- :::item name="organization"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -84,6 +87,7 @@ If not specified, the task uses the current pipeline’s organization.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feed-property"></a>
 <!-- :::item name="feed"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -96,6 +100,7 @@ The name of the Azure Artifacts feed. For organization-scoped feeds, specify onl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagename-property"></a>
 <!-- :::item name="packageName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -108,6 +113,7 @@ The name of the Universal Package to download or publish. Package names must be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packageversion-property"></a>
 <!-- :::item name="packageVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -122,6 +128,7 @@ For downloads, this can be a wildcard expression such as `*` to get the latest v
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionincrement-property"></a>
 <!-- :::item name="versionIncrement"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -140,6 +147,7 @@ For new packages with no existing versions in the feed, the starting version is:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="directory-property"></a>
 <!-- :::item name="directory"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -152,6 +160,7 @@ For downloads, specifies the folder path where the package contents will be down
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagedescription-property"></a>
 <!-- :::item name="packageDescription"::: -->
 :::moniker range=">azure-pipelines-server"
 

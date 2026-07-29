@@ -1,7 +1,7 @@
 ---
 title: HelmInstaller@0 - Helm tool installer v0 task
 description: Install Helm and Kubernetes on an agent machine (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -56,6 +56,7 @@ Use this task to install Helm and Kubernetes on an agent machine.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="helmversion-property"></a>
 <!-- :::item name="helmVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +69,7 @@ Specifies the version of Helm to install.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checklatesthelmversion-property"></a>
 <!-- :::item name="checkLatestHelmVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +82,7 @@ Checks for the latest version of Helm.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="installkubectl-property"></a>
 <!-- :::item name="installKubeCtl"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +95,7 @@ Installs Kubectl.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubectlversion-property"></a>
 <!-- :::item name="kubectlVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +108,7 @@ Specifies the version of Kubectl to install.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checklatestkubectl-property"></a>
 <!-- :::item name="checkLatestKubeCtl"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@5 - Azure PowerShell v5 task
 description: Run a PowerShell script within an Azure environment.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -78,6 +78,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +93,7 @@ The Azure Resource Manager subscription to configure before running PowerShell.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="ScriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +106,7 @@ The type of the script: file path or inline.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="ScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -116,6 +119,7 @@ The path of the script. This should be a fully qualified path or one relative to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inline-property"></a>
 <!-- :::item name="Inline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -128,6 +132,7 @@ Specifes the script to execute. The maximum supported inline script length is 50
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptarguments-property"></a>
 <!-- :::item name="ScriptArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -140,6 +145,7 @@ The additional parameters to pass to PowerShell. These can be either ordinal or 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="erroractionpreference-property"></a>
 <!-- :::item name="errorActionPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -152,6 +158,7 @@ Selects the value of the `ErrorActionPreference` variable for executing the scri
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="FailOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -164,6 +171,7 @@ When this is true, this task will fail if any errors are written to the error pi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurepowershellversion-property"></a>
 <!-- :::item name="azurePowerShellVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -179,6 +187,7 @@ For private agents you can specify a preferred version of Azure PowerShell using
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="preferredazurepowershellversion-property"></a>
 <!-- :::item name="preferredAzurePowerShellVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -191,6 +200,7 @@ The preferred Azure PowerShell Version needs to be a proper semantic version eg.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pwsh-property"></a>
 <!-- :::item name="pwsh"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -203,6 +213,7 @@ If this is true, then tasks running on Windows agents will use `pwsh.exe` from y
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="validatescriptsignature-property"></a>
 <!-- :::item name="validateScriptSignature"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -215,6 +226,7 @@ If this is true, then the task will first check to make sure specified script is
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 

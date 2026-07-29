@@ -1,7 +1,7 @@
 ---
 title: Notation@0 - Notation v0 task
 description: Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -57,6 +57,7 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -73,6 +74,7 @@ Specifies the command mode of the task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="iscustomversion-property"></a>
 <!-- :::item name="isCustomVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -85,6 +87,7 @@ Specify `true` to provide a custom version of Notation for the task by specifyin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -97,6 +100,7 @@ The version of Notation to install. Example: 1.0.0, 1, 1.0, 1.0.0.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="url-property"></a>
 <!-- :::item name="url"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -109,6 +113,7 @@ The URL to a custom version of Notation to use, for example: `https://github.com
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checksum-property"></a>
 <!-- :::item name="checksum"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -121,6 +126,7 @@ The SHA-256 checksum of the downloaded file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactrefs-property"></a>
 <!-- :::item name="artifactRefs"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -133,6 +139,7 @@ Container artifact references for signing. If not specified, the task uses the a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signatureformat-property"></a>
 <!-- :::item name="signatureFormat"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -145,6 +152,7 @@ Signature envelope format.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowreferrersapi-property"></a>
 <!-- :::item name="allowReferrersAPI"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -157,6 +165,7 @@ Use the Referrers API to sign signatures, if not supported (returns 404), fallba
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="plugin-property"></a>
 <!-- :::item name="plugin"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -168,6 +177,7 @@ Use the Referrers API to sign signatures, if not supported (returns 404), fallba
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="akvpluginversion-property"></a>
 <!-- :::item name="akvPluginVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -180,6 +190,7 @@ The version of the Azure Key Vault plugin to be installed. See the [notation-azu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurekvserviceconection-property"></a>
 <!-- :::item name="azurekvServiceConection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -192,6 +203,7 @@ Select the Azure subscription for the key vault if prefer to use service connect
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keyid-property"></a>
 <!-- :::item name="keyid"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -204,6 +216,7 @@ The Key ID is the key or certificate identifier for Azure Key Vault.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cacertbundle-property"></a>
 <!-- :::item name="caCertBundle"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -216,6 +229,7 @@ The certificate bundle file with root and all intermediate certificates, startin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="selfsigned-property"></a>
 <!-- :::item name="selfSigned"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -228,6 +242,7 @@ Whether the certificate is a self-signed certificate.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="timestampurl-property"></a>
 <!-- :::item name="timestampURL"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -240,6 +255,7 @@ RFC 3161 Timestamping Authority (TSA) server URL. (Require Notation v1.2.0 or la
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="timestamprootcert-property"></a>
 <!-- :::item name="timestampRootCert"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -252,6 +268,7 @@ filepath of timestamp authority root certificate. (Require Notation v1.2.0 or la
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trustpolicy-property"></a>
 <!-- :::item name="trustPolicy"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -264,6 +281,7 @@ The path to the [trust policy](https://github.com/notaryproject/specifications/b
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="truststore-property"></a>
 <!-- :::item name="trustStore"::: -->
 :::moniker range=">azure-pipelines-server"
 

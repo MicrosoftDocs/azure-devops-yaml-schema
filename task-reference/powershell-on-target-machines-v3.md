@@ -1,7 +1,7 @@
 ---
 title: PowerShellOnTargetMachines@3 - PowerShell on target machines v3 task
 description: Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -60,6 +60,7 @@ Use this task to execute PowerShell scripts on remote machines using PSSession a
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="machines-property"></a>
 <!-- :::item name="Machines"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +79,7 @@ If you do not specify a port, the default WinRM port is used. This depends on th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="username-property"></a>
 <!-- :::item name="UserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +95,7 @@ Specifies the username of a domain or a local administrative account on the targ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="userpassword-property"></a>
 <!-- :::item name="UserPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +108,7 @@ Specifies the password for the target machines. Variables defined in build/relea
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="ScriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +121,7 @@ Specifies the type of script to execute: Inline or File Path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="ScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +134,7 @@ Specifies the location of the PowerShell script on the target machines or on a U
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinescript-property"></a>
 <!-- :::item name="InlineScript"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -140,6 +146,7 @@ Specifies the location of the PowerShell script on the target machines or on a U
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptarguments-property"></a>
 <!-- :::item name="ScriptArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -152,6 +159,7 @@ Specifies the arguments for the PowerShell script. Can be ordinal or named param
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="initializationscript-property"></a>
 <!-- :::item name="InitializationScript"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -164,6 +172,7 @@ Specifies the location of the data script for the DSC on the target machines or 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sessionvariables-property"></a>
 <!-- :::item name="SessionVariables"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +186,7 @@ Specifies a comma-separated list, such as `$varx=valuex, $vary=valuey`. Most com
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="communicationprotocol-property"></a>
 <!-- :::item name="CommunicationProtocol"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +199,7 @@ Specifies the protocol to use for the WinRM service connection with the machine(
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="authenticationmechanism-property"></a>
 <!-- :::item name="AuthenticationMechanism"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +212,7 @@ Specifies the authentication mechanism used for creating the PSSession. For `Cre
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="newpssessionoptionarguments-property"></a>
 <!-- :::item name="NewPsSessionOptionArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -213,6 +225,7 @@ Advanced options for a remote session (New-PSSessionOption). For example, `-Skip
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="erroractionpreference-property"></a>
 <!-- :::item name="ErrorActionPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -225,6 +238,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstderr-property"></a>
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -237,6 +251,7 @@ If set to `true`, fails if any errors are written to the error pipeline or if an
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ignorelastexitcode-property"></a>
 <!-- :::item name="ignoreLASTEXITCODE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -249,6 +264,7 @@ If set to `false`, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="WorkingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +277,7 @@ Specifies the working directory where the script is run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runpowershellinparallel-property"></a>
 <!-- :::item name="RunPowershellInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: PyPIPublisher@0 - PyPI publisher v0 task
 description: Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -52,6 +52,7 @@ Use this task to create and upload an sdist or wheel to a PyPI-compatible index 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="pypiconnection-property"></a>
 <!-- :::item name="pypiConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -64,6 +65,7 @@ Specifies a generic service connection for connecting to the package index.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagedirectory-property"></a>
 <!-- :::item name="packageDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -76,6 +78,7 @@ Specifies the directory of the Python package that is created and published wher
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="alsopublishwheel-property"></a>
 <!-- :::item name="alsoPublishWheel"::: -->
 :::moniker range="<=azure-pipelines"
 

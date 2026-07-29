@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -75,6 +75,7 @@ Use this task in a build pipeline to publish build artifacts to Azure Pipelines,
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="pathtopublish-property"></a>
 <!-- :::item name="PathtoPublish"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +88,7 @@ Specifies the folder or file path to publish. This can be a fully qualified path
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactname-property"></a>
 <!-- :::item name="ArtifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +101,7 @@ Specifies the name of the artifact to create in the publish location. The follow
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishlocation-property"></a>
 <!-- :::item name="publishLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +114,7 @@ Specifies whether to store the artifact in Azure Pipelines (Container), or to co
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="maxartifactsize-property"></a>
 <!-- :::item name="MaxArtifactSize"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -123,6 +127,7 @@ Maximum limit on the size of artifacts to be published in bytes. Put 0 if you do
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +140,7 @@ Specifies the path to the file share where you want to copy the files. The path 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parallel-property"></a>
 <!-- :::item name="Parallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -147,6 +153,7 @@ Specifies whether to copy files in parallel using multiple threads for greater p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parallelcount-property"></a>
 <!-- :::item name="ParallelCount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,6 +166,7 @@ Specifies the degree of parallelism (the number of threads) used to perform the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="storeastar-property"></a>
 <!-- :::item name="StoreAsTar"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -171,6 +179,7 @@ Adds all files from the publish path to a tar archive before uploading. This all
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filecopyoptions-property"></a>
 <!-- :::item name="FileCopyOptions"::: -->
 :::moniker range="=azure-pipelines-2022"
 

@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationImport@10 - Azure App Configuration Import v10 task
 description: Import settings from configuration files into Azure App Configuration through build or deployment pipelines.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: ramiMSFT
 ms.author: rabououn
@@ -56,6 +56,7 @@ Import settings from configuration files into Azure App Configuration through bu
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -68,6 +69,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appconfigurationendpoint-property"></a>
 <!-- :::item name="AppConfigurationEndpoint"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -80,6 +82,7 @@ Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configurationfile-property"></a>
 <!-- :::item name="ConfigurationFile"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -92,6 +95,7 @@ The path to the configuration file (supported: yaml, json, properties).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usefilepathextension-property"></a>
 <!-- :::item name="UseFilePathExtension"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -104,6 +108,7 @@ Specifies whether or not to use the file path extension to determine the file fo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="fileformat-property"></a>
 <!-- :::item name="FileFormat"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -116,6 +121,7 @@ The configuration file format. If no format is provided, then the format default
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filecontentprofile-property"></a>
 <!-- :::item name="FileContentProfile"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -130,6 +136,7 @@ The configuration file's [content profile](/azure/azure-app-configuration/concep
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="separator-property"></a>
 <!-- :::item name="Separator"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -142,6 +149,7 @@ Separator is used to flatten the configuration file (json & yaml files). It is r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="depth-property"></a>
 <!-- :::item name="Depth"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -154,6 +162,7 @@ Depth to flatten to in configuration file (json and yaml files).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="prefix-property"></a>
 <!-- :::item name="Prefix"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -166,6 +175,7 @@ A prefix to append to all keys in the configuration file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="label-property"></a>
 <!-- :::item name="Label"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -178,6 +188,7 @@ Specifies a string that's added to each key-value as the label within the App Co
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="contenttype-property"></a>
 <!-- :::item name="ContentType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -190,6 +201,7 @@ Species a string that is added as the content type to all keys in the configurat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="Tags"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -202,6 +214,7 @@ Specifies one or more tags that should be added to key-value settings being impo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="excludefeatureflags-property"></a>
 <!-- :::item name="ExcludeFeatureFlags"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -214,6 +227,7 @@ Specifies whether or not any feature flags provided in the configuration file wi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="strict-property"></a>
 <!-- :::item name="Strict"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -230,6 +244,7 @@ The behavior of this option depends on the configuration file's [content profile
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dryrun-property"></a>
 <!-- :::item name="DryRun"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -242,6 +257,7 @@ When dry run is enabled, this task will not perform any updates to App Configura
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="importmode-property"></a>
 <!-- :::item name="ImportMode"::: -->
 :::moniker range=">=azure-pipelines-server"
 

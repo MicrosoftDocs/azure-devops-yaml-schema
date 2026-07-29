@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -54,6 +54,7 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="targetpath-property"></a>
 <!-- :::item name="targetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +67,7 @@ Specifies the path of the file or directory to publish. Can be absolute or relat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifact-property"></a>
 <!-- :::item name="artifact"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +83,7 @@ Specifies the name of the artifact to publish. It can be any name you choose, fo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishlocation-property"></a>
 <!-- :::item name="publishLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +96,7 @@ Specifies whether to store the artifact in Azure Pipelines or to copy it to a fi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filesharepath-property"></a>
 <!-- :::item name="fileSharePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +109,7 @@ Specifies the file share where the artifact files are copied. This can include v
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parallel-property"></a>
 <!-- :::item name="parallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +122,7 @@ Specifies whether to copy files in parallel using multiple threads for greater p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parallelcount-property"></a>
 <!-- :::item name="parallelCount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +135,7 @@ Specifies the degree of parallelism, or the number of threads used, to perform t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="properties-property"></a>
 <!-- :::item name="properties"::: -->
 :::moniker range="<=azure-pipelines"
 

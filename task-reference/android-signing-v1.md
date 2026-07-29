@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@1 - Android Signing v1 task
 description: Sign and align Android APK files (task version 1).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -49,6 +49,7 @@ Use this task in a pipeline to sign and align Android APK files.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="files-property"></a>
 <!-- :::item name="files"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +68,7 @@ Argument aliases: `apkFiles`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jarsign-property"></a>
 <!-- :::item name="jarsign"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +81,7 @@ Signs the APK with a provided Android Keystore file. Unsigned APKs can only run 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keystorefile-property"></a>
 <!-- :::item name="keystoreFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +98,7 @@ Argument aliases: `apksignerKeystoreFile`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keystorepass-property"></a>
 <!-- :::item name="keystorePass"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +115,7 @@ Argument aliases: `apksignerKeystorePassword`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keystorealias-property"></a>
 <!-- :::item name="keystoreAlias"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +130,7 @@ Argument aliases: `apksignerKeystoreAlias`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keypass-property"></a>
 <!-- :::item name="keyPass"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -139,6 +145,7 @@ The key password for the alias and Android Keystore file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jarsignerarguments-property"></a>
 <!-- :::item name="jarsignerArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +158,7 @@ Provides options to pass to the `jarsigner` command line.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="zipalign-property"></a>
 <!-- :::item name="zipalign"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +171,7 @@ Select this boolean if you want to zipalign your package. This reduces the amoun
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="zipalignlocation-property"></a>
 <!-- :::item name="zipalignLocation"::: -->
 :::moniker range="<=azure-pipelines"
 

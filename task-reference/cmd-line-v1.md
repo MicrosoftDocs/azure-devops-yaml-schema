@@ -1,7 +1,7 @@
 ---
 title: CmdLine@1 - Command Line v1 task
 description: Run a command line with arguments.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -44,6 +44,7 @@ Use this task to run a program from the command prompt.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="filename-property"></a>
 <!-- :::item name="filename"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -58,6 +59,7 @@ Note: You can use **$(Build.SourcesDirectory)**\\ if you want the path relative 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +72,7 @@ The arguments that are passed to the tool. Use double quotes to escape spaces.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingfolder-property"></a>
 <!-- :::item name="workingFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +85,7 @@ Specifies the working directory to run commands. If you leave it empty, the work
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 

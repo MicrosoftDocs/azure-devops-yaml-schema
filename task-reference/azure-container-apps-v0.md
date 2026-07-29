@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: ramiMSFT
 ms.author: rabououn
@@ -69,6 +69,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -81,6 +82,7 @@ Current working directory where the script is run. Empty is the root of the repo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appsourcepath-property"></a>
 <!-- :::item name="appSourcePath"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -95,6 +97,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -107,6 +110,7 @@ Specify an Azure Resource Manager service connection for the deployment. This se
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="acrname-property"></a>
 <!-- :::item name="acrName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -121,6 +125,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="acrusername-property"></a>
 <!-- :::item name="acrUsername"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -133,6 +138,7 @@ The username used to authenticate push requests to the provided Azure Contrainer
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="acrpassword-property"></a>
 <!-- :::item name="acrPassword"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -145,6 +151,7 @@ The password used to authenticate push requests to the provided Azure Contrainer
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerfilepath-property"></a>
 <!-- :::item name="dockerfilePath"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -157,6 +164,7 @@ Relative path (_without file prefixes (see the following [Examples](#examples)) 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagetobuild-property"></a>
 <!-- :::item name="imageToBuild"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -169,6 +177,7 @@ The custom name of the image that is to be built, pushed to ACR and deployed to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagetodeploy-property"></a>
 <!-- :::item name="imageToDeploy"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -181,6 +190,7 @@ The name of the image that has already been pushed to ACR and will be deployed t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containerappname-property"></a>
 <!-- :::item name="containerAppName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -193,6 +203,7 @@ The name of the Azure Container App that will be created or updated. If not prov
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroup-property"></a>
 <!-- :::item name="resourceGroup"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -205,6 +216,7 @@ The resource group that the Azure Container App will be created in (or currently
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containerappenvironment-property"></a>
 <!-- :::item name="containerAppEnvironment"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -217,6 +229,7 @@ The name of the Azure Container App environment to use with the application. If 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runtimestack-property"></a>
 <!-- :::item name="runtimeStack"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -229,6 +242,7 @@ The platform version stack used in the final runnable application image that is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetport-property"></a>
 <!-- :::item name="targetPort"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -241,6 +255,7 @@ The target port that the Container App will listen on. If not provided, this val
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="location-property"></a>
 <!-- :::item name="location"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -253,6 +268,7 @@ The location that the Container App (and other created resources) will be deploy
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="environmentvariables-property"></a>
 <!-- :::item name="environmentVariables"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -265,6 +281,7 @@ A list of environment variable(s) for the container. Space-separated values in '
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ingress-property"></a>
 <!-- :::item name="ingress"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -277,6 +294,7 @@ Possible options: external, internal, disabled. If set to `external` (default va
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="yamlconfigpath-property"></a>
 <!-- :::item name="yamlConfigPath"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -316,6 +334,7 @@ For more information on the structure of the YAML configuration file, please vis
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="disabletelemetry-property"></a>
 <!-- :::item name="disableTelemetry"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

@@ -1,7 +1,7 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -73,6 +73,7 @@ When you deploy a container using this task, you don't see an error message if t
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +86,7 @@ The name of the [Azure Resource Manager subscription](/azure/devops/pipelines/li
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +99,7 @@ Specifies the name of an existing Azure App Service. Only app services based on 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytoslotorase-property"></a>
 <!-- :::item name="deployToSlotOrASE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,6 +115,7 @@ If the deployment target is an Azure App Service Environment, leave the slot nam
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="resourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +129,7 @@ Specifies the Azure resource group that contains the Azure App Service indicated
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="slotName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,6 +142,7 @@ Specifies an existing slot, excluding the production slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containers-property"></a>
 <!-- :::item name="containers"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -150,6 +156,7 @@ For a multi-container scenario, multiple container image names can be provided.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="multicontainerconfigfile-property"></a>
 <!-- :::item name="multicontainerConfigFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -162,6 +169,7 @@ The path of the Docker-Compose file. Must be a fully qualified path or a path re
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containercommand-property"></a>
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +185,7 @@ For example:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appsettings-property"></a>
 <!-- :::item name="appSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +198,7 @@ Edits the web app application settings using the syntax -key value (for example:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configurationstrings-property"></a>
 <!-- :::item name="configurationStrings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +211,7 @@ Edits the web app application settings using the syntax -key value (for example:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sitecontainersconfig-property"></a>
 <!-- :::item name="siteContainersConfig"::: -->
 :::moniker range=">azure-pipelines-server"
 

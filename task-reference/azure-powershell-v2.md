@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@2 - Azure PowerShell v2 task
 description: Run a PowerShell script within an Azure environment (task version 2).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -59,6 +59,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azureconnectiontype-property"></a>
 <!-- :::item name="azureConnectionType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +71,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureclassicsubscription-property"></a>
 <!-- :::item name="azureClassicSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +84,7 @@ The Azure Classic subscription to configure before running PowerShell.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +97,7 @@ The Azure Resource Manager subscription to configure before running PowerShell.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="ScriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +110,7 @@ The type of script: file path or inline.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="ScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +123,7 @@ The path of the script. This should be a fully qualified path or one relative to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inline-property"></a>
 <!-- :::item name="Inline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -130,6 +136,7 @@ Specifes the script to execute. The maximum supported inline script length is 50
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptarguments-property"></a>
 <!-- :::item name="ScriptArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +149,7 @@ The additional parameters to pass to PowerShell. These can be either ordinal or 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurepowershellversion-property"></a>
 <!-- :::item name="azurePowerShellVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -157,6 +165,7 @@ For private agents you can specify a preferred version of Azure PowerShell using
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="preferredazurepowershellversion-property"></a>
 <!-- :::item name="preferredAzurePowerShellVersion"::: -->
 :::moniker range="<=azure-pipelines"
 

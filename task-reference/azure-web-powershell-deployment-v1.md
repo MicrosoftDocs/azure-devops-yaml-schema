@@ -1,7 +1,7 @@
 ---
 title: AzureWebPowerShellDeployment@1 - Azure App Service Classic (Deprecated) v1 task
 description: Create or update Azure App Service using Azure PowerShell.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -49,6 +49,7 @@ This task is deprecated.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicename-property"></a>
 <!-- :::item name="ConnectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -61,6 +62,7 @@ Specifies the Azure Classic subscription to target for deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitelocation-property"></a>
 <!-- :::item name="WebSiteLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -73,6 +75,7 @@ Specifies a location for the website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitename-property"></a>
 <!-- :::item name="WebSiteName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +89,7 @@ Specifies the website name or selects it from the list.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slot-property"></a>
 <!-- :::item name="Slot"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +102,7 @@ Specifies the slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="package-property"></a>
 <!-- :::item name="Package"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +115,7 @@ The path to the Visual Studio Web Deploy package under the default artifact dire
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="donotdelete-property"></a>
 <!-- :::item name="doNotDelete"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +128,7 @@ When set to `true`, additional files in the Web Deployment package are preserved
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 

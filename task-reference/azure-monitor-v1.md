@@ -1,7 +1,7 @@
 ---
 title: AzureMonitor@1 - Query Azure Monitor alerts v1 task
 description: Observe the configured Azure Monitor rules for active alerts.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -45,6 +45,7 @@ Observe the configured Azure Monitor rules for active alerts.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicenamearm-property"></a>
 <!-- :::item name="connectedServiceNameARM"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,6 +58,7 @@ Selects an Azure Resource Manager subscription to monitor.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +71,7 @@ Provides the name of a resource group to monitor in the subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filtertype-property"></a>
 <!-- :::item name="filterType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +84,7 @@ Filters the type by a specific resource or alert rule.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resource-property"></a>
 <!-- :::item name="resource"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +97,7 @@ Selects the Azure resource to monitor.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="alertrule-property"></a>
 <!-- :::item name="alertRule"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +112,7 @@ The default value is to select all.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="severity-property"></a>
 <!-- :::item name="severity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +125,7 @@ Filters by severity.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="timerange-property"></a>
 <!-- :::item name="timeRange"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +138,7 @@ Filters by the time range.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="alertstate-property"></a>
 <!-- :::item name="alertState"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -143,6 +151,7 @@ Filters by the state of the alert instance.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="monitorcondition-property"></a>
 <!-- :::item name="monitorCondition"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 description: Restore your nuget packages using dotnet CLI.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -74,6 +74,7 @@ This task is deprecated; use [NuGetCommand@2](./nuget-command-v2.md) or [DotNetC
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="packagename-property"></a>
 <!-- :::item name="packageName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +87,7 @@ Specifies the name of the package to download from GitHub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +100,7 @@ Specifies the version of the package to download from GitHub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="externalfeedcredentials-property"></a>
 <!-- :::item name="externalFeedCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +113,7 @@ Specifies the credentials to use for external registry from GitHub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restoredirectory-property"></a>
 <!-- :::item name="restoreDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 

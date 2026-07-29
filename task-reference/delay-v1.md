@@ -1,7 +1,7 @@
 ---
 title: Delay@1 - Delay v1 task
 description: Delay further execution of a workflow by a fixed time.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -38,6 +38,7 @@ Delays further execution of a workflow by a fixed time.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="delayforminutes-property"></a>
 <!-- :::item name="delayForMinutes"::: -->
 :::moniker range="<=azure-pipelines"
 

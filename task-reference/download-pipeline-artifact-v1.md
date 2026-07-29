@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -82,6 +82,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="buildtype-property"></a>
 <!-- :::item name="buildType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +95,7 @@ Downloads artifacts produced by the current pipeline run or from a specific pipe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="project-property"></a>
 <!-- :::item name="project"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +108,7 @@ Specifies the project name or GUID from which to download the pipeline artifacts
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pipeline-property"></a>
 <!-- :::item name="pipeline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +121,7 @@ The definition ID of the pipeline. In a running pipeline the `definitionId` can 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="specificbuildwithtriggering-property"></a>
 <!-- :::item name="specificBuildWithTriggering"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -130,6 +134,7 @@ If checked, the task downloads artifacts from the triggering build. If there is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildversiontodownload-property"></a>
 <!-- :::item name="buildVersionToDownload"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +147,7 @@ Specifies the build version to download.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="branchname-property"></a>
 <!-- :::item name="branchName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -154,6 +160,7 @@ Specifies the filter on the branch/ref name. For example: ```refs/heads/develop`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pipelineid-property"></a>
 <!-- :::item name="pipelineId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -166,6 +173,7 @@ The identifier of the pipeline run from which to download the artifacts. In a ru
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="tags"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -178,6 +186,7 @@ The comma-delimited list of tags that the task uses to return tagged builds. Unt
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactname-property"></a>
 <!-- :::item name="artifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -190,6 +199,7 @@ Specifies the name of the artifact to download. If the value is left empty, the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="itempattern-property"></a>
 <!-- :::item name="itemPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -202,6 +212,7 @@ The file matching patterns that limit downloaded files. The value can be one or 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="targetPath"::: -->
 :::moniker range="<=azure-pipelines"
 

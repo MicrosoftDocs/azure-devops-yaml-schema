@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@0 - Deploy to Kubernetes v0 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -78,6 +78,7 @@ Use a Kubernetes manifest task in a build or release pipeline to bake and deploy
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="action-property"></a>
 <!-- :::item name="action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +91,7 @@ Specifies the action to be performed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubernetesserviceconnection-property"></a>
 <!-- :::item name="kubernetesServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +104,7 @@ Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/serv
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="namespace-property"></a>
 <!-- :::item name="namespace"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +117,7 @@ Specifies the namespace for the commands by using the `–namespace` flag. If th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="strategy-property"></a>
 <!-- :::item name="strategy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +130,7 @@ Specifies the deployment strategy used in the `deploy` action before a `promote`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trafficsplitmethod-property"></a>
 <!-- :::item name="trafficSplitMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -140,6 +145,7 @@ For the value `pod`, the percentage split isn't possible at the request level in
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="percentage-property"></a>
 <!-- :::item name="percentage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -168,6 +174,7 @@ In this case, the deployments `hello-world-baseline` and `hello-world-canary` ar
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="baselineandcanaryreplicas-property"></a>
 <!-- :::item name="baselineAndCanaryReplicas"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -191,6 +198,7 @@ In this case, the stable variant receives 80% of the traffic, while the baseline
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="manifests-property"></a>
 <!-- :::item name="manifests"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -203,6 +211,7 @@ Specifies the path to the manifest files to be used for deployment. Each line re
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containers-property"></a>
 <!-- :::item name="containers"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -215,6 +224,7 @@ Specifies the fully qualified resource URL of the image to be used for substitut
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagepullsecrets-property"></a>
 <!-- :::item name="imagePullSecrets"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -227,6 +237,7 @@ Specifies a multiline input where each line contains the name of a Docker regist
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="rendertype-property"></a>
 <!-- :::item name="renderType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -239,6 +250,7 @@ Specifies the render type used to produce the manifest files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockercomposefile-property"></a>
 <!-- :::item name="dockerComposeFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -251,6 +263,7 @@ Specifies a docker-compose file path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="helmchart-property"></a>
 <!-- :::item name="helmChart"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -263,6 +276,7 @@ Specifies the Helm chart path to bake.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasename-property"></a>
 <!-- :::item name="releaseName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -275,6 +289,7 @@ Specifies the Helm release name to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overridefiles-property"></a>
 <!-- :::item name="overrideFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -287,6 +302,7 @@ Specifies a multiline input that accepts the path to the override files. The fil
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overrides-property"></a>
 <!-- :::item name="overrides"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -299,6 +315,7 @@ Specifies the override values to set.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kustomizationpath-property"></a>
 <!-- :::item name="kustomizationPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -311,6 +328,7 @@ Specifies the argument that must be the path to the directory containing the fil
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcetopatch-property"></a>
 <!-- :::item name="resourceToPatch"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -328,6 +346,7 @@ Acceptable values are **file** and **name**.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefiletopatch-property"></a>
 <!-- :::item name="resourceFileToPatch"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -340,6 +359,7 @@ Specifies the path to the file used for a patch.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kind-property"></a>
 <!-- :::item name="kind"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -352,6 +372,7 @@ Specifies the kind of K8s object, such as `deployment`, `replicaSet` and more.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -364,6 +385,7 @@ Specifies the name of the K8s object.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="replicas-property"></a>
 <!-- :::item name="replicas"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -376,6 +398,7 @@ Specifies the number of replicas to scale to.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mergestrategy-property"></a>
 <!-- :::item name="mergeStrategy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -388,6 +411,7 @@ Specifies the type of patch being provided.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -401,6 +425,7 @@ Specifies the arguments for the `kubectl delete` command. An example is:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="patch-property"></a>
 <!-- :::item name="patch"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -413,6 +438,7 @@ Specifies the contents of the patch.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secrettype-property"></a>
 <!-- :::item name="secretType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -425,6 +451,7 @@ Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secretname-property"></a>
 <!-- :::item name="secretName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -437,6 +464,7 @@ Specifies the name of the secret. You can use this secret name in the Kubernetes
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secretarguments-property"></a>
 <!-- :::item name="secretArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -449,6 +477,7 @@ Specifies keys and literal values to insert in secret. For example, `--from-lite
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryendpoint-property"></a>
 <!-- :::item name="dockerRegistryEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -461,6 +490,7 @@ Specifies the credentials of the specified service connection that are used to c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="rolloutstatustimeout-property"></a>
 <!-- :::item name="rolloutStatusTimeout"::: -->
 :::moniker range="<=azure-pipelines"
 

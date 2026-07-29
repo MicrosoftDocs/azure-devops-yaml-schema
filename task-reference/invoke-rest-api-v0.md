@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@0 - Invoke REST API v0 task
 description: Invoke REST API as a part of your process (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -44,6 +44,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="serviceconnection-property"></a>
 <!-- :::item name="serviceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -56,6 +57,7 @@ Specifies the generic service connection that provides the `baseURL` for the cal
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="method-property"></a>
 <!-- :::item name="method"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +70,7 @@ Specifies the HTTP method that invokes the API.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="headers-property"></a>
 <!-- :::item name="headers"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +83,7 @@ Defines the header in JSON format. The header is attached with the request sent 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="body-property"></a>
 <!-- :::item name="body"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +96,7 @@ Specifies the request body for the function call in JSON format.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="urlsuffix-property"></a>
 <!-- :::item name="urlSuffix"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +111,7 @@ Example: If the service connection URL is `https:...TestProj/_apis/Release/relea
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforcompletion-property"></a>
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -121,6 +127,7 @@ Specifies how the task reports completion. The allowed values are:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="successcriteria-property"></a>
 <!-- :::item name="successCriteria"::: -->
 :::moniker range="<=azure-pipelines"
 

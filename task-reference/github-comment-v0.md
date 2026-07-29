@@ -1,7 +1,7 @@
 ---
 title: GitHubComment@0 - GitHub Comment v0 task
 description: Write a comment to your GitHub entity i.e. issue or a Pull Request (PR).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -39,6 +39,7 @@ Use this task to write a comment to your GitHub entity, for example an issue or 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="githubconnection-property"></a>
 <!-- :::item name="gitHubConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ Specifies the name of the [GitHub service connection](/azure/devops/pipelines/li
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="repositoryname-property"></a>
 <!-- :::item name="repositoryName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ Specifies the name of the GitHub repository where the GitHub comment will be cre
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="id-property"></a>
 <!-- :::item name="id"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +81,7 @@ Specifies the issue or PR number. If used in a PR pipeline, leave this field emp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="comment-property"></a>
 <!-- :::item name="comment"::: -->
 :::moniker range="<=azure-pipelines"
 

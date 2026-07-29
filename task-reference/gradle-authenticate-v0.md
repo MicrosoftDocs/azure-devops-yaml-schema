@@ -1,7 +1,7 @@
 ---
 title: GradleAuthenticate@0 - Gradle Authenticate v0 task
 description: Authenticate Gradle builds with Azure Artifacts feeds using Workload Identity Federation or an access token. (task version 0)
-ms.date: 07/07/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -40,6 +40,7 @@ Use this task before your Gradle build to authenticate with Azure Artifacts feed
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="buildfiles-property"></a>
 <!-- :::item name="buildFiles"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -52,6 +53,7 @@ Provide a newline-separated list of Gradle files for the task to scan for Azure 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="repositoryurl-property"></a>
 <!-- :::item name="repositoryUrl"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -64,6 +66,7 @@ Provide a newline-separated list of Azure Artifacts repository URLs to authentic
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adoserviceconnection-property"></a>
 <!-- :::item name="adoServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -76,6 +79,7 @@ The name of an Azure DevOps Service Connection that uses Workload Identity Feder
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="plugintoolversion-property"></a>
 <!-- :::item name="pluginToolVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -88,6 +92,7 @@ Override the version of the Gradle authentication plugin installed by the task. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gradleuserhome-property"></a>
 <!-- :::item name="gradleUserHome"::: -->
 :::moniker range=">azure-pipelines-server"
 

@@ -1,7 +1,7 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -70,6 +70,7 @@ This task is deprecated; use [Npm@1](./npm-v1.md) with GitHub service connection
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="packagename-property"></a>
 <!-- :::item name="packageName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +83,7 @@ Specifies the name of the package to download from GitHub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +96,7 @@ Specifies the version of the package to download from GitHub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="externalregistrycredentials-property"></a>
 <!-- :::item name="externalRegistryCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +109,7 @@ Specifies the credentials to use for external registry from GitHub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="installdirectory-property"></a>
 <!-- :::item name="installDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: JenkinsDownloadArtifacts@2 - Jenkins download artifacts v2 task
 description: Download artifacts produced by a Jenkins job.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: ramiMSFT
 ms.author: rabououn
@@ -58,6 +58,7 @@ Download artifacts produced by a Jenkins job.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="jenkinsserverconnection-property"></a>
 <!-- :::item name="jenkinsServerConnection"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -70,6 +71,7 @@ Select the service connection for your Jenkins instance. To create one, click th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jobname-property"></a>
 <!-- :::item name="jobName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -82,6 +84,7 @@ The name of the Jenkins job to download artifacts from.  This must exactly match
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jenkinsjobtype-property"></a>
 <!-- :::item name="jenkinsJobType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -94,6 +97,7 @@ Jenkins job type, detected automatically.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="saveto-property"></a>
 <!-- :::item name="saveTo"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -106,6 +110,7 @@ Jenkins artifacts will be downloaded and saved to this directory.  This director
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jenkinsbuild-property"></a>
 <!-- :::item name="jenkinsBuild"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -118,6 +123,7 @@ Download artifacts produced by the last successful build, or from a specific bui
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jenkinsbuildnumber-property"></a>
 <!-- :::item name="jenkinsBuildNumber"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -130,6 +136,7 @@ Download artifacts produced by this build.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="itempattern-property"></a>
 <!-- :::item name="itemPattern"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -142,6 +149,7 @@ Specify files to be downloaded as multi line minimatch pattern. [More Informatio
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloadcommitsandworkitems-property"></a>
 <!-- :::item name="downloadCommitsAndWorkItems"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -154,6 +162,7 @@ Enables downloading the commits and work item details associated with the Jenkin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startjenkinsbuildnumber-property"></a>
 <!-- :::item name="startJenkinsBuildNumber"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -166,6 +175,7 @@ Optional start build number for downloading commits and work items. If provided,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactdetailsfilenamesuffix-property"></a>
 <!-- :::item name="artifactDetailsFileNameSuffix"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -178,6 +188,7 @@ Optional file name suffix for commits and work item attachments. Attachments wil
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="propagatedartifacts-property"></a>
 <!-- :::item name="propagatedArtifacts"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -190,6 +201,7 @@ Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins arti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactprovider-property"></a>
 <!-- :::item name="artifactProvider"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -202,6 +214,7 @@ Choose the external storage provider used in Jenkins job to upload the artifacts
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectedservicenamearm-property"></a>
 <!-- :::item name="ConnectedServiceNameARM"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -217,6 +230,7 @@ Choose the Azure Resource Manager subscription for the artifacts.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="storageaccountname-property"></a>
 <!-- :::item name="storageAccountName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -229,6 +243,7 @@ Azure Classic and Resource Manager stoarge accounts are listed. Select the Stora
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containername-property"></a>
 <!-- :::item name="containerName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -241,6 +256,7 @@ Name of the container in the storage account to which artifacts are uploaded.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="commonvirtualpath-property"></a>
 <!-- :::item name="commonVirtualPath"::: -->
 :::moniker range=">=azure-pipelines-server"
 

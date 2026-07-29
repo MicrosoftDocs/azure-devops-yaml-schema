@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@0 - Download pipeline artifact v0 task
 description: Downloads an artifact associated with a pipeline.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -61,6 +61,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="pipelineid-property"></a>
 <!-- :::item name="pipelineId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -73,6 +74,7 @@ The build from which to download the artifacts. For example: `1764`. If missing,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactname-property"></a>
 <!-- :::item name="artifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +87,7 @@ Specifies the name of the artifact to download. If the value is left empty, the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="targetPath"::: -->
 :::moniker range="<=azure-pipelines"
 

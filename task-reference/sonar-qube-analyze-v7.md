@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@7 - Run Code Analysis v7 task
 description: Run scanner and upload the results to the SonarQube server.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -38,6 +38,7 @@ Run scanner and upload the results to the SonarQube server.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="jdkversion-property"></a>
 <!-- :::item name="jdkversion"::: -->
 :::moniker range=">azure-pipelines-server"
 

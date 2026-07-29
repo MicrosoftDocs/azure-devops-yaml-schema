@@ -1,7 +1,7 @@
 ---
 title: ExtractFiles@1 - Extract files v1 task
 description: Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -41,6 +41,7 @@ Use this task to extract a variety of archive and compression files, such as .7z
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="archivefilepatterns-property"></a>
 <!-- :::item name="archiveFilePatterns"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -65,6 +66,7 @@ For example, to copy a pipeline artifact, move the file from $(Pipeline.Workspac
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationfolder-property"></a>
 <!-- :::item name="destinationFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,6 +79,7 @@ Specifies the destination folder into which archive files should be extracted. U
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleandestinationfolder-property"></a>
 <!-- :::item name="cleanDestinationFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -89,6 +92,7 @@ Specifies the option to delete the entire content of the destination directory (
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overwriteexistingfiles-property"></a>
 <!-- :::item name="overwriteExistingFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,6 +105,7 @@ Specifies the option to overwrite existing files in the destination directory if
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pathtosevenziptool-property"></a>
 <!-- :::item name="pathToSevenZipTool"::: -->
 :::moniker range="<=azure-pipelines"
 

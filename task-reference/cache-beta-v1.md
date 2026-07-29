@@ -1,7 +1,7 @@
 ---
 title: CacheBeta@1 - Cache (Beta) v1 task
 description: Cache files between runs (task version 1).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -44,6 +44,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="key-property"></a>
 <!-- :::item name="key"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -56,6 +57,7 @@ The key (unique identifier) for the cache. This should be a string that can be s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="path-property"></a>
 <!-- :::item name="path"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +70,7 @@ The path of the folder to cache. Can be fully qualified or relative to `$(System
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cachehitvar-property"></a>
 <!-- :::item name="cacheHitVar"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +83,7 @@ The variable to set to `true` when the cache is restored (i.e. a cache hit). Oth
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restorekeys-property"></a>
 <!-- :::item name="restoreKeys"::: -->
 :::moniker range="<=azure-pipelines"
 

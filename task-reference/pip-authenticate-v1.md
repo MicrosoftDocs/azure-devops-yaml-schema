@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@1 - Python pip authenticate v1 task
 description: Authentication task for the pip client used for installing Python distributions.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -58,6 +58,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuredevopsserviceconnection-property"></a>
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -70,6 +71,7 @@ If this is set, `feedUrl` is required. All other inputs are ignored.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedurl-property"></a>
 <!-- :::item name="feedUrl"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -82,6 +84,7 @@ If this is set, `workloadIdentityServiceConnection` is required. All other input
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactfeeds-property"></a>
 <!-- :::item name="artifactFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +97,7 @@ Specifies a comma-separated list of Azure Artifacts feeds to authenticate with p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pythondownloadserviceconnections-property"></a>
 <!-- :::item name="pythonDownloadServiceConnections"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +110,7 @@ Specifies a comma-separated list of [pip service connection](/azure/devops/pipel
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="onlyaddextraindex-property"></a>
 <!-- :::item name="onlyAddExtraIndex"::: -->
 :::moniker range="<=azure-pipelines"
 

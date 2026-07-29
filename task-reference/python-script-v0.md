@@ -1,7 +1,7 @@
 ---
 title: PythonScript@0 - Python script v0 task
 description: Run a Python file or inline script.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -44,6 +44,7 @@ Use this task to run a Python file or inline script.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="scriptsource-property"></a>
 <!-- :::item name="scriptSource"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -56,6 +57,7 @@ Specifies whether the script is a file in the source tree or is written inline i
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="scriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +70,7 @@ Specifies the path of the script to execute. Must be a fully qualified path or r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="script-property"></a>
 <!-- :::item name="script"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +83,7 @@ Specifies the Python script to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +96,7 @@ Specifies the arguments passed to the script execution available through `sys.ar
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pythoninterpreter-property"></a>
 <!-- :::item name="pythonInterpreter"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +110,7 @@ Run the [Use Python Version](https://go.microsoft.com/fwlink/?linkid=871498) tas
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +123,7 @@ Specifies the working directory where the script will run. If not specified, the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstderr-property"></a>
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range="<=azure-pipelines"
 

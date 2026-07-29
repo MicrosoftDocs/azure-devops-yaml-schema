@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@0 - NuGet authenticate v0 task
 description: This version of the task is deprecated, use NuGetAuthenticateV1 instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -43,6 +43,7 @@ This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenti
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="nugetserviceconnections-property"></a>
 <!-- :::item name="nuGetServiceConnections"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ Optional. The comma-separated list of [NuGet service connection](/azure/devops/p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="forcereinstallcredentialprovider-property"></a>
 <!-- :::item name="forceReinstallCredentialProvider"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
 description: Restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -181,6 +181,7 @@ Use this task to pack or restore NuGet packages, or run a NuGet command. This ta
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -193,6 +194,7 @@ Specifies the NuGet command to run. Use the `custom` value to add arguments or t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restoresolution-property"></a>
 <!-- :::item name="restoreSolution"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -205,6 +207,7 @@ Specifies the path to the solution, `packages.config`, or `project.json` file th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedstouse-property"></a>
 <!-- :::item name="feedsToUse"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -217,6 +220,7 @@ Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstsfeed-property"></a>
 <!-- :::item name="vstsFeed"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -240,6 +244,7 @@ Specifies the selected feed in the generated `NuGet.config`. You must have Packa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includenugetorg-property"></a>
 <!-- :::item name="includeNuGetOrg"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -252,6 +257,7 @@ Includes NuGet.org in the generated `NuGet.config`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetconfigpath-property"></a>
 <!-- :::item name="nugetConfigPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -264,6 +270,7 @@ Specifies the path to the `NuGet.config` in your repository that determines the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="externalfeedcredentials-property"></a>
 <!-- :::item name="externalFeedCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -276,6 +283,7 @@ Specifies the credentials to use for external registries located in the selected
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nocache-property"></a>
 <!-- :::item name="noCache"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -288,6 +296,7 @@ Prevents NuGet from using packages from local machine caches when set to `true`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="disableparallelprocessing-property"></a>
 <!-- :::item name="disableParallelProcessing"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -300,6 +309,7 @@ Prevents NuGet from installing multiple packages in parallel processes when set 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restoredirectory-property"></a>
 <!-- :::item name="restoreDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -312,6 +322,7 @@ Specifies the folder in which packages are installed. If no folder is specified,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbosityrestore-property"></a>
 <!-- :::item name="verbosityRestore"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -324,6 +335,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagestopush-property"></a>
 <!-- :::item name="packagesToPush"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -336,6 +348,7 @@ Specifies the pattern to match or path to `nupkg` files to be uploaded. Multiple
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetfeedtype-property"></a>
 <!-- :::item name="nuGetFeedType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -348,6 +361,7 @@ Specifies whether the target feed is an internal feed/collection or an external 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishvstsfeed-property"></a>
 <!-- :::item name="publishVstsFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -360,6 +374,7 @@ Specifies a feed hosted in this account. You must have Azure Artifacts installed
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishpackagemetadata-property"></a>
 <!-- :::item name="publishPackageMetadata"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -372,6 +387,7 @@ Changes the version number of the subset of changed packages within a set of con
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowpackageconflicts-property"></a>
 <!-- :::item name="allowPackageConflicts"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -386,6 +402,7 @@ This option is currently only available on Azure Pipelines and Windows agents. I
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="requesttimeout-property"></a>
 <!-- :::item name="requestTimeout"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -398,6 +415,7 @@ Optionally provide a timeout, in seconds, for the package publish operation. Mus
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishfeedcredentials-property"></a>
 <!-- :::item name="publishFeedCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -410,6 +428,7 @@ Specifies the NuGet service connection that contains the external NuGet serverâ€
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbositypush-property"></a>
 <!-- :::item name="verbosityPush"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -422,6 +441,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagestopack-property"></a>
 <!-- :::item name="packagesToPack"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -436,6 +456,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -448,6 +469,7 @@ Specifies the configuration to package when using a csproj file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packdestination-property"></a>
 <!-- :::item name="packDestination"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -460,6 +482,7 @@ Specifies the folder where the task creates packages. If the value is empty, the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versioningscheme-property"></a>
 <!-- :::item name="versioningScheme"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -479,6 +502,7 @@ Applies automatic package versioning depending on the specified value. This stri
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includereferencedprojects-property"></a>
 <!-- :::item name="includeReferencedProjects"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -491,6 +515,7 @@ Includes referenced projects either as dependencies or as part of the package. C
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionenvvar-property"></a>
 <!-- :::item name="versionEnvVar"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -503,6 +528,7 @@ Specifies the variable name without `$`, `$env`, or `%`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="majorversion-property"></a>
 <!-- :::item name="majorVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -515,6 +541,7 @@ The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="minorversion-property"></a>
 <!-- :::item name="minorVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -527,6 +554,7 @@ The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="patchversion-property"></a>
 <!-- :::item name="patchVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -539,6 +567,7 @@ The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packtimezone-property"></a>
 <!-- :::item name="packTimezone"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -551,6 +580,7 @@ Specifies the desired time zone used to produce the version of the package. Sele
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includesymbols-property"></a>
 <!-- :::item name="includeSymbols"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -563,6 +593,7 @@ Specifies that the package contains sources and symbols. When used with a `.nusp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="toolpackage-property"></a>
 <!-- :::item name="toolPackage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -575,6 +606,7 @@ Determines if the output files of the project should be in the tool folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildproperties-property"></a>
 <!-- :::item name="buildProperties"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -587,6 +619,7 @@ Specifies a list of token=value pairs, separated by semicolons, where each occur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="basepath-property"></a>
 <!-- :::item name="basePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -599,6 +632,7 @@ Specifies the base path of the files defined in the `nuspec` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbositypack-property"></a>
 <!-- :::item name="verbosityPack"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -611,6 +645,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 

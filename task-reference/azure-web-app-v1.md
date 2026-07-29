@@ -1,7 +1,7 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -109,6 +109,7 @@ This task deploys an Azure Web App for Linux or Windows.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -121,6 +122,7 @@ Specifies the [Azure Resource Manager subscription connection](/azure/devops/pip
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apptype-property"></a>
 <!-- :::item name="appType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -133,6 +135,7 @@ Specifies the Azure Web App type.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -145,6 +148,7 @@ Specifies the name of an existing Azure App Service. Only app services that are 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytoslotorase-property"></a>
 <!-- :::item name="deployToSlotOrASE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +164,7 @@ If the deployment target is an Azure App Service Environment, leave the slot nam
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="resourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -173,6 +178,7 @@ Specifies the Azure resource group that contains the Azure App Service indicated
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="slotName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -185,6 +191,7 @@ Specifies an existing slot, excluding the production slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="package-property"></a>
 <!-- :::item name="package"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -197,6 +204,7 @@ The file path to the package or folder that contains App Service content generat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customdeployfolder-property"></a>
 <!-- :::item name="customDeployFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -212,6 +220,7 @@ In all other instances, it is deployed to `<appname>.azurewebsited.net/<customWa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runtimestack-property"></a>
 <!-- :::item name="runtimeStack"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -246,6 +255,7 @@ Web App on Linux offers two different options to publish your application: custo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startupcommand-property"></a>
 <!-- :::item name="startUpCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +271,7 @@ For example:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customwebconfig-property"></a>
 <!-- :::item name="customWebConfig"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -273,6 +284,7 @@ A standard web.config will be generated and deployed to Azure App Service if the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appsettings-property"></a>
 <!-- :::item name="appSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -285,6 +297,7 @@ Specify the web app application settings using the syntax `-key value` (for exam
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configurationstrings-property"></a>
 <!-- :::item name="configurationStrings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -297,6 +310,7 @@ Specify the web app configuration settings using the syntax `-key value` (for ex
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentmethod-property"></a>
 <!-- :::item name="deploymentMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -309,6 +323,7 @@ Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-rm-web
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sitecontainersconfig-property"></a>
 <!-- :::item name="siteContainersConfig"::: -->
 :::moniker range=">azure-pipelines-server"
 

@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
 description: Sends a message to Azure Service Bus using a service connection, with no agent required (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -39,6 +39,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -51,6 +52,7 @@ Specifies an Azure Service Bus connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="messagebody-property"></a>
 <!-- :::item name="messageBody"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -63,6 +65,7 @@ Specifies the JSON `messageBody`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforcompletion-property"></a>
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"
 

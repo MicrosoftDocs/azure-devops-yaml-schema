@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ms.custom: sfi-ropc-nochange
 ---
@@ -68,6 +68,7 @@ Use this task to deploy a Docker Compose application to a Service Fabric cluster
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="clusterconnection-property"></a>
 <!-- :::item name="clusterConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +81,7 @@ Specifies an Azure Service Fabric service connection to be used to connect to th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="composefilepath-property"></a>
 <!-- :::item name="composeFilePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +96,7 @@ Specifies the path to the compose file that is to be deployed. [Variables](/azur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationname-property"></a>
 <!-- :::item name="applicationName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +109,7 @@ Specifies the Service Fabric application name of the deployed application. Use `
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registrycredentials-property"></a>
 <!-- :::item name="registryCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +127,7 @@ Specifies how credentials for the Docker container registry will be provided to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryconnection-property"></a>
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +140,7 @@ Specifies a Docker registry service connection. If a certificate matching the Se
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -147,6 +153,7 @@ Specifies an Azure subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registryusername-property"></a>
 <!-- :::item name="registryUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,6 +166,7 @@ Specifies the username for the Docker registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registrypassword-property"></a>
 <!-- :::item name="registryPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -171,6 +179,7 @@ Specifies the password for the Docker registry. If the password is not encrypted
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="passwordencrypted-property"></a>
 <!-- :::item name="passwordEncrypted"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -183,6 +192,7 @@ Encrypts your password using [Invoke-ServiceFabricEncryptText](/azure/service-fa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="upgrade-property"></a>
 <!-- :::item name="upgrade"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -195,6 +205,7 @@ Upgrades an existing deployment rather than removing it.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytimeoutsec-property"></a>
 <!-- :::item name="deployTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -207,6 +218,7 @@ Specifies the timeout, in seconds,for deploying the application.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removetimeoutsec-property"></a>
 <!-- :::item name="removeTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -219,6 +231,7 @@ Specifies the timeout, in seconds,for removing an existing application.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="getstatustimeoutsec-property"></a>
 <!-- :::item name="getStatusTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 

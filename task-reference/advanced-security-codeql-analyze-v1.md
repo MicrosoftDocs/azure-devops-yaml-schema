@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 description: Finalizes the CodeQL database and runs the analysis queries.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -40,6 +40,7 @@ Analyzes the code in an Azure Repos Git repository to find security vulnerabilit
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="waitforprocessing-property"></a>
 <!-- :::item name="WaitForProcessing"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -52,6 +53,7 @@ Wait for Advanced Security to process published SARIF file before completing.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforprocessinginterval-property"></a>
 <!-- :::item name="WaitForProcessingInterval"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -64,6 +66,7 @@ Time, in seconds, to wait between each call to Advanced Security to check SARIF 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforprocessingtimeout-property"></a>
 <!-- :::item name="WaitForProcessingTimeout"::: -->
 :::moniker range=">azure-pipelines-server"
 

@@ -1,7 +1,7 @@
 ---
 title: GoTool@0 - Go tool installer v0 task
 description: Find in cache or download a specific version of Go and add it to the PATH.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -57,6 +57,7 @@ Use this task to find in the tools cache or download a specific version of Go an
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +70,7 @@ The Go version to download (if necessary) and use, for example `1.9.3`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gopath-property"></a>
 <!-- :::item name="goPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +83,7 @@ A custom value for the GOPATH environment variable.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gobin-property"></a>
 <!-- :::item name="goBin"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +96,7 @@ A custom value for the GOBIN environment variable.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="godownloadurl-property"></a>
 <!-- :::item name="goDownloadUrl"::: -->
 :::moniker range=">azure-pipelines-server"
 

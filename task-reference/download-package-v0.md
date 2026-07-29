@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@0 - Download package v0 task
 description: Download a package from a package management feed in Azure Artifacts (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -55,6 +55,7 @@ Use this task to download a package from a package management feed in Azure Arti
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="feed-property"></a>
 <!-- :::item name="feed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +68,7 @@ Specifies the package source.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="definition-property"></a>
 <!-- :::item name="definition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +81,7 @@ Specifies the package to download. Only NuGet packages are currently supported.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,6 +94,7 @@ Specifies the version of the package.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloadpath-property"></a>
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="<=azure-pipelines"
 

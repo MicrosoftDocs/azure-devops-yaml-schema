@@ -1,7 +1,7 @@
 ---
 title: AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
 description: Run your scripts and make changes to your Azure Database for MySQL.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -91,6 +91,7 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +108,7 @@ If your subscription is not listed or if you want to use an existing Service Pri
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servername-property"></a>
 <!-- :::item name="ServerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +127,7 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="databasename-property"></a>
 <!-- :::item name="DatabaseName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +144,7 @@ Note: MySQL database names are case-sensitive.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlusername-property"></a>
 <!-- :::item name="SqlUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -155,6 +159,7 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlpassword-property"></a>
 <!-- :::item name="SqlPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -171,6 +176,7 @@ Also, you may mark the variable type as `secret` to secure it.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tasknameselector-property"></a>
 <!-- :::item name="TaskNameSelector"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -188,6 +194,7 @@ Optional. Selects one of the options between Script File & Inline Script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlfile-property"></a>
 <!-- :::item name="SqlFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -207,6 +214,7 @@ When the task is used on Linux platforms, paths remain unchanged. There is no ne
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlinline-property"></a>
 <!-- :::item name="SqlInline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -219,6 +227,7 @@ Enters the MySQL script to execute on the database selected above.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqladditionalarguments-property"></a>
 <!-- :::item name="SqlAdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -239,6 +248,7 @@ All available options are described in the MySQL client documentation.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ipdetectionmethod-property"></a>
 <!-- :::item name="IpDetectionMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -260,6 +270,7 @@ Accepted values:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startipaddress-property"></a>
 <!-- :::item name="StartIpAddress"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -272,6 +283,7 @@ The starting IP Address of the automation agent machine pool. For example: `196.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="endipaddress-property"></a>
 <!-- :::item name="EndIpAddress"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -284,6 +296,7 @@ The ending IP Address of the automation agent machine pool. For example: `196.21
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deletefirewallrule-property"></a>
 <!-- :::item name="DeleteFirewallRule"::: -->
 :::moniker range="<=azure-pipelines"
 

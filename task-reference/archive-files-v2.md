@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -47,6 +47,7 @@ Archive files using compression formats such as .7z, .tar, .gz, and .zip.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="rootfolderorfile-property"></a>
 <!-- :::item name="rootFolderOrFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -59,6 +60,7 @@ Name of the root folder or the file path to files to add to the archive. For fol
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includerootfolder-property"></a>
 <!-- :::item name="includeRootFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -73,6 +75,7 @@ For example, if the root folder is: `/home/user/output/classes/` and the file pa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="archivetype-property"></a>
 <!-- :::item name="archiveType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +98,7 @@ Example, to create an archive named `foo.jar`:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sevenzipcompression-property"></a>
 <!-- :::item name="sevenZipCompression"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +111,7 @@ Set compression level or `None` to create an uncompressed .7z file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tarcompression-property"></a>
 <!-- :::item name="tarCompression"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +128,7 @@ Set a compression format or choose `None` to create an uncompressed .tar file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="archivefile-property"></a>
 <!-- :::item name="archiveFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -138,6 +144,7 @@ Specify the name of the archive file to create.  For example, to create `foo.tgz
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="replaceexistingarchive-property"></a>
 <!-- :::item name="replaceExistingArchive"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -157,6 +164,7 @@ Supported file formats that can be added to an existing archive:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbose-property"></a>
 <!-- :::item name="verbose"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -169,6 +177,7 @@ If set to true, forces tools to use verbose output. Overrides the 'quiet' settin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="quiet-property"></a>
 <!-- :::item name="quiet"::: -->
 :::moniker range="<=azure-pipelines"
 

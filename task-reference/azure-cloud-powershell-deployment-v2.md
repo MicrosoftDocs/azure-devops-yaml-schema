@@ -1,7 +1,7 @@
 ---
 title: AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 description: Deploy an Azure Cloud Service.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: ramiMSFT
 ms.author: rabououn
@@ -65,6 +65,7 @@ Deploy an Azure Cloud Service.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="armconnectedservicename-property"></a>
 <!-- :::item name="ARMConnectedServiceName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -77,6 +78,7 @@ Azure Resource Manager subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -89,6 +91,7 @@ Enter or Select the Azure Resource Group that contains the Azure App Service spe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="armstorageaccount-property"></a>
 <!-- :::item name="ARMStorageAccount"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -101,6 +104,7 @@ A pre-existing ARM storage account.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicename-property"></a>
 <!-- :::item name="ServiceName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -113,6 +117,7 @@ An existing cloud service name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicelocation-property"></a>
 <!-- :::item name="ServiceLocation"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -125,6 +130,7 @@ A region for new service deployment. Options include: East US, East US 2, Centra
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cscfg-property"></a>
 <!-- :::item name="CsCfg"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -137,6 +143,7 @@ The CsCfg path in the default artifact directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="csdef-property"></a>
 <!-- :::item name="CsDef"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -149,6 +156,7 @@ Path of CsDef under the default artifact directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cspkg-property"></a>
 <!-- :::item name="CsPkg"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -161,6 +169,7 @@ Path to the CsPkg in the default artifact directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keyvault-property"></a>
 <!-- :::item name="KeyVault"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -173,6 +182,7 @@ Choose a pre-existing Azure KeyVault with certificates.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentlabel-property"></a>
 <!-- :::item name="DeploymentLabel"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -185,6 +195,7 @@ Specifies the label name for the new deployment. If not specified, defaults to a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appenddatetimetolabel-property"></a>
 <!-- :::item name="AppendDateTimeToLabel"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -197,6 +208,7 @@ Appends current date and time to the deployment label.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="upgrademode-property"></a>
 <!-- :::item name="UpgradeMode"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -209,6 +221,7 @@ Appends current date and time to the deployment label.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowupgrade-property"></a>
 <!-- :::item name="AllowUpgrade"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -221,6 +234,7 @@ Allows an upgrade to the Microsoft Azure deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verifyroleinstancestatus-property"></a>
 <!-- :::item name="VerifyRoleInstanceStatus"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -233,6 +247,7 @@ Causes the task to wait until role instances are in the ready state.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="diagnosticstorageaccountkeys-property"></a>
 <!-- :::item name="DiagnosticStorageAccountKeys"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

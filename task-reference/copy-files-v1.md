@@ -1,7 +1,7 @@
 ---
 title: CopyFiles@1 - Copy Files v1 task
 description: Copy files from source folder to target folder using minimatch patterns (The minimatch patterns will only match file paths, not folder paths).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -46,6 +46,7 @@ Use this task to copy files from a source folder to a target folder using match 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sourcefolder-property"></a>
 <!-- :::item name="SourceFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -60,6 +61,7 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="contents-property"></a>
 <!-- :::item name="Contents"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +84,7 @@ Use the path separator that matches your build agent type. For example, `/` must
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetfolder-property"></a>
 <!-- :::item name="TargetFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +97,7 @@ The target folder or UNC path that will contain the copied files. You can use [v
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleantargetfolder-property"></a>
 <!-- :::item name="CleanTargetFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +110,7 @@ Optional. Deletes all existing files in the target folder before the copy proces
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overwrite-property"></a>
 <!-- :::item name="OverWrite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +123,7 @@ Optional. Replaces the existing files in the target folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="flattenfolders-property"></a>
 <!-- :::item name="flattenFolders"::: -->
 :::moniker range="<=azure-pipelines"
 

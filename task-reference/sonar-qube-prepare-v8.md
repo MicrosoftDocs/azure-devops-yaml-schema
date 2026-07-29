@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@8 - Prepare Analysis Configuration v8 task
 description: Prepare SonarQube Server analysis configuration.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -52,6 +52,7 @@ Prepare SonarQube Server analysis configuration.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sonarqube-property"></a>
 <!-- :::item name="SonarQube"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -64,6 +65,7 @@ Select the SonarQube Server endpoint for your project. To create one, click the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scannermode-property"></a>
 <!-- :::item name="scannerMode"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -83,6 +85,7 @@ For other cases you can use the standalone scanner (sonar-scanner) and set all c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildversion-property"></a>
 <!-- :::item name="msBuildVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -95,6 +98,7 @@ Specify the version of the .NET Scanner to use. Versions can be located [here](h
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cliversion-property"></a>
 <!-- :::item name="cliVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -107,6 +111,7 @@ Specify the version of the CLI scanner to use. Versions can be located [here](ht
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configmode-property"></a>
 <!-- :::item name="configMode"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -119,6 +124,7 @@ Choose your preferred configuration method.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configfile-property"></a>
 <!-- :::item name="configFile"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -131,6 +137,7 @@ More information is available [here](https://docs.sonarsource.com/sonarqube/late
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cliprojectkey-property"></a>
 <!-- :::item name="cliProjectKey"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -143,6 +150,7 @@ The SonarQube Server project unique key, i.e. `sonar.projectKey`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectkey-property"></a>
 <!-- :::item name="projectKey"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -155,6 +163,7 @@ The SonarQube Server project unique key, i.e. `sonar.projectKey`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cliprojectname-property"></a>
 <!-- :::item name="cliProjectName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -167,6 +176,7 @@ The SonarQube Server project name, i.e. `sonar.projectName`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectname-property"></a>
 <!-- :::item name="projectName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -179,6 +189,7 @@ The SonarQube Server project name, i.e. `sonar.projectName`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cliprojectversion-property"></a>
 <!-- :::item name="cliProjectVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -191,6 +202,7 @@ The SonarQube Server project version, i.e. `sonar.projectVersion`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectversion-property"></a>
 <!-- :::item name="projectVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -203,6 +215,7 @@ The SonarQube Server project version, i.e. `sonar.projectVersion`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="clisources-property"></a>
 <!-- :::item name="cliSources"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -215,6 +228,7 @@ Path to the root directory containing source files. This value is set to the `so
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="extraproperties-property"></a>
 <!-- :::item name="extraProperties"::: -->
 :::moniker range=">azure-pipelines-server"
 
