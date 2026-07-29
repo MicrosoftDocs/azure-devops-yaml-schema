@@ -1,7 +1,7 @@
 ---
 title: SonarQubePublish@5 - Publish Quality Gate Result v5 task
 description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis (task version 5).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -43,6 +43,7 @@ Use this task to publish SonarQube's Quality Gate result on the Azure DevOps bui
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="pollingtimeoutsec-property"></a>
 <!-- :::item name="pollingTimeoutSec"::: -->
 :::moniker range=">azure-pipelines-server"
 

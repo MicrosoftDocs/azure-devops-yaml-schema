@@ -1,7 +1,7 @@
 ---
 title: InstallAppleCertificate@1 - Install Apple Certificate v1 task
 description: Install an Apple certificate required to build on a macOS agent (task version 1).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -45,6 +45,7 @@ Use this task to install the Apple certificate that is required to build on a ma
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="certsecurefile-property"></a>
 <!-- :::item name="certSecureFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,6 +58,7 @@ Specifies the certificate (.p12) that was uploaded to `Secure Files` to install 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="certpwd-property"></a>
 <!-- :::item name="certPwd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +71,7 @@ Specifies the password to the Apple certificate (.p12). Use a new build variable
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keychain-property"></a>
 <!-- :::item name="keychain"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +84,7 @@ Specifies the keychain in which to install the Apple certificate. A temporary ke
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keychainpassword-property"></a>
 <!-- :::item name="keychainPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +97,7 @@ Specifies the password to unlock the keychain. Use a new build variable with its
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customkeychainpath-property"></a>
 <!-- :::item name="customKeychainPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +110,7 @@ Specifies the full path to a custom keychain file. The keychain will be created 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deletecert-property"></a>
 <!-- :::item name="deleteCert"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +123,7 @@ Specifies the certificate to delete from the keychain after the build or release
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deletecustomkeychain-property"></a>
 <!-- :::item name="deleteCustomKeychain"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +136,7 @@ Specifies the custom keychain to delete from the agent after the build or releas
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signingidentity-property"></a>
 <!-- :::item name="signingIdentity"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricUpdateManifests@2 - Update Service Fabric manifests v2 task
 description: Automatically update portions of application and service manifests in a packaged Azure Service Fabric application.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -48,6 +48,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="updatetype-property"></a>
 <!-- :::item name="updateType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -60,6 +61,7 @@ Specifies the type of update that should be made to the manifest files. In order
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationpackagepath-property"></a>
 <!-- :::item name="applicationPackagePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -72,6 +74,7 @@ Specifies the path to the application package. [Variables](/azure/devops/pipelin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionsuffix-property"></a>
 <!-- :::item name="versionSuffix"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +95,7 @@ Write-Host "##vso[task.setvariable variable=VersionSuffix;]$versionSuffix"
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionbehavior-property"></a>
 <!-- :::item name="versionBehavior"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +108,7 @@ Specifies whether to append the version value to existing values in the manifest
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="updateonlychanged-property"></a>
 <!-- :::item name="updateOnlyChanged"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +124,7 @@ Appends the new version suffix to only the packages that have changed from a pre
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pkgartifactname-property"></a>
 <!-- :::item name="pkgArtifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +137,7 @@ Specifies the name of the artifact containing the application package for compar
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="logallchanges-property"></a>
 <!-- :::item name="logAllChanges"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -143,6 +150,7 @@ Compares all files in every package and log if the file was added, removed, or i
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="comparetype-property"></a>
 <!-- :::item name="compareType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -155,6 +163,7 @@ Specifies whether to compare against the last completed and successful build or 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildnumber-property"></a>
 <!-- :::item name="buildNumber"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -167,6 +176,7 @@ Specifies the build number for comparison.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overwriteexistingpkgartifact-property"></a>
 <!-- :::item name="overwriteExistingPkgArtifact"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -179,6 +189,7 @@ Downloads a new copy of the artifact. Otherwise, this boolean uses an existing c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagenamespath-property"></a>
 <!-- :::item name="imageNamesPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -191,6 +202,7 @@ Specifies the path to a text file that contains the names of the Docker images a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagedigestspath-property"></a>
 <!-- :::item name="imageDigestsPath"::: -->
 :::moniker range="<=azure-pipelines"
 

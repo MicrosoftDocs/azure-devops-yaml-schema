@@ -1,7 +1,7 @@
 ---
 title: SqlDacpacDeploymentOnMachineGroup@0 - SQL Server database deploy v0 task
 description: Deploy a SQL Server database using DACPAC or SQL scripts.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -35,6 +35,7 @@ Use this task to deploy a SQL Server database using DACPAC or SQL scripts.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="tasktype-property"></a>
 <!-- :::item name="TaskType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -47,6 +48,7 @@ Specifies the way you want to deploy the database: using Dacpac or SQL Scripts.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dacpacfile-property"></a>
 <!-- :::item name="DacpacFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -59,6 +61,7 @@ Specifies the location of the DACPAC file on the target machines or on a UNC pat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlfile-property"></a>
 <!-- :::item name="SqlFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +74,7 @@ Specifies the location of the SQL file on the target. Provide a semi-colon separ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="executeintransaction-property"></a>
 <!-- :::item name="ExecuteInTransaction"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +87,7 @@ Executes the SQL script(s) within a transaction.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exclusivelock-property"></a>
 <!-- :::item name="ExclusiveLock"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +100,7 @@ Acquires an exclusive app lock while executing script(s).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applockname-property"></a>
 <!-- :::item name="AppLockName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +113,7 @@ Specifies the app lock name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinesql-property"></a>
 <!-- :::item name="InlineSql"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +126,7 @@ Specifies the SQL queries inline.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetmethod-property"></a>
 <!-- :::item name="TargetMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +139,7 @@ Specifies the option to connect to the target SQL Server database. You can provi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servername-property"></a>
 <!-- :::item name="ServerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -143,6 +152,7 @@ Specifies the SQL Server name, like `machinename\FabriakmSQL,1433`, `localhost`,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="databasename-property"></a>
 <!-- :::item name="DatabaseName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -155,6 +165,7 @@ Specifies the name of the SQL Server database.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="authscheme-property"></a>
 <!-- :::item name="AuthScheme"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -167,6 +178,7 @@ Specifies the authentication mode for connecting to the SQL Server. In Windows a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlusername-property"></a>
 <!-- :::item name="SqlUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -179,6 +191,7 @@ Specifies the SQL login to connect to the SQL Server. This option is only availa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlpassword-property"></a>
 <!-- :::item name="SqlPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -191,6 +204,7 @@ Specifies the password of the SQL login. This option is only available if SQL Se
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectionstring-property"></a>
 <!-- :::item name="ConnectionString"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -203,6 +217,7 @@ Specifies the SQL Server connection string, like `Server=localhost;Database=Fabr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishprofile-property"></a>
 <!-- :::item name="PublishProfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -216,6 +231,7 @@ Specifies the path to the publish profile XML file on the target machine or on a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -228,6 +244,7 @@ Specifies additional `SqlPackage.exe` arguments that will be applied when deploy
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalargumentssql-property"></a>
 <!-- :::item name="AdditionalArgumentsSql"::: -->
 :::moniker range="<=azure-pipelines"
 

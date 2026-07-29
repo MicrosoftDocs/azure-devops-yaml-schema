@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreInstaller@1 - .NET Core SDK/runtime installer v1 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -60,6 +60,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="packagetype-property"></a>
 <!-- :::item name="packageType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -72,6 +73,7 @@ Specifies whether to install only Runtime or the full SDK.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +94,7 @@ Find the value of `version` for installing SDK/Runtime in the [releases-index fi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includepreviewversions-property"></a>
 <!-- :::item name="includePreviewVersions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +107,7 @@ Specifies if you want preview versions to be included while searching for latest
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="installationpath-property"></a>
 <!-- :::item name="installationPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +126,7 @@ You can also configure the Multi-Level Lookup setting. This setting can configur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="performmultilevellookup-property"></a>
 <!-- :::item name="performMultiLevelLookup"::: -->
 :::moniker range="<=azure-pipelines"
 

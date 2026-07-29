@@ -1,7 +1,7 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -78,6 +78,7 @@ Use this task to download or select a version of Python to run on an agent, and 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="versionspec-property"></a>
 <!-- :::item name="versionSpec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +91,7 @@ Specifies the version range or exact version of a Python version to use, using S
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="disabledownloadfromregistry-property"></a>
 <!-- :::item name="disableDownloadFromRegistry"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -102,6 +104,7 @@ Disables downloading missing Python versions from the [Github Actions registry](
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowunstable-property"></a>
 <!-- :::item name="allowUnstable"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -114,6 +117,7 @@ Downloads unstable Python versions from the [Github Actions Python versions regi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="githubtoken-property"></a>
 <!-- :::item name="githubToken"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -126,6 +130,7 @@ Specifies the GitHub token that enforces the anonymous requests limit in the [Gi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addtopath-property"></a>
 <!-- :::item name="addToPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -138,6 +143,7 @@ Prepends the retrieved Python version to the PATH environment variable to make i
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="architecture-property"></a>
 <!-- :::item name="architecture"::: -->
 :::moniker range=">azure-pipelines-server"
 

@@ -1,7 +1,7 @@
 ---
 title: ShellScript@2 - Shell script v2 task
 description: Run a shell script using Bash.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -42,6 +42,7 @@ Use this task to run a shell script using `bash`.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="scriptpath-property"></a>
 <!-- :::item name="scriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ Specifies the relative path from the repo root to the shell script file that you
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="args-property"></a>
 <!-- :::item name="args"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ Specifies the arguments that you want to pass to the script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="disableautocwd-property"></a>
 <!-- :::item name="disableAutoCwd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +81,7 @@ Specifies the working directory where the task runs the script. If the value is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cwd-property"></a>
 <!-- :::item name="cwd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +94,7 @@ Specifies the working directory where the script is run. If the value is left em
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 

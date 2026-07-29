@@ -1,14 +1,27 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 06/30/2026
+ms.date: 07/29/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # SSH@0 - SSH v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to run shell commands or a script on a remote machine using SSH. This task enables you to connect to a remote machine using SSH and run commands or a script.
+
+> [!IMPORTANT]
+> The [enableRemoteVsoCommands](#enableremotevsocommands-property) task input was introduced in task version `0.278.0` released July 2026. Prior to this version, the behavior of the task was to execute `##vso` commands from your remote output. With the addition of the `enableRemoteVsoCommands` task input, the default behavior is not to execute them.
+>
+> If your pipeline relies on executing `##vso` commands from the remote output, set this input to `true`; otherwise your pipeline might fail.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run shell commands or a script on a remote machine using SSH. This task enables you to connect to a remote machine using SSH and run commands or a script.
@@ -20,7 +33,31 @@ Use this task to run shell commands or a script on a remote machine using SSH. T
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# SSH v0
+# Run shell commands or a script on a remote machine using SSH.
+- task: SSH@0
+  inputs:
+    sshEndpoint: # string. Required. SSH service connection. 
+    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
+    commands: # string. Required when runOptions = commands. Commands. 
+    #scriptPath: # string. Required when runOptions = script. Shell script path. 
+    #inline: # string. Required when runOptions = inline. Inline Script. 
+    #interpreterCommand: '/bin/bash' # string. Optional. Use when runOptions = inline. Interpreter command. Default: /bin/bash.
+    #args: # string. Optional. Use when runOptions = script. Arguments. 
+  # Advanced
+    #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
+    #interactiveSession: false # boolean. Enable interactive session. Default: false.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
+    #interactiveKeyboardAuthentication: false # boolean. Use interactive-keyboard authentication. Default: false.
+    #enableRemoteVsoCommands: false # boolean. Allow logging commands from remote output. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 ```yaml
 # SSH v0
@@ -70,6 +107,7 @@ Use this task to run shell commands or a script on a remote machine using SSH. T
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sshendpoint-property"></a>
 <!-- :::item name="sshEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +123,7 @@ Specifies the name of an SSH service connection containing connection details fo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runoptions-property"></a>
 <!-- :::item name="runOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +136,7 @@ Runs shell commands or a shell script on the remote machine.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="commands-property"></a>
 <!-- :::item name="commands"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,6 +152,7 @@ Specifies the shell commands to run on the remote machine. This parameter is ava
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="scriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -124,6 +165,7 @@ Specifies the path to the shell script file to run on the remote machine. This p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inline-property"></a>
 <!-- :::item name="inline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -136,6 +178,7 @@ Writes the shell script to run on the remote machine.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="interpretercommand-property"></a>
 <!-- :::item name="interpreterCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -148,6 +191,7 @@ Specifies the path to the command interpreter used to execute the script. Adds a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="args-property"></a>
 <!-- :::item name="args"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +204,7 @@ Specifies the arguments to pass to the shell script. This parameter is available
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstderr-property"></a>
 <!-- :::item name="failOnStdErr"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -172,6 +217,7 @@ If the value is `true`, the build fails when the remote commands or script write
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="interactivesession-property"></a>
 <!-- :::item name="interactiveSession"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -184,6 +230,7 @@ Starts an interactive session. Password requests are filled by the user's passwo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="readytimeout-property"></a>
 <!-- :::item name="readyTimeout"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -196,6 +243,7 @@ Specifies how long (in milliseconds) the task waits for the SSH handshake to com
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="interactivekeyboardauthentication-property"></a>
 <!-- :::item name="interactiveKeyboardAuthentication"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -203,6 +251,24 @@ Specifies how long (in milliseconds) the task waits for the SSH handshake to com
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enables interactive-keyboard authentication. Set to `true` if your destination SSH server requires Interactive Keyboard Authentication (`PasswordAuthentication` is disabled on the target machine/set to No in sshd_config).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<a name="enableremotevsocommands-property"></a>
+<!-- :::item name="enableRemoteVsoCommands"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`enableRemoteVsoCommands`** - **Allow logging commands from remote output**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+When `false` (default), `##vso[...]` lines in the remote output are printed as text and not executed. If your workflow requires executing `##vso` commands from your remote output, set to `true`, only if you trust the remote output and rely on it emitting logging commands.
+
+> [!IMPORTANT]
+> The `enableRemoteVsoCommands` task input was introduced in task version `0.278.0` released July 2026. Prior to this version, the behavior of the task was to execute `##vso` commands from your remote output. With the addition of the `enableRemoteVsoCommands` task input, the default behavior is not to execute them.
+>
+> If your pipeline relies on executing `##vso` commands from the remote output, set this input to `true`; otherwise your pipeline might fail.
 <!-- :::editable-content-end::: -->
 <br>
 

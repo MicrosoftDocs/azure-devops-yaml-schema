@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@3 - Azure CLI v3 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent. (task verion 3)
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -56,6 +56,7 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectiontype-property"></a>
 <!-- :::item name="connectionType"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -68,6 +69,7 @@ Type of service connection to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -80,6 +82,7 @@ Specify an Azure Resource Manager service connection for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuredevopsserviceconnection-property"></a>
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -92,6 +95,7 @@ Specify an Azure DevOps service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scripttype-property"></a>
 <!-- :::item name="scriptType"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -104,6 +108,7 @@ Type of script. Select a `bash` or `pscore` script when running on Linux agent. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptlocation-property"></a>
 <!-- :::item name="scriptLocation"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -116,6 +121,7 @@ Path to script: File path or Inline script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="scriptPath"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -128,6 +134,7 @@ Fully qualified path of the script. Use `.ps1`, `.bat`, or `.cmd` when using Win
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinescript-property"></a>
 <!-- :::item name="inlineScript"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -154,6 +161,7 @@ call az account show
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -166,6 +174,7 @@ Arguments passed to the script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="powershellerroractionpreference-property"></a>
 <!-- :::item name="powerShellErrorActionPreference"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -178,6 +187,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your powershe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addspntoenvironment-property"></a>
 <!-- :::item name="addSpnToEnvironment"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -200,6 +210,7 @@ Shell script: $servicePrincipalId.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="useglobalconfig-property"></a>
 <!-- :::item name="useGlobalConfig"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -212,6 +223,7 @@ If this input is false, this task will use its own separate [Azure CLI configura
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -224,6 +236,7 @@ Specify the working directory where the script is run. If left blank, the defaul
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -236,6 +249,7 @@ If this is true, this task will fail when any errors are written to the Standard
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="powershellignorelastexitcode-property"></a>
 <!-- :::item name="powerShellIgnoreLASTEXITCODE"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -248,6 +262,7 @@ If this is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE))
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="visibleazlogin-property"></a>
 <!-- :::item name="visibleAzLogin"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -260,6 +275,7 @@ If this is set to true, az login command will output to the task. Setting it to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allownosubscriptions-property"></a>
 <!-- :::item name="allowNoSubscriptions"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -272,6 +288,7 @@ If true, the task will not attempt to set a subscription context and will allow 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keepazsessionactive-property"></a>
 <!-- :::item name="keepAzSessionActive"::: -->
 :::moniker range=">azure-pipelines-server"
 

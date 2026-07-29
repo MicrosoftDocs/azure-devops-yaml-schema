@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -46,6 +46,7 @@ Automate performance regression testing with Azure Load Testing.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -58,6 +59,7 @@ Selects an Azure Resource Manager subscription to run the load test.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loadtestconfigfile-property"></a>
 <!-- :::item name="loadTestConfigFile"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -71,6 +73,7 @@ See [Test configuration YAML reference](/azure/load-testing/reference-test-confi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroup-property"></a>
 <!-- :::item name="resourceGroup"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -83,6 +86,7 @@ Enters or selects the Azure Resource Group that contains the Load test resource.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loadtestresource-property"></a>
 <!-- :::item name="loadTestResource"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -95,6 +99,7 @@ Enters or selects the name of an existing Azure Load Testing resource.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loadtestrunname-property"></a>
 <!-- :::item name="loadTestRunName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -107,6 +112,7 @@ Custom name for the load test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loadtestrundescription-property"></a>
 <!-- :::item name="loadTestRunDescription"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -119,6 +125,7 @@ Custom description for the load test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secrets-property"></a>
 <!-- :::item name="secrets"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -144,6 +151,7 @@ An array of JSON objects that consist of the name and value for each secret. The
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="env-property"></a>
 <!-- :::item name="env"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -169,6 +177,7 @@ An array of JSON objects that consist of the name and value for each environment
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overrideparameters-property"></a>
 <!-- :::item name="overrideParameters"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -194,6 +203,7 @@ Override parameters in the YAML config file using the following JSON format:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputvariablename-property"></a>
 <!-- :::item name="outputVariableName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -206,6 +216,7 @@ Name of the output variable that stores the test run ID for use in subsequent ta
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforcompletion-property"></a>
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range=">azure-pipelines-server"
 

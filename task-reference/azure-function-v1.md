@@ -1,7 +1,7 @@
 ---
 title: AzureFunction@1 - Invoke Azure Function v1 task
 description: Invoke an Azure Function (task version 1).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -47,6 +47,7 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="function-property"></a>
 <!-- :::item name="function"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -59,6 +60,7 @@ The URL of the Azure function to be invoked​. Example: `https://azurefunctiona
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="key-property"></a>
 <!-- :::item name="key"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +73,7 @@ The function or the host key used to access and invoke the function. To keep the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="method-property"></a>
 <!-- :::item name="method"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +86,7 @@ The HTTP method with which the function will be invoked.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="headers-property"></a>
 <!-- :::item name="headers"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +99,7 @@ The header in JSON format to be attached to the request sent to the function.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="queryparameters-property"></a>
 <!-- :::item name="queryParameters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +112,7 @@ The string query to append to the function URL. Must not start with `?` or `&`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="body-property"></a>
 <!-- :::item name="body"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +125,7 @@ The request body in JSON format.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforcompletion-property"></a>
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +141,7 @@ How the task reports completion.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="successcriteria-property"></a>
 <!-- :::item name="successCriteria"::: -->
 :::moniker range="<=azure-pipelines"
 

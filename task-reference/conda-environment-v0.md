@@ -1,7 +1,7 @@
 ---
 title: CondaEnvironment@0 - Conda environment v0 task
 description: Create and activate a Conda environment.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -58,6 +58,7 @@ Use this task to create and activate a Conda environment.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="environmentname-property"></a>
 <!-- :::item name="environmentName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +71,7 @@ The name of the Conda environment to create and activate, or reactivate if it al
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagespecs-property"></a>
 <!-- :::item name="packageSpecs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +84,7 @@ The space-delimited list of packages to install in the environment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="updateconda-property"></a>
 <!-- :::item name="updateConda"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +97,7 @@ Updates Conda to the latest version. This applies to the Conda installation foun
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createoptions-property"></a>
 <!-- :::item name="createOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +110,7 @@ The space-delimited list of additional options to pass to the `conda create` com
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleanenvironment-property"></a>
 <!-- :::item name="cleanEnvironment"::: -->
 :::moniker range="<=azure-pipelines"
 

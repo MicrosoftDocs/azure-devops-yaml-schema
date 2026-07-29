@@ -1,7 +1,7 @@
 ---
 title: BicepDeploy@0 - Bicep Deploy v0 task
 description: Deploy and Manage Azure Resources using Bicep Files. (task version 0)
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -87,6 +87,7 @@ The task supports:
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="type-property"></a>
 <!-- :::item name="type"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -99,6 +100,7 @@ Specifies the execution type: deployment or deploymentStack.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="operation-property"></a>
 <!-- :::item name="operation"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -111,6 +113,7 @@ Specifies the operation to perform. Deployment supports: create, validate, whatI
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scope-property"></a>
 <!-- :::item name="scope"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -123,6 +126,7 @@ Specifies the scope at which resources are deployed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -135,6 +139,7 @@ Specifies the name of the deployment or deployment stack. If not provided, a def
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcemanagerconnection-property"></a>
 <!-- :::item name="azureResourceManagerConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -147,6 +152,7 @@ Select the Azure Resource Manager service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="subscriptionid-property"></a>
 <!-- :::item name="subscriptionId"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -159,6 +165,7 @@ Select the Azure subscription. Required if scope is subscription or resourceGrou
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="resourceGroupName"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -171,6 +178,7 @@ Provide the name of the resource group.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="location-property"></a>
 <!-- :::item name="location"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -183,6 +191,7 @@ Location to store deployment metadata. Required for subscription, managementGrou
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tenantid-property"></a>
 <!-- :::item name="tenantId"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -195,6 +204,7 @@ Specifies the tenant ID. Required if scope is tenant.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="managementgroupid-property"></a>
 <!-- :::item name="managementGroupId"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -207,6 +217,7 @@ Specifies the management group ID. Required if scope is managementGroup.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="templatefile-property"></a>
 <!-- :::item name="templateFile"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -219,6 +230,7 @@ Specify the path to the Bicep template file (.bicep).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parametersfile-property"></a>
 <!-- :::item name="parametersFile"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -231,6 +243,7 @@ Specify the path to the parameters file (.json or .bicepparam).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parameters-property"></a>
 <!-- :::item name="parameters"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -243,6 +256,7 @@ Specify inline parameters as a JSON or YAML object. Example: {"param1": "value1"
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="actiononunmanageresources-property"></a>
 <!-- :::item name="actionOnUnmanageResources"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -255,6 +269,7 @@ Specifies the action to take on resources not defined in the template.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="actiononunmanageresourcegroups-property"></a>
 <!-- :::item name="actionOnUnmanageResourceGroups"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -267,6 +282,7 @@ Specifies the action to take on resource groups not defined in the template.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="actiononunmanagemanagementgroups-property"></a>
 <!-- :::item name="actionOnUnmanageManagementGroups"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -279,6 +295,7 @@ Specifies the action to take on management groups not defined in the template.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="denysettingsmode-property"></a>
 <!-- :::item name="denySettingsMode"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -291,6 +308,7 @@ Specifies the mode of the deny settings to prevent unauthorized changes.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="denysettingsexcludedactions-property"></a>
 <!-- :::item name="denySettingsExcludedActions"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -303,6 +321,7 @@ Comma-separated list of actions to exclude from deny settings.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="denysettingsexcludedprincipals-property"></a>
 <!-- :::item name="denySettingsExcludedPrincipals"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -315,6 +334,7 @@ Comma-separated list of principal IDs to exclude from deny settings.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="denysettingsapplytochildscopes-property"></a>
 <!-- :::item name="denySettingsApplyToChildScopes"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -327,6 +347,7 @@ When enabled, deny settings also apply to child scopes of managed resources.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="bypassstackoutofsyncerror-property"></a>
 <!-- :::item name="bypassStackOutOfSyncError"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -339,6 +360,7 @@ Bypass errors when the deployment stack is out of sync.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="description-property"></a>
 <!-- :::item name="description"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -351,6 +373,7 @@ Description for the deployment or deployment stack.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="tags"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -363,6 +386,7 @@ Tags as JSON or YAML object. Example: {"Environment": "Development", "Owner": "T
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="bicepversion-property"></a>
 <!-- :::item name="bicepVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -375,6 +399,7 @@ Specify the version of Bicep to use (e.g., '0.38.5'). If not provided, the lates
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="maskedoutputs-property"></a>
 <!-- :::item name="maskedOutputs"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -387,6 +412,7 @@ Comma-separated list of output names to mask values for (e.g., secrets).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="environment-property"></a>
 <!-- :::item name="environment"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -399,6 +425,7 @@ Specifies the Azure environment to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="whatifexcludechangetypes-property"></a>
 <!-- :::item name="whatIfExcludeChangeTypes"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -411,6 +438,7 @@ Comma-separated list of change types to exclude from What-If operation (e.g., no
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="validationlevel-property"></a>
 <!-- :::item name="validationLevel"::: -->
 :::moniker range=">azure-pipelines-server"
 

@@ -1,7 +1,7 @@
 ---
 title: SqlServerDacpacDeployment@1 - SQL Server database deploy (Deprecated) v1 task
 description: Deploy a SQL Server database using DACPAC.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -73,6 +73,7 @@ This task is deprecated.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="environmentname-property"></a>
 <!-- :::item name="EnvironmentName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +86,7 @@ Specifies a comma-separated list of machine IP addresses or FQDNs along with por
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminusername-property"></a>
 <!-- :::item name="AdminUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +99,7 @@ Specifies the administrator login for the target machines.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminpassword-property"></a>
 <!-- :::item name="AdminPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +112,7 @@ Specifies the administrator password for the target machines. Variables defined 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="protocol-property"></a>
 <!-- :::item name="Protocol"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -121,6 +125,7 @@ Specifies the protocol to use for the WinRM connection with the machine(s). The 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testcertificate-property"></a>
 <!-- :::item name="TestCertificate"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -133,6 +138,7 @@ Skips the authenticity validation of the machine's certificate by a trusted cert
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dacpacfile-property"></a>
 <!-- :::item name="DacpacFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -145,6 +151,7 @@ Specifies the location of the DACPAC file on the target machines or on a UNC pat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetmethod-property"></a>
 <!-- :::item name="TargetMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -157,6 +164,7 @@ Specifies the option to connect to the target SQL Server database. You can provi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servername-property"></a>
 <!-- :::item name="ServerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -169,6 +177,7 @@ Specifies the SQL Server name, like `machinename\FabriakmSQL,1433` or `localhost
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="databasename-property"></a>
 <!-- :::item name="DatabaseName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -181,6 +190,7 @@ Specifies the name of the SQL Server database.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlusername-property"></a>
 <!-- :::item name="SqlUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -193,6 +203,7 @@ If the SQL Server login is specified, it is used to connect to the SQL Server. T
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlpassword-property"></a>
 <!-- :::item name="SqlPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -205,6 +216,7 @@ If the SQL Server login user name is specified, provide the SQL Server password.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectionstring-property"></a>
 <!-- :::item name="ConnectionString"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -217,6 +229,7 @@ Specifies the SQL Server connection string, like `Server=localhost;Database=Fabr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishprofile-property"></a>
 <!-- :::item name="PublishProfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -229,6 +242,7 @@ Provides fine-grained control over SQL Server database creation or upgrades. Spe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -241,6 +255,7 @@ Specifies additional `SqlPackage.exe` arguments that are applied when creating o
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deployinparallel-property"></a>
 <!-- :::item name="DeployInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -253,6 +268,7 @@ When set to `true`, runs the database deployment task in parallel on the target 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefilteringmethod-property"></a>
 <!-- :::item name="ResourceFilteringMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -265,6 +281,7 @@ Optional. Specifies a subset of machines by providing machine names or tags.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinefilter-property"></a>
 <!-- :::item name="MachineFilter"::: -->
 :::moniker range="<=azure-pipelines"
 

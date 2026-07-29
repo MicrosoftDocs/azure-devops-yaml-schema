@@ -1,7 +1,7 @@
 ---
 title: Grunt@0 - Grunt v0 task
 description: Run the Grunt JavaScript task runner.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -51,6 +51,7 @@ Use this task to run the Grunt JavaScript task runner.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="gruntfile-property"></a>
 <!-- :::item name="gruntFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -63,6 +64,7 @@ Specifies the relative path from the repo root to the Grunt script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targets-property"></a>
 <!-- :::item name="targets"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -75,6 +77,7 @@ Optional.  Specifies the space-delimited list of tasks to run.  If not specified
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -89,6 +92,7 @@ Specifies the additional arguments passed to Grunt. See [Using the CLI](http://g
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,6 +105,7 @@ Optional. Specifies the current working directory when the script is run. If not
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gruntcli-property"></a>
 <!-- :::item name="gruntCli"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -113,6 +118,7 @@ Specifies the grunt-cli to run when the agent can't find the globally installed 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +131,7 @@ Select this option to publish the JUnit test results produced by the Grunt build
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -139,6 +146,7 @@ For example, `**/TEST-*.xml` for all XML file names that start with `TEST-`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +159,7 @@ Specifies a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablecodecoverage-property"></a>
 <!-- :::item name="enableCodeCoverage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +172,7 @@ Select this option to enable code coverage using Istanbul.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testframework-property"></a>
 <!-- :::item name="testFramework"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +185,7 @@ Specifies your test framework.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="srcfiles-property"></a>
 <!-- :::item name="srcFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +198,7 @@ Specifies the path to your source files which you want to `hookRequire()`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testfiles-property"></a>
 <!-- :::item name="testFiles"::: -->
 :::moniker range="<=azure-pipelines"
 

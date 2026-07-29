@@ -1,7 +1,7 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -90,6 +90,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="packagetype-property"></a>
 <!-- :::item name="packageType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +103,7 @@ Specifies whether to install only the .NET runtime or the SDK.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="useglobaljson-property"></a>
 <!-- :::item name="useGlobalJson"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -120,6 +122,7 @@ For more information on `global.json`, see [Select the .NET version to use](/dot
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -132,6 +135,7 @@ Specifies the path from where `global.json` files should be searched when using 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -150,6 +154,7 @@ The version values for SDK or runtime installations are in the `releases.json` f
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vsversion-property"></a>
 <!-- :::item name="vsVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -164,6 +169,7 @@ The version values for SDK or runtime installations, which are used for the `ver
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checkforexistingversion-property"></a>
 <!-- :::item name="checkForExistingVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -176,6 +182,7 @@ Select if you want to detect if the specified version is already installed befor
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includepreviewversions-property"></a>
 <!-- :::item name="includePreviewVersions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -188,6 +195,7 @@ If set to `true`, includes preview versions when the task searches for latest ru
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="installationpath-property"></a>
 <!-- :::item name="installationPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -207,6 +215,7 @@ Specifies where the .NET Core SDK/Runtime should be installed. Different paths c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="performmultilevellookup-property"></a>
 <!-- :::item name="performMultiLevelLookup"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -229,6 +238,7 @@ Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-se
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="requesttimeout-property"></a>
 <!-- :::item name="requestTimeout"::: -->
 :::moniker range=">=azure-pipelines-server"
 

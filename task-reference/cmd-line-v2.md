@@ -1,7 +1,7 @@
 ---
 title: CmdLine@2 - Command line v2 task
 description: Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -40,6 +40,7 @@ Use this task to run a command line script using Bash on Linux, macOS, and cmd.e
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="script-property"></a>
 <!-- :::item name="script"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,6 +53,7 @@ The contents of the script you want to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -64,6 +66,7 @@ Specifies the working directory to run commands. If you leave it empty, the work
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstderr-property"></a>
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range="<=azure-pipelines"
 

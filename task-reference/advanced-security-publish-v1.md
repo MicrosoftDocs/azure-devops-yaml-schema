@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Publish@1 - Advanced Security Publish Results v1 task
 description: Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -48,6 +48,7 @@ Combines SARIF file(s) produced by code scanning tool(s), enhances the combined 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sarifsinputdirectory-property"></a>
 <!-- :::item name="SarifsInputDirectory"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -60,6 +61,7 @@ Path(s) to the directory or directories containing the SARIF file(s) that need t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablerecursivescanning-property"></a>
 <!-- :::item name="EnableRecursiveScanning"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -72,6 +74,7 @@ When enabled, searches for SARIF files recursively in subdirectories of the spec
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="category-property"></a>
 <!-- :::item name="Category"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -84,6 +87,7 @@ Category to associate scan results with when enhancing the SARIF file(s) before 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforprocessing-property"></a>
 <!-- :::item name="WaitForProcessing"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -96,6 +100,7 @@ Wait for Advanced Security to process published SARIF file before completing.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforprocessinginterval-property"></a>
 <!-- :::item name="WaitForProcessingInterval"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -108,6 +113,7 @@ Time, in seconds, to wait between each call to Advanced Security to check SARIF 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforprocessingtimeout-property"></a>
 <!-- :::item name="WaitForProcessingTimeout"::: -->
 :::moniker range=">azure-pipelines-server"
 

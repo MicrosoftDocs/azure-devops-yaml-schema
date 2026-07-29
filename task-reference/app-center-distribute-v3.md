@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@3 - App Center distribute v3 task
 description: Distribute app builds to testers and users via Visual Studio App Center.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -58,6 +58,7 @@ Use this task to distribute app builds to testers and users via Visual Studio Ap
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="serverendpoint-property"></a>
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +71,7 @@ Selects the service connection for Visual Studio App Center. To create one, clic
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appslug-property"></a>
 <!-- :::item name="appSlug"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +84,7 @@ The app slug is in the format of `{username}/{app_identifier}`.  To locate `{use
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appfile-property"></a>
 <!-- :::item name="appFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +97,7 @@ The relative path from the repo root to the APK/AAB or IPA file you want to publ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildversion-property"></a>
 <!-- :::item name="buildVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +110,7 @@ The build version of the uploading binary which needs to be specified for `.zip`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsoption-property"></a>
 <!-- :::item name="symbolsOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +123,7 @@ Includes symbol files to receive symbolicated stack traces in App Center Diagnos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolspath-property"></a>
 <!-- :::item name="symbolsPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -130,6 +136,7 @@ The relative path from the repo root to the symbols folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appxsympath-property"></a>
 <!-- :::item name="appxsymPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +149,7 @@ The relative path to the APPXSYM symbols file. Path may contain [wildcards](/azu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsdsymfiles-property"></a>
 <!-- :::item name="symbolsDsymFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -154,6 +162,7 @@ The relative path from the repo root to dSYM folder. Path may contain [wildcards
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsmappingtxtfile-property"></a>
 <!-- :::item name="symbolsMappingTxtFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -166,6 +175,7 @@ The relative path from the repo root to Android's `mapping.txt` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nativelibrariespath-property"></a>
 <!-- :::item name="nativeLibrariesPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -178,6 +188,7 @@ The relative path from the repo root to the additional native libraries you want
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsincludeparentdirectory-property"></a>
 <!-- :::item name="symbolsIncludeParentDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -190,6 +201,7 @@ Uploads the selected symbols file or folder and all other items inside the same 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesoption-property"></a>
 <!-- :::item name="releaseNotesOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -202,6 +214,7 @@ The release notes will be attached to the release and shown to testers on the in
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesinput-property"></a>
 <!-- :::item name="releaseNotesInput"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -214,6 +227,7 @@ The release notes for this version.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesfile-property"></a>
 <!-- :::item name="releaseNotesFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -226,6 +240,7 @@ Selects a UTF-8 encoded text file which contains the release notes for this vers
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ismandatory-property"></a>
 <!-- :::item name="isMandatory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -238,6 +253,7 @@ The App Center Distribute SDK required to mandate an update. Testers are automat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationtype-property"></a>
 <!-- :::item name="destinationType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -250,6 +266,7 @@ Each release is distributed to either groups or a store.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="distributiongroupid-property"></a>
 <!-- :::item name="distributionGroupId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -262,6 +279,7 @@ The IDs of the distribution groups who will receive the build release. Leave it 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationstoreid-property"></a>
 <!-- :::item name="destinationStoreId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -274,6 +292,7 @@ The IDs of the distribution store that will receive the build release.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="issilent-property"></a>
 <!-- :::item name="isSilent"::: -->
 :::moniker range="<=azure-pipelines"
 

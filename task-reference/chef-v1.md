@@ -1,7 +1,7 @@
 ---
 title: Chef@1 - Chef v1 task
 description: Deploy to Chef environments by editing environment attributes.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -68,6 +68,7 @@ Deploy to Chef environments by editing environment attributes.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicename-property"></a>
 <!-- :::item name="connectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +81,7 @@ The name of the Chef subscription service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="environment-property"></a>
 <!-- :::item name="Environment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +94,7 @@ The name of the Chef environment to be used for deployment. The attributes of th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="attributes-property"></a>
 <!-- :::item name="Attributes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +107,7 @@ Specifies the value of the leaf node attribute(s) to be updated. Example: `{ "de
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="chefwaittime-property"></a>
 <!-- :::item name="chefWaitTime"::: -->
 :::moniker range="<=azure-pipelines"
 

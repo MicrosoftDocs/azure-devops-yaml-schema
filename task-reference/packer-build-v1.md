@@ -1,7 +1,7 @@
 ---
 title: PackerBuild@1 - Build machine image v1 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -100,6 +100,7 @@ Use this task to build a machine image using Packer, which may be used for Azure
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="templatetype-property"></a>
 <!-- :::item name="templateType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -115,6 +116,7 @@ Specifies whether the task auto generates a Packer template or uses a custom tem
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customtemplatelocation-property"></a>
 <!-- :::item name="customTemplateLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -127,6 +129,7 @@ Specifies the path to a custom user-provided template.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customtemplateparameters-property"></a>
 <!-- :::item name="customTemplateParameters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -139,6 +142,7 @@ Specifies the parameters which will be passed to the Packer for building a custo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectedservicename-property"></a>
 <!-- :::item name="ConnectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +155,7 @@ Specifies the Azure Resource Manager subscription for baking and storing the mac
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ismanagedimage-property"></a>
 <!-- :::item name="isManagedImage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +168,7 @@ Checks if the generated image should be a managed image.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="managedimagename-property"></a>
 <!-- :::item name="managedImageName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +181,7 @@ Specifies the name of the Managed disk image for auto-generated templates.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="location-property"></a>
 <!-- :::item name="location"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +194,7 @@ Specifies the location for storing the built machine image. This location will a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="storageaccountname-property"></a>
 <!-- :::item name="storageAccountName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -199,6 +207,7 @@ Specifies the storage account for storing the built machine image. This storage 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcegroup-property"></a>
 <!-- :::item name="azureResourceGroup"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -211,6 +220,7 @@ Specifies the Azure Resource group that contains the selected storage account.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="baseimagesource-property"></a>
 <!-- :::item name="baseImageSource"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -225,6 +235,7 @@ Specifies the source of the base image. You can either choose from a curated gal
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="baseimage-property"></a>
 <!-- :::item name="baseImage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -237,6 +248,7 @@ Chooses from a curated list of OS images. This will be used for installing pre-r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customimageurl-property"></a>
 <!-- :::item name="customImageUrl"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -249,6 +261,7 @@ Specifies the URL of a base image. This will be used for installing pre-requisit
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customimageostype-property"></a>
 <!-- :::item name="customImageOSType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -260,6 +273,7 @@ Specifies the URL of a base image. This will be used for installing pre-requisit
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagepath-property"></a>
 <!-- :::item name="packagePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -275,6 +289,7 @@ Specifies the path for a deployment package directory relative to `$(System.Defa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deployscriptpath-property"></a>
 <!-- :::item name="deployScriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -287,6 +302,7 @@ Specifies the relative path to the powershell script (for Windows) or the shell 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deployscriptarguments-property"></a>
 <!-- :::item name="deployScriptArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -299,6 +315,7 @@ Specifies the arguments to be passed to the deployment script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="candeletetempfolder-property"></a>
 <!-- :::item name="canDeleteTempFolder"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -311,6 +328,7 @@ This option allows you to remove temporary folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalbuilderparameters-property"></a>
 <!-- :::item name="additionalBuilderParameters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -324,6 +342,7 @@ To view/edit the additional parameters in a grid, click on `…` next to text bo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skiptempfilecleanupduringvmdeprovision-property"></a>
 <!-- :::item name="skipTempFileCleanupDuringVMDeprovision"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -336,6 +355,7 @@ During the deprovisioning of a VM, skips the cleanup of temporary files uploaded
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packerversion-property"></a>
 <!-- :::item name="packerVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -348,6 +368,7 @@ Specifies the version of Packer to install. This will work only with custom temp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imageuri-property"></a>
 <!-- :::item name="imageUri"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -360,6 +381,7 @@ Specifies a name for the output variable which will store the generated machine 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imageid-property"></a>
 <!-- :::item name="imageId"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -87,6 +87,7 @@ Use this task to build with Apache Ant.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="buildfile-property"></a>
 <!-- :::item name="buildFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,6 +102,7 @@ For more information about build files, see [Using Apache Ant](http://ant.apache
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -115,6 +117,7 @@ See [Running Apache Ant](http://ant.apache.org/manual/running.html#options).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targets-property"></a>
 <!-- :::item name="targets"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +132,7 @@ See [Using Apache Ant Targets](http://ant.apache.org/manual/targets.html#targets
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +145,7 @@ Select this option to publish JUnit test results produced by the Ant build to Az
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +158,7 @@ The test results file path. Wildcards can be used. For more information, see the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -165,6 +171,7 @@ Provides a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragetooloptions-property"></a>
 <!-- :::item name="codeCoverageToolOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -184,6 +191,7 @@ After you select one of these tools, the following arguments appear:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilesdirectories-property"></a>
 <!-- :::item name="codeCoverageClassFilesDirectories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -196,6 +204,7 @@ The comma-separated list of relative paths from the Ant build file to directorie
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilter-property"></a>
 <!-- :::item name="codeCoverageClassFilter"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -208,6 +217,7 @@ The comma-separated list of filters to include or exclude classes from collectin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragesourcedirectories-property"></a>
 <!-- :::item name="codeCoverageSourceDirectories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -220,6 +230,7 @@ The comma-separated list of relative paths from the Ant build file to source cod
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragefailifempty-property"></a>
 <!-- :::item name="codeCoverageFailIfEmpty"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -232,6 +243,7 @@ Fails the build if the code coverage did not produce any results to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="anthomedirectory-property"></a>
 <!-- :::item name="antHomeDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -244,6 +256,7 @@ If set, overrides any existing ANT_HOME environment variable with the given path
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="javahomeoption-property"></a>
 <!-- :::item name="javaHomeOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -256,6 +269,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkversionoption-property"></a>
 <!-- :::item name="jdkVersionOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -279,6 +293,7 @@ Attempts to discover the path to the selected JDK version and sets JAVA_HOME acc
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkuserinputdirectory-property"></a>
 <!-- :::item name="jdkUserInputDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -291,6 +306,7 @@ Sets JAVA_HOME to the given path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkarchitectureoption-property"></a>
 <!-- :::item name="jdkArchitectureOption"::: -->
 :::moniker range=">azure-pipelines-server"
 

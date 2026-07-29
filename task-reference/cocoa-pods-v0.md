@@ -1,7 +1,7 @@
 ---
 title: CocoaPods@0 - CocoaPods v0 task
 description: Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -42,6 +42,7 @@ Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ Specifies the working directory in which to execute this task. If left empty, th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="forcerepoupdate-property"></a>
 <!-- :::item name="forceRepoUpdate"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ Selecting this option will force running `pod repo update` before installation.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectdirectory-property"></a>
 <!-- :::item name="projectDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: queryWorkItems@0 - Query work items v0 task
 description: Execute a work item query and check the number of items returned.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -42,6 +42,7 @@ Can only be used in an [agentless](/azure/devops/pipelines/process/phases) job o
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="queryid-property"></a>
 <!-- :::item name="queryId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ Specifies a saved work item query within the current project to execute. Can be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="maxthreshold-property"></a>
 <!-- :::item name="maxThreshold"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ Specifies the maximum number of matching work items from the query.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="minthreshold-property"></a>
 <!-- :::item name="minThreshold"::: -->
 :::moniker range="<=azure-pipelines"
 

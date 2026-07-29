@@ -1,7 +1,7 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -42,6 +42,7 @@ Use this task to download a secure file to the agent machine.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="securefile-property"></a>
 <!-- :::item name="secureFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ Specifies the name or unique identifier (GUID) of the secure file that is downlo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retrycount-property"></a>
 <!-- :::item name="retryCount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ Optional. Specifies the number of times to retry downloading a secure file if th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sockettimeout-property"></a>
 <!-- :::item name="socketTimeout"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: ramiMSFT
 ms.author: rabououn
@@ -97,6 +97,7 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicenamearm-property"></a>
 <!-- :::item name="connectedServiceNameARM"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -109,6 +110,7 @@ Select the Azure Resource Manager connection for the deployment. The service con
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apptype-property"></a>
 <!-- :::item name="appType"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -121,6 +123,7 @@ Select the Azure Function App type for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isflexconsumption-property"></a>
 <!-- :::item name="isFlexConsumption"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -133,6 +136,7 @@ Set to `true` if function app is on a [Flex Consumption plan](/azure/azure-funct
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -145,6 +149,7 @@ Specify the name of an existing Azure Functions App. The Function Apps listed wi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytoslotorase-property"></a>
 <!-- :::item name="deployToSlotOrASE"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -176,6 +181,7 @@ If the deployment target is an Azure App Service Environment, leave the slot nam
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="resourceGroupName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -190,6 +196,7 @@ Enters or selects the Azure Resource group that contains the Azure App Service s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="slotName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -213,6 +220,7 @@ Enter or Select an existing Slot other than the Production slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="package-property"></a>
 <!-- :::item name="package"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -225,6 +233,7 @@ The file path to the package or folder that contains App Service content generat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runtimestack-property"></a>
 <!-- :::item name="runtimeStack"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -265,6 +274,7 @@ Specify the framework and version your function app will run on. You can use any
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appsettings-property"></a>
 <!-- :::item name="appSettings"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -279,6 +289,7 @@ For more information on app settings, see [Environment variables and app setting
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentmethod-property"></a>
 <!-- :::item name="deploymentMethod"::: -->
 :::moniker range=">=azure-pipelines-server"
 

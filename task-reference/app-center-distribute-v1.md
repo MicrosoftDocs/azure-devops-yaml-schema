@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@1 - App Center distribute v1 task
 description: Distribute app builds to testers and users via Visual Studio App Center (task version 1).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -79,6 +79,7 @@ Use this task to distribute app builds to testers and users via App Center and V
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="serverendpoint-property"></a>
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,6 +92,7 @@ Selects the service connection for Visual Studio App Center. To create one, clic
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appslug-property"></a>
 <!-- :::item name="appSlug"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -103,6 +105,7 @@ The app slug is in the format of `{username}/{app_identifier}`.  To locate `{use
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appfile-property"></a>
 <!-- :::item name="appFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -115,6 +118,7 @@ The relative path from the repo root to the APK or IPA file you want to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsoption-property"></a>
 <!-- :::item name="symbolsOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -127,6 +131,7 @@ Includes symbol files to receive symbolicated stack traces in App Center Diagnos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolspath-property"></a>
 <!-- :::item name="symbolsPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -139,6 +144,7 @@ The relative path from the repo root to the symbols folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolspdbfiles-property"></a>
 <!-- :::item name="symbolsPdbFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +157,7 @@ The relative path from the repo root to `.pdb` symbols files. Path may contain [
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsdsymfiles-property"></a>
 <!-- :::item name="symbolsDsymFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +170,7 @@ The relative path from the repo root to the dSYM folder. Path may contain [wildc
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsmappingtxtfile-property"></a>
 <!-- :::item name="symbolsMappingTxtFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +183,7 @@ The relative path from the repo root to Android's `mapping.txt` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsincludeparentdirectory-property"></a>
 <!-- :::item name="symbolsIncludeParentDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +196,7 @@ Uploads the selected symbols file or folder and all other items inside the same 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesoption-property"></a>
 <!-- :::item name="releaseNotesOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -199,6 +209,7 @@ The release notes are attached to the release and shown to testers on the instal
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesinput-property"></a>
 <!-- :::item name="releaseNotesInput"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -211,6 +222,7 @@ The release notes for this version.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesfile-property"></a>
 <!-- :::item name="releaseNotesFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -223,6 +235,7 @@ Selects a UTF-8 encoded text file which contains the release notes for this vers
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ismandatory-property"></a>
 <!-- :::item name="isMandatory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -235,6 +248,7 @@ The App Center Distribute SDK required to mandate an update. Testers are automat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="distributiongroupid-property"></a>
 <!-- :::item name="distributionGroupId"::: -->
 :::moniker range="<=azure-pipelines"
 

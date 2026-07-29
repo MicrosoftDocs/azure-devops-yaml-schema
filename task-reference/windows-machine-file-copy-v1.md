@@ -1,7 +1,7 @@
 ---
 title: WindowsMachineFileCopy@1 - Windows machine file copy v1 task
 description: Copy files to remote Windows machines (task version 1).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -49,6 +49,7 @@ Use this task to copy files to remote Windows machines.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sourcepath-property"></a>
 <!-- :::item name="SourcePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -61,6 +62,7 @@ Specifies the absolute path of the source folder or file on the local machine or
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="environmentname-property"></a>
 <!-- :::item name="EnvironmentName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -73,6 +75,7 @@ Specifies a comma-separated list of machine IP addresses or FQDNs, for example, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminusername-property"></a>
 <!-- :::item name="AdminUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +88,7 @@ Specifies the administrator login for the target machines.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminpassword-property"></a>
 <!-- :::item name="AdminPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +101,7 @@ Specifies the password for the administrator login for the target machines. Vari
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +114,7 @@ Specifies the local path on the target machine or an accessible UNC path for cop
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleantargetbeforecopy-property"></a>
 <!-- :::item name="CleanTargetBeforeCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -121,6 +127,7 @@ Cleans the destination folder before copying the files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="copyfilesinparallel-property"></a>
 <!-- :::item name="CopyFilesInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -133,6 +140,7 @@ Copies files in parallel to the machines.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -145,6 +153,7 @@ Specifies additional robocopy arguments that are applied when copying files, lik
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefilteringmethod-property"></a>
 <!-- :::item name="ResourceFilteringMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -156,6 +165,7 @@ Specifies additional robocopy arguments that are applied when copying files, lik
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinenames-property"></a>
 <!-- :::item name="MachineNames"::: -->
 :::moniker range="<=azure-pipelines"
 

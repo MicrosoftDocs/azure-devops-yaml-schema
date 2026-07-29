@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationExport@10 - Azure App Configuration Export v10 task
 description: Export key-values from Azure App Configuration to task variables in your build or deployment pipelines.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: ramiMSFT
 ms.author: rabououn
@@ -46,6 +46,7 @@ Export key-values from Azure App Configuration to task variables in your build o
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -58,6 +59,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appconfigurationendpoint-property"></a>
 <!-- :::item name="AppConfigurationEndpoint"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -70,6 +72,7 @@ Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="selectionmode-property"></a>
 <!-- :::item name="SelectionMode"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -82,6 +85,7 @@ Selection mode specifies how the key-values read from a configuration store are 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keyfilter-property"></a>
 <!-- :::item name="KeyFilter"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -94,6 +98,7 @@ The filter can be used to select what key-values are requested from Azure App Co
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="label-property"></a>
 <!-- :::item name="Label"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -106,6 +111,7 @@ Specifies which label should be used when selecting key-values from App Configur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="snapshotname-property"></a>
 <!-- :::item name="SnapshotName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -118,6 +124,7 @@ Specifies snapshot from which key-values should be retrieved in Azure App Config
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trimkeyprefix-property"></a>
 <!-- :::item name="TrimKeyPrefix"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -130,6 +137,7 @@ Specifies one or more prefixes that should be trimmed from App Configuration key
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="suppresswarningforoverriddenkeys-property"></a>
 <!-- :::item name="SuppressWarningForOverriddenKeys"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -142,6 +150,7 @@ Specifies whether or not to suppress the warning shown when existing keys are ov
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="treatkeyvaulterrorsaswarning-property"></a>
 <!-- :::item name="TreatKeyVaultErrorsAsWarning"::: -->
 :::moniker range=">=azure-pipelines-server"
 

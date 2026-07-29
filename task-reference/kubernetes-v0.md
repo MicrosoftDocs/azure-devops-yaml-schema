@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -79,6 +79,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="kubernetesserviceconnection-property"></a>
 <!-- :::item name="kubernetesServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,6 +92,7 @@ Select a Kubernetes service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="namespace-property"></a>
 <!-- :::item name="namespace"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -103,6 +105,7 @@ Specifies the namespace for the `kubectl` command by using the `–namespace` fl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -115,6 +118,7 @@ Specifies a `kubectl` command to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="useconfigurationfile-property"></a>
 <!-- :::item name="useConfigurationFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -127,6 +131,7 @@ Use Kubernetes configuration file with the kubectl command. Filename, directory,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -139,6 +144,7 @@ Specifies the filename, directory, or URL to kubernetes configuration files that
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +157,7 @@ Specifies the arguments to the specified `kubectl` command.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secrettype-property"></a>
 <!-- :::item name="secretType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +170,7 @@ Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secretarguments-property"></a>
 <!-- :::item name="secretArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +183,7 @@ Specifies keys and literal values to insert in secret. For example, `--from-lite
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containerregistrytype-property"></a>
 <!-- :::item name="containerRegistryType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +196,7 @@ Select a Container registry type. The task can use Azure Subscription details to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryconnection-property"></a>
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -199,6 +209,7 @@ Select a Docker registry service connection. Required for commands that need to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -213,6 +224,7 @@ Specifies the Azure Resource Manager subscription, which contains Azure Containe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistry-property"></a>
 <!-- :::item name="azureContainerRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -225,6 +237,7 @@ Specifies an Azure Container Registry which is used for pulling container images
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secretname-property"></a>
 <!-- :::item name="secretName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -237,6 +250,7 @@ Name of the secret. You can use this secret name in the Kubernetes YAML configur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="forceupdate-property"></a>
 <!-- :::item name="forceUpdate"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -249,6 +263,7 @@ Delete the secret if it exists and create a new one with updated values.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configmapname-property"></a>
 <!-- :::item name="configMapName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +276,7 @@ ConfigMaps allow you to decouple configuration artifacts from image content to k
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="forceupdateconfigmap-property"></a>
 <!-- :::item name="forceUpdateConfigMap"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -273,6 +289,7 @@ Delete the configmap if it exists and create a new one with updated values.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="useconfigmapfile-property"></a>
 <!-- :::item name="useConfigMapFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -285,6 +302,7 @@ Create a ConfigMap from an individual file, or from multiple files by specifying
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configmapfile-property"></a>
 <!-- :::item name="configMapFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -297,6 +315,7 @@ Specify a file or directory that contains the configMaps.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configmaparguments-property"></a>
 <!-- :::item name="configMapArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -309,6 +328,7 @@ Specifies keys and literal values to insert in `configMap` .For example, `--from
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionorlocation-property"></a>
 <!-- :::item name="versionOrLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -321,6 +341,7 @@ kubectl is a command line interface for running commands against Kubernetes clus
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionspec-property"></a>
 <!-- :::item name="versionSpec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -333,6 +354,7 @@ Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checklatest-property"></a>
 <!-- :::item name="checkLatest"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -345,6 +367,7 @@ Always checks online for the latest available version (stable.txt) that satisfie
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="specifylocation-property"></a>
 <!-- :::item name="specifyLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -357,6 +380,7 @@ Specifies the full path to the `kubectl.exe` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -369,6 +393,7 @@ Working directory for the Kubectl command.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputformat-property"></a>
 <!-- :::item name="outputFormat"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -381,6 +406,7 @@ Output format.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubectloutput-property"></a>
 <!-- :::item name="kubectlOutput"::: -->
 :::moniker range="<=azure-pipelines"
 

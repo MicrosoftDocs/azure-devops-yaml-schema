@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@2 - Azure file copy v2 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 2).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -77,6 +77,7 @@ Copy files to Azure Blob Storage or virtual machines.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sourcepath-property"></a>
 <!-- :::item name="SourcePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -89,6 +90,7 @@ Specify the absolute path to the source folder, file on the local machine, or a 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureconnectiontype-property"></a>
 <!-- :::item name="azureConnectionType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,6 +103,7 @@ Specify the Azure connection type.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureclassicsubscription-property"></a>
 <!-- :::item name="azureClassicSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -113,6 +116,7 @@ Specify the target Azure Classic subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +129,7 @@ Specify the target Azure Resource Manager subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destination-property"></a>
 <!-- :::item name="Destination"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,6 +142,7 @@ Specify the destination type to use for copying the files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="classicstorage-property"></a>
 <!-- :::item name="classicStorage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -149,6 +155,7 @@ Specify a pre-existing classic storage account. This is the storage account used
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="storage-property"></a>
 <!-- :::item name="storage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -161,6 +168,7 @@ Specify a pre-existing ARM storage account. This is the storage account used as 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containername-property"></a>
 <!-- :::item name="ContainerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +183,7 @@ To create a virtual directory inside the container, use the Blob prefix input. F
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="blobprefix-property"></a>
 <!-- :::item name="BlobPrefix"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -191,6 +200,7 @@ Example: If you specify a Blob prefix `myvd1`, a virtual directory is created in
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cloudservice-property"></a>
 <!-- :::item name="cloudService"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -203,6 +213,7 @@ Specify the name of the target Cloud Service.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroup-property"></a>
 <!-- :::item name="resourceGroup"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -215,6 +226,7 @@ Specify the name of the target Resource Group.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefilteringmethod-property"></a>
 <!-- :::item name="ResourceFilteringMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -227,6 +239,7 @@ Specify the VM host name or tag that identifies a subset of VMs in a resource gr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinenames-property"></a>
 <!-- :::item name="MachineNames"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -241,6 +254,7 @@ Note: Valid delimiters for tags include &#44;(comma), &#58;(colon) and &#59;(sem
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmsadminusername-property"></a>
 <!-- :::item name="vmsAdminUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -253,6 +267,7 @@ Provide the user name of the Azure VM administrator account.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmsadminpassword-property"></a>
 <!-- :::item name="vmsAdminPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -267,6 +282,7 @@ Valid input includes variables defined in build or release pipelines such as `$(
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -281,6 +297,7 @@ Valid input includes environment variables such as `$env:windir\BudgetIT\Web`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalargumentsforblobcopy-property"></a>
 <!-- :::item name="AdditionalArgumentsForBlobCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -303,6 +320,7 @@ If no optional arguments are specified, the following arguments are added by def
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalargumentsforvmcopy-property"></a>
 <!-- :::item name="AdditionalArgumentsForVMCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -322,6 +340,7 @@ If no optional arguments are specified, the following are added by default.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablecopyprerequisites-property"></a>
 <!-- :::item name="enableCopyPrerequisites"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -334,6 +353,7 @@ When enabled, uses a self-signed certificate to configure a Windows Remote Manag
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="copyfilesinparallel-property"></a>
 <!-- :::item name="CopyFilesInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -346,6 +366,7 @@ Accepting the default setting copies files in parallel to the target VMs.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleantargetbeforecopy-property"></a>
 <!-- :::item name="CleanTargetBeforeCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -358,6 +379,7 @@ Setting this value to `true` cleans the destination folder before performing the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skipcacheck-property"></a>
 <!-- :::item name="skipCACheck"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -370,6 +392,7 @@ The default value will not validate that the server certificate was signed by a 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputstorageuri-property"></a>
 <!-- :::item name="outputStorageUri"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -382,6 +405,7 @@ Specify the name of the variable used for the storage container URI to which fil
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputstoragecontainersastoken-property"></a>
 <!-- :::item name="outputStorageContainerSasToken"::: -->
 :::moniker range="<=azure-pipelines"
 

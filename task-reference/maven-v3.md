@@ -1,7 +1,7 @@
 ---
 title: Maven@3 - Maven v3 task
 description: Build, test, and deploy with Apache Maven (task version 3).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -229,6 +229,7 @@ Use this task to build, test, and deploy with Apache Maven.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="mavenpomfile-property"></a>
 <!-- :::item name="mavenPOMFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -241,6 +242,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="goals-property"></a>
 <!-- :::item name="goals"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -253,6 +255,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -265,6 +268,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -277,6 +281,7 @@ Specifies the option to publish the JUnit test results produced by the Maven bui
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -292,6 +297,7 @@ For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`. I
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -304,6 +310,7 @@ Specifies a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowbrokensymlinks-property"></a>
 <!-- :::item name="allowBrokenSymlinks"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -316,6 +323,7 @@ If set to `false`, fails the build when the task finds a broken symbolic link wh
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragetooloption-property"></a>
 <!-- :::item name="codeCoverageToolOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -328,6 +336,7 @@ Specifies the code coverage tool. Enabling code coverage inserts the clean goal 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilter-property"></a>
 <!-- :::item name="codeCoverageClassFilter"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -340,6 +349,7 @@ Specifies a comma-separated list of filters to include or exclude classes from c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilesdirectories-property"></a>
 <!-- :::item name="codeCoverageClassFilesDirectories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -353,6 +363,7 @@ Specifies a comma-separated list of relative paths from the Maven POM file to di
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragesourcedirectories-property"></a>
 <!-- :::item name="codeCoverageSourceDirectories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -366,6 +377,7 @@ Specifies a comma-separated list of relative paths from the Maven POM file to so
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragefailifempty-property"></a>
 <!-- :::item name="codeCoverageFailIfEmpty"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -378,6 +390,7 @@ Fails the build if code coverage did not produce any results to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragerestoreoriginalpomxml-property"></a>
 <!-- :::item name="codeCoverageRestoreOriginalPomXml"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -390,6 +403,7 @@ Code coverage modifies `pom.xml` to produce results. Use this option if you need
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="javahomeoption-property"></a>
 <!-- :::item name="javaHomeOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -402,6 +416,7 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkversionoption-property"></a>
 <!-- :::item name="jdkVersionOption"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -427,6 +442,7 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkdirectory-property"></a>
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -439,6 +455,7 @@ Sets `JAVA_HOME` to the given path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkarchitectureoption-property"></a>
 <!-- :::item name="jdkArchitectureOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -462,6 +479,7 @@ Supplies the architecture (`x86`, `x64`) of the JDK.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenversionoption-property"></a>
 <!-- :::item name="mavenVersionOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -474,6 +492,7 @@ Specifies either the default Maven version or the version in the specified custo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavendirectory-property"></a>
 <!-- :::item name="mavenDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -486,6 +505,7 @@ Supplies the custom path to the Maven installation (for example: `/usr/share/mav
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavensetm2home-property"></a>
 <!-- :::item name="mavenSetM2Home"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -498,6 +518,7 @@ Sets the `M2_HOME` variable to a custom Maven installation path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenoptions-property"></a>
 <!-- :::item name="mavenOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -510,6 +531,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenauthenticatefeed-property"></a>
 <!-- :::item name="mavenAuthenticateFeed"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -533,6 +555,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="effectivepomskip-property"></a>
 <!-- :::item name="effectivePomSkip"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -556,6 +579,7 @@ Authenticates with Artifacts feeds using the POM only.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarquberunanalysis-property"></a>
 <!-- :::item name="sonarQubeRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -569,6 +593,7 @@ Enable this option to run [SonarQube or SonarCloud analysis](http://redirect.son
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isjacococoveragereportxml-property"></a>
 <!-- :::item name="isJacocoCoverageReportXML"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -581,6 +606,7 @@ Uses XML Jacoco reports for SonarQube analysis. Learn more about [test reports](
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqmavenpluginversionchoice-property"></a>
 <!-- :::item name="sqMavenPluginVersionChoice"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -593,6 +619,7 @@ Specifies the SonarQube Maven plugin version to use. You can use the latest vers
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checkstylerunanalysis-property"></a>
 <!-- :::item name="checkStyleRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -605,6 +632,7 @@ Runs the Checkstyle tool with the default Sun checks. If no Checkstyle configura
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pmdrunanalysis-property"></a>
 <!-- :::item name="pmdRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -617,6 +645,7 @@ Uses the PMD static analysis tool to look for bugs in the code. Results are uplo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="findbugsrunanalysis-property"></a>
 <!-- :::item name="findBugsRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -629,6 +658,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsrunanalysis-property"></a>
 <!-- :::item name="spotBugsRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -641,6 +671,7 @@ Enable this option to run the SpotBugs code analysis plugin. More information ab
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsversion-property"></a>
 <!-- :::item name="spotBugsVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -653,6 +684,7 @@ Learn about [the available versions of SpotBugs](https://mvnrepository.com/artif
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsgoal-property"></a>
 <!-- :::item name="spotBugsGoal"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -665,6 +697,7 @@ Specifies the goal of the plugin. Learn more about [SpotBugs goals](https://spot
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failwhenbugsfound-property"></a>
 <!-- :::item name="failWhenBugsFound"::: -->
 :::moniker range="<=azure-pipelines"
 

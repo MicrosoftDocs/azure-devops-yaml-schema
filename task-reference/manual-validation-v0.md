@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@0 - Manual validation v0 task
 description: Pause a YAML pipeline run to wait for manual interaction - Preview (task version 0).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -54,6 +54,7 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="notifyusers-property"></a>
 <!-- :::item name="notifyUsers"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +69,7 @@ This task input is required, but you can specify an empty string if you don't wa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="instructions-property"></a>
 <!-- :::item name="instructions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +82,7 @@ Specifies the instructions that are shown to the user when resuming or rejecting
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ontimeout-property"></a>
 <!-- :::item name="onTimeout"::: -->
 :::moniker range="<=azure-pipelines"
 

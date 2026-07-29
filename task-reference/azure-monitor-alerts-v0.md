@@ -1,7 +1,7 @@
 ---
 title: AzureMonitorAlerts@0 - Azure Monitor alerts (Deprecated) v0 task
 description: Configure alerts on available metrics for an Azure resource (Deprecated).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -47,6 +47,7 @@ Configure alerts on available metrics for an Azure resource (Deprecated).
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -63,6 +64,7 @@ If your subscription is not listed or if you want to use an existing service pri
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -75,6 +77,7 @@ Selects the Azure Resource Group that contains the Azure resource where you want
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcetype-property"></a>
 <!-- :::item name="ResourceType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +90,7 @@ Selects the Azure resource type.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcename-property"></a>
 <!-- :::item name="ResourceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +103,7 @@ Selects the name of the Azure resource where you want to configure an alert.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="alertrules-property"></a>
 <!-- :::item name="AlertRules"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -113,6 +118,7 @@ To add or modify alerts, click the `…` button.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="notifyserviceowners-property"></a>
 <!-- :::item name="NotifyServiceOwners"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +131,7 @@ Optional. Sends an email notification to everyone who has access to the specifie
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="notifyemails-property"></a>
 <!-- :::item name="NotifyEmails"::: -->
 :::moniker range="<=azure-pipelines"
 

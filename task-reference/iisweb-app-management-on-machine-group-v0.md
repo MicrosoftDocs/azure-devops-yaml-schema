@@ -1,7 +1,7 @@
 ---
 title: IISWebAppManagementOnMachineGroup@0 - IIS web app manage v0 task
 description: Create or update websites, web apps, virtual directories, or application pools.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -97,6 +97,7 @@ Use this task to create or update websites, web apps, virtual directories, or ap
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="enableiis-property"></a>
 <!-- :::item name="EnableIIS"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +110,7 @@ Set to `true` if you want to install IIS on the machine.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="iisdeploymenttype-property"></a>
 <!-- :::item name="IISDeploymentType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -121,6 +123,7 @@ Specifies the configuration type: website, web application, virtual directory, o
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="actioniiswebsite-property"></a>
 <!-- :::item name="ActionIISWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,6 +140,7 @@ Specifies the appropriate action that you want to perform on an IIS website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="actioniisapplicationpool-property"></a>
 <!-- :::item name="ActionIISApplicationPool"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +157,7 @@ Specifies the appropriate action that you want to perform on an IIS application 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startstopwebsitename-property"></a>
 <!-- :::item name="StartStopWebsiteName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -165,6 +170,7 @@ Specifies the name of the IIS website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitename-property"></a>
 <!-- :::item name="WebsiteName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +183,7 @@ Specifies the name of the IIS website to create or update.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitephysicalpath-property"></a>
 <!-- :::item name="WebsitePhysicalPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +196,7 @@ Specifies the physical path where the website content will be stored. The conten
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitephysicalpathauth-property"></a>
 <!-- :::item name="WebsitePhysicalPathAuth"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +209,7 @@ Specifies the authentication mechanism that will be used to access the physical 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websiteauthusername-property"></a>
 <!-- :::item name="WebsiteAuthUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -213,6 +222,7 @@ Specifies the user name that will be used to access the website's physical path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websiteauthuserpassword-property"></a>
 <!-- :::item name="WebsiteAuthUserPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -227,6 +237,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addbinding-property"></a>
 <!-- :::item name="AddBinding"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -239,6 +250,7 @@ Specifies the option to add port binding for the website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="bindings-property"></a>
 <!-- :::item name="Bindings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -269,6 +281,7 @@ Bindings: |
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createorupdateapppoolforwebsite-property"></a>
 <!-- :::item name="CreateOrUpdateAppPoolForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -281,6 +294,7 @@ Specifies the option to create or update an application pool. If checked, the we
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configureauthenticationforwebsite-property"></a>
 <!-- :::item name="ConfigureAuthenticationForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -293,6 +307,7 @@ Specifies the option to configure authentication for the website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolnameforwebsite-property"></a>
 <!-- :::item name="AppPoolNameForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -305,6 +320,7 @@ Specifies the name of the IIS application pool to create or update.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dotnetversionforwebsite-property"></a>
 <!-- :::item name="DotNetVersionForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -317,6 +333,7 @@ Specifies the version of the .NET Framework that is loaded by the application po
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pipelinemodeforwebsite-property"></a>
 <!-- :::item name="PipeLineModeForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -329,6 +346,7 @@ Specifies the managed pipeline mode to determine how IIS processes requests for 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolidentityforwebsite-property"></a>
 <!-- :::item name="AppPoolIdentityForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -341,6 +359,7 @@ Configures the account under which an application pool's worker process runs. Sp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolusernameforwebsite-property"></a>
 <!-- :::item name="AppPoolUsernameForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -353,6 +372,7 @@ Specifies the username of the custom account that you want to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolpasswordforwebsite-property"></a>
 <!-- :::item name="AppPoolPasswordForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -367,6 +387,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="anonymousauthenticationforwebsite-property"></a>
 <!-- :::item name="AnonymousAuthenticationForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -379,6 +400,7 @@ Specifies the option to enable anonymous authentication for a website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="basicauthenticationforwebsite-property"></a>
 <!-- :::item name="BasicAuthenticationForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -391,6 +413,7 @@ Specifies the option to enable basic authentication for a website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="windowsauthenticationforwebsite-property"></a>
 <!-- :::item name="WindowsAuthenticationForWebsite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -403,6 +426,7 @@ Specifies the option to enable windows authentication for a website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parentwebsitenameforvd-property"></a>
 <!-- :::item name="ParentWebsiteNameForVD"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -415,6 +439,7 @@ Specifies the name of the parent website of the virtual directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="virtualpathforvd-property"></a>
 <!-- :::item name="VirtualPathForVD"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -429,6 +454,7 @@ For example, to create a virtual directory `Site/Application/VDir`, enter `/Appl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="physicalpathforvd-property"></a>
 <!-- :::item name="PhysicalPathForVD"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -441,6 +467,7 @@ Specifies the physical path where the virtual directory's content is stored. The
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vdphysicalpathauth-property"></a>
 <!-- :::item name="VDPhysicalPathAuth"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -453,6 +480,7 @@ Specifies the authentication mechanism that is used to access the physical path 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vdauthusername-property"></a>
 <!-- :::item name="VDAuthUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -465,6 +493,7 @@ Specifies the user name that is used to access the virtual directory's physical 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vdauthuserpassword-property"></a>
 <!-- :::item name="VDAuthUserPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -479,6 +508,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parentwebsitenameforapplication-property"></a>
 <!-- :::item name="ParentWebsiteNameForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -491,6 +521,7 @@ Specifies the name of the parent website under which the application will be cre
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="virtualpathforapplication-property"></a>
 <!-- :::item name="VirtualPathForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -505,6 +536,7 @@ For example, to create an application `Site/Application`, enter `/Application`. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="physicalpathforapplication-property"></a>
 <!-- :::item name="PhysicalPathForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -517,6 +549,7 @@ Specifies the physical path where the application's content is stored. The conte
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationphysicalpathauth-property"></a>
 <!-- :::item name="ApplicationPhysicalPathAuth"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -529,6 +562,7 @@ Specifies the authentication mechanism that is used to access the physical path 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationauthusername-property"></a>
 <!-- :::item name="ApplicationAuthUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -541,6 +575,7 @@ Specifies the user name that is used to access the application's physical path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationauthuserpassword-property"></a>
 <!-- :::item name="ApplicationAuthUserPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -555,6 +590,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createorupdateapppoolforapplication-property"></a>
 <!-- :::item name="CreateOrUpdateAppPoolForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -567,6 +603,7 @@ Specifies the option to create or update an application pool. If checked, the ap
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolnameforapplication-property"></a>
 <!-- :::item name="AppPoolNameForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -579,6 +616,7 @@ Specifies the name of the IIS application pool to create or update.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dotnetversionforapplication-property"></a>
 <!-- :::item name="DotNetVersionForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -591,6 +629,7 @@ Specifies the version of the .NET Framework that is loaded by the application po
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pipelinemodeforapplication-property"></a>
 <!-- :::item name="PipeLineModeForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -603,6 +642,7 @@ Specifies the managed pipeline mode to determine how IIS processes requests for 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolidentityforapplication-property"></a>
 <!-- :::item name="AppPoolIdentityForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -615,6 +655,7 @@ Configures the account under which an application pool's worker process runs. Sp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolusernameforapplication-property"></a>
 <!-- :::item name="AppPoolUsernameForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -627,6 +668,7 @@ Specifies the username of the custom account that you want to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolpasswordforapplication-property"></a>
 <!-- :::item name="AppPoolPasswordForApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -641,6 +683,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolname-property"></a>
 <!-- :::item name="AppPoolName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -653,6 +696,7 @@ Specifies the name of the IIS application pool to create or update.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dotnetversion-property"></a>
 <!-- :::item name="DotNetVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -665,6 +709,7 @@ Specifies the version of the .NET Framework that is loaded by the application po
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pipelinemode-property"></a>
 <!-- :::item name="PipeLineMode"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -677,6 +722,7 @@ Specifies the managed pipeline mode to determine how IIS processes requests for 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolidentity-property"></a>
 <!-- :::item name="AppPoolIdentity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -689,6 +735,7 @@ Configures the account under which an application pool's worker process runs. Sp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolusername-property"></a>
 <!-- :::item name="AppPoolUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -701,6 +748,7 @@ Specifies the username of the custom account that you want to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolpassword-property"></a>
 <!-- :::item name="AppPoolPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -715,6 +763,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startstoprecycleapppoolname-property"></a>
 <!-- :::item name="StartStopRecycleAppPoolName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -727,6 +776,7 @@ Specifies the name of the IIS application pool.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appcmdcommands-property"></a>
 <!-- :::item name="AppCmdCommands"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -61,6 +61,7 @@ This task supports custom variables. If you're not familiar with how to use vari
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="action-property"></a>
 <!-- :::item name="action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +80,7 @@ Selects an Azure IoT Edge action.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentfilepath-property"></a>
 <!-- :::item name="deploymentFilePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +95,7 @@ Selects the deployment json file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +108,7 @@ Selects an Azure subscription that contains IoT Hub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="iothubname-property"></a>
 <!-- :::item name="iothubname"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +121,7 @@ Selects the IoT Hub.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentid-property"></a>
 <!-- :::item name="deploymentid"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +136,7 @@ Inputs the IoT Edge Deployment ID. If the ID already exists, it will be overridd
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="priority-property"></a>
 <!-- :::item name="priority"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -144,6 +150,7 @@ Sets the `priority` to a positive integer to resolve deployment conflicts.  When
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deviceoption-property"></a>
 <!-- :::item name="deviceOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -156,6 +163,7 @@ According to tags, chooses to deploy to single or multiple devices.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deviceid-property"></a>
 <!-- :::item name="deviceId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -168,6 +176,7 @@ Inputs the IoT Edge `device ID`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetcondition-property"></a>
 <!-- :::item name="targetcondition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -181,6 +190,7 @@ Inputs the `target condition` of devices you would like to deploy. Do not use do
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containerregistrytype-property"></a>
 <!-- :::item name="containerregistrytype"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -194,6 +204,7 @@ Selects a `Container Registry Type`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryconnection-property"></a>
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -206,6 +217,7 @@ Selects a generic Docker registry connection. This is required for build and pus
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscriptionendpoint-property"></a>
 <!-- :::item name="azureSubscriptionEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -218,6 +230,7 @@ Selects an Azure subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistry-property"></a>
 <!-- :::item name="azureContainerRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -234,6 +247,7 @@ azureContainerRegistry: '{"loginServer": "contoso.azurecr.io"}
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="templatefilepath-property"></a>
 <!-- :::item name="templateFilePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -246,6 +260,7 @@ The path of Azure IoT Edge solution `.template.json`. This file defines the modu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="defaultplatform-property"></a>
 <!-- :::item name="defaultPlatform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -258,6 +273,7 @@ In your `.template.json`, you can leave the modules platform unspecified. For th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="fillregistrycredential-property"></a>
 <!-- :::item name="fillRegistryCredential"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -270,6 +286,7 @@ Adds the registry credential for pushing docker images to the deployment manifes
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentmanifestoutputpath-property"></a>
 <!-- :::item name="deploymentManifestOutputPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -282,6 +299,7 @@ The output path of the generated deployment manifest.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="validategenerateddeploymentmanifest-property"></a>
 <!-- :::item name="validateGeneratedDeploymentManifest"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -294,6 +312,7 @@ Fail this step if the generated deployment manifest does not pass schema validat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="bypassmodules-property"></a>
 <!-- :::item name="bypassModules"::: -->
 :::moniker range="<=azure-pipelines"
 

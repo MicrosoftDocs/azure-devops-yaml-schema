@@ -1,7 +1,7 @@
 ---
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -47,6 +47,7 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="targettype-property"></a>
 <!-- :::item name="targetType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -59,6 +60,7 @@ Targets script type: file path or inline.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filepath-property"></a>
 <!-- :::item name="filePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +73,7 @@ The path of the script to execute. This must be a fully qualified path or relati
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +86,7 @@ The arguments passed to the shell script. Either ordinal parameters or named par
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="script-property"></a>
 <!-- :::item name="script"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +99,7 @@ The contents of the script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +112,7 @@ Specifies the working directory in which you want to run the command. If you lea
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstderr-property"></a>
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +125,7 @@ If this is true, this task will fail if any errors are written to the `StandardE
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="bashenvvalue-property"></a>
 <!-- :::item name="bashEnvValue"::: -->
 :::moniker range="<=azure-pipelines"
 

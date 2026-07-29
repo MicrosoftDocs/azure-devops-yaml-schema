@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@1 - FTP upload v1 task
 description: Upload files using FTP (task version 1).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -62,6 +62,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="credentialsoption-property"></a>
 <!-- :::item name="credentialsOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +75,7 @@ Specifies the authentication method. Use an FTP service connection or enter the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="serverendpoint-property"></a>
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +90,7 @@ Secure connections will always be made regardless of the specified protocol (`ft
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="serverurl-property"></a>
 <!-- :::item name="serverUrl"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +103,7 @@ Specifies the URL for the FTP server.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="username-property"></a>
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,6 +116,7 @@ Specifies the user name for the FTP connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="password-property"></a>
 <!-- :::item name="password"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -124,6 +129,7 @@ Specifies the password for the FTP connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="rootdirectory-property"></a>
 <!-- :::item name="rootDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -136,6 +142,7 @@ Specifies the source folder to upload files from.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filepatterns-property"></a>
 <!-- :::item name="filePatterns"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -148,6 +155,7 @@ Specifies the file paths or patterns of the files to upload. The string supports
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="remotedirectory-property"></a>
 <!-- :::item name="remoteDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +168,7 @@ Specifies the directory on the remote FTP server where the task uploads files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="clean-property"></a>
 <!-- :::item name="clean"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -172,6 +181,7 @@ Deletes the remote directory, including its contents, before uploading.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleancontents-property"></a>
 <!-- :::item name="cleanContents"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -184,6 +194,7 @@ Recursively deletes all content in the remote directory before uploading. The ex
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overwrite-property"></a>
 <!-- :::item name="overwrite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -196,6 +207,7 @@ Overwrites existing files in the remote directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="preservepaths-property"></a>
 <!-- :::item name="preservePaths"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -210,6 +222,7 @@ For example, suppose your source folder is `/home/user/source/`, which contains 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trustssl-property"></a>
 <!-- :::item name="trustSSL"::: -->
 :::moniker range="<=azure-pipelines"
 

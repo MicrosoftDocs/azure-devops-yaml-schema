@@ -1,7 +1,7 @@
 ---
 title: Gradle@3 - Gradle v3 task
 description: Build using a Gradle wrapper script (task version 3).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -147,6 +147,7 @@ Use this task to build using a Gradle wrapper script.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="gradlewrapperfile-property"></a>
 <!-- :::item name="gradleWrapperFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,6 +160,7 @@ Specifies the `gradlew` wrapper's location within the repository that will be us
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -171,6 +173,7 @@ Specifies the working directory to run the Gradle build. The task uses the repos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -183,6 +186,7 @@ Specifies the command line options that will be passed to the Gradle wrapper. Se
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tasks-property"></a>
 <!-- :::item name="tasks"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -197,6 +201,7 @@ See [Gradle Build Script Basics](https://docs.gradle.org/current/userguide/tutor
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -209,6 +214,7 @@ Publishes JUnit test results produced by the Gradle build to Azure Pipelines. Th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -221,6 +227,7 @@ The file path for test results. [Wildcards](/azure/devops/pipelines/tasks/file-m
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -233,6 +240,7 @@ Provides a name for the JUnit test case results for this build.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragetooloption-property"></a>
 <!-- :::item name="codeCoverageToolOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -245,6 +253,7 @@ Specifies a code coverage tool to determine the code that is covered by the test
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilesdirectories-property"></a>
 <!-- :::item name="codeCoverageClassFilesDirectories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -257,6 +266,7 @@ The comma-separated list of directories containing class files and archive files
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilter-property"></a>
 <!-- :::item name="codeCoverageClassFilter"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -269,6 +279,7 @@ The comma-separated list of filters to include or exclude classes from collectin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragefailifempty-property"></a>
 <!-- :::item name="codeCoverageFailIfEmpty"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -281,6 +292,7 @@ Fails the build if code coverage did not produce any results to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragegradle5xorhigher-property"></a>
 <!-- :::item name="codeCoverageGradle5xOrHigher"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -293,6 +305,7 @@ Set this to 'true' if gradle version is >= 5.x.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="javahomeoption-property"></a>
 <!-- :::item name="javaHomeOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -305,6 +318,7 @@ Sets JAVA_HOME by selecting a JDK version that the task discovers during builds 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkversionoption-property"></a>
 <!-- :::item name="jdkVersionOption"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -328,6 +342,7 @@ Attempts to discover the path to the selected JDK version and set JAVA_HOME acco
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkdirectory-property"></a>
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -340,6 +355,7 @@ Sets JAVA_HOME to the given path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkarchitectureoption-property"></a>
 <!-- :::item name="jdkArchitectureOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -363,6 +379,7 @@ Supplies the JDK architecture (x86 or x64).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gradleoptions-property"></a>
 <!-- :::item name="gradleOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -375,6 +392,7 @@ Sets the GRADLE_OPTS environment variable, which is used to send command-line ar
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarquberunanalysis-property"></a>
 <!-- :::item name="sonarQubeRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -387,6 +405,7 @@ This option has changed from version 1 of the **Gradle** task to use the [SonarQ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqgradlepluginversionchoice-property"></a>
 <!-- :::item name="sqGradlePluginVersionChoice"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -399,6 +418,7 @@ Specifies the SonarQube Gradle plugin version to use. Declare the version in the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubegradlepluginversion-property"></a>
 <!-- :::item name="sonarQubeGradlePluginVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -411,6 +431,7 @@ Contains the version number of the [SonarQube Gradle plugin](https://plugins.gra
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checkstylerunanalysis-property"></a>
 <!-- :::item name="checkStyleRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -423,6 +444,7 @@ Runs the Checkstyle tool with the default Sun checks. Results are uploaded as bu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="findbugsrunanalysis-property"></a>
 <!-- :::item name="findBugsRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -435,6 +457,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pmdrunanalysis-property"></a>
 <!-- :::item name="pmdRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -447,6 +470,7 @@ Uses the PMD Java static analysis tool to look for bugs in the code. The results
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsanalysis-property"></a>
 <!-- :::item name="spotBugsAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -459,6 +483,7 @@ Runs `spotBugs` when `true`. This plugin works with Gradle v5.6 or later. Learn 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsgradlepluginversionchoice-property"></a>
 <!-- :::item name="spotBugsGradlePluginVersionChoice"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -471,6 +496,7 @@ Specifies the SpotBugs Gradle plugin version to use. The version can be declared
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsgradlepluginversion-property"></a>
 <!-- :::item name="spotbugsGradlePluginVersion"::: -->
 :::moniker range="<=azure-pipelines"
 

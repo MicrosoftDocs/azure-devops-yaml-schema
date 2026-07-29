@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@1 - .NET Core v1 task
 description: Build, test and publish using dotnet core command-line (task version 1).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -43,6 +43,7 @@ For a newer version of this task, see [DotNetCoreCLI@2](dotnet-core-cli-v2.md).
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ The dotnet command to run. Specify `custom` to add arguments or use a command no
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishwebprojects-property"></a>
 <!-- :::item name="publishWebProjects"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +69,7 @@ If this input is set to `true`, the `projects` property value is skipped, and th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projects-property"></a>
 <!-- :::item name="projects"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +82,7 @@ The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.cspr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +97,7 @@ This input currently only accepts arguments for `build`, `publish`, `run`, `test
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="zipafterpublish-property"></a>
 <!-- :::item name="zipAfterPublish"::: -->
 :::moniker range="<=azure-pipelines"
 

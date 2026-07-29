@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@1 - Azure CLI v1 task
 description: Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -83,6 +83,7 @@ Run Azure CLI commands against an Azure subscription in a shell script when runn
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +96,7 @@ Selects an Azure Resource Manager subscription for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptlocation-property"></a>
 <!-- :::item name="scriptLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +109,7 @@ Selects the script location.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="scriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +122,7 @@ Fully qualified path of the script or a path relative to the the default working
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinescript-property"></a>
 <!-- :::item name="inlineScript"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -140,6 +144,7 @@ call  azure --version || call azure account show
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -152,6 +157,7 @@ Arguments passed to the script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addspntoenvironment-property"></a>
 <!-- :::item name="addSpnToEnvironment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -166,6 +172,7 @@ This is honored only when the Azure endpoint has Service Principal authenticatio
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="useglobalconfig-property"></a>
 <!-- :::item name="useGlobalConfig"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -178,6 +185,7 @@ If this is false, this task will use its own separate [Azure CLI configuration d
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -190,6 +198,7 @@ Current working directory where the script is run. If left blank, this input is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 

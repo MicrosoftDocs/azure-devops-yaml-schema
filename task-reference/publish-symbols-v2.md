@@ -1,7 +1,7 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -86,6 +86,7 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="symbolsfolder-property"></a>
 <!-- :::item name="SymbolsFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +101,7 @@ Specifies the path to the folder that is searched for with symbol files. The def
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="searchpattern-property"></a>
 <!-- :::item name="SearchPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,6 +114,7 @@ Specifies the pattern used to discover the PDB files to publish. See [File match
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="manifest-property"></a>
 <!-- :::item name="Manifest"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -124,6 +127,7 @@ The path to a file containing more symbol client keys to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="indexsources-property"></a>
 <!-- :::item name="IndexSources"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -136,6 +140,7 @@ Specifies whether to inject source server information into the PDB files. This o
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishsymbols-property"></a>
 <!-- :::item name="PublishSymbols"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -148,6 +153,7 @@ Specifies whether to publish the symbol files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolservertype-property"></a>
 <!-- :::item name="SymbolServerType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +166,7 @@ Specifies where to publish symbols. Symbols published to the Azure Artifacts sym
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolspath-property"></a>
 <!-- :::item name="SymbolsPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -178,6 +185,7 @@ If you leave this argument blank, your symbols will be source indexed but not pu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="compresssymbols-property"></a>
 <!-- :::item name="CompressSymbols"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -190,6 +198,7 @@ Compresses symbols when publishing to file share.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolexpirationindays-property"></a>
 <!-- :::item name="SymbolExpirationInDays"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -202,6 +211,7 @@ Specifies the number of days that symbols should be retained.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="indexablefileformats-property"></a>
 <!-- :::item name="IndexableFileFormats"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -219,6 +229,7 @@ Specifies which debug formats to publish to the symbol server.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="detailedlog-property"></a>
 <!-- :::item name="DetailedLog"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -231,6 +242,7 @@ Specifies verbose logging.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="treatnotindexedaswarning-property"></a>
 <!-- :::item name="TreatNotIndexedAsWarning"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -243,6 +255,7 @@ Specifies whether to warn if sources are not indexed for a PDB file. Otherwise, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usenetcoreclienttool-property"></a>
 <!-- :::item name="UseNetCoreClientTool"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -255,6 +268,7 @@ Specifies whether to use a version of the symbol upload tool that supports DWARF
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsmaximumwaittime-property"></a>
 <!-- :::item name="SymbolsMaximumWaitTime"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -267,6 +281,7 @@ Specifies the number of minutes to wait before failing this task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsproduct-property"></a>
 <!-- :::item name="SymbolsProduct"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -279,6 +294,7 @@ Specifies the product parameter to `symstore.exe`.  The default is `$(Build.Defi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsversion-property"></a>
 <!-- :::item name="SymbolsVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -291,6 +307,7 @@ Specifies the version parameter to `symstore.exe`.  The default is `$(Build.Buil
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsartifactname-property"></a>
 <!-- :::item name="SymbolsArtifactName"::: -->
 :::moniker range="<=azure-pipelines"
 

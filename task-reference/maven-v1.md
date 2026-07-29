@@ -1,7 +1,7 @@
 ---
 title: Maven@1 - Maven v1 task
 description: Build with Apache Maven (task version 1).
-ms.date: 07/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -76,6 +76,7 @@ This version of the task is deprecated; use [Maven@4](./maven-v4.md).
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="mavenpomfile-property"></a>
 <!-- :::item name="mavenPOMFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +89,7 @@ Specifies the relative path from the repository root to the Maven POM file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="goals-property"></a>
 <!-- :::item name="goals"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +101,7 @@ Specifies the relative path from the repository root to the Maven POM file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +113,7 @@ Specifies the relative path from the repository root to the Maven POM file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +126,7 @@ Specifies the option to publish the JUnit test results produced by the Maven bui
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +139,7 @@ Specifies the path and pattern of the test results files to publish. For example
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -146,6 +152,7 @@ Specifies a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragetooloption-property"></a>
 <!-- :::item name="codeCoverageToolOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -158,6 +165,7 @@ Specifies the code coverage tool.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilter-property"></a>
 <!-- :::item name="codeCoverageClassFilter"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -170,6 +178,7 @@ Specifies a comma-separated list of filters to include or exclude classes from c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilesdirectories-property"></a>
 <!-- :::item name="codeCoverageClassFilesDirectories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -183,6 +192,7 @@ Specifies a comma-separated list of relative paths from the Maven POM file to th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragesourcedirectories-property"></a>
 <!-- :::item name="codeCoverageSourceDirectories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -196,6 +206,7 @@ Specifies a comma-separated list of relative paths from the Maven POM file to so
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragefailifempty-property"></a>
 <!-- :::item name="codeCoverageFailIfEmpty"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -208,6 +219,7 @@ Fails the build if code coverage did not produce any results to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="javahomeoption-property"></a>
 <!-- :::item name="javaHomeOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -220,6 +232,7 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkversionoption-property"></a>
 <!-- :::item name="jdkVersionOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -232,6 +245,7 @@ Attempts to discover the path to the selected JDK version, and sets `JAVA_HOME` 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkdirectory-property"></a>
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -244,6 +258,7 @@ Sets `JAVA_HOME` to the given path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkarchitectureoption-property"></a>
 <!-- :::item name="jdkArchitectureOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -256,6 +271,7 @@ Supplies the architecture (`x86`, `x64`) of the JDK.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenversionoption-property"></a>
 <!-- :::item name="mavenVersionOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -268,6 +284,7 @@ Uses either the default Maven version or the version in the specified custom pat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavendirectory-property"></a>
 <!-- :::item name="mavenDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -280,6 +297,7 @@ Supplies the custom path to the Maven installation (for example: `/usr/share/mav
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavensetm2home-property"></a>
 <!-- :::item name="mavenSetM2Home"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -292,6 +310,7 @@ Sets the `M2_HOME` variable to a custom Maven installation path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenoptions-property"></a>
 <!-- :::item name="mavenOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -304,6 +323,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenauthenticatefeed-property"></a>
 <!-- :::item name="mavenAuthenticateFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -316,6 +336,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarquberunanalysis-property"></a>
 <!-- :::item name="sonarQubeRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -328,6 +349,7 @@ Runs a [SonarQube analysis](https://go.microsoft.com/fwlink/?LinkID=708598) afte
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubeserviceendpoint-property"></a>
 <!-- :::item name="sonarQubeServiceEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -340,6 +362,7 @@ Specifies the SonarQube server generic endpoint.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubeprojectname-property"></a>
 <!-- :::item name="sonarQubeProjectName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -352,6 +375,7 @@ Specifies the SonarQube project name, for example `sonar.projectName`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubeprojectkey-property"></a>
 <!-- :::item name="sonarQubeProjectKey"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -364,6 +388,7 @@ Specifies the SonarQube project unique key, for example `sonar.projectKey`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubeprojectversion-property"></a>
 <!-- :::item name="sonarQubeProjectVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -376,6 +401,7 @@ Specifies the SonarQube project version, for example `sonar.projectVersion`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubespecifydb-property"></a>
 <!-- :::item name="sonarQubeSpecifyDB"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -388,6 +414,7 @@ If using a SonarQube server 5.1 or lower, you must specify the database connecti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubedburl-property"></a>
 <!-- :::item name="sonarQubeDBUrl"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -401,6 +428,7 @@ Specifies the database connection setting (for example, `sonar.jdbc.url` or `jdb
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubedbusername-property"></a>
 <!-- :::item name="sonarQubeDBUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -414,6 +442,7 @@ Specifies the username for the database user (for example, `sonar.jdbc.username`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubedbpassword-property"></a>
 <!-- :::item name="sonarQubeDBPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -427,6 +456,7 @@ Specifies the password for the database user (for example, `sonar.jdbc.password`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubeincludefullreport-property"></a>
 <!-- :::item name="sonarQubeIncludeFullReport"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -439,6 +469,7 @@ This option will delay the build until the SonarQube analysis is completed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubefailwhenqualitygatefails-property"></a>
 <!-- :::item name="sonarQubeFailWhenQualityGateFails"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -451,6 +482,7 @@ This option is only available when using a SonarQube server 5.3 or above. Introd
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checkstylerunanalysis-property"></a>
 <!-- :::item name="checkStyleRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -463,6 +495,7 @@ Runs the Checkstyle tool with the default Sun checks. Results are uploaded as bu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pmdrunanalysis-property"></a>
 <!-- :::item name="pmdRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -475,6 +508,7 @@ Uses the PMD static analysis tool to look for bugs in the code. Results are uplo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="findbugsrunanalysis-property"></a>
 <!-- :::item name="findBugsRunAnalysis"::: -->
 :::moniker range="<=azure-pipelines"
 

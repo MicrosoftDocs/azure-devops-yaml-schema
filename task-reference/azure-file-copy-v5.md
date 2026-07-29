@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@5 - Azure file copy v5 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 5).
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 ---
 
@@ -56,6 +56,7 @@ Copy files to Azure Blob Storage or virtual machines.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sourcepath-property"></a>
 <!-- :::item name="SourcePath"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -70,6 +71,7 @@ The location of source files. Supported values include YAML Pipelines and Classi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -82,6 +84,7 @@ Specify the name of an [Azure Resource Manager service connection](/azure/devops
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destination-property"></a>
 <!-- :::item name="Destination"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -94,6 +97,7 @@ Specify the destination type.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="storage-property"></a>
 <!-- :::item name="storage"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -106,6 +110,7 @@ Specify a pre-existing ARM storage account. This is the storage account used as 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containername-property"></a>
 <!-- :::item name="ContainerName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -120,6 +125,7 @@ To create a virtual directory inside the container, use the blob prefix input. F
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="blobprefix-property"></a>
 <!-- :::item name="BlobPrefix"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -138,6 +144,7 @@ In the case that the `SourcePath` is a single item with no wildcard, this blob p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroup-property"></a>
 <!-- :::item name="resourceGroup"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -150,6 +157,7 @@ Specify the name of the target Resource Group into which the files will be copie
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefilteringmethod-property"></a>
 <!-- :::item name="ResourceFilteringMethod"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -162,6 +170,7 @@ Specify a VM host name or tag that identifies a subset of VMs in a resource grou
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinenames-property"></a>
 <!-- :::item name="MachineNames"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -180,6 +189,7 @@ Provide a list of VM names or tag names that identify the VMs the task will targ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmsadminusername-property"></a>
 <!-- :::item name="vmsAdminUserName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -195,6 +205,7 @@ Provide the user name of an account with administrative permissions on all of th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmsadminpassword-property"></a>
 <!-- :::item name="vmsAdminPassword"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -209,6 +220,7 @@ To find the variable, locate the `Admin Login` parameter. Select the padlock ico
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="TargetPath"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -223,6 +235,7 @@ Environment variables such as `$env:windir` and `$env:systemroot` are supported.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalargumentsforblobcopy-property"></a>
 <!-- :::item name="AdditionalArgumentsForBlobCopy"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -239,6 +252,7 @@ Default arguments include `--log-level=INFO` (default) and `--recursive` (if the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalargumentsforvmcopy-property"></a>
 <!-- :::item name="AdditionalArgumentsForVMCopy"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -257,6 +271,7 @@ If no optional arguments are specified, the following are added by default:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sastokentimeoutinminutes-property"></a>
 <!-- :::item name="sasTokenTimeOutInMinutes"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -269,6 +284,7 @@ Specify the time in minutes after which the SAS token for the container will exp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablecopyprerequisites-property"></a>
 <!-- :::item name="enableCopyPrerequisites"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -284,6 +300,7 @@ When enabled, this option uses a self-signed certificate to configure the Window
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="copyfilesinparallel-property"></a>
 <!-- :::item name="CopyFilesInParallel"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -296,6 +313,7 @@ Specify `true` to copy files in parallel to the target VMs.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleantargetbeforecopy-property"></a>
 <!-- :::item name="CleanTargetBeforeCopy"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -308,6 +326,7 @@ Specify `true` to clean-up the destination folder before copying files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skipcacheck-property"></a>
 <!-- :::item name="skipCACheck"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

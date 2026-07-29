@@ -1,7 +1,7 @@
 ---
 title: IISWebAppDeployment@1 - IIS Web App deployment (Deprecated) v1 task
 description: Deploy using MSDeploy, then create/update websites and app pools.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -95,6 +95,7 @@ Use this task to deploy IIS Web App using MSDeploy, then create or update websit
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="environmentname-property"></a>
 <!-- :::item name="EnvironmentName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +108,7 @@ Specifies a comma-separated list of machine IP addresses or FQDNs, along with po
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminusername-property"></a>
 <!-- :::item name="AdminUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +121,7 @@ Specifies the administrator login for the target machines.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminpassword-property"></a>
 <!-- :::item name="AdminPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +134,7 @@ Specifies the administrator password for the target machines. It can accept vari
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="winrmprotocol-property"></a>
 <!-- :::item name="WinRMProtocol"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -143,6 +147,7 @@ Specifies the protocol used for the WinRM connection with the machine(s). The de
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testcertificate-property"></a>
 <!-- :::item name="TestCertificate"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -155,6 +160,7 @@ Selects the option to skip validating the authenticity of the machine's certific
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webdeploypackage-property"></a>
 <!-- :::item name="WebDeployPackage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -167,6 +173,7 @@ Specifies the location of the Web Deploy (MSDeploy) zip file on the target machi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webdeployparamfile-property"></a>
 <!-- :::item name="WebDeployParamFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -179,6 +186,7 @@ Specifies the location of the parameter file on the target machines or on a UNC 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overrideparams-property"></a>
 <!-- :::item name="OverRideParams"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -192,6 +200,7 @@ For example, `"IIS Web Application Name"="Fabrikam"` or `"ConnectionString"="Ser
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createwebsite-property"></a>
 <!-- :::item name="CreateWebSite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -204,6 +213,7 @@ Specifies the option to create a website or to update an existing website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitename-property"></a>
 <!-- :::item name="WebSiteName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -216,6 +226,7 @@ Specifies the name of the IIS website that will be created if it does not exist,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitephysicalpath-property"></a>
 <!-- :::item name="WebSitePhysicalPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -228,6 +239,7 @@ Specifies the physical path where the website content is stored. The content can
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websitephysicalpathauth-property"></a>
 <!-- :::item name="WebSitePhysicalPathAuth"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -240,6 +252,7 @@ Specifies the authentication mechanism for accessing the physical path of the we
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websiteauthusername-property"></a>
 <!-- :::item name="WebSiteAuthUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -252,6 +265,7 @@ Specifies the user name for accessing the website's physical path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="websiteauthuserpassword-property"></a>
 <!-- :::item name="WebSiteAuthUserPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -264,6 +278,7 @@ Specifies the password for accessing the website's physical path. If you are usi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addbinding-property"></a>
 <!-- :::item name="AddBinding"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -276,6 +291,7 @@ Specifies the option to add port binding for the website.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="assignduplicatebinding-property"></a>
 <!-- :::item name="AssignDuplicateBinding"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -288,6 +304,7 @@ Specifies the option to add the bindings specified here (even if there is anothe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="protocol-property"></a>
 <!-- :::item name="Protocol"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -300,6 +317,7 @@ Specifies either HTTP for the website to have an HTTP binding or HTTPS for the w
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ipaddress-property"></a>
 <!-- :::item name="IPAddress"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -312,6 +330,7 @@ Specifies an IP address that users can use to access the website. If **All Unass
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="port-property"></a>
 <!-- :::item name="Port"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -324,6 +343,7 @@ Specifies the port on which Hypertext Transfer Protocol Stack (HTTP.sys) must mo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servernameindication-property"></a>
 <!-- :::item name="ServerNameIndication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -336,6 +356,7 @@ Determines whether the website requires Server Name Indication (SNI). SNI extend
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="hostnamewithoutsni-property"></a>
 <!-- :::item name="HostNameWithOutSNI"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -348,6 +369,7 @@ Assigns one or more host names (or domain names) to a computer that uses a singl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="hostnamewithhttp-property"></a>
 <!-- :::item name="HostNameWithHttp"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -360,6 +382,7 @@ Assigns one or more host names (or domain names) to a computer that uses a singl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="hostnamewithsni-property"></a>
 <!-- :::item name="HostNameWithSNI"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -372,6 +395,7 @@ Assigns one or more host names (or domain names) to a computer that uses a singl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sslcertthumbprint-property"></a>
 <!-- :::item name="SSLCertThumbPrint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -384,6 +408,7 @@ Specifies the thumb-print of the Secure Socket Layer certificate that the websit
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createapppool-property"></a>
 <!-- :::item name="CreateAppPool"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -396,6 +421,7 @@ Specifies the option to create an application pool or to update an existing appl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolname-property"></a>
 <!-- :::item name="AppPoolName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -408,6 +434,7 @@ Specifies the name of the IIS application pool to create or update. The existing
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dotnetversion-property"></a>
 <!-- :::item name="DotNetVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -420,6 +447,7 @@ Specifies the version of the .NET Framework that is loaded by this application p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pipelinemode-property"></a>
 <!-- :::item name="PipeLineMode"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -432,6 +460,7 @@ Managed pipeline mode specifies how IIS processes requests for managed content. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolidentity-property"></a>
 <!-- :::item name="AppPoolIdentity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -444,6 +473,7 @@ Configures the account under which an application pool's worker process runs. Sp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolusername-property"></a>
 <!-- :::item name="AppPoolUsername"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -455,6 +485,7 @@ Configures the account under which an application pool's worker process runs. Sp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppoolpassword-property"></a>
 <!-- :::item name="AppPoolPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -467,6 +498,7 @@ If you are using a gMSA, this is not required.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appcmdcommands-property"></a>
 <!-- :::item name="AppCmdCommands"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -482,6 +514,7 @@ For example:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deployinparallel-property"></a>
 <!-- :::item name="DeployInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -494,6 +527,7 @@ If set to `true`, the Web application is deployed in-parallel on the target mach
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefilteringmethod-property"></a>
 <!-- :::item name="ResourceFilteringMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -506,6 +540,7 @@ Optional. Specifies a subset of machines by providing machine names or tags.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinefilter-property"></a>
 <!-- :::item name="MachineFilter"::: -->
 :::moniker range="<=azure-pipelines"
 

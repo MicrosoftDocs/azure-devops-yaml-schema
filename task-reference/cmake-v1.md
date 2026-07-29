@@ -1,7 +1,7 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -40,6 +40,7 @@ Use this task to build with the CMake cross-platform build system.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -58,6 +59,7 @@ If the path you specify does not exist, CMake creates it.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cmakeargs-property"></a>
 <!-- :::item name="cmakeArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +72,7 @@ The arguments passed to CMake.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runinsideshell-property"></a>
 <!-- :::item name="runInsideShell"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: Cache@2 - Cache v2 task
 description: Cache files between runs.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -41,6 +41,7 @@ Improve build performance by using this task to cache files, such as dependencie
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="key-property"></a>
 <!-- :::item name="key"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ While there is no defined maximum number of segments for a key, if you are getti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="path-property"></a>
 <!-- :::item name="path"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +69,7 @@ The path of the folder to cache. Can be fully qualified or relative to `$(System
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cachehitvar-property"></a>
 <!-- :::item name="cacheHitVar"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +82,7 @@ The variable to set based on cache restoration. It will be `true` when the cache
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restorekeys-property"></a>
 <!-- :::item name="restoreKeys"::: -->
 :::moniker range="<=azure-pipelines"
 

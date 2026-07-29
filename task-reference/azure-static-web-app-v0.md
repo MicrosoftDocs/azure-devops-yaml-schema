@@ -1,7 +1,7 @@
 ---
 title: AzureStaticWebApp@0 - Deploy Azure Static Web App v0 task
 description: Build and deploy an Azure Static Web App.
-ms.date: 06/30/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -81,6 +81,7 @@ This task builds and deploys an Azure Static Web app.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +94,7 @@ Specifies the absolute working directory in which to execute this task. If left 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="app_location-property"></a>
 <!-- :::item name="app_location"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +107,7 @@ The directory location of the application source code, relative to the working d
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="app_build_command-property"></a>
 <!-- :::item name="app_build_command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +120,7 @@ The custom command used to run Oryx when building application source code.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="output_location-property"></a>
 <!-- :::item name="output_location"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +133,7 @@ The directory location of the compiled application code after building is comple
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="api_location-property"></a>
 <!-- :::item name="api_location"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +146,7 @@ The directory location of the Azure Functions source code, relative to the worki
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="api_build_command-property"></a>
 <!-- :::item name="api_build_command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +159,7 @@ The custom command used to run Oryx when building Azure Functions source code.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="routes_location-property"></a>
 <!-- :::item name="routes_location"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -166,6 +173,7 @@ The directory location of the routes.json file, relative to the working director
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="config_file_location-property"></a>
 <!-- :::item name="config_file_location"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -178,6 +186,7 @@ The directory location of the staticwebapp.config.json file, relative to the wor
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skip_app_build-property"></a>
 <!-- :::item name="skip_app_build"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -190,6 +199,7 @@ Skips Oryx build for the app folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skip_api_build-property"></a>
 <!-- :::item name="skip_api_build"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -202,6 +212,7 @@ Skips Oryx build for the API folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="is_static_export-property"></a>
 <!-- :::item name="is_static_export"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -216,6 +227,7 @@ When this flag is set to `true`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbose-property"></a>
 <!-- :::item name="verbose"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -228,6 +240,7 @@ Enables verbose logging.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="build_timeout_in_minutes-property"></a>
 <!-- :::item name="build_timeout_in_minutes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -240,6 +253,7 @@ Specifies the time limit of the Oryx app folder build in minutes.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azure_static_web_apps_api_token-property"></a>
 <!-- :::item name="azure_static_web_apps_api_token"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -253,6 +267,7 @@ Specifies the API token for deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deployment_environment-property"></a>
 <!-- :::item name="deployment_environment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -265,6 +280,7 @@ Specifies the environment to deploy to. Leave blank for the production environme
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="production_branch-property"></a>
 <!-- :::item name="production_branch"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -277,6 +293,7 @@ Specifies the production branch. When defined, and the deployment environment is
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="data_api_location-property"></a>
 <!-- :::item name="data_api_location"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
