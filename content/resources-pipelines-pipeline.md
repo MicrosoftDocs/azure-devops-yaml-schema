@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 06/29/2026
+ms.date: 07/29/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie

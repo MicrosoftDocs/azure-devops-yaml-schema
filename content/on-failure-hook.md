@@ -1,7 +1,7 @@
 ---
 title: onFailureHook definition
 description: Used to run steps for rollback actions.
-ms.date: 06/29/2026
+ms.date: 07/29/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
