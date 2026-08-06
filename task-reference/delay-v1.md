@@ -90,7 +90,7 @@ The following YAML snippet creates a job to delay for 30 minutes before continui
 - job: DelayTask
   pool: server # 'server' is a reserved word for agentless jobs. Delay task must be agentless.
   steps:
-  - task: Delay@V1
+  - task: Delay@1
     inputs:
       delayForMinutes: '30'
 ```
@@ -103,7 +103,7 @@ The following YAML snippet creates a job which delays for 7 days (10080 minutes)
   pool: server
   timeoutInMinutes: 10081
   steps:
-  - task: Delay@V1
+  - task: Delay@1
     inputs:
       delayForMinutes: '10080'
 ```
