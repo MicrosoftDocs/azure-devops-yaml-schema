@@ -1,10 +1,10 @@
 ---
 title: AzureAppServiceSettings@1 - Azure App Service Settings v1 task
 description: Update/Add App settings an Azure Web App for Linux or Windows.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureAppServiceSettings@1 - Azure App Service Settings v1 task
@@ -45,6 +45,7 @@ Updates or adds app service settings in an Azure Web App for Linux or Windows.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,6 +58,7 @@ Selects the Azure Resource Manager subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +71,7 @@ Enters or selects the name of an existing Azure App Service.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="resourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +84,7 @@ Enters or selects the Azure Resource Group that contains the Azure App Service s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="slotName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +97,7 @@ Enters or selects an existing slot. If you don't select a slot, changes are made
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appsettings-property"></a>
 <!-- :::item name="appSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +127,7 @@ The following is an example of the JSON syntax:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="generalsettings-property"></a>
 <!-- :::item name="generalSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -145,6 +151,7 @@ The following is an example of the JSON syntax:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectionstrings-property"></a>
 <!-- :::item name="connectionStrings"::: -->
 :::moniker range="<=azure-pipelines"
 

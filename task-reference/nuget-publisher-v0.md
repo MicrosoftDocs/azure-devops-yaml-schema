@@ -1,7 +1,7 @@
 ---
 title: NuGetPublisher@0 - NuGet publisher v0 task
 description: NuGetPublisher@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -50,6 +50,7 @@ NuGetPublisher@0 is deprecated. Use the “NuGet” task instead. It works with 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="searchpattern-property"></a>
 <!-- :::item name="searchPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -62,6 +63,7 @@ The pattern that the task uses to match or path to `nupkg` files to be uploaded.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetfeedtype-property"></a>
 <!-- :::item name="nuGetFeedType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +76,7 @@ Specifies whether the target feed is an internal feed/collection or an external 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectedservicename-property"></a>
 <!-- :::item name="connectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +89,7 @@ Specifies the NuGet server generic service connection. Set the key `Password/Tok
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedname-property"></a>
 <!-- :::item name="feedName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +102,7 @@ Specifies the URL of a NuGet feed hosted in this account.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetadditionalargs-property"></a>
 <!-- :::item name="nuGetAdditionalArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +115,7 @@ The additional arguments passed to `NuGet.exe push`. Learn more about the [push 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbosity-property"></a>
 <!-- :::item name="verbosity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +128,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetversion-property"></a>
 <!-- :::item name="nuGetVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +141,7 @@ Specifies the version of NuGet or a custom version to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetpath-property"></a>
 <!-- :::item name="nuGetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -146,6 +154,7 @@ Optional. Supplies the path to `NuGet.exe`. Will override version selection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="continueonemptynupkgmatch-property"></a>
 <!-- :::item name="continueOnEmptyNupkgMatch"::: -->
 :::moniker range="<=azure-pipelines"
 

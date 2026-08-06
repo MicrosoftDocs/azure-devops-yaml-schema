@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@0 - Azure CLI Preview v0 task
 description: Run a Shell or Batch script with Azure CLI commands against an azure subscription.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -46,6 +46,7 @@ Run a shell or batch script with Azure CLI commands against an Azure subscriptio
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicenameselector-property"></a>
 <!-- :::item name="connectedServiceNameSelector"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -58,6 +59,7 @@ Selects the Azure connection type for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectedservicenamearm-property"></a>
 <!-- :::item name="connectedServiceNameARM"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +72,7 @@ Selects the Azure Resource Manager subscription for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connectedservicename-property"></a>
 <!-- :::item name="connectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +85,7 @@ Selects the Azure Classic subscription for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptlocation-property"></a>
 <!-- :::item name="scriptLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +98,7 @@ Selects the script location.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptpath-property"></a>
 <!-- :::item name="scriptPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +111,7 @@ Fully qualified path of the script or a path relative to the the default working
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinescript-property"></a>
 <!-- :::item name="inlineScript"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -127,6 +133,7 @@ call  azure --version || call azure account show
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="args-property"></a>
 <!-- :::item name="args"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -139,6 +146,7 @@ Arguments passed to the script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cwd-property"></a>
 <!-- :::item name="cwd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +159,7 @@ Current working directory where the script is run. If left blank, this input is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 

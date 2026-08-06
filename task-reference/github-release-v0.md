@@ -1,7 +1,7 @@
 ---
 title: GitHubRelease@0 - GitHub Release v0 task
 description: Create, edit, or delete a GitHub release (task version 0).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -69,6 +69,7 @@ Use this task to create, edit, or delete a GitHub release.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="githubconnection-property"></a>
 <!-- :::item name="gitHubConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +82,7 @@ Specifies the name of the GitHub service connection to use to connect to the Git
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="repositoryname-property"></a>
 <!-- :::item name="repositoryName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +95,7 @@ Specifies the name of the GitHub repository where you will create, edit, or dele
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +108,7 @@ Specifies the type of release operation to perform. This task can create, edit, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="target-property"></a>
 <!-- :::item name="target"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +121,7 @@ Specifies the commit SHA you want to use to create the GitHub release, for examp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tagsource-property"></a>
 <!-- :::item name="tagSource"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +134,7 @@ Specifies the tag you want to use for release creation. The `auto` (Git tag) opt
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tagpattern-property"></a>
 <!-- :::item name="tagPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +147,7 @@ Specifies the Git tag pattern by using regex, for example `release-v1.*`. GitHub
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tag-property"></a>
 <!-- :::item name="tag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +160,7 @@ Specifies the tag you want to use when you create, edit, or delete a release. Yo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="title-property"></a>
 <!-- :::item name="title"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -165,6 +173,7 @@ Specifies the title of the GitHub release. If left empty, the tag will be used a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotessource-property"></a>
 <!-- :::item name="releaseNotesSource"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +186,7 @@ Specifies the description of the GitHub release. Use the `file` (Release notes f
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesfile-property"></a>
 <!-- :::item name="releaseNotesFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +199,7 @@ Specifies the file that contains the release notes.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotes-property"></a>
 <!-- :::item name="releaseNotes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +212,7 @@ Specifies the release notes. Markdown is supported.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="assets-property"></a>
 <!-- :::item name="assets"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -215,6 +227,7 @@ You can also specify multiple patterns, one per line. By default, all files in t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="assetuploadmode-property"></a>
 <!-- :::item name="assetUploadMode"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -227,6 +240,7 @@ Specifies the asset upload mode you want to use. Use the `delete` (Delete existi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isdraft-property"></a>
 <!-- :::item name="isDraft"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -239,6 +253,7 @@ Indicates whether you want to save the release as a draft (unpublished). If `fal
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isprerelease-property"></a>
 <!-- :::item name="isPreRelease"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -251,6 +266,7 @@ Indicates whether you want to mark the release as a pre-release.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addchangelog-property"></a>
 <!-- :::item name="addChangeLog"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -263,6 +279,7 @@ Specifies if you want to include a changelog. If set to `true`, a list of change
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="changelogcomparetorelease-property"></a>
 <!-- :::item name="changeLogCompareToRelease"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -279,6 +296,7 @@ Indicates which release to compare with to generate the changelog:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="changelogcomparetoreleasetag-property"></a>
 <!-- :::item name="changeLogCompareToReleaseTag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -291,6 +309,7 @@ Specifies the regex for the release tag. A release matching this tag will be use
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="changelogtype-property"></a>
 <!-- :::item name="changeLogType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -303,6 +322,7 @@ Specifies the changelog type. A changelog can be commit-based or issue-based. A 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="changeloglabels-property"></a>
 <!-- :::item name="changeLogLabels"::: -->
 :::moniker range="<=azure-pipelines"
 

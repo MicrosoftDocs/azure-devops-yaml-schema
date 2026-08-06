@@ -1,7 +1,7 @@
 ---
 title: NuGetRestore@1 - NuGet Restore v1 task
 description: Restores NuGet packages in preparation for a Visual Studio Build step.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -90,6 +90,7 @@ Use this task to restore NuGet packages in preparation for a Visual Studio Build
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="solution-property"></a>
 <!-- :::item name="solution"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +103,7 @@ The path to the solution, `packages.config`, or `project.json` file that referen
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="selectorconfig-property"></a>
 <!-- :::item name="selectOrConfig"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +116,7 @@ Specifies the feed(s) to use. Specify one feed from VSTS and/or NuGet.org using 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feed-property"></a>
 <!-- :::item name="feed"::: -->
 :::moniker range=">=azure-pipelines-2022.2"
 
@@ -137,6 +140,7 @@ Includes the specified VSTS feed in the generated `NuGet.config` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includenugetorg-property"></a>
 <!-- :::item name="includeNuGetOrg"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -149,6 +153,7 @@ Includes the specified NuGet.org feed in the generated `NuGet.config`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetconfigpath-property"></a>
 <!-- :::item name="nugetConfigPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -161,6 +166,7 @@ Specifies the path to the `NuGet.config` in your repository that specifies the f
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nocache-property"></a>
 <!-- :::item name="noCache"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -173,6 +179,7 @@ Prevents NuGet from using packages from local machine caches. Equivalent to the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagesdirectory-property"></a>
 <!-- :::item name="packagesDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -185,6 +192,7 @@ Specifies the folder in which packages are installed. If no folder is specified,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbosity-property"></a>
 <!-- :::item name="verbosity"::: -->
 :::moniker range="<=azure-pipelines"
 

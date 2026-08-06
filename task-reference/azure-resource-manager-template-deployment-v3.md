@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -85,6 +85,7 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="deploymentscope-property"></a>
 <!-- :::item name="deploymentScope"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +98,7 @@ The scope of the deployment. Learn more about [deployment scopes](/Azure/azure-r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcemanagerconnection-property"></a>
 <!-- :::item name="azureResourceManagerConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +111,7 @@ Specifies the Azure Resource Manager service connection with access to the selec
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="subscriptionid-property"></a>
 <!-- :::item name="subscriptionId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -124,6 +127,7 @@ Specifies the Azure subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -136,6 +140,7 @@ The action to be performed on the Azure resources or resource group.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="resourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -148,6 +153,7 @@ Provides the name of a resource group.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="location-property"></a>
 <!-- :::item name="location"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -161,6 +167,7 @@ Other deployment scopes: The location to store deployment metadata.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="templatelocation-property"></a>
 <!-- :::item name="templateLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -173,6 +180,7 @@ The location of the Template and the Parameters JSON files. Choose **Linked arti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="csmfilelink-property"></a>
 <!-- :::item name="csmFileLink"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +197,7 @@ To  view the template parameters in a grid, click on `...` next to the override 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="csmparametersfilelink-property"></a>
 <!-- :::item name="csmParametersFileLink"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -205,6 +214,7 @@ To  view the template parameters in a grid, click on `...` next to Override temp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="csmfile-property"></a>
 <!-- :::item name="csmFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -217,6 +227,7 @@ Specifies the path or a pattern pointing to the Azure Resource Manager template.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="csmparametersfile-property"></a>
 <!-- :::item name="csmParametersFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -229,6 +240,7 @@ Specify the path or a pattern pointing for the parameters file for the Azure Res
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overrideparameters-property"></a>
 <!-- :::item name="overrideParameters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -250,6 +262,7 @@ If the parameter you're overriding is an object, you can provide a value using a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentmode-property"></a>
 <!-- :::item name="deploymentMode"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -272,6 +285,7 @@ Learn more about [deployment modes](/azure/azure-resource-manager/deployment-mod
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentname-property"></a>
 <!-- :::item name="deploymentName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -284,6 +298,7 @@ Specifies the name of the resource group deployment to create.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentoutputs-property"></a>
 <!-- :::item name="deploymentOutputs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -296,6 +311,7 @@ Provides a name for the variable for the output variable, which contains the out
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addspntoenvironment-property"></a>
 <!-- :::item name="addSpnToEnvironment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -308,6 +324,7 @@ Adds the service principal ID and key of the Azure endpoint chosen to be the scr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usewithoutjson-property"></a>
 <!-- :::item name="useWithoutJSON"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

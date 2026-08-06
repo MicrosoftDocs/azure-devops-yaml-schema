@@ -1,7 +1,7 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 ---
 
@@ -38,33 +38,33 @@ Build, test, and deploy with Apache Maven.
     #allowBrokenSymlinks: true # boolean. Alias: allowBrokenSymbolicLinks. Optional. Use when publishJUnitResults = true. Allow broken symbolic links. Default: true.
   # Code Coverage
     #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageTool = JaCoCo. Class files directories. 
-    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool = JaCoCo. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageTool != None. Restore original pom.xml after task execution. Default: false.
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageToolOption != None. Class inclusion/exclusion filters. 
+    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageToolOption = JaCoCo. Class files directories. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageToolOption = JaCoCo. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageToolOption != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageToolOption != None. Restore original pom.xml after task execution. Default: false.
   # Advanced
     javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.21' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64' | 'arm64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #jdkVersionOption: 'default' # 'default' | '1.21' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeOption = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeOption = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64' | 'arm64'. Alias: jdkArchitecture. Optional. Use when jdkVersionOption != default. JDK architecture. Default: x64.
     mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven version. Default: Default.
-    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
-    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
+    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionOption = Path. Maven path. 
+    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionOption = Path. Set M2_HOME variable. Default: false.
     #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
     #mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Authenticate with Artifacts feeds. Default: false.
     #effectivePomSkip: false # boolean. Alias: skipEffectivePom. Skip generating effective POM while authenticating with Artifacts feeds. Default: false.
   # Code Analysis
     #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
-    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
-    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
+    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sonarQubeRunAnalysis = true && codeCoverageToolOption = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
+    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sonarQubeRunAnalysis = true. SonarQube scanner for Maven version. Default: latest.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
     #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
     #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
     #spotBugsRunAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs analysis. Default: false.
-    #spotBugsVersion: '4.5.3.0' # string. Alias: spotBugsMavenPluginVersion. Optional. Use when spotBugsAnalysisEnabled = true. Version number. Default: 4.5.3.0.
-    #spotBugsGoal: 'spotbugs' # 'spotbugs' | 'check'. Optional. Use when spotBugsAnalysisEnabled = true. The goal for the spotbugs plugin. Default: spotbugs.
-    #failWhenBugsFound: true # boolean. Alias: spotBugsFailWhenBugsFound | sbFailWhenBugsFound. Optional. Use when spotBugsAnalysisEnabled = true && spotBugsGoal = check. Fail when bugs are found with spotbugs:check. Default: true.
+    #spotBugsVersion: '4.5.3.0' # string. Alias: spotBugsMavenPluginVersion. Optional. Use when spotBugsRunAnalysis = true. Version number. Default: 4.5.3.0.
+    #spotBugsGoal: 'spotbugs' # 'spotbugs' | 'check'. Optional. Use when spotBugsRunAnalysis = true. The goal for the spotbugs plugin. Default: spotbugs.
+    #failWhenBugsFound: true # boolean. Alias: spotBugsFailWhenBugsFound | sbFailWhenBugsFound. Optional. Use when spotBugsRunAnalysis = true && spotBugsGoal = check. Fail when bugs are found with spotbugs:check. Default: true.
 ```
 
 :::moniker-end
@@ -87,33 +87,33 @@ Build, test, and deploy with Apache Maven.
     #allowBrokenSymlinks: true # boolean. Alias: allowBrokenSymbolicLinks. Optional. Use when publishJUnitResults = true. Allow broken symbolic links. Default: true.
   # Code Coverage
     #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageTool = JaCoCo. Class files directories. 
-    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool = JaCoCo. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageTool != None. Restore original pom.xml after task execution. Default: false.
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageToolOption != None. Class inclusion/exclusion filters. 
+    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageToolOption = JaCoCo. Class files directories. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageToolOption = JaCoCo. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageToolOption != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageToolOption != None. Restore original pom.xml after task execution. Default: false.
   # Advanced
     javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.21' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #jdkVersionOption: 'default' # 'default' | '1.21' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeOption = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeOption = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersionOption != default. JDK architecture. Default: x64.
     mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven version. Default: Default.
-    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
-    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
+    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionOption = Path. Maven path. 
+    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionOption = Path. Set M2_HOME variable. Default: false.
     #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
     #mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Authenticate with Artifacts feeds. Default: false.
     #effectivePomSkip: false # boolean. Alias: skipEffectivePom. Skip generating effective POM while authenticating with Artifacts feeds. Default: false.
   # Code Analysis
     #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
-    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
-    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
+    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sonarQubeRunAnalysis = true && codeCoverageToolOption = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
+    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sonarQubeRunAnalysis = true. SonarQube scanner for Maven version. Default: latest.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
     #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
     #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
     #spotBugsRunAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs analysis. Default: false.
-    #spotBugsVersion: '4.5.3.0' # string. Alias: spotBugsMavenPluginVersion. Optional. Use when spotBugsAnalysisEnabled = true. Version number. Default: 4.5.3.0.
-    #spotBugsGoal: 'spotbugs' # 'spotbugs' | 'check'. Optional. Use when spotBugsAnalysisEnabled = true. The goal for the spotbugs plugin. Default: spotbugs.
-    #failWhenBugsFound: true # boolean. Alias: spotBugsFailWhenBugsFound | sbFailWhenBugsFound. Optional. Use when spotBugsAnalysisEnabled = true && spotBugsGoal = check. Fail when bugs are found with spotbugs:check. Default: true.
+    #spotBugsVersion: '4.5.3.0' # string. Alias: spotBugsMavenPluginVersion. Optional. Use when spotBugsRunAnalysis = true. Version number. Default: 4.5.3.0.
+    #spotBugsGoal: 'spotbugs' # 'spotbugs' | 'check'. Optional. Use when spotBugsRunAnalysis = true. The goal for the spotbugs plugin. Default: spotbugs.
+    #failWhenBugsFound: true # boolean. Alias: spotBugsFailWhenBugsFound | sbFailWhenBugsFound. Optional. Use when spotBugsRunAnalysis = true && spotBugsGoal = check. Fail when bugs are found with spotbugs:check. Default: true.
 ```
 
 :::moniker-end
@@ -135,33 +135,33 @@ Build, test, and deploy with Apache Maven.
     #allowBrokenSymlinks: true # boolean. Alias: allowBrokenSymbolicLinks. Optional. Use when publishJUnitResults = true. Allow broken symbolic links. Default: true.
   # Code Coverage
     #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageTool = JaCoCo. Class files directories. 
-    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool = JaCoCo. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageTool != None. Restore original pom.xml after task execution. Default: false.
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageToolOption != None. Class inclusion/exclusion filters. 
+    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageToolOption = JaCoCo. Class files directories. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageToolOption = JaCoCo. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageToolOption != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageToolOption != None. Restore original pom.xml after task execution. Default: false.
   # Advanced
     javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #jdkVersionOption: 'default' # 'default' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeOption = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeOption = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersionOption != default. JDK architecture. Default: x64.
     mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven version. Default: Default.
-    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
-    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
+    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionOption = Path. Maven path. 
+    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionOption = Path. Set M2_HOME variable. Default: false.
     #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
     #mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Authenticate with Artifacts feeds. Default: false.
     #effectivePomSkip: false # boolean. Alias: skipEffectivePom. Skip generating effective POM while authenticating with Artifacts feeds. Default: false.
   # Code Analysis
     #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
-    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
-    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
+    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sonarQubeRunAnalysis = true && codeCoverageToolOption = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
+    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sonarQubeRunAnalysis = true. SonarQube scanner for Maven version. Default: latest.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
     #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
     #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
     #spotBugsRunAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs analysis. Default: false.
-    #spotBugsVersion: '4.5.3.0' # string. Alias: spotBugsMavenPluginVersion. Optional. Use when spotBugsAnalysisEnabled = true. Version number. Default: 4.5.3.0.
-    #spotBugsGoal: 'spotbugs' # 'spotbugs' | 'check'. Optional. Use when spotBugsAnalysisEnabled = true. The goal for the spotbugs plugin. Default: spotbugs.
-    #failWhenBugsFound: true # boolean. Alias: spotBugsFailWhenBugsFound | sbFailWhenBugsFound. Optional. Use when spotBugsAnalysisEnabled = true && spotBugsGoal = check. Fail when bugs are found with spotbugs:check. Default: true.
+    #spotBugsVersion: '4.5.3.0' # string. Alias: spotBugsMavenPluginVersion. Optional. Use when spotBugsRunAnalysis = true. Version number. Default: 4.5.3.0.
+    #spotBugsGoal: 'spotbugs' # 'spotbugs' | 'check'. Optional. Use when spotBugsRunAnalysis = true. The goal for the spotbugs plugin. Default: spotbugs.
+    #failWhenBugsFound: true # boolean. Alias: spotBugsFailWhenBugsFound | sbFailWhenBugsFound. Optional. Use when spotBugsRunAnalysis = true && spotBugsGoal = check. Fail when bugs are found with spotbugs:check. Default: true.
 ```
 
 :::moniker-end
@@ -170,6 +170,7 @@ Build, test, and deploy with Apache Maven.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -185,6 +186,7 @@ Specify an Azure Resource Manager service connection configured with workload id
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenpomfile-property"></a>
 <!-- :::item name="mavenPOMFile"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -197,6 +199,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="goals-property"></a>
 <!-- :::item name="goals"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -209,6 +212,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -221,6 +225,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -233,6 +238,7 @@ Specifies the option to publish the JUnit test results produced by the Maven bui
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -248,6 +254,7 @@ For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`. I
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -260,6 +267,7 @@ Specifies a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowbrokensymlinks-property"></a>
 <!-- :::item name="allowBrokenSymlinks"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -272,6 +280,7 @@ If set to `false`, fails the build when the task finds a broken symbolic link wh
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragetooloption-property"></a>
 <!-- :::item name="codeCoverageToolOption"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -284,11 +293,12 @@ Specifies the code coverage tool. Enabling code coverage inserts the clean goal 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilter-property"></a>
 <!-- :::item name="codeCoverageClassFilter"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageClassFilter`** - **Class inclusion/exclusion filters**<br>
-[Input alias](index.md#what-are-task-input-aliases): `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `classFilter`. `string`. Optional. Use when `codeCoverageToolOption != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a comma-separated list of filters to include or exclude classes from collecting code coverage. For example, `+:com.*,+:org.*,-:my.app*.*`.
 <!-- :::editable-content-end::: -->
@@ -296,11 +306,12 @@ Specifies a comma-separated list of filters to include or exclude classes from c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageclassfilesdirectories-property"></a>
 <!-- :::item name="codeCoverageClassFilesDirectories"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
-[Input alias](index.md#what-are-task-input-aliases): `classFilesDirectories`. `string`. Optional. Use when `codeCoverageTool = JaCoCo`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `classFilesDirectories`. `string`. Optional. Use when `codeCoverageToolOption = JaCoCo`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This field is required for a multi-module project.  
 Specifies a comma-separated list of relative paths from the Maven POM file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example, `target/classes,target/testClasses`.
@@ -309,11 +320,12 @@ Specifies a comma-separated list of relative paths from the Maven POM file to di
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragesourcedirectories-property"></a>
 <!-- :::item name="codeCoverageSourceDirectories"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageSourceDirectories`** - **Source files directories**<br>
-[Input alias](index.md#what-are-task-input-aliases): `srcDirectories`. `string`. Optional. Use when `codeCoverageTool = JaCoCo`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `srcDirectories`. `string`. Optional. Use when `codeCoverageToolOption = JaCoCo`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This field is required for a multi-module project.  
 Specifies a comma-separated list of relative paths from the Maven POM file to source code directories. Code coverage reports use these to highlight source code. For example, `src/java,src/Test`.
@@ -322,11 +334,12 @@ Specifies a comma-separated list of relative paths from the Maven POM file to so
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragefailifempty-property"></a>
 <!-- :::item name="codeCoverageFailIfEmpty"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageFailIfEmpty`** - **Fail when code coverage results are missing**<br>
-[Input alias](index.md#what-are-task-input-aliases): `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageToolOption != None`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fails the build if code coverage did not produce any results to publish.
 <!-- :::editable-content-end::: -->
@@ -334,11 +347,12 @@ Fails the build if code coverage did not produce any results to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoveragerestoreoriginalpomxml-property"></a>
 <!-- :::item name="codeCoverageRestoreOriginalPomXml"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageRestoreOriginalPomXml`** - **Restore original pom.xml after task execution**<br>
-[Input alias](index.md#what-are-task-input-aliases): `restoreOriginalPomXml`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `restoreOriginalPomXml`. `boolean`. Optional. Use when `codeCoverageToolOption != None`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Code coverage modifies `pom.xml` to produce results. Use this option if you need to keep the original `pom.xml`.
 <!-- :::editable-content-end::: -->
@@ -346,6 +360,7 @@ Code coverage modifies `pom.xml` to produce results. Use this option if you need
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="javahomeoption-property"></a>
 <!-- :::item name="javaHomeOption"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -358,11 +373,12 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkversionoption-property"></a>
 <!-- :::item name="jdkVersionOption"::: -->
 :::moniker range=">=azure-pipelines-server"
 
 **`jdkVersionOption`** - **JDK version**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.21` (JDK 21), `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeOption = JDKVersion`. Allowed values: `default`, `1.21` (JDK 21), `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.  
 *Note:* If running on an agent that is not hosted by Microsoft, and the requested Java version is not the one indicated by the `JAVA_HOME` variable set on the agent machine, the task will rely on the variable `JAVA_HOME_{version}_{arch}` (for example: `JAVA_HOME_8_X64`) to locate the necessary JDK. Ensure this variable is set on self-hosted agents for any version and architecture of the JDK that may be requested by this parameter and/or by `jdkArchitecture`.
@@ -374,7 +390,7 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 :::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 **`jdkVersionOption`** - **JDK version**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeOption = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.  
 *Note:* If running on an agent that is not hosted by Microsoft, and the requested Java version is not the one indicated by the `JAVA_HOME` variable set on the agent machine, the task will rely on the variable `JAVA_HOME_{version}_{arch}` (for example: `JAVA_HOME_8_X64`) to locate the necessary JDK. Ensure this variable is set on self-hosted agents for any version and architecture of the JDK that may be requested by this parameter and/or by `jdkArchitecture`.
@@ -383,11 +399,12 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkdirectory-property"></a>
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`jdkDirectory`** - **JDK path**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkUserInputPath`. `string`. Required when `javaHomeSelection = Path`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkUserInputPath`. `string`. Required when `javaHomeOption = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets `JAVA_HOME` to the given path.
 <!-- :::editable-content-end::: -->
@@ -395,11 +412,12 @@ Sets `JAVA_HOME` to the given path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkarchitectureoption-property"></a>
 <!-- :::item name="jdkArchitectureOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`, `arm64`. Default value: `x64`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersionOption != default`. Allowed values: `x86`, `x64`, `arm64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Supplies the architecture (`x86`, `x64`) of the JDK.
 <!-- :::editable-content-end::: -->
@@ -410,7 +428,7 @@ Supplies the architecture (`x86`, `x64`) of the JDK.
 :::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersionOption != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Supplies the architecture (`x86`, `x64`) of the JDK.
 <!-- :::editable-content-end::: -->
@@ -418,6 +436,7 @@ Supplies the architecture (`x86`, `x64`) of the JDK.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenversionoption-property"></a>
 <!-- :::item name="mavenVersionOption"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -430,11 +449,12 @@ Specifies either the default Maven version or the version in the specified custo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavendirectory-property"></a>
 <!-- :::item name="mavenDirectory"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenDirectory`** - **Maven path**<br>
-[Input alias](index.md#what-are-task-input-aliases): `mavenPath`. `string`. Required when `mavenVersionSelection = Path`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `mavenPath`. `string`. Required when `mavenVersionOption = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Supplies the custom path to the Maven installation (for example: `/usr/share/maven`).
 <!-- :::editable-content-end::: -->
@@ -442,11 +462,12 @@ Supplies the custom path to the Maven installation (for example: `/usr/share/mav
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavensetm2home-property"></a>
 <!-- :::item name="mavenSetM2Home"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenSetM2Home`** - **Set M2_HOME variable**<br>
-`boolean`. Optional. Use when `mavenVersionSelection = Path`. Default value: `false`.<br>
+`boolean`. Optional. Use when `mavenVersionOption = Path`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets the `M2_HOME` variable to a custom Maven installation path.
 <!-- :::editable-content-end::: -->
@@ -454,6 +475,7 @@ Sets the `M2_HOME` variable to a custom Maven installation path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenoptions-property"></a>
 <!-- :::item name="mavenOptions"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -466,6 +488,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenauthenticatefeed-property"></a>
 <!-- :::item name="mavenAuthenticateFeed"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -478,6 +501,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="effectivepomskip-property"></a>
 <!-- :::item name="effectivePomSkip"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -490,6 +514,7 @@ Authenticates with Artifacts feeds using the POM only.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarquberunanalysis-property"></a>
 <!-- :::item name="sonarQubeRunAnalysis"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -503,11 +528,12 @@ Enable this option to run [SonarQube or SonarCloud analysis](http://redirect.son
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isjacococoveragereportxml-property"></a>
 <!-- :::item name="isJacocoCoverageReportXML"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`isJacocoCoverageReportXML`** - **Use XML Jacoco reports for SonarQube analysis**<br>
-`boolean`. Optional. Use when `sqAnalysisEnabled = true && codeCoverageTool = JaCoCo`. Default value: `false`.<br>
+`boolean`. Optional. Use when `sonarQubeRunAnalysis = true && codeCoverageToolOption = JaCoCo`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Uses XML Jacoco reports for SonarQube analysis. Learn more about [test reports](https://docs.sonarqube.org/latest/analysis/coverage/).
 <!-- :::editable-content-end::: -->
@@ -515,11 +541,12 @@ Uses XML Jacoco reports for SonarQube analysis. Learn more about [test reports](
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqmavenpluginversionchoice-property"></a>
 <!-- :::item name="sqMavenPluginVersionChoice"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`sqMavenPluginVersionChoice`** - **SonarQube scanner for Maven version**<br>
-`string`. Required when `sqAnalysisEnabled = true`. Allowed values: `latest` (Use latest release), `pom` (Use version declared in your pom.xml). Default value: `latest`.<br>
+`string`. Required when `sonarQubeRunAnalysis = true`. Allowed values: `latest` (Use latest release), `pom` (Use version declared in your pom.xml). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the SonarQube Maven plugin version to use. You can use the latest version or rely on the version in your `pom.xml`.
 <!-- :::editable-content-end::: -->
@@ -527,6 +554,7 @@ Specifies the SonarQube Maven plugin version to use. You can use the latest vers
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checkstylerunanalysis-property"></a>
 <!-- :::item name="checkStyleRunAnalysis"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -539,6 +567,7 @@ Runs the Checkstyle tool with the default Sun checks. If no Checkstyle configura
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pmdrunanalysis-property"></a>
 <!-- :::item name="pmdRunAnalysis"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -551,6 +580,7 @@ Uses the PMD static analysis tool to look for bugs in the code. Results are uplo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="findbugsrunanalysis-property"></a>
 <!-- :::item name="findBugsRunAnalysis"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -563,6 +593,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsrunanalysis-property"></a>
 <!-- :::item name="spotBugsRunAnalysis"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -575,11 +606,12 @@ Enable this option to run the SpotBugs code analysis plugin. More information ab
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsversion-property"></a>
 <!-- :::item name="spotBugsVersion"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`spotBugsVersion`** - **Version number**<br>
-[Input alias](index.md#what-are-task-input-aliases): `spotBugsMavenPluginVersion`. `string`. Optional. Use when `spotBugsAnalysisEnabled = true`. Default value: `4.5.3.0`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `spotBugsMavenPluginVersion`. `string`. Optional. Use when `spotBugsRunAnalysis = true`. Default value: `4.5.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Learn about [the available versions of SpotBugs](https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs-maven-plugin).
 <!-- :::editable-content-end::: -->
@@ -587,11 +619,12 @@ Learn about [the available versions of SpotBugs](https://mvnrepository.com/artif
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsgoal-property"></a>
 <!-- :::item name="spotBugsGoal"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`spotBugsGoal`** - **The goal for the spotbugs plugin**<br>
-`string`. Optional. Use when `spotBugsAnalysisEnabled = true`. Allowed values: `spotbugs` ("spotbugs" - Creates a report on found bugs), `check` ("check" - Pipeline fails if bugs were detected). Default value: `spotbugs`.<br>
+`string`. Optional. Use when `spotBugsRunAnalysis = true`. Allowed values: `spotbugs` ("spotbugs" - Creates a report on found bugs), `check` ("check" - Pipeline fails if bugs were detected). Default value: `spotbugs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the goal of the plugin. Learn more about [SpotBugs goals](https://spotbugs.readthedocs.io/en/stable/maven.html#goals-of-spotbugs-maven-plugin).
 <!-- :::editable-content-end::: -->
@@ -599,11 +632,12 @@ Specifies the goal of the plugin. Learn more about [SpotBugs goals](https://spot
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failwhenbugsfound-property"></a>
 <!-- :::item name="failWhenBugsFound"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`failWhenBugsFound`** - **Fail when bugs are found with spotbugs:check**<br>
-[Input alias](index.md#what-are-task-input-aliases): `spotBugsFailWhenBugsFound | sbFailWhenBugsFound`. `boolean`. Optional. Use when `spotBugsAnalysisEnabled = true && spotBugsGoal = check`. Default value: `true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `spotBugsFailWhenBugsFound | sbFailWhenBugsFound`. `boolean`. Optional. Use when `spotBugsRunAnalysis = true && spotBugsGoal = check`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fails when bugs are found if **Check Goal** is specified. Learn more about [SpotBug parameter details](https://spotbugs.github.io/spotbugs-maven-plugin/check-mojo.html#failonerror).
 <!-- :::editable-content-end::: -->

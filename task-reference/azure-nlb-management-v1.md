@@ -1,7 +1,7 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -56,6 +56,7 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +69,7 @@ Specifies the Azure Resource Manager subscription for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -80,6 +82,7 @@ Specifies the resource group name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loadbalancer-property"></a>
 <!-- :::item name="LoadBalancer"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +95,7 @@ Specifies or enters the load balancer's name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="Action"::: -->
 :::moniker range="<=azure-pipelines"
 

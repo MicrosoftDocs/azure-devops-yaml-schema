@@ -1,7 +1,7 @@
 ---
 title: DuffleInstaller@0 - Duffle tool installer v0 task
 description: Install a specified version of Duffle for installing and managing CNAB bundles.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -49,6 +49,7 @@ Use this task to install a specified version of Duffle, which is used for instal
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -61,6 +62,7 @@ Specifies the version of Duffle to install.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checklatestversion-property"></a>
 <!-- :::item name="checkLatestVersion"::: -->
 :::moniker range="<=azure-pipelines"
 

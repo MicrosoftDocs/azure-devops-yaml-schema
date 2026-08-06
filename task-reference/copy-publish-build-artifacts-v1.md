@@ -1,7 +1,7 @@
 ---
 title: CopyPublishBuildArtifacts@1 - Copy and Publish Build Artifacts v1 task
 description: CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -57,6 +57,7 @@ Use this task to copy build artifacts to a staging folder and then publish them 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="copyroot-property"></a>
 <!-- :::item name="CopyRoot"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +72,7 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="contents-property"></a>
 <!-- :::item name="Contents"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +89,7 @@ Specifies pattern filters (one on each line) that you want to apply to the list 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactname-property"></a>
 <!-- :::item name="ArtifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +102,7 @@ Specifies the name of the artifact to create.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifacttype-property"></a>
 <!-- :::item name="ArtifactType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +115,7 @@ Specifies whether to store the artifact on TFS/Team Services or to copy it to a 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"
 

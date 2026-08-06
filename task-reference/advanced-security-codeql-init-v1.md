@@ -1,10 +1,10 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
@@ -32,6 +32,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 - task: AdvancedSecurity-Codeql-Init@1
   inputs:
     #enableAutomaticCodeQLInstall: false # boolean. Enable automatic CodeQL detection and installation. Default: false.
+    #cleanupOldAutomaticInstalls: false # boolean. Optional. Use when enableAutomaticCodeQLInstall = true. Clean up old CodeQL versions installed by this task. Default: false.
     #languages: # 'csharp' | 'cpp' | 'go' | 'java' | 'javascript' | 'python' | 'ruby' | 'rust' | 'swift'. Languages to analyze. 
     #querysuite: 'Select a query suite...' # 'Select a query suite...' | 'code-scanning' | 'security-extended' | 'security-experimental' | 'security-and-quality'. CodeQL Query Suite to use for analysis. Default: Select a query suite....
     #buildtype: 'Manual' # 'Manual' | 'None'. Select build mode (manual vs none). Default: Manual.
@@ -52,6 +53,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="enableautomaticcodeqlinstall-property"></a>
 <!-- :::item name="enableAutomaticCodeQLInstall"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -64,6 +66,20 @@ Selecting this option will set the task to automatically check for CodeQL on the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleanupoldautomaticinstalls-property"></a>
+<!-- :::item name="cleanupOldAutomaticInstalls"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`cleanupOldAutomaticInstalls`** - **Clean up old CodeQL versions installed by this task**<br>
+`boolean`. Optional. Use when `enableAutomaticCodeQLInstall = true`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+After a successful automatic CodeQL installation, delete previous CodeQL versions that were installed by this task from the agent tool cache. Only versions installed via `enableAutomaticCodeQLInstall` are removed; CodeQL installations placed manually on the agent are left untouched. This option has no effect unless `enableAutomaticCodeQLInstall` is also enabled.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<a name="languages-property"></a>
 <!-- :::item name="languages"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -87,6 +103,7 @@ You can set the language here in the task, or you can specify the language in a 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="querysuite-property"></a>
 <!-- :::item name="querysuite"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -99,6 +116,7 @@ The query suite, i.e. ruleset, used for analysis. You can specify the value here
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildtype-property"></a>
 <!-- :::item name="buildtype"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -113,6 +131,7 @@ For more information on the different build modes including a comparison on the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ram-property"></a>
 <!-- :::item name="ram"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -127,6 +146,7 @@ You can specify `ram` here in the task, or you can specify it in a pipeline vari
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="threads-property"></a>
 <!-- :::item name="threads"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -141,6 +161,7 @@ You can specify `threads` here in the task, or you can specify it in a pipeline 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codeqlpathstoignore-property"></a>
 <!-- :::item name="codeqlpathstoignore"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -156,6 +177,7 @@ You can provide multiple paths separated by commas. The paths must be relative t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codeqlpathstoinclude-property"></a>
 <!-- :::item name="codeqlpathstoinclude"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -171,6 +193,7 @@ You can provide multiple paths separated by commas. The paths must be relative t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sourcesfolder-property"></a>
 <!-- :::item name="sourcesfolder"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -183,6 +206,7 @@ Value must be relative to `Build.SourcesDirectory` variable. If you don't provid
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loglevel-property"></a>
 <!-- :::item name="loglevel"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -197,6 +221,7 @@ You can specify `loglevel` here in the task, or you can specify it in a pipeline
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configfilepath-property"></a>
 <!-- :::item name="configfilepath"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -209,6 +234,7 @@ If path is not provided, then codeql analysis will proceed with default queries.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codeqltoolsdirectory-property"></a>
 <!-- :::item name="codeqltoolsdirectory"::: -->
 :::moniker range=">azure-pipelines-server"
 

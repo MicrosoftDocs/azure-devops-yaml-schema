@@ -1,7 +1,7 @@
 ---
 title: VSMobileCenterTest@0 - Mobile Center Test v0 task
 description: Test mobile app packages with Visual Studio Mobile Center.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: steved0x
 ms.author: sdanie
@@ -78,6 +78,7 @@ Use this task to test mobile app packages with Visual Studio Mobile Center.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="app-property"></a>
 <!-- :::item name="app"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +91,7 @@ Specifies the relative path from the repo root to the .APK or .IPA file you want
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactsdir-property"></a>
 <!-- :::item name="artifactsDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +104,7 @@ Specifies the directory to place the artifacts that are produced by the prepare 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enableprepare-property"></a>
 <!-- :::item name="enablePrepare"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +117,7 @@ If set to `true`, prepares tests.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="framework-property"></a>
 <!-- :::item name="framework"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +130,7 @@ Specifies the test framework that the task will use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appiumbuilddir-property"></a>
 <!-- :::item name="appiumBuildDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -138,6 +143,7 @@ Specifies the path to the directory that contains Appium tests.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="espressobuilddir-property"></a>
 <!-- :::item name="espressoBuildDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -150,6 +156,7 @@ Specifies the path for the Espresso output directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="espressotestapkpath-property"></a>
 <!-- :::item name="espressoTestApkPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -162,6 +169,7 @@ Specifies the path to the APK file with Espresso tests. If a value is not set, `
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="calabashprojectdir-property"></a>
 <!-- :::item name="calabashProjectDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -174,6 +182,7 @@ Specifies the path for the Calabash workspace directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="calabashconfigfile-property"></a>
 <!-- :::item name="calabashConfigFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -186,6 +195,7 @@ Specifies the file path to the Cucumber configuration file, which is usually `cu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="calabashprofile-property"></a>
 <!-- :::item name="calabashProfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -198,6 +208,7 @@ Specifies the profile to run. This value must exist in the Cucumber configuratio
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="calabashskipconfigcheck-property"></a>
 <!-- :::item name="calabashSkipConfigCheck"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -210,6 +221,7 @@ Forces the task to run without a Cucumber profile.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="uitestbuilddir-property"></a>
 <!-- :::item name="uitestBuildDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -222,6 +234,7 @@ Specifies the path to the directory with built test assemblies.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="uiteststorefile-property"></a>
 <!-- :::item name="uitestStoreFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -234,6 +247,7 @@ Specifies the path to the store file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="uiteststorepass-property"></a>
 <!-- :::item name="uitestStorePass"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -246,6 +260,7 @@ Specifies the password for the store file. Use a new variable with its lock enab
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="uitestkeyalias-property"></a>
 <!-- :::item name="uitestKeyAlias"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -258,6 +273,7 @@ Specifies the alias that identifies the public/private key pair used in the stor
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="uitestkeypass-property"></a>
 <!-- :::item name="uitestKeyPass"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -270,6 +286,7 @@ Specifies the key password for the alias and store file. Use a new variable with
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="uitesttoolsdir-property"></a>
 <!-- :::item name="uitestToolsDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -282,6 +299,7 @@ Specifies the path to the directory with Xamarin UI test tools that contains `te
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signinfo-property"></a>
 <!-- :::item name="signInfo"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -294,6 +312,7 @@ Uses signing information to sign the test server.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcuitestbuilddir-property"></a>
 <!-- :::item name="xcuitestBuildDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -306,6 +325,7 @@ Specifies the path to the build output directory, which is usually `$(ProjectDir
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcuitesttestipapath-property"></a>
 <!-- :::item name="xcuitestTestIpaPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -318,6 +338,7 @@ Specifies the path to the `*.ipa` file with the XCUITest tests.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="prepareopts-property"></a>
 <!-- :::item name="prepareOpts"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -330,6 +351,7 @@ Specifies additional arguments to pass to `mobile-center test prepare step`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablerun-property"></a>
 <!-- :::item name="enableRun"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -341,6 +363,7 @@ Specifies additional arguments to pass to `mobile-center test prepare step`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="credstype-property"></a>
 <!-- :::item name="credsType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -353,6 +376,7 @@ Specifies the authentication method. Use a Mobile Center service endpoint connec
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="serverendpoint-property"></a>
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -365,6 +389,7 @@ Specifies the service endpoint for your Visual Studio Mobile Center connection. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="username-property"></a>
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -377,6 +402,7 @@ Visit [Azure Mobile Center](https://mobile.azure.com/settings/profile) to set yo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="password-property"></a>
 <!-- :::item name="password"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -389,6 +415,7 @@ Visit [Azure Mobile Center](https://mobile.azure.com/settings/profile) to set yo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appslug-property"></a>
 <!-- :::item name="appSlug"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -401,6 +428,7 @@ The app slug is in the format of `{username}/{app_identifier}`. To locate `{user
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="devices-property"></a>
 <!-- :::item name="devices"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -413,6 +441,7 @@ Identifies what devices this test will run against. Copy and paste this string w
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="series-property"></a>
 <!-- :::item name="series"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -425,6 +454,7 @@ Specifies the series name for organizing test runs (e.g. `master`, `production`,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dsymdir-property"></a>
 <!-- :::item name="dsymDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -437,6 +467,7 @@ Specifies the path to the dSYM directory, which contains iOS symbol files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="locale-property"></a>
 <!-- :::item name="locale"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -449,6 +480,7 @@ If your language isn't displayed, specify **Other** and enter its locale, such a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="userdefinedlocale-property"></a>
 <!-- :::item name="userDefinedLocale"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -461,6 +493,7 @@ Specifies any two-letter ISO-639 language code, along with any two-letter ISO 31
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="loginopts-property"></a>
 <!-- :::item name="loginOpts"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -473,6 +506,7 @@ Specifies additional arguments that are passed to `mobile-center login step`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runopts-property"></a>
 <!-- :::item name="runOpts"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -485,6 +519,7 @@ Specifies additional arguments that are passed to `mobile-center test run`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="async-property"></a>
 <!-- :::item name="async"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -497,6 +532,7 @@ When set to `true`, executes commands asynchronously and exits when tests are up
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="clilocationoverride-property"></a>
 <!-- :::item name="cliLocationOverride"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -509,6 +545,7 @@ Specifies the path to the `mobile-center` command-line interface (CLI).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="debug-property"></a>
 <!-- :::item name="debug"::: -->
 :::moniker range="<=azure-pipelines"
 

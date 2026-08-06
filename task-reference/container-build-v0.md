@@ -1,10 +1,10 @@
 ---
 title: ContainerBuild@0 - Container Build v0 task
 description: Container Build Task.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # ContainerBuild@0 - Container Build v0 task
@@ -42,6 +42,7 @@ Container Build Task.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="dockerregistryserviceconnection-property"></a>
 <!-- :::item name="dockerRegistryServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ Specifies a Docker registry service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="repository-property"></a>
 <!-- :::item name="repository"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ The name of the repository within the container registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerfile-property"></a>
 <!-- :::item name="Dockerfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +81,7 @@ The path to the Dockerfile.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildcontext-property"></a>
 <!-- :::item name="buildContext"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +94,7 @@ The path to the build context.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="tags"::: -->
 :::moniker range="<=azure-pipelines"
 

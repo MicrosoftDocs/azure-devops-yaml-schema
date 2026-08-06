@@ -1,7 +1,7 @@
 ---
 title: CondaEnvironment@1 - Conda environment v1 task
 description: This task is deprecated. Use `conda` directly in script to work with Anaconda environments.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -62,6 +62,7 @@ Use this task to create and activate a Conda environment.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="createcustomenvironment-property"></a>
 <!-- :::item name="createCustomEnvironment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +75,7 @@ If the value for this boolean is set to `true`, the task [creates](https://docs.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="environmentname-property"></a>
 <!-- :::item name="environmentName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +88,7 @@ The name of the Conda environment to create and activate, or reactivate if it al
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagespecs-property"></a>
 <!-- :::item name="packageSpecs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +101,7 @@ The space-delimited list of packages to install in the environment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="updateconda-property"></a>
 <!-- :::item name="updateConda"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +114,7 @@ Updates Conda to the latest version. This applies to the Conda installation foun
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="installoptions-property"></a>
 <!-- :::item name="installOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +127,7 @@ The space-delimited list of additional arguments to pass to the `conda install` 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createoptions-property"></a>
 <!-- :::item name="createOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +140,7 @@ The space-delimited list of additional options to pass to the `conda create` com
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleanenvironment-property"></a>
 <!-- :::item name="cleanEnvironment"::: -->
 :::moniker range="<=azure-pipelines"
 

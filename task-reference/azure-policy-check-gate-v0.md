@@ -1,10 +1,10 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
@@ -58,6 +58,7 @@ This task can be used as either pre-deployment or post-deployment gate. Pre-depl
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +71,7 @@ Selects the Azure Resource Manager subscription you want to use to enforce the p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +84,7 @@ Provides the resource group name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resources-property"></a>
 <!-- :::item name="Resources"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +97,7 @@ Selects the name of Azure resources for which you want to check the policy compl
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retryduration-property"></a>
 <!-- :::item name="RetryDuration"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

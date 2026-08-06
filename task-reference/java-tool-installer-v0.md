@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME (task version 0).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -93,6 +93,7 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="versionspec-property"></a>
 <!-- :::item name="versionSpec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +106,7 @@ Specifies the JDK version to make available on the path. Use a whole number vers
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkarchitectureoption-property"></a>
 <!-- :::item name="jdkArchitectureOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -128,6 +130,7 @@ Specifies the architecture (`x86`, `x64`) of the JDK.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdksourceoption-property"></a>
 <!-- :::item name="jdkSourceOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -140,6 +143,7 @@ Specifies the source for the compressed JDK. The source can be Azure blob storag
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkfile-property"></a>
 <!-- :::item name="jdkFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -152,6 +156,7 @@ Specifies the path to the JDK archive file that contains the compressed JDK. The
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcemanagerendpoint-property"></a>
 <!-- :::item name="azureResourceManagerEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -164,6 +169,7 @@ Specifies the Azure Resource Manager subscription for the JDK.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurestorageaccountname-property"></a>
 <!-- :::item name="azureStorageAccountName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -176,6 +182,7 @@ Specifies Azure Classic or Resource Manager storage accounts. Select the storage
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainername-property"></a>
 <!-- :::item name="azureContainerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -188,6 +195,7 @@ Specifies the name of the container in the storage account where the JDK is loca
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecommonvirtualfile-property"></a>
 <!-- :::item name="azureCommonVirtualFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -200,6 +208,7 @@ Specifies the path to the JDK inside the Azure storage container.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkdestinationdirectory-property"></a>
 <!-- :::item name="jdkDestinationDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -212,6 +221,7 @@ Specifies the destination directory where the JDK should be extracted. On Linux 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcegroupname-property"></a>
 <!-- :::item name="azureResourceGroupName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -224,6 +234,7 @@ Resource Group name of the storage account.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleandestinationdirectory-property"></a>
 <!-- :::item name="cleanDestinationDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -236,6 +247,7 @@ Specifies the option to clean the destination directory before JDK is extracted 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createextractdirectory-property"></a>
 <!-- :::item name="createExtractDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 

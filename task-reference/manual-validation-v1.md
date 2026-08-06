@@ -1,10 +1,10 @@
 ---
 title: ManualValidation@1 - Manual validation v1 task
 description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # ManualValidation@1 - Manual validation v1 task
@@ -58,6 +58,7 @@ Pause a pipeline run to wait for manual interaction. Works only with YAML pipeli
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="notifyusers-property"></a>
 <!-- :::item name="notifyUsers"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -72,6 +73,7 @@ This task input is required, but you can specify an empty string if you don't wa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="approvers-property"></a>
 <!-- :::item name="approvers"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -84,6 +86,7 @@ Specify a comma separated list of users/groups/project teams to act on a manual 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowapproverstoapprovetheirownruns-property"></a>
 <!-- :::item name="allowApproversToApproveTheirOwnRuns"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -107,6 +110,7 @@ If this is true, approver will be able to approve their own run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="instructions-property"></a>
 <!-- :::item name="instructions"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -119,6 +123,7 @@ Specifies the instructions that are shown to the user when resuming or rejecting
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ontimeout-property"></a>
 <!-- :::item name="onTimeout"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -188,8 +193,8 @@ a message bar with a link that opens the Manual validation dialog, which contain
       timeoutInMinutes: 1440 # task times out in 1 day
       inputs:
         notifyUsers: |
-          test@test.com,
-          example@example.com
+          test@contoso.com
+          example@fabrikam.com
         instructions: 'Please validate the build configuration and resume'
         onTimeout: 'resume'
 ```

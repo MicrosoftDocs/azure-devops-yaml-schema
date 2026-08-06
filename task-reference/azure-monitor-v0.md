@@ -1,7 +1,7 @@
 ---
 title: AzureMonitor@0 - Query Classic Azure Monitor alerts v0 task
 description: Observe the configured classic Azure Monitor rules for active alerts.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -59,6 +59,7 @@ This task is deprecated; use [AzureMonitor@1](./azure-monitor-v1.md).
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicenamearm-property"></a>
 <!-- :::item name="connectedServiceNameARM"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +72,7 @@ Selects an Azure Resource Manager subscription to monitor.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +85,7 @@ Provides the name of a resource group to monitor.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcetype-property"></a>
 <!-- :::item name="ResourceType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +98,7 @@ Selects the Azure resource type to monitor.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcename-property"></a>
 <!-- :::item name="resourceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +111,7 @@ Selects the name of the Azure resource to monitor.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="alertrules-property"></a>
 <!-- :::item name="alertRules"::: -->
 :::moniker range="<=azure-pipelines"
 

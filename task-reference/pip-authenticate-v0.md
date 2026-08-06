@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@0 - Python pip authenticate v0 task
 description: Authentication task for the pip client used for installing Python distributions (task version 0).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -41,6 +41,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="artifactfeeds-property"></a>
 <!-- :::item name="artifactFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -53,6 +54,7 @@ Specifies the feeds to authenticate as present in the organization.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="externalfeeds-property"></a>
 <!-- :::item name="externalFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 

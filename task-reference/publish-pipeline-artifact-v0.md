@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -66,6 +66,7 @@ Use this task to publish a local directory or file as a named artifact for the c
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="artifactname-property"></a>
 <!-- :::item name="artifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +79,7 @@ Specifies the name of the artifact.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="targetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +92,7 @@ Specifies the folder or file path to publish. This can be a fully qualified path
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="properties-property"></a>
 <!-- :::item name="properties"::: -->
 :::moniker range="<=azure-pipelines"
 

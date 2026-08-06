@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -37,7 +37,7 @@ Use this task to queue a job on a Jenkins server.
     #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
     #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
-    #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters. 
+    #jobParameters: # string. Optional. Use when isParameterizedJob = true. Job parameters. 
     #failOnUnstableResult: false # boolean. Fail on unstable result. Default: false.
     #retryCount: '3' # string. Number of retries for failed connection. Default: 3.
     #delayBetweenRetries: '60' # string. Time between retries. Default: 60.
@@ -50,6 +50,7 @@ Use this task to queue a job on a Jenkins server.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="serverendpoint-property"></a>
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -62,6 +63,7 @@ Specifies the service connection for your Jenkins instance.  Click the Manage li
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jobname-property"></a>
 <!-- :::item name="jobName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +76,7 @@ The name of the Jenkins job to queue.  This must exactly match the job name on t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ismultibranchjob-property"></a>
 <!-- :::item name="isMultibranchJob"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +89,7 @@ This job is a multibranch pipeline. If specified, add the appropriate branch nam
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="multibranchpipelinebranch-property"></a>
 <!-- :::item name="multibranchPipelineBranch"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +102,7 @@ Queues this multibranch pipeline job on the specified branch. This input require
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="captureconsole-property"></a>
 <!-- :::item name="captureConsole"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +115,7 @@ If specified, this input captures the Jenkins build console output, waits for th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="capturepipeline-property"></a>
 <!-- :::item name="capturePipeline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +128,7 @@ If specified, this task captures the full Jenkins build pipeline console output,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isparameterizedjob-property"></a>
 <!-- :::item name="isParameterizedJob"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,11 +141,12 @@ Specifies if the Jenkins job accepts parameters. Use this input even if all defa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jobparameters-property"></a>
 <!-- :::item name="jobParameters"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`jobParameters`** - **Job parameters**<br>
-`string`. Optional. Use when `parameterizedJob = true`.<br>
+`string`. Optional. Use when `isParameterizedJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies job parameters, with one per line, in the format of `<parameterName>=<parameterValue>`. 
 
@@ -157,6 +165,7 @@ The supported Jenkins parameter types are:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonunstableresult-property"></a>
 <!-- :::item name="failOnUnstableResult"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -169,6 +178,7 @@ Specifies strictness of a success definition, or whether to consider unstable as
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retrycount-property"></a>
 <!-- :::item name="retryCount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -181,6 +191,7 @@ Specifies the amount of connection retries when connection failure or error occu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="delaybetweenretries-property"></a>
 <!-- :::item name="delayBetweenRetries"::: -->
 :::moniker range="<=azure-pipelines"
 

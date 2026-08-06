@@ -1,10 +1,10 @@
 ---
 title: ManualIntervention@8 - Manual intervention v8 task
 description: Pause deployment and wait for manual intervention.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # ManualIntervention@8 - Manual intervention v8 task
@@ -41,6 +41,7 @@ Use this task to pause deployment in a release pipeline and wait for manual inte
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="instructions-property"></a>
 <!-- :::item name="instructions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -53,6 +54,7 @@ Specifies the instructions that are shown to the user when resuming or rejecting
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="emailrecipients-property"></a>
 <!-- :::item name="emailRecipients"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -65,6 +67,7 @@ Sends a manual intervention pending email to specific users (or groups). Only us
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ontimeout-property"></a>
 <!-- :::item name="onTimeout"::: -->
 :::moniker range="<=azure-pipelines"
 

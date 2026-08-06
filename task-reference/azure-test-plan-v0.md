@@ -1,7 +1,7 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
 description: Run manual and automated tests in test plan in Java and Python language.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 ---
 
@@ -52,6 +52,7 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="testselector-property"></a>
 <!-- :::item name="testSelector"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -64,6 +65,7 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testplanorrunselector-property"></a>
 <!-- :::item name="testPlanOrRunSelector"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -76,6 +78,7 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testrunid-property"></a>
 <!-- :::item name="testRunId"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -88,6 +91,7 @@ Test run based selection is used when triggering automated test runs from the te
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testplan-property"></a>
 <!-- :::item name="testPlan"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -100,6 +104,7 @@ Type or paste the test plan ID containing test suites with test cases.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testsuite-property"></a>
 <!-- :::item name="testSuite"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -112,6 +117,7 @@ Select one or more test suites containing test cases.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testconfiguration-property"></a>
 <!-- :::item name="testConfiguration"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -124,6 +130,7 @@ Select Test Configuration.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testlanguageinput-property"></a>
 <!-- :::item name="testLanguageInput"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -136,6 +143,7 @@ Test Framework Language of automated tests in test plan.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pomfilepath-property"></a>
 <!-- :::item name="pomFilePath"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -148,6 +156,7 @@ Relative path from the repository root to the Maven POM file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gradlefilepath-property"></a>
 <!-- :::item name="gradleFilePath"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -160,6 +169,7 @@ Relative path from the repository root to the build.gradle file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishrunattachments-property"></a>
 <!-- :::item name="publishRunAttachments"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -172,6 +182,7 @@ Upload logs and other files containing diagnostic information collected when the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failtaskonfailedtests-property"></a>
 <!-- :::item name="failTaskOnFailedTests"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -184,6 +195,7 @@ Fail the task if there are any test failures. Check this option to fail the task
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failtaskonfailuretopublishresults-property"></a>
 <!-- :::item name="failTaskOnFailureToPublishResults"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -196,6 +208,7 @@ Fail if there is failure in publishing test results. Check this option to fail t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failtaskonmissingresultsfile-property"></a>
 <!-- :::item name="failTaskOnMissingResultsFile"::: -->
 :::moniker range=">=azure-pipelines-server"
 

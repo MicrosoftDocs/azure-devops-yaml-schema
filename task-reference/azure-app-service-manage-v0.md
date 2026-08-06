@@ -1,10 +1,10 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureAppServiceManage@0 - Azure App Service manage v0 task
@@ -34,12 +34,12 @@ Start, stop, restart, slot swap, slot delete, install site extensions, or enable
     #Action: 'Swap Slots' # 'Swap Slots' | 'Start Azure App Service' | 'Stop Azure App Service' | 'Restart Azure App Service' | 'Start Swap With Preview' | 'Complete Swap' | 'Cancel Swap' | 'Delete Slot' | 'Install Extensions' | 'Enable Continuous Monitoring' | 'Start all continuous webjobs' | 'Stop all continuous webjobs'. Action. Default: Swap Slots.
     WebAppName: # string. Required. App Service name. 
     #SpecifySlotOrASE: false # boolean. Alias: SpecifySlot. Optional. Use when Action != Swap Slots && Action != Delete Slot && Action != Start Swap With Preview && Action != Complete Swap && Action != Cancel Swap. Specify Slot or App Service Environment. Default: false.
-    #ResourceGroupName: # string. Required when Action = Swap Slots || Action = Delete Slot || SpecifySlot = true || Action = Start Swap With Preview || Action = Complete Swap || Action = Cancel Swap. Resource group. 
+    #ResourceGroupName: # string. Required when Action = Swap Slots || Action = Delete Slot || SpecifySlotOrASE = true || Action = Start Swap With Preview || Action = Complete Swap || Action = Cancel Swap. Resource group. 
     #SourceSlot: # string. Required when Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap. Source Slot. 
     #SwapWithProduction: true # boolean. Optional. Use when Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap. Swap with Production. Default: true.
     #TargetSlot: # string. Required when SwapWithProduction = false. Target Slot. 
     #PreserveVnet: false # boolean. Optional. Use when Action = Swap Slots || Action = Start Swap With Preview || Action = Complete Swap. Preserve Vnet. Default: false.
-    #Slot: 'production' # string. Required when Action = Delete Slot || Action = Cancel Swap || SpecifySlot = true. Slot. Default: production.
+    #Slot: 'production' # string. Required when Action = Delete Slot || Action = Cancel Swap || SpecifySlotOrASE = true. Slot. Default: production.
     #ExtensionsList: # string. Required when Action = Install Extensions. Install Extensions. 
     #OutputVariable: # string. Optional. Use when Action = Install Extensions. Output variable. 
     #AppInsightsResourceGroupName: # string. Required when Action == Enable Continuous Monitoring. Resource Group name for Application Insights. 
@@ -55,6 +55,7 @@ Start, stop, restart, slot swap, slot delete, install site extensions, or enable
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +68,7 @@ Selects the Azure Resource Manager subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="Action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +81,7 @@ Optional. Defines the action to perform on the App Service. You can start, stop,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webappname-property"></a>
 <!-- :::item name="WebAppName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,6 +94,7 @@ Enters or selects the name of an existing Azure App Service.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="specifyslotorase-property"></a>
 <!-- :::item name="SpecifySlotOrASE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,11 +106,12 @@ Enters or selects the name of an existing Azure App Service.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource group**<br>
-`string`. Required when `Action = Swap Slots || Action = Delete Slot || SpecifySlot = true || Action = Start Swap With Preview || Action = Complete Swap || Action = Cancel Swap`.<br>
+`string`. Required when `Action = Swap Slots || Action = Delete Slot || SpecifySlotOrASE = true || Action = Start Swap With Preview || Action = Complete Swap || Action = Cancel Swap`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enters or selects the Azure Resource Group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
@@ -114,6 +119,7 @@ Enters or selects the Azure Resource Group that contains the Azure App Service s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sourceslot-property"></a>
 <!-- :::item name="SourceSlot"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +132,7 @@ Used as source slot when `action == Swap Slots`. The swap action directs destina
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="swapwithproduction-property"></a>
 <!-- :::item name="SwapWithProduction"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -138,6 +145,7 @@ Swaps the traffic of the source slot with production. If you don't select this o
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetslot-property"></a>
 <!-- :::item name="TargetSlot"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -150,6 +158,7 @@ Use as the destination slot when `action == Swap Slots`. The swap action directs
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="preservevnet-property"></a>
 <!-- :::item name="PreserveVnet"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -162,17 +171,19 @@ Preserves the virtual network settings.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slot-property"></a>
 <!-- :::item name="Slot"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`Slot`** - **Slot**<br>
-`string`. Required when `Action = Delete Slot || Action = Cancel Swap || SpecifySlot = true`. Default value: `production`.<br>
+`string`. Required when `Action = Delete Slot || Action = Cancel Swap || SpecifySlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="extensionslist-property"></a>
 <!-- :::item name="ExtensionsList"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -190,6 +201,7 @@ You can specify extensions as `name@version` (e.g., `PythonExtension@3.9.0`). If
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputvariable-property"></a>
 <!-- :::item name="OutputVariable"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -204,6 +216,7 @@ This field is now deprecated and will be removed. Use the `LocalPathsForInstalle
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appinsightsresourcegroupname-property"></a>
 <!-- :::item name="AppInsightsResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -216,6 +229,7 @@ Enters or selects the resource group where your Application Insights resource is
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationinsightsresourcename-property"></a>
 <!-- :::item name="ApplicationInsightsResourceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -230,6 +244,7 @@ If your Application Insights resource is not listed here and you want to create 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationinsightswebtestname-property"></a>
 <!-- :::item name="ApplicationInsightsWebTestName"::: -->
 :::moniker range="<=azure-pipelines"
 

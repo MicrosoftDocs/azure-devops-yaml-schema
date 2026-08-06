@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 description: Deploy an Azure Service Fabric application to a cluster.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ms.custom: sfi-ropc-nochange
 ---
@@ -78,6 +78,7 @@ Use this task to deploy a Service Fabric application to a cluster. This task dep
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="applicationpackagepath-property"></a>
 <!-- :::item name="applicationPackagePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +91,7 @@ Specifies the path to the application package that is to be deployed. [Variables
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="serviceconnectionname-property"></a>
 <!-- :::item name="serviceConnectionName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -104,6 +106,7 @@ To connect to the cluster, the service fabric task uses the machine cert store t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishprofilepath-property"></a>
 <!-- :::item name="publishProfilePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -116,6 +119,7 @@ Optional. Specifies the path to the publish profile file that defines the settin
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="applicationparameterpath-property"></a>
 <!-- :::item name="applicationParameterPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -128,6 +132,7 @@ Optional. Specifies the path to the application parameters file. [Variables](/az
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overrideapplicationparameter-property"></a>
 <!-- :::item name="overrideApplicationParameter"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,6 +156,7 @@ Optional. Specifies the variables defined in the build or release pipeline are m
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="compresspackage-property"></a>
 <!-- :::item name="compressPackage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +169,7 @@ Optional. Specifies whether the application package should be compressed before 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="copypackagetimeoutsec-property"></a>
 <!-- :::item name="copyPackageTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +182,7 @@ Optional. Specifies the timeout in seconds for copying application package to th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registerpackagetimeoutsec-property"></a>
 <!-- :::item name="registerPackageTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +195,7 @@ Optional. Specifies the timeout in seconds for registering or un-registering an 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overwritebehavior-property"></a>
 <!-- :::item name="overwriteBehavior"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -205,6 +214,7 @@ Overwrites behavior if an application exists in the cluster with the same name a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skipupgradesametypeandversion-property"></a>
 <!-- :::item name="skipUpgradeSameTypeAndVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -217,6 +227,7 @@ Optional. Specifies whether an upgrade will be skipped if the same application t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skippackagevalidation-property"></a>
 <!-- :::item name="skipPackageValidation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -229,6 +240,7 @@ Optional. Specifies whether the package should be validated or not before deploy
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usediffpackage-property"></a>
 <!-- :::item name="useDiffPackage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -243,6 +255,7 @@ A diff package is created by comparing the package specified in the application 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overridepublishprofilesettings-property"></a>
 <!-- :::item name="overridePublishProfileSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -255,6 +268,7 @@ Optional. Overrides all upgrade settings with either specified values or the def
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isupgrade-property"></a>
 <!-- :::item name="isUpgrade"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -267,6 +281,7 @@ Overwrites the application if the value is set to `false`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="unregisterunusedversions-property"></a>
 <!-- :::item name="unregisterUnusedVersions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -279,6 +294,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="upgrademode-property"></a>
 <!-- :::item name="upgradeMode"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -290,6 +306,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failureaction-property"></a>
 <!-- :::item name="FailureAction"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -301,6 +318,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="upgradereplicasetchecktimeoutsec-property"></a>
 <!-- :::item name="UpgradeReplicaSetCheckTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -312,6 +330,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="timeoutsec-property"></a>
 <!-- :::item name="TimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -323,6 +342,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="forcerestart-property"></a>
 <!-- :::item name="ForceRestart"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -334,6 +354,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="healthcheckretrytimeoutsec-property"></a>
 <!-- :::item name="HealthCheckRetryTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -345,6 +366,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="healthcheckwaitdurationsec-property"></a>
 <!-- :::item name="HealthCheckWaitDurationSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -356,6 +378,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="healthcheckstabledurationsec-property"></a>
 <!-- :::item name="HealthCheckStableDurationSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -367,6 +390,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="upgradedomaintimeoutsec-property"></a>
 <!-- :::item name="UpgradeDomainTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -378,6 +402,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="considerwarningaserror-property"></a>
 <!-- :::item name="ConsiderWarningAsError"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -389,6 +414,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="defaultservicetypehealthpolicy-property"></a>
 <!-- :::item name="DefaultServiceTypeHealthPolicy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -400,6 +426,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="maxpercentunhealthydeployedapplications-property"></a>
 <!-- :::item name="MaxPercentUnhealthyDeployedApplications"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -411,6 +438,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="upgradetimeoutsec-property"></a>
 <!-- :::item name="UpgradeTimeoutSec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -422,6 +450,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicetypehealthpolicymap-property"></a>
 <!-- :::item name="ServiceTypeHealthPolicyMap"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -433,6 +462,7 @@ Optional. Indicates whether all unused versions of the application type will be 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuredockersettings-property"></a>
 <!-- :::item name="configureDockerSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -445,6 +475,7 @@ Configures the application with the specified Docker settings.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registrycredentials-property"></a>
 <!-- :::item name="registryCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -457,6 +488,7 @@ Specifies how credentials for the Docker registry are provided.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryconnection-property"></a>
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -472,6 +504,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -487,6 +520,7 @@ Specifies an Azure subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registryusername-property"></a>
 <!-- :::item name="registryUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -499,6 +533,7 @@ Specifies the username for the Docker registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registrypassword-property"></a>
 <!-- :::item name="registryPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -511,6 +546,7 @@ Specifies the password for the Docker registry. If the password is not encrypted
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="passwordencrypted-property"></a>
 <!-- :::item name="passwordEncrypted"::: -->
 :::moniker range="<=azure-pipelines"
 

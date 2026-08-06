@@ -1,10 +1,10 @@
 ---
 title: AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
 description: Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
@@ -46,6 +46,7 @@ Create a configuration snapshot in Azure App Configuration through build or depl
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -58,6 +59,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appconfigurationendpoint-property"></a>
 <!-- :::item name="AppConfigurationEndpoint"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -70,6 +72,7 @@ Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="snapshotname-property"></a>
 <!-- :::item name="SnapshotName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -82,6 +85,7 @@ Provide a name for the snapshot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="compositiontype-property"></a>
 <!-- :::item name="CompositionType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -96,6 +100,7 @@ Provide a name for the snapshot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filters-property"></a>
 <!-- :::item name="Filters"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -108,6 +113,7 @@ Specifies snapshot filters that represent the key and label filters used to buil
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retentionperiod-property"></a>
 <!-- :::item name="RetentionPeriod"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -120,6 +126,7 @@ Archived snapshots can be recovered during the retention period. Choose the numb
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="Tags"::: -->
 :::moniker range=">=azure-pipelines-server"
 

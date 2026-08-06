@@ -1,7 +1,7 @@
 ---
 title: AzureVmssDeployment@1 - Azure VM scale set deployment v1 task
 description: Deploy a virtual machine scale set image.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 ---
 
@@ -52,6 +52,7 @@ Deploy a virtual machine scale set image.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -64,6 +65,7 @@ Select the Azure Resource Manager subscription for the scale set.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="action"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -76,6 +78,7 @@ Choose between updating a VM scale set by using a VHD image and/or by running de
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmssname-property"></a>
 <!-- :::item name="vmssName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -88,6 +91,7 @@ Name of VM scale set which you want to update by using either a VHD image or by 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmssostype-property"></a>
 <!-- :::item name="vmssOsType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -100,6 +104,7 @@ Select the operating system type of VM scale set.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imageurl-property"></a>
 <!-- :::item name="imageUrl"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -112,6 +117,7 @@ Specify the URL of VHD image. If it is an Azure storage blob URL, the storage ac
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customscriptsdirectory-property"></a>
 <!-- :::item name="customScriptsDirectory"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -124,6 +130,7 @@ Path to directory containing custom script(s) that will be run by using Custom S
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customscript-property"></a>
 <!-- :::item name="customScript"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -136,6 +143,7 @@ The script that will be run by using Custom Script VM extension. This script can
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customscriptarguments-property"></a>
 <!-- :::item name="customScriptArguments"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -148,6 +156,7 @@ The custom script will be invoked with arguments passed. Build/Release variables
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customscriptsstorageaccount-property"></a>
 <!-- :::item name="customScriptsStorageAccount"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -160,6 +169,7 @@ The Custom Script Extension downloads and executes scripts provided by you on ea
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skiparchivingcustomscripts-property"></a>
 <!-- :::item name="skipArchivingCustomScripts"::: -->
 :::moniker range=">=azure-pipelines-server"
 

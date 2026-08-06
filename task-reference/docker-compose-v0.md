@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -83,6 +83,7 @@ Build, push or run multi-container Docker applications. Use this task with Docke
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="containerregistrytype-property"></a>
 <!-- :::item name="containerregistrytype"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +96,7 @@ Specifies an Azure Container Registry type if using ACR. Specify a Container Reg
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryendpoint-property"></a>
 <!-- :::item name="dockerRegistryEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +109,7 @@ Specifies a Docker registry service connection. Required when commands need to a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +122,7 @@ Specifies an Azure subscription. Name of the Azure Service Connection. To manual
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistry-property"></a>
 <!-- :::item name="azureContainerRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +135,7 @@ Specifies an Azure Container Registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockercomposefile-property"></a>
 <!-- :::item name="dockerComposeFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -143,6 +148,7 @@ Specifies the file path to the primary Docker Compose file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionaldockercomposefiles-property"></a>
 <!-- :::item name="additionalDockerComposeFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -155,6 +161,7 @@ Specifies additional Docker Compose files that are combined with the primary Doc
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockercomposefileargs-property"></a>
 <!-- :::item name="dockerComposeFileArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -172,6 +179,7 @@ Format as follows:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="projectname-property"></a>
 <!-- :::item name="projectName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -184,6 +192,7 @@ Specifies the project name to use by default to name images and containers.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="qualifyimagenames-property"></a>
 <!-- :::item name="qualifyImageNames"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -196,6 +205,7 @@ By default, specifies the Docker registry service connection's hostname.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -208,6 +218,7 @@ Specifies a Docker Compose action from the list of allowed values.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalimagetags-property"></a>
 <!-- :::item name="additionalImageTags"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -220,6 +231,7 @@ Specifies additional tags for the Docker images being built or pushed.  You can 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includesourcetags-property"></a>
 <!-- :::item name="includeSourceTags"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -232,6 +244,7 @@ Specifies Git tags when building or pushing Docker images.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includelatesttag-property"></a>
 <!-- :::item name="includeLatestTag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -244,6 +257,7 @@ Specifies the *latest* tag when building or pushing Docker images.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildimages-property"></a>
 <!-- :::item name="buildImages"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -256,6 +270,7 @@ Specifies build images before starting service containers.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicename-property"></a>
 <!-- :::item name="serviceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -268,6 +283,7 @@ Specifies the name of the service you want to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containername-property"></a>
 <!-- :::item name="containerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -280,6 +296,7 @@ Specifies the name of the service container you want to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ports-property"></a>
 <!-- :::item name="ports"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -292,6 +309,7 @@ Specifies ports in the service container to publish to the host. Add each `host-
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -304,6 +322,7 @@ Specifies the working directory for the service container.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="entrypoint-property"></a>
 <!-- :::item name="entrypoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -316,6 +335,7 @@ Specifies an override value for the default entry point of the service container
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containercommand-property"></a>
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -328,6 +348,7 @@ Specifies the command to run in the service container. For example, if the image
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="detached-property"></a>
 <!-- :::item name="detached"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -340,6 +361,7 @@ Specifies the service containers to run in the background.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="abortoncontainerexit-property"></a>
 <!-- :::item name="abortOnContainerExit"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -352,6 +374,7 @@ Specifies all containers that should stop when any container exits.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagedigestcomposefile-property"></a>
 <!-- :::item name="imageDigestComposeFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -364,6 +387,7 @@ Specifies the path to a Docker Compose file that is created and populated with t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removebuildoptions-property"></a>
 <!-- :::item name="removeBuildOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -376,6 +400,7 @@ Specifies if build options should be removed from the output Docker Compose file
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="baseresolvedirectory-property"></a>
 <!-- :::item name="baseResolveDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -388,6 +413,7 @@ Specifies the base directory from which relative paths in the output Docker Comp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputdockercomposefile-property"></a>
 <!-- :::item name="outputDockerComposeFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -400,6 +426,7 @@ Specifies the path to an output Docker Compose file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockercomposecommand-property"></a>
 <!-- :::item name="dockerComposeCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -412,6 +439,7 @@ Specifies the Docker Compose command to execute with arguments. For example, `rm
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -426,6 +454,7 @@ Example: For the build command, `--pull --compress --parallel`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerhostendpoint-property"></a>
 <!-- :::item name="dockerHostEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -438,6 +467,7 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nopifnodockercomposefile-property"></a>
 <!-- :::item name="nopIfNoDockerComposeFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -450,6 +480,7 @@ Specifies a value to skip the task if the Docker Compose file does not exist. Th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="requireadditionaldockercomposefiles-property"></a>
 <!-- :::item name="requireAdditionalDockerComposeFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -462,6 +493,7 @@ Specifies a value to produce an error if the additional Docker Compose files do 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="currentworkingdirectory-property"></a>
 <!-- :::item name="currentWorkingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -474,6 +506,7 @@ Specifies the working directory for the Docker Compose command.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockercomposepath-property"></a>
 <!-- :::item name="dockerComposePath"::: -->
 :::moniker range="<=azure-pipelines"
 

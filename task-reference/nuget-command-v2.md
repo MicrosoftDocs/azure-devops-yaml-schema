@@ -1,7 +1,7 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
-description: Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 04/02/2026
+description: Restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -13,10 +13,10 @@ ms.author: rabououn
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to restore, pack, or push NuGet packages, or run a NuGet command. This task supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. This task also uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+> [!IMPORTANT]
+> To authenticate and publish packages to Azure Artifacts or public registries, use the [NuGetAuthenticate@1](./nuget-authenticate-v1.md) task combined with the [.NET CLI task](dotnet-core-cli-v2.md). The `NuGetCommand@2` task is no longer being updated with new features; only critical bugs are addressed.
 
-> [!TIP]
-> Use [NuGetAuthenticate@1](./nuget-authenticate-v1.md) in your pipeline before this task. For more information, see [Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?](#why-is-my-build-pipeline-failing-and-prompting-for-single-sign-on-sso-authentication).
+Use this task to pack or restore NuGet packages, or run a NuGet command. This task uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -25,11 +25,11 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-server"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 # NuGet v2
-# Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+# Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 - task: NuGetCommand@2
   inputs:
     command: 'restore' # 'restore' | 'pack' | 'push' | 'custom'. Required. Command. Default: restore.
@@ -45,10 +45,61 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
     #arguments: # string. Required when command = custom. Command and arguments. 
   # Feeds and authentication
     feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
-    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts/TFS feed. Select from the dropdown or enter [project name/]feed name. 
-    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
-    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this organization/collection. 
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when feedsToUse = select && command = restore. Use packages from this Azure Artifacts/TFS feed. Select from the dropdown or enter [project name/]feed name. 
+    #includeNuGetOrg: true # boolean. Optional. Use when feedsToUse = select && command = restore. Use packages from NuGet.org. Default: true.
+    #nugetConfigPath: # string. Optional. Use when feedsToUse = config && command = restore. Path to NuGet.config. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when feedsToUse = config && command = restore. Credentials for feeds outside this organization/collection. 
+  # Advanced
+    #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
+    #disableParallelProcessing: false # boolean. Optional. Use when command = restore. Disable parallel processing. Default: false.
+    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
+    #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = restore. Verbosity. Default: Detailed.
+  # Advanced
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
+    #requestTimeout: # string. Optional. Use when command = push. Timeout for package publish (seconds). 
+    #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = push. Verbosity. Default: Detailed.
+  # Pack options
+    #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
+    #includeReferencedProjects: false # boolean. Optional. Use when versioningScheme = off && command = pack. Include referenced projects. Default: false.
+    #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
+    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Major. Default: 1.
+    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Minor. Default: 0.
+    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Patch. Default: 0.
+    #packTimezone: 'utc' # 'utc' | 'local'. Optional. Use when versioningScheme = byPrereleaseNumber && command = pack. Time zone. Default: utc.
+    #includeSymbols: false # boolean. Optional. Use when command = pack. Create symbols package. Default: false.
+    #toolPackage: false # boolean. Optional. Use when command = pack. Tool Package. Default: false.
+  # Advanced
+    #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
+    #basePath: # string. Optional. Use when command = pack. Base path. 
+    #verbosityPack: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = pack. Verbosity. Default: Detailed.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
+
+```yaml
+# NuGet v2
+# Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore' # 'restore' | 'pack' | 'push' | 'custom'. Required. Command. Default: restore.
+    restoreSolution: '**/*.sln' # string. Alias: solution. Required when command = restore. Path to solution, packages.config, or project.json. Default: **/*.sln.
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg' # string. Alias: searchPatternPush. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg.
+    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
+    #publishVstsFeed: # string. Alias: feedPublish. Required when command = push && nuGetFeedType = internal. Target feed. 
+    #allowPackageConflicts: false # boolean. Optional. Use when command = push && nuGetFeedType = internal. Allow duplicates to be skipped. Default: false.
+    #publishFeedCredentials: # string. Alias: externalEndpoint. Required when command = push && nuGetFeedType = external. NuGet server. 
+    #packagesToPack: '**/*.csproj' # string. Alias: searchPatternPack. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
+    #configuration: '$(BuildConfiguration)' # string. Alias: configurationToPack. Optional. Use when command = pack. Configuration to package. Default: $(BuildConfiguration).
+    #packDestination: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package folder. Default: $(Build.ArtifactStagingDirectory).
+    #arguments: # string. Required when command = custom. Command and arguments. 
+  # Feeds and authentication
+    feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when feedsToUse = select && command = restore. Use packages from this Azure Artifacts/TFS feed. Select from the dropdown or enter [project name/]feed name. 
+    #includeNuGetOrg: true # boolean. Optional. Use when feedsToUse = select && command = restore. Use packages from NuGet.org. Default: true.
+    #nugetConfigPath: # string. Optional. Use when feedsToUse = config && command = restore. Path to NuGet.config. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when feedsToUse = config && command = restore. Credentials for feeds outside this organization/collection. 
   # Advanced
     #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
     #disableParallelProcessing: false # boolean. Optional. Use when command = restore. Disable parallel processing. Default: false.
@@ -79,7 +130,7 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
 
 ```yaml
 # NuGet v2
-# Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+# Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 - task: NuGetCommand@2
   inputs:
     command: 'restore' # 'restore' | 'pack' | 'push' | 'custom'. Required. Command. Default: restore.
@@ -95,10 +146,10 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
     #arguments: # string. Required when command = custom. Command and arguments. 
   # Feeds and authentication
     feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
-    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts/TFS feed. 
-    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
-    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this organization/collection. 
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when feedsToUse = select && command = restore. Use packages from this Azure Artifacts/TFS feed. 
+    #includeNuGetOrg: true # boolean. Optional. Use when feedsToUse = select && command = restore. Use packages from NuGet.org. Default: true.
+    #nugetConfigPath: # string. Optional. Use when feedsToUse = config && command = restore. Path to NuGet.config. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when feedsToUse = config && command = restore. Credentials for feeds outside this organization/collection. 
   # Advanced
     #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
     #disableParallelProcessing: false # boolean. Optional. Use when command = restore. Disable parallel processing. Default: false.
@@ -130,6 +181,7 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +194,7 @@ Specifies the NuGet command to run. Use the `custom` value to add arguments or t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restoresolution-property"></a>
 <!-- :::item name="restoreSolution"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -154,6 +207,7 @@ Specifies the path to the solution, `packages.config`, or `project.json` file th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedstouse-property"></a>
 <!-- :::item name="feedsToUse"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -166,11 +220,12 @@ Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstsfeed-property"></a>
 <!-- :::item name="vstsFeed"::: -->
 :::moniker range=">=azure-pipelines-server"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed. Select from the dropdown or enter [project name/]feed name.**<br>
-[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `feedsToUse = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
@@ -181,7 +236,7 @@ Specifies the selected feed in the generated `NuGet.config`. You must have Packa
 :::moniker range="<=azure-pipelines-2022.2"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
-[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `feedsToUse = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
@@ -189,11 +244,12 @@ Specifies the selected feed in the generated `NuGet.config`. You must have Packa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includenugetorg-property"></a>
 <!-- :::item name="includeNuGetOrg"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`includeNuGetOrg`** - **Use packages from NuGet.org**<br>
-`boolean`. Optional. Use when `selectOrConfig = select && command = restore`. Default value: `true`.<br>
+`boolean`. Optional. Use when `feedsToUse = select && command = restore`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes NuGet.org in the generated `NuGet.config`.
 <!-- :::editable-content-end::: -->
@@ -201,11 +257,12 @@ Includes NuGet.org in the generated `NuGet.config`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetconfigpath-property"></a>
 <!-- :::item name="nugetConfigPath"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
-`string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
+`string`. Optional. Use when `feedsToUse = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path to the `NuGet.config` in your repository that determines the feeds from which to restore packages.
 <!-- :::editable-content-end::: -->
@@ -213,11 +270,12 @@ Specifies the path to the `NuGet.config` in your repository that determines the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="externalfeedcredentials-property"></a>
 <!-- :::item name="externalFeedCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
-[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Optional. Use when `feedsToUse = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. This is the name of your NuGet service connection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -225,6 +283,7 @@ Specifies the credentials to use for external registries located in the selected
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nocache-property"></a>
 <!-- :::item name="noCache"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -237,6 +296,7 @@ Prevents NuGet from using packages from local machine caches when set to `true`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="disableparallelprocessing-property"></a>
 <!-- :::item name="disableParallelProcessing"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -249,6 +309,7 @@ Prevents NuGet from installing multiple packages in parallel processes when set 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restoredirectory-property"></a>
 <!-- :::item name="restoreDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +322,7 @@ Specifies the folder in which packages are installed. If no folder is specified,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbosityrestore-property"></a>
 <!-- :::item name="verbosityRestore"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -273,6 +335,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagestopush-property"></a>
 <!-- :::item name="packagesToPush"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -285,6 +348,7 @@ Specifies the pattern to match or path to `nupkg` files to be uploaded. Multiple
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetfeedtype-property"></a>
 <!-- :::item name="nuGetFeedType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -297,6 +361,7 @@ Specifies whether the target feed is an internal feed/collection or an external 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishvstsfeed-property"></a>
 <!-- :::item name="publishVstsFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -309,6 +374,7 @@ Specifies a feed hosted in this account. You must have Azure Artifacts installed
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishpackagemetadata-property"></a>
 <!-- :::item name="publishPackageMetadata"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -321,6 +387,7 @@ Changes the version number of the subset of changed packages within a set of con
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowpackageconflicts-property"></a>
 <!-- :::item name="allowPackageConflicts"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -335,6 +402,20 @@ This option is currently only available on Azure Pipelines and Windows agents. I
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="requesttimeout-property"></a>
+<!-- :::item name="requestTimeout"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`requestTimeout`** - **Timeout for package publish (seconds)**<br>
+`string`. Optional. Use when `command = push`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Optionally provide a timeout, in seconds, for the package publish operation. Must be a non-negative integer. Capped at 600 seconds (10 minutes). If omitted, the default NuGet push timeout (300 seconds) is used.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<a name="publishfeedcredentials-property"></a>
 <!-- :::item name="publishFeedCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -347,6 +428,7 @@ Specifies the NuGet service connection that contains the external NuGet serverâ€
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbositypush-property"></a>
 <!-- :::item name="verbosityPush"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -359,6 +441,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packagestopack-property"></a>
 <!-- :::item name="packagesToPack"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -373,6 +456,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -385,6 +469,7 @@ Specifies the configuration to package when using a csproj file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packdestination-property"></a>
 <!-- :::item name="packDestination"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -397,6 +482,7 @@ Specifies the folder where the task creates packages. If the value is empty, the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versioningscheme-property"></a>
 <!-- :::item name="versioningScheme"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -416,6 +502,7 @@ Applies automatic package versioning depending on the specified value. This stri
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includereferencedprojects-property"></a>
 <!-- :::item name="includeReferencedProjects"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -428,6 +515,7 @@ Includes referenced projects either as dependencies or as part of the package. C
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionenvvar-property"></a>
 <!-- :::item name="versionEnvVar"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -440,6 +528,7 @@ Specifies the variable name without `$`, `$env`, or `%`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="majorversion-property"></a>
 <!-- :::item name="majorVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -452,6 +541,7 @@ The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="minorversion-property"></a>
 <!-- :::item name="minorVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -464,6 +554,7 @@ The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="patchversion-property"></a>
 <!-- :::item name="patchVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -476,6 +567,7 @@ The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packtimezone-property"></a>
 <!-- :::item name="packTimezone"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -488,6 +580,7 @@ Specifies the desired time zone used to produce the version of the package. Sele
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includesymbols-property"></a>
 <!-- :::item name="includeSymbols"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -500,6 +593,7 @@ Specifies that the package contains sources and symbols. When used with a `.nusp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="toolpackage-property"></a>
 <!-- :::item name="toolPackage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -512,6 +606,7 @@ Determines if the output files of the project should be in the tool folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildproperties-property"></a>
 <!-- :::item name="buildProperties"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -524,6 +619,7 @@ Specifies a list of token=value pairs, separated by semicolons, where each occur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="basepath-property"></a>
 <!-- :::item name="basePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -536,6 +632,7 @@ Specifies the base path of the files defined in the `nuspec` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbositypack-property"></a>
 <!-- :::item name="verbosityPack"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -548,6 +645,7 @@ Specifies the amount of detail displayed in the output.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -580,10 +678,10 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-> [!IMPORTANT]
-> If you want to authenticate wih Azure Artifacts or other NuGet repositories you must use The [NuGet Authenticate](nuget-authenticate-v1.md) task instead of the `NuGetCommand@2` task. The `NuGetCommand@2` task is no longer being updated with new features; only critical bugs are addressed.
+Use this task to restore or pack NuGet packages, or run a NuGet command. This task uses *NuGet.exe* and works with *.NET* Framework apps. If you are working with *.NET Core* or *.NET Standard*, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and is currently supported by dotnet.
 
-Use this task to restore, pack, or push NuGet packages, or run a NuGet commands. This task uses *NuGet.exe* and works with *.NET* Framework apps. If you are working with *.NET Core* or *.NET Standard*, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and is currently supported by dotnet.
+> [!IMPORTANT]
+> For authenticating and publishing packages to Azure Artifacts or other package registries, use the [NuGetAuthenticate@1](nuget-authenticate-v1.md) task combined with the [.NET CLI task](dotnet-core-cli-v2.md).
 
 If your code depends on NuGet packages and you need to restore those dependencies before building your project with the [Visual Studio Build task](vsbuild-v1.md) task, you can use the *nugetAuthenticate* and *command line* tasks to restore your packages. Place both tasks before the build step to ensure all dependencies are available before the build starts. See [Restore NuGet packages](/azure/devops/pipelines/packages/nuget-restore) for more details.
 
@@ -742,78 +840,9 @@ Create a NuGet package in the destination folder.
     packDestination: '$(Build.ArtifactStagingDirectory)'
 ```
 
-### Push
-
-> [!NOTE]
-> Pipeline artifacts are downloaded to the `Pipeline.Workspace` directory, and to the `System.ArtifactsDirectory` directory for classic release pipelines. `packagesToPush` value can be set to `$(Pipeline.Workspace)/**/*.nupkg` or `$(System.ArtifactsDirectory)/**/*.nupkg` respectively.
-
-#### [Windows](#tab/windows/)
-
-* Push/Publish a package to a feed defined in your NuGet.config.
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
-        feedsToUse: 'config'
-        nugetConfigPath: '$(Build.WorkingDirectory)/NuGet.config'
-    ```
-
-* Push/Publish a package to an organization scoped feed
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        nuGetFeedType: 'internal'
-        publishVstsFeed: 'my-organization-scoped-feed'
-    ```
-    
-* Push/Publish a package to a project scoped feed
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        nuGetFeedType: 'internal'
-        publishVstsFeed: 'my-project/my-project-scoped-feed'
-    ```
-
-* Push/Publish a package to NuGet.org
-
-    ```YAML
-    # Push a project
-    - task: NuGetCommand@2
-      inputs:
-        command: 'push'
-        feedsToUse: 'config'
-        includeNugetOrg: 'true'
-    ```
-
-#### [Linux](#tab/linux/)
-
-```YAML
-- task: NuGetAuthenticate@1
-  displayName: 'NuGet Authenticate'
-
-- task: UseDotNet@2 
-  displayName: 'Install .NET Core SDK'
-  inputs:
-    version: 9.x
-
-- script: |
-      dotnet nuget push --source <SOURCE_NAME>  --api-key <ANY_STRING> <PACKAGE_PATH>     
-```
-
----
-
 ### Custom
 
-Run any other NuGet command besides the default ones: pack, push, and restore.
+Run any other NuGet command besides the default ones:
 
 ```YAML
 # list local NuGet resources.

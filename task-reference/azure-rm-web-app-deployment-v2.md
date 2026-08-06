@@ -1,10 +1,10 @@
 ---
 title: AzureRmWebAppDeployment@2 - Azure App Service Deploy v2 task
 description: Update Azure App Service using Web Deploy / Kudu REST APIs (task version 2).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureRmWebAppDeployment@2 - Azure App Service Deploy v2 task
@@ -54,6 +54,7 @@ Use this task to update Azure App Service using Web Deploy/[Kudu REST APIs](http
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectedservicename-property"></a>
 <!-- :::item name="ConnectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +67,7 @@ Specify the Azure Resource Manager subscription for the deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webappname-property"></a>
 <!-- :::item name="WebAppName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +80,7 @@ Specify the name of an existing Azure App Service.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytoslotflag-property"></a>
 <!-- :::item name="DeployToSlotFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +93,7 @@ Use this option to deploy to an existing slot other than the Production slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="ResourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +106,7 @@ Specify the Azure Resource group that contains the Azure App Service specified a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="SlotName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +119,7 @@ Specify an existing slot other than the Production slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="virtualapplication-property"></a>
 <!-- :::item name="VirtualApplication"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +132,7 @@ Specify the name of the Virtual Application that has been configured in the Azur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="package-property"></a>
 <!-- :::item name="Package"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -140,6 +147,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="webappuri-property"></a>
 <!-- :::item name="WebAppUri"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -152,6 +160,7 @@ Specify a name for the output variable that is generated for the URL of the App 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usewebdeploy-property"></a>
 <!-- :::item name="UseWebDeploy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -164,6 +173,7 @@ Specify a name for the output variable that is generated for the URL of the App 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="setparametersfile-property"></a>
 <!-- :::item name="SetParametersFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -176,6 +186,7 @@ Specify the location of the `SetParameters.xml` file to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removeadditionalfilesflag-property"></a>
 <!-- :::item name="RemoveAdditionalFilesFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -188,6 +199,7 @@ Use this option to delete files on the Azure App Service that have no matching f
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="excludefilesfromappdataflag-property"></a>
 <!-- :::item name="ExcludeFilesFromAppDataFlag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -200,6 +212,7 @@ Exclude files in the `App_Data` folder from being deployed to the Azure App Serv
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -216,6 +229,7 @@ Learn more about [Web Deploy operation settings](https://go.microsoft.com/fwlink
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="takeappofflineflag-property"></a>
 <!-- :::item name="TakeAppOfflineFlag"::: -->
 :::moniker range="<=azure-pipelines"
 

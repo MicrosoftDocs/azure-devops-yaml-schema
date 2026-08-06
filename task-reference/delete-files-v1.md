@@ -1,7 +1,7 @@
 ---
 title: DeleteFiles@1 - Delete files v1 task
 description: Delete folders, or files matching a pattern.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -42,6 +42,7 @@ Delete folders, or files matching a pattern.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sourcefolder-property"></a>
 <!-- :::item name="SourceFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="contents-property"></a>
 <!-- :::item name="Contents"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +76,7 @@ For example:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removesourcefolder-property"></a>
 <!-- :::item name="RemoveSourceFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +89,7 @@ Attempts to remove the source folder after attempting to remove `Contents`. If y
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removedotfiles-property"></a>
 <!-- :::item name="RemoveDotFiles"::: -->
 :::moniker range="<=azure-pipelines"
 

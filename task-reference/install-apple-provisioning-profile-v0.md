@@ -1,7 +1,7 @@
 ---
 title: InstallAppleProvisioningProfile@0 - Install Apple Provisioning Profile v0 task
 description: Install an Apple provisioning profile required to build on a macOS agent.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -38,6 +38,7 @@ Use this task to install an Apple provisioning profile, which is required in ord
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="provprofilesecurefile-property"></a>
 <!-- :::item name="provProfileSecureFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -50,6 +51,7 @@ Specifies the provisioning profile that was uploaded to `Secure Files` to instal
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removeprofile-property"></a>
 <!-- :::item name="removeProfile"::: -->
 :::moniker range="<=azure-pipelines"
 

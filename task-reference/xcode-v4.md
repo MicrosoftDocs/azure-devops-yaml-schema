@@ -1,7 +1,7 @@
 ---
 title: Xcode@4 - Xcode v4 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app (task version 4).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -69,6 +69,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="actions-property"></a>
 <!-- :::item name="actions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +82,7 @@ Specifies a space-delimited list of actions. Valid options are `build`, `clean`,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +95,7 @@ Specifies the Xcode project or workspace configuration to build. When using a va
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sdk-property"></a>
 <!-- :::item name="sdk"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +108,7 @@ Specifies an SDK to use when building the Xcode project or workspace. From the m
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcworkspacepath-property"></a>
 <!-- :::item name="xcWorkspacePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +121,7 @@ Optional. Specifies a relative path from the root of the repository to the Xcode
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scheme-property"></a>
 <!-- :::item name="scheme"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +134,7 @@ Optional. Specifies an Xcode scheme name. *Must be a shared scheme* (shared chec
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcodeversion-property"></a>
 <!-- :::item name="xcodeVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +147,7 @@ Specifies the target version of Xcode. Select `Default` to use the default versi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcodedeveloperdir-property"></a>
 <!-- :::item name="xcodeDeveloperDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +160,7 @@ Specifies a path to a specific Xcode developer directory (for example, `/Applica
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packageapp-property"></a>
 <!-- :::item name="packageApp"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -165,6 +173,7 @@ Specifies whether an IPA app package file should be generated as a part of the b
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="archivepath-property"></a>
 <!-- :::item name="archivePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +186,7 @@ Specifies a directory where created archives are placed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportpath-property"></a>
 <!-- :::item name="exportPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +199,7 @@ Specifies the destination for the product exported from the archive.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportoptions-property"></a>
 <!-- :::item name="exportOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +212,7 @@ Specifies options for exporting the archive. When the default value of `Automati
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportmethod-property"></a>
 <!-- :::item name="exportMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -213,6 +225,7 @@ Specifies the method that Xcode uses to export the archive. For example: `app-st
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportteamid-property"></a>
 <!-- :::item name="exportTeamId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -225,6 +238,7 @@ Specifies the Apple Developer Portal 10-character team ID to use during the expo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportoptionsplist-property"></a>
 <!-- :::item name="exportOptionsPlist"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -237,6 +251,7 @@ Specifies the path to the plist file that contains options to use during the exp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportargs-property"></a>
 <!-- :::item name="exportArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -249,6 +264,7 @@ Specifies additional command line arguments used during the export.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signingoption-property"></a>
 <!-- :::item name="signingOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +277,7 @@ Specifies the method of signing the build. Select `Do not code sign` to disable 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signingidentity-property"></a>
 <!-- :::item name="signingIdentity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -273,6 +290,7 @@ Specifies a signing identity override with which to sign the build. Unlocking th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="provisioningprofileuuid-property"></a>
 <!-- :::item name="provisioningProfileUuid"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -285,6 +303,7 @@ Specifies the UUID of an installed provisioning profile used for the build. Use 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="teamid-property"></a>
 <!-- :::item name="teamId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -297,6 +316,7 @@ Specifies the UUID of an installed provisioning profile used for the build. Use 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationplatformoption-property"></a>
 <!-- :::item name="destinationPlatformOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -309,6 +329,7 @@ Specifies the destination device's platform used for UI testing when the generic
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationplatform-property"></a>
 <!-- :::item name="destinationPlatform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -321,6 +342,7 @@ Specifies a destination device's platform used for UI testing when the generic b
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationtypeoption-property"></a>
 <!-- :::item name="destinationTypeOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -333,6 +355,7 @@ Specifies the destination type used for UI testing. Devices must be connected to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationsimulators-property"></a>
 <!-- :::item name="destinationSimulators"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -345,6 +368,7 @@ Specifies an Xcode simulator name used for UI testing. For example, `iPhone X` (
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destinationdevices-property"></a>
 <!-- :::item name="destinationDevices"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -357,6 +381,7 @@ Specifies the name of the device used for UI testing, such as `Raisa's iPad`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="args-property"></a>
 <!-- :::item name="args"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -369,6 +394,7 @@ Optional. Specifies additional command line arguments with which to build. This 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -381,6 +407,7 @@ Optional. Specifies the working directory in which to run the build. If no value
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputpattern-property"></a>
 <!-- :::item name="outputPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -393,6 +420,7 @@ Optional. Specifies a relative path to the working directory where build output 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usexcpretty-property"></a>
 <!-- :::item name="useXcpretty"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -405,6 +433,7 @@ Specifies whether to use `xcpretty` to format `xcodebuild` output, and generates
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 

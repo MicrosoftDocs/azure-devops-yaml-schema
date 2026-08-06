@@ -1,16 +1,28 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # NodeTool@0 - Node.js tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/en/) and add it to the PATH.
+
+This version of the task is deprecated; use [UseNode@1](./use-node-v1.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/en/) and add it to the PATH.
@@ -81,6 +93,7 @@ There is a newer version of the task available. For more information, see [UseNo
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="versionsource-property"></a>
 <!-- :::item name="versionSource"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -92,6 +105,7 @@ There is a newer version of the task available. For more information, see [UseNo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionspec-property"></a>
 <!-- :::item name="versionSpec"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -115,6 +129,7 @@ Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionfilepath-property"></a>
 <!-- :::item name="versionFilePath"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -127,6 +142,7 @@ File path to get version.  Example: src/.nvmrc.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checklatest-property"></a>
 <!-- :::item name="checkLatest"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +158,7 @@ Specifies the agent to check for the latest available version that satisfies the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="force32bit-property"></a>
 <!-- :::item name="force32bit"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -154,6 +171,7 @@ Installs the `x86` version of Node regardless of the CPU architecture of the age
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nodejsmirror-property"></a>
 <!-- :::item name="nodejsMirror"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -166,6 +184,7 @@ Use an alternative installation mirror when sourcing the Node.js binaries.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retrycountondownloadfails-property"></a>
 <!-- :::item name="retryCountOnDownloadFails"::: -->
 :::moniker range=">=azure-pipelines-2022.2"
 
@@ -178,6 +197,7 @@ Use this option when the task failed to download node binaries from the mirror. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="delaybetweenretries-property"></a>
 <!-- :::item name="delayBetweenRetries"::: -->
 :::moniker range=">=azure-pipelines-2022.2"
 

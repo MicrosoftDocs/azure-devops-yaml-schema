@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@0 - Python twine upload authenticate v0 task
 description: Authenticate for uploading Python distributions using twine (task version 0).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -43,6 +43,7 @@ Provides `twine` credentials to a `PYPIRC_PATH` environment variable for the sco
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="artifactfeeds-property"></a>
 <!-- :::item name="artifactFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ Specifies the Azure artifact's feed name to authenticate with twine. The authent
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="externalfeeds-property"></a>
 <!-- :::item name="externalFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +69,7 @@ A [twine service connection](/azure/devops/pipelines/library/service-endpoints#p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishpackagemetadata-property"></a>
 <!-- :::item name="publishPackageMetadata"::: -->
 :::moniker range="<=azure-pipelines"
 

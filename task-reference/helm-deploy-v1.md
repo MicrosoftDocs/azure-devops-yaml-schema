@@ -1,10 +1,10 @@
 ---
 title: HelmDeploy@1 - Package and deploy Helm charts v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # HelmDeploy@1 - Package and deploy Helm charts v1 task
@@ -81,6 +81,7 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectiontype-property"></a>
 <!-- :::item name="connectionType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -93,6 +94,7 @@ Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by usi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -105,6 +107,7 @@ Select an Azure subscription, which has your Azure Container Registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcegroup-property"></a>
 <!-- :::item name="azureResourceGroup"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -117,6 +120,7 @@ Select an Azure Resource Group.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubernetescluster-property"></a>
 <!-- :::item name="kubernetesCluster"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -129,6 +133,7 @@ Select an Azure Managed Cluster.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="useclusteradmin-property"></a>
 <!-- :::item name="useClusterAdmin"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -141,6 +146,7 @@ Use cluster administrator credentials instead of default cluster user credential
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubernetesserviceconnection-property"></a>
 <!-- :::item name="kubernetesServiceConnection"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -153,6 +159,7 @@ Select a Kubernetes service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="namespace-property"></a>
 <!-- :::item name="namespace"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -165,6 +172,7 @@ Specify K8 namespace to use. Use Tiller namespace can be specified in the advanc
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscriptionforacr-property"></a>
 <!-- :::item name="azureSubscriptionForACR"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -177,6 +185,7 @@ Select an Azure subscription, which has your Azure Container Registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcegroupforacr-property"></a>
 <!-- :::item name="azureResourceGroupForACR"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -189,6 +198,7 @@ Select an Azure Resource Group, which has your Container Registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistry-property"></a>
 <!-- :::item name="azureContainerRegistry"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -201,6 +211,7 @@ Select an Azure Container Registry which will be used for helm charts.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -213,6 +224,7 @@ Select a helm command.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="charttype-property"></a>
 <!-- :::item name="chartType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -225,6 +237,7 @@ Select how you want to enter chart info. You can either provide name of the char
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="chartname-property"></a>
 <!-- :::item name="chartName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -237,6 +250,7 @@ Chart reference to install, this can be a url or a chart name. For example, if c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="chartpath-property"></a>
 <!-- :::item name="chartPath"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -249,6 +263,7 @@ Path to the chart to install. This can be a path to a packaged chart or a path t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="remoterepo-property"></a>
 <!-- :::item name="remoteRepo"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -261,6 +276,7 @@ The remote repository where the chart will be pushed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="chartversion-property"></a>
 <!-- :::item name="chartVersion"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -273,6 +289,7 @@ Specify the exact chart version to install. If this is not specified, the latest
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasename-property"></a>
 <!-- :::item name="releaseName"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -285,6 +302,7 @@ Release name. If unspecified, it will autogenerate one for you.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overridevalues-property"></a>
 <!-- :::item name="overrideValues"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -297,6 +315,7 @@ Set values on the command line (can specify multiple or separate values with com
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="valuefile-property"></a>
 <!-- :::item name="valueFile"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -309,6 +328,7 @@ Specify values in a YAML file or a URL. For example, specifying myvalues.yaml wi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destination-property"></a>
 <!-- :::item name="destination"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -321,6 +341,7 @@ Specify values in a YAML file or a URL.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="canaryimage-property"></a>
 <!-- :::item name="canaryimage"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -333,6 +354,7 @@ Use the canary Tiller image, the latest pre-release version of Tiller.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="upgradetiller-property"></a>
 <!-- :::item name="upgradetiller"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -345,6 +367,7 @@ Upgrade if Tiller is already installed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="updatedependency-property"></a>
 <!-- :::item name="updatedependency"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -357,6 +380,7 @@ Run helm dependency update before installing the chart. Update dependencies from
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="save-property"></a>
 <!-- :::item name="save"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -369,6 +393,7 @@ Save packaged chart to local chart repository (default true)​.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="install-property"></a>
 <!-- :::item name="install"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -381,6 +406,7 @@ If a release by this name doesn't already exist, run an install​.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="recreate-property"></a>
 <!-- :::item name="recreate"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -393,6 +419,7 @@ Performs pods restart for the resource if applicable.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resetvalues-property"></a>
 <!-- :::item name="resetValues"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -405,6 +432,7 @@ Reset the values to the ones built into the chart.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="force-property"></a>
 <!-- :::item name="force"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -417,6 +445,7 @@ Force resource update through delete/recreate if needed​.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforexecution-property"></a>
 <!-- :::item name="waitForExecution"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -429,6 +458,7 @@ Block till command execution completes.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -441,6 +471,7 @@ Helm command options.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enabletls-property"></a>
 <!-- :::item name="enableTls"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -453,6 +484,7 @@ Enables using SSL between Helm and Tiller.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cacert-property"></a>
 <!-- :::item name="caCert"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -465,6 +497,7 @@ CA cert used to issue certificate for tiller and helm client.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="certificate-property"></a>
 <!-- :::item name="certificate"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -477,6 +510,7 @@ Specify Tiller certificate or Helm client certificate.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="privatekey-property"></a>
 <!-- :::item name="privatekey"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -489,6 +523,7 @@ Specify Tiller Key or Helm client key.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tillernamespace-property"></a>
 <!-- :::item name="tillernamespace"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -501,6 +536,7 @@ Specify K8 namespace of tiller.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstderr-property"></a>
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -513,6 +549,7 @@ If this is true, this task will fail if any errors are written to the error pipe
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishpipelinemetadata-property"></a>
 <!-- :::item name="publishPipelineMetadata"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -525,6 +562,7 @@ If this is true, the task will collect and publish deployment metadata.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="chartnameforacr-property"></a>
 <!-- :::item name="chartNameForACR"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -537,6 +575,7 @@ Chart name with which the chart will be stored in Azure Container Registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="chartpathforacr-property"></a>
 <!-- :::item name="chartPathForACR"::: -->
 :::moniker range=">=azure-pipelines-server"
 

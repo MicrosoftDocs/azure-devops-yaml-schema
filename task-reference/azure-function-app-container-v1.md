@@ -1,10 +1,10 @@
 ---
 title: AzureFunctionAppContainer@1 - Azure Functions for container v1 task
 description: Update a function app with a Docker container.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureFunctionAppContainer@1 - Azure Functions for container v1 task
@@ -49,6 +49,7 @@ Update a function app with a Docker container.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -61,6 +62,7 @@ Selects the [Azure Resource Manager subscription](/azure/devops/pipelines/librar
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -73,6 +75,7 @@ The name of the Function App for Containers.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploytoslotorase-property"></a>
 <!-- :::item name="deployToSlotOrASE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +88,7 @@ Set this input to `true` to deploy to an existing deployment slot or Azure App S
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroupname-property"></a>
 <!-- :::item name="resourceGroupName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +101,7 @@ The name of the Resource Group that contains the Function App for Containers.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="slotName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +114,7 @@ Enters or selects an existing slot, excluding the **production** slot.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagename-property"></a>
 <!-- :::item name="imageName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +129,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containercommand-property"></a>
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +142,7 @@ The startup command that executes after deployment. For example, `dotnet run` `d
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appsettings-property"></a>
 <!-- :::item name="appSettings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -147,6 +155,7 @@ Enter the application settings using the syntax `-key value` (for example: `-Por
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configurationstrings-property"></a>
 <!-- :::item name="configurationStrings"::: -->
 :::moniker range="<=azure-pipelines"
 

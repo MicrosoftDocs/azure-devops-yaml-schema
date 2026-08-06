@@ -1,7 +1,7 @@
 ---
 title: DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 description: Decrypt a file using OpenSSL.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -43,6 +43,7 @@ Use this task to decrypt files using OpenSSL.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="cipher-property"></a>
 <!-- :::item name="cipher"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ The encryption cypher to use. See [cypher suite names](https://go.microsoft.com/
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="infile-property"></a>
 <!-- :::item name="inFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +69,7 @@ The relative path of the file to decrypt.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="passphrase-property"></a>
 <!-- :::item name="passphrase"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +82,7 @@ The passphrase to use for decryption. **Use a variable to encrypt the passphrase
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outfile-property"></a>
 <!-- :::item name="outFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,6 +95,7 @@ The optional filename for the decrypted file. Defaults to the encrypted file wit
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 

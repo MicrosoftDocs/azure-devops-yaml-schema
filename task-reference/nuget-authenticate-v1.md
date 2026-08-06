@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@1 - NuGet authenticate v1 task
 description: Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -54,6 +54,7 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuredevopsserviceconnection-property"></a>
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -66,6 +67,7 @@ If this is set, `feedUrl` is required. All other inputs are ignored.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedurl-property"></a>
 <!-- :::item name="feedUrl"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -78,6 +80,7 @@ If this is set, `workloadIdentityServiceConnection` is required. All other input
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="forcereinstallcredentialprovider-property"></a>
 <!-- :::item name="forceReinstallCredentialProvider"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +93,7 @@ If the credential provider is already installed in the user profile, determines 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetserviceconnections-property"></a>
 <!-- :::item name="nuGetServiceConnections"::: -->
 :::moniker range="<=azure-pipelines"
 

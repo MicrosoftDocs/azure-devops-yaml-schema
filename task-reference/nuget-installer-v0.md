@@ -1,7 +1,7 @@
 ---
 title: NuGetInstaller@0 - NuGet Installer v0 task
 description: Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -73,6 +73,7 @@ Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for la
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="solution-property"></a>
 <!-- :::item name="solution"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +86,7 @@ The path to the Visual Studio solution file or NuGet packages.config.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetconfigpath-property"></a>
 <!-- :::item name="nugetConfigPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +99,7 @@ Equivalent to the -ConfigFile NuGet.exe command line argument.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restoremode-property"></a>
 <!-- :::item name="restoreMode"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +114,7 @@ Install will install packages from a packages.config file. Use this option if yo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nocache-property"></a>
 <!-- :::item name="noCache"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +127,7 @@ Equivalent to the -NoCache NuGet.exe command line argument.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetrestoreargs-property"></a>
 <!-- :::item name="nuGetRestoreArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +140,7 @@ Additional arguments passed to NuGet.exe restore or install. [More Information](
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbosity-property"></a>
 <!-- :::item name="verbosity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -147,6 +153,7 @@ NuGet's verbosity level.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetversion-property"></a>
 <!-- :::item name="nuGetVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,6 +166,7 @@ The version of NuGet to use, or external version.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nugetpath-property"></a>
 <!-- :::item name="nuGetPath"::: -->
 :::moniker range="<=azure-pipelines"
 

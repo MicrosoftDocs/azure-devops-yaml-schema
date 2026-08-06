@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricUpdateAppVersions@1 - Update Service Fabric App Versions v1 task
 description: Automatically updates the versions of a packaged Service Fabric application.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -44,6 +44,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="applicationpackagepath-property"></a>
 <!-- :::item name="applicationPackagePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -56,6 +57,7 @@ Specifies the location of the Service Fabric application package to be deployed 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionsuffix-property"></a>
 <!-- :::item name="versionSuffix"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -75,6 +77,7 @@ The value used to specify the version in the manifest files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionbehavior-property"></a>
 <!-- :::item name="versionBehavior"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +90,7 @@ Appends the version value to existing values in the manifest files or replaces t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="updateonlychanged-property"></a>
 <!-- :::item name="updateOnlyChanged"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +103,7 @@ Incrementally updates only the packages that have changed. Use the [deterministi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pkgartifactname-property"></a>
 <!-- :::item name="pkgArtifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +116,7 @@ Specifies the name of the artifact containing the application package from the p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="logallchanges-property"></a>
 <!-- :::item name="logAllChanges"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +129,7 @@ Compares all files in every package and logs if the file was added, removed, or 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="comparetype-property"></a>
 <!-- :::item name="compareType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +142,7 @@ Compares against the last completed and successful build or against a specific b
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildnumber-property"></a>
 <!-- :::item name="buildNumber"::: -->
 :::moniker range="<=azure-pipelines"
 

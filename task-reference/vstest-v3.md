@@ -1,7 +1,7 @@
 ---
 title: VSTest@3 - Visual Studio Test v3 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: steved0x
 ms.author: sdanie
@@ -155,6 +155,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -170,6 +171,7 @@ Specify an Azure Resource Manager service connection configured with workload id
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testselector-property"></a>
 <!-- :::item name="testSelector"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -184,6 +186,7 @@ Specify an Azure Resource Manager service connection configured with workload id
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testassemblyver2-property"></a>
 <!-- :::item name="testAssemblyVer2"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -207,6 +210,7 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testplan-property"></a>
 <!-- :::item name="testPlan"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -219,6 +223,7 @@ Specifies a test plan containing test suites with automated test cases.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testsuite-property"></a>
 <!-- :::item name="testSuite"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -231,6 +236,7 @@ Specifies one or more test suites containing automated test cases. Test case wor
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testconfiguration-property"></a>
 <!-- :::item name="testConfiguration"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -243,6 +249,7 @@ Specifies the test configuration.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tcmtestrun-property"></a>
 <!-- :::item name="tcmTestRun"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -255,6 +262,7 @@ Specifies the test run-based selection that is used when triggering automated te
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="searchfolder-property"></a>
 <!-- :::item name="searchFolder"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -267,6 +275,7 @@ Specifies the folder to search for the test assemblies.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resultsfolder-property"></a>
 <!-- :::item name="resultsFolder"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -279,6 +288,7 @@ Specifies the folder to store test results. When using the default directory, it
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testfiltercriteria-property"></a>
 <!-- :::item name="testFiltercriteria"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -293,6 +303,7 @@ Learn about [command-line options](/previous-versions/jj155796(v=vs.140)).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runonlyimpactedtests-property"></a>
 <!-- :::item name="runOnlyImpactedTests"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -305,6 +316,7 @@ Automatically specifies and runs the tests needed to validate the code change. L
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runalltestsafterxbuilds-property"></a>
 <!-- :::item name="runAllTestsAfterXBuilds"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -317,6 +329,7 @@ Specifies the number of builds to be executed before all tests are automatically
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="uitests-property"></a>
 <!-- :::item name="uiTests"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -329,6 +342,7 @@ To run UI tests, ensure that the agent is set to run in [interactive mode](/azur
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstestlocationmethod-property"></a>
 <!-- :::item name="vstestLocationMethod"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -341,6 +355,7 @@ Specifies which test platform to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstestversion-property"></a>
 <!-- :::item name="vsTestVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -364,6 +379,7 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstestlocation-property"></a>
 <!-- :::item name="vstestLocation"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -376,6 +392,7 @@ Specifies the path to VSTest.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runsettingsfile-property"></a>
 <!-- :::item name="runSettingsFile"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -388,6 +405,7 @@ Specifies the path to a `runsettings` or `testsettings` file to use with the tes
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overridetestrunparameters-property"></a>
 <!-- :::item name="overrideTestrunParameters"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -400,6 +418,7 @@ Overrides the parameters defined in the `TestRunParameters` section of a `runset
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pathtocustomtestadapters-property"></a>
 <!-- :::item name="pathtoCustomTestAdapters"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -412,6 +431,7 @@ Specifies the directory path to custom test adapters. Adapters residing in the s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runinparallel-property"></a>
 <!-- :::item name="runInParallel"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -424,6 +444,7 @@ If set to `true`, tests are run in parallel and leverage available cores of the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runtestsinisolation-property"></a>
 <!-- :::item name="runTestsInIsolation"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -436,6 +457,7 @@ Runs the tests in an isolated process. This likely leads to fewer errors in the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageenabled-property"></a>
 <!-- :::item name="codeCoverageEnabled"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -448,6 +470,7 @@ Collects code coverage information from the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="otherconsoleoptions-property"></a>
 <!-- :::item name="otherConsoleOptions"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -462,6 +485,7 @@ These options are not supported and will be ignored when running tests using the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="distributionbatchtype-property"></a>
 <!-- :::item name="distributionBatchType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -480,6 +504,7 @@ A batch is a group of tests. A batch of tests runs its tests at the same time, a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="batchingbasedonagentsoption-property"></a>
 <!-- :::item name="batchingBasedOnAgentsOption"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -492,6 +517,7 @@ Specifies simple batching based on the number of tests and agents participating 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="custombatchsizevalue-property"></a>
 <!-- :::item name="customBatchSizeValue"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -504,6 +530,7 @@ Specifies the batch size.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="batchingbasedonexecutiontimeoption-property"></a>
 <!-- :::item name="batchingBasedOnExecutionTimeOption"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -516,6 +543,7 @@ This batching considers past running times to create batches of tests where each
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customruntimeperbatchvalue-property"></a>
 <!-- :::item name="customRunTimePerBatchValue"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -528,6 +556,7 @@ Specifies the running time (in seconds) per batch.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dontdistribute-property"></a>
 <!-- :::item name="dontDistribute"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -541,6 +570,7 @@ Each of the selected test(s) will be repeated on each agent. This option is not 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -553,6 +583,7 @@ Specifies a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="platform-property"></a>
 <!-- :::item name="platform"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -565,6 +596,7 @@ Specifies the build platform against which the tests should be reported. If you 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -577,6 +609,7 @@ Specifies the build configuration against which the tests should be reported. If
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishrunattachments-property"></a>
 <!-- :::item name="publishRunAttachments"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -589,6 +622,7 @@ Opts in or out of publishing run level attachments.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="donotpublishtestresults-property"></a>
 <!-- :::item name="donotPublishTestResults"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -601,6 +635,7 @@ If this option is turned on, test results won't be published as part of this tas
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonmintestsnotrun-property"></a>
 <!-- :::item name="failOnMinTestsNotRun"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -613,6 +648,7 @@ Fails the task if a minimum number of tests are not run. This may be useful if a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="minimumexpectedtests-property"></a>
 <!-- :::item name="minimumExpectedTests"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -625,6 +661,7 @@ Specifies the minimum number of tests to run for the task to succeed. The total 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="diagnosticsenabled-property"></a>
 <!-- :::item name="diagnosticsEnabled"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -638,6 +675,7 @@ When this option is checked, a sequence XML file is generated and attached to th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="collectdumpon-property"></a>
 <!-- :::item name="collectDumpOn"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -654,6 +692,7 @@ Collects a mini dump that can be used for further analysis.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="rerunfailedtests-property"></a>
 <!-- :::item name="rerunFailedTests"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -666,6 +705,7 @@ Reruns any failed tests until they pass or until the maximum number of attempts 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="reruntype-property"></a>
 <!-- :::item name="rerunType"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -678,6 +718,7 @@ Avoids rerunning tests when the failure rate crosses the specified threshold. Th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="rerunfailedthreshold-property"></a>
 <!-- :::item name="rerunFailedThreshold"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -690,6 +731,7 @@ Avoids rerunning tests when the percentage of failed test cases crosses the spec
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="rerunfailedtestcasesmaxlimit-property"></a>
 <!-- :::item name="rerunFailedTestCasesMaxLimit"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -702,6 +744,7 @@ Avoids rerunning tests when the number of failed test cases crosses the specifie
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="rerunmaxattempts-property"></a>
 <!-- :::item name="rerunMaxAttempts"::: -->
 :::moniker range=">=azure-pipelines-server"
 

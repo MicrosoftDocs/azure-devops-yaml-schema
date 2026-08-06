@@ -1,10 +1,10 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service (task version 1).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
@@ -75,6 +75,7 @@ Deploy an Azure Cloud Service.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azureclassicsubscription-property"></a>
 <!-- :::item name="azureClassicSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +88,7 @@ The Azure subscription to target for deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enableadvancedstorageoptions-property"></a>
 <!-- :::item name="EnableAdvancedStorageOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +101,7 @@ Enables or disables ARM storage support.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="storageaccount-property"></a>
 <!-- :::item name="StorageAccount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +114,7 @@ The storage account must exist prior to deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="armconnectedservicename-property"></a>
 <!-- :::item name="ARMConnectedServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +127,7 @@ The ARM subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="armstorageaccount-property"></a>
 <!-- :::item name="ARMStorageAccount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +140,7 @@ A pre-existing ARM storage account.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicename-property"></a>
 <!-- :::item name="ServiceName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -147,6 +153,7 @@ An existing cloud service name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servicelocation-property"></a>
 <!-- :::item name="ServiceLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,6 +166,7 @@ A region for new service deployment. Options include: East US, East US 2, Centra
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cspkg-property"></a>
 <!-- :::item name="CsPkg"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -171,6 +179,7 @@ Path to the CsPkg in the default artifact directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cscfg-property"></a>
 <!-- :::item name="CsCfg"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -183,6 +192,7 @@ The CsCfg path in the default artifact directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="slotname-property"></a>
 <!-- :::item name="slotName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -195,6 +205,7 @@ Set this value to 'Staging' or use the default.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentlabel-property"></a>
 <!-- :::item name="DeploymentLabel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -207,6 +218,7 @@ Specifies the label name for the new deployment. If not specified, defaults to a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appenddatetimetolabel-property"></a>
 <!-- :::item name="AppendDateTimeToLabel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -219,6 +231,7 @@ Appends current date and time to the deployment label.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowupgrade-property"></a>
 <!-- :::item name="AllowUpgrade"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -231,6 +244,7 @@ Allows an upgrade to the Microsoft Azure deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="simultaneousupgrade-property"></a>
 <!-- :::item name="SimultaneousUpgrade"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -243,6 +257,7 @@ Upgrades all instances at once. Your cloud service is unavailable during this ti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="forceupgrade-property"></a>
 <!-- :::item name="ForceUpgrade"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -255,6 +270,7 @@ Sets a forced upgrade.  Forcing an upgrade can cause loss of local data.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verifyroleinstancestatus-property"></a>
 <!-- :::item name="VerifyRoleInstanceStatus"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -267,6 +283,7 @@ Causes the task to wait until role instances are in the ready state.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="diagnosticstorageaccountkeys-property"></a>
 <!-- :::item name="DiagnosticStorageAccountKeys"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -287,6 +304,7 @@ NOTE: If there is sensitive information in the diagnostic results for your envir
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="newservicecustomcertificates-property"></a>
 <!-- :::item name="NewServiceCustomCertificates"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -302,6 +320,7 @@ Format the custom certificate string as `CertificatePfxBase64:CertificatePasswor
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="newserviceadditionalarguments-property"></a>
 <!-- :::item name="NewServiceAdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -314,6 +333,7 @@ Passes additional arguments when creating a new service. Arguments are passed to
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="newserviceaffinitygroup-property"></a>
 <!-- :::item name="NewServiceAffinityGroup"::: -->
 :::moniker range="<=azure-pipelines"
 

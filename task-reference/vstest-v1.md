@@ -1,7 +1,7 @@
 ---
 title: VSTest@1 - Visual Studio Test v1 task
 description: Run tests with Visual Studio test runner.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: steved0x
 ms.author: sdanie
@@ -40,7 +40,36 @@ Use this task to run tests with Visual Studio test runner.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Visual Studio Test v1
+# [Deprecated] Run tests with Visual Studio test runner.
+- task: VSTest@1
+  inputs:
+  # Execution Options
+    testAssembly: '**\*test*.dll;-:**\obj\**' # string. Required. Test Assembly. Default: **\*test*.dll;-:**\obj\**.
+    #testFiltercriteria: # string. Test Filter criteria. 
+    #runSettingsFile: # string. Run Settings File. 
+    #overrideTestrunParameters: # string. Override TestRun Parameters. 
+    #codeCoverageEnabled: False # boolean. Code Coverage Enabled. Default: False.
+    #runInParallel: false # boolean. Run In Parallel. Default: false.
+  # Advanced Execution Options
+    #vstestLocationMethod: 'version' # 'version' | 'location'. VSTest. Default: version.
+    #vsTestVersion: '14.0' # 'latest' | '14.0' | '12.0'. Optional. Use when vstestLocationMethod = version. VSTest version. Default: 14.0.
+    #vstestLocation: # string. Optional. Use when vstestLocationMethod = location. Path to vstest.console.exe. 
+    #pathtoCustomTestAdapters: # string. Path to Custom Test Adapters. 
+    #otherConsoleOptions: # string. Other console options. 
+  # Reporting Options
+    #testRunTitle: # string. Test Run Title. 
+    #platform: # string. Platform. 
+    #configuration: # string. Configuration. 
+    #publishRunAttachments: true # boolean. Upload Test Attachments. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Visual Studio Test v1
@@ -74,6 +103,7 @@ Use this task to run tests with Visual Studio test runner.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="testassembly-property"></a>
 <!-- :::item name="testAssembly"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +116,7 @@ Specifies which test binaries to run tests on.  Wildcards can be used.  For exam
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testfiltercriteria-property"></a>
 <!-- :::item name="testFiltercriteria"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +129,7 @@ Specifies additional criteria to filter tests from test assemblies. For example:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runsettingsfile-property"></a>
 <!-- :::item name="runSettingsFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +142,7 @@ Specifies the path to the **runsettings** file to use with the tests. Use `$(Bui
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overridetestrunparameters-property"></a>
 <!-- :::item name="overrideTestrunParameters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +155,7 @@ Override parameters defined in the **TestRunParameters** section of the **runset
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageenabled-property"></a>
 <!-- :::item name="codeCoverageEnabled"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +168,7 @@ Collects code coverage information from the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runinparallel-property"></a>
 <!-- :::item name="runInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -146,6 +181,7 @@ Enables a parallel execution of your tests.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstestlocationmethod-property"></a>
 <!-- :::item name="vstestLocationMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -157,6 +193,7 @@ Enables a parallel execution of your tests.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstestversion-property"></a>
 <!-- :::item name="vsTestVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -169,6 +206,7 @@ Specifies the version of Visual Studio Test to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vstestlocation-property"></a>
 <!-- :::item name="vstestLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -181,6 +219,7 @@ Specifies the path to VSTest.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pathtocustomtestadapters-property"></a>
 <!-- :::item name="pathtoCustomTestAdapters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -193,6 +232,7 @@ Specifies the directory path to the custom test adapters. NuGet restored adapter
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="otherconsoleoptions-property"></a>
 <!-- :::item name="otherConsoleOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -205,6 +245,7 @@ Specifies other Console options that can be passed to `vstest.console.exe`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -217,6 +258,7 @@ Specifies a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="platform-property"></a>
 <!-- :::item name="platform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -229,6 +271,7 @@ Specifies the platform against which the tests should be reported. If you have d
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -241,6 +284,7 @@ Specifies the configuration against which the tests should be reported. If you h
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishrunattachments-property"></a>
 <!-- :::item name="publishRunAttachments"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,10 +1,10 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # PowerShell@2 - PowerShell v2 task
@@ -87,6 +87,7 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="targettype-property"></a>
 <!-- :::item name="targetType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,6 +100,7 @@ Specifies the type of script for the task to run: an inline script or a path to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filepath-property"></a>
 <!-- :::item name="filePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,6 +113,7 @@ Specifies the path of the script to execute. Must be a fully qualified path or r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +128,7 @@ Specifies the arguments passed to the PowerShell script. Arguments can be ordina
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="script-property"></a>
 <!-- :::item name="script"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,6 +141,7 @@ Specifies the contents of the script. The maximum supported inline script length
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="erroractionpreference-property"></a>
 <!-- :::item name="errorActionPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -149,6 +154,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="warningpreference-property"></a>
 <!-- :::item name="warningPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -161,6 +167,7 @@ When not set to  `Default`, prepends the line `$WarningPreference = 'VALUE'` at 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="informationpreference-property"></a>
 <!-- :::item name="informationPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -173,6 +180,7 @@ When not set to `Default`, prepends the line `$InformationPreference = 'VALUE'` 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbosepreference-property"></a>
 <!-- :::item name="verbosePreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -185,6 +193,7 @@ When not set to `Default`, prepends the line `$VerbosePreference = 'VALUE'` at t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="debugpreference-property"></a>
 <!-- :::item name="debugPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -197,6 +206,7 @@ When not set to `Default`, prepends the line `$DebugPreference = 'VALUE'` at the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="progresspreference-property"></a>
 <!-- :::item name="progressPreference"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -209,6 +219,7 @@ When not set to `Default`, prepends the line `$ProgressPreference = 'VALUE'` at 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstderr-property"></a>
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -221,6 +232,7 @@ If the value of this boolean is `true`, the task fails if any errors are written
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="showwarnings-property"></a>
 <!-- :::item name="showWarnings"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -233,6 +245,7 @@ If the value is set to `true`, and your script writes warnings, then the warning
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ignorelastexitcode-property"></a>
 <!-- :::item name="ignoreLASTEXITCODE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -245,6 +258,7 @@ If the value is set to `false`, the line `if ((Test-Path -LiteralPath variable:\
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pwsh-property"></a>
 <!-- :::item name="pwsh"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -257,6 +271,7 @@ If this is true, then tasks running on Windows agents will use `pwsh.exe` from y
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -269,6 +284,7 @@ Specifies the working directory where the script is run. If a value is not speci
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runscriptinseparatescope-property"></a>
 <!-- :::item name="runScriptInSeparateScope"::: -->
 :::moniker range="<=azure-pipelines"
 

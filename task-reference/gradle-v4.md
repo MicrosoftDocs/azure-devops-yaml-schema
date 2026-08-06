@@ -1,7 +1,7 @@
 ---
 title: Gradle@4 - Gradle v4 task
 description: Build using a Gradle wrapper script.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -40,20 +40,20 @@ Build using a Gradle wrapper script.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Advanced
     javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64' | 'arm64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #jdkVersionOption: 'default' # 'default' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeOption = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeOption = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64' | 'arm64'. Alias: jdkArchitecture. Optional. Use when jdkVersionOption != default. JDK architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # Code Analysis
     #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
-    #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
-    #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
+    #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sonarQubeRunAnalysis = true. SonarQube scanner for Gradle version. Default: specify.
+    #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sonarQubeRunAnalysis = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
     #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
     #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
     #spotBugsAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs. Default: false.
-    #spotBugsGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when spotBugsAnalysisEnabled = true. Spotbugs plugin version. Default: specify.
-    #spotbugsGradlePluginVersion: '4.7.0' # string. Required when spotBugsAnalysisEnabled = true && spotBugsGradlePluginVersionChoice = specify. Version number. Default: 4.7.0.
+    #spotBugsGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when spotBugsAnalysis = true. Spotbugs plugin version. Default: specify.
+    #spotbugsGradlePluginVersion: '4.7.0' # string. Required when spotBugsAnalysis = true && spotBugsGradlePluginVersionChoice = specify. Version number. Default: 4.7.0.
 ```
 
 :::moniker-end
@@ -62,6 +62,7 @@ Build using a Gradle wrapper script.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="gradlewrapperfile-property"></a>
 <!-- :::item name="gradleWrapperFile"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -74,6 +75,7 @@ Specifies the `gradlew` wrapper's location within the repository that will be us
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -86,6 +88,7 @@ Specifies the working directory to run the Gradle build. The task uses the repos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -98,6 +101,7 @@ Specifies the command line options that will be passed to the Gradle wrapper. Se
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tasks-property"></a>
 <!-- :::item name="tasks"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -112,6 +116,7 @@ See [Gradle Build Script Basics](https://docs.gradle.org/current/userguide/tutor
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -124,6 +129,7 @@ Publishes JUnit test results produced by the Gradle build to Azure Pipelines. Th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -136,6 +142,7 @@ The file path for test results. [Wildcards](/azure/devops/pipelines/tasks/file-m
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -148,6 +155,7 @@ Provides a name for the JUnit test case results for this build.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="javahomeoption-property"></a>
 <!-- :::item name="javaHomeOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -160,11 +168,12 @@ Sets JAVA_HOME by selecting a JDK version that the task discovers during builds 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkversionoption-property"></a>
 <!-- :::item name="jdkVersionOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`jdkVersionOption`** - **JDK version**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeOption = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Attempts to discover the path to the selected JDK version and set JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
@@ -172,11 +181,12 @@ Attempts to discover the path to the selected JDK version and set JAVA_HOME acco
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkdirectory-property"></a>
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`jdkDirectory`** - **JDK path**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkUserInputPath`. `string`. Required when `javaHomeSelection = Path`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkUserInputPath`. `string`. Required when `javaHomeOption = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets JAVA_HOME to the given path.
 <!-- :::editable-content-end::: -->
@@ -184,11 +194,12 @@ Sets JAVA_HOME to the given path.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jdkarchitectureoption-property"></a>
 <!-- :::item name="jdkArchitectureOption"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`, `arm64`. Default value: `x64`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersionOption != default`. Allowed values: `x86`, `x64`, `arm64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Supplies the JDK architecture (x86 or x64).
 <!-- :::editable-content-end::: -->
@@ -196,6 +207,7 @@ Supplies the JDK architecture (x86 or x64).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gradleoptions-property"></a>
 <!-- :::item name="gradleOptions"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -208,6 +220,7 @@ Sets the GRADLE_OPTS environment variable, which is used to send command-line ar
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarquberunanalysis-property"></a>
 <!-- :::item name="sonarQubeRunAnalysis"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -220,11 +233,12 @@ This option has changed from version 1 of the **Gradle** task to use the [SonarQ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqgradlepluginversionchoice-property"></a>
 <!-- :::item name="sqGradlePluginVersionChoice"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`sqGradlePluginVersionChoice`** - **SonarQube scanner for Gradle version**<br>
-`string`. Required when `sqAnalysisEnabled = true`. Allowed values: `specify` (Specify version number), `build` (Use plugin applied in your build.gradle). Default value: `specify`.<br>
+`string`. Required when `sonarQubeRunAnalysis = true`. Allowed values: `specify` (Specify version number), `build` (Use plugin applied in your build.gradle). Default value: `specify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the SonarQube Gradle plugin version to use. Declare the version in the Gradle configuration file, or specify a version with this string.
 <!-- :::editable-content-end::: -->
@@ -232,11 +246,12 @@ Specifies the SonarQube Gradle plugin version to use. Declare the version in the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sonarqubegradlepluginversion-property"></a>
 <!-- :::item name="sonarQubeGradlePluginVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`sonarQubeGradlePluginVersion`** - **SonarQube scanner for Gradle plugin version**<br>
-[Input alias](index.md#what-are-task-input-aliases): `sqGradlePluginVersion`. `string`. Required when `sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify`. Default value: `2.6.1`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `sqGradlePluginVersion`. `string`. Required when `sonarQubeRunAnalysis = true && sqGradlePluginVersionChoice = specify`. Default value: `2.6.1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contains the version number of the [SonarQube Gradle plugin](https://plugins.gradle.org/plugin/org.sonarqube).
 <!-- :::editable-content-end::: -->
@@ -244,6 +259,7 @@ Contains the version number of the [SonarQube Gradle plugin](https://plugins.gra
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checkstylerunanalysis-property"></a>
 <!-- :::item name="checkStyleRunAnalysis"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -256,6 +272,7 @@ Runs the Checkstyle tool with the default Sun checks. Results are uploaded as bu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="findbugsrunanalysis-property"></a>
 <!-- :::item name="findBugsRunAnalysis"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -268,6 +285,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pmdrunanalysis-property"></a>
 <!-- :::item name="pmdRunAnalysis"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -280,6 +298,7 @@ Uses the PMD Java static analysis tool to look for bugs in the code. The results
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsanalysis-property"></a>
 <!-- :::item name="spotBugsAnalysis"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -292,11 +311,12 @@ Runs `spotBugs` when `true`. This plugin works with Gradle v5.6 or later. Learn 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsgradlepluginversionchoice-property"></a>
 <!-- :::item name="spotBugsGradlePluginVersionChoice"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`spotBugsGradlePluginVersionChoice`** - **Spotbugs plugin version**<br>
-`string`. Required when `spotBugsAnalysisEnabled = true`. Allowed values: `specify` (Specify version number), `build` (Use plugin applied in your build.gradle). Default value: `specify`.<br>
+`string`. Required when `spotBugsAnalysis = true`. Allowed values: `specify` (Specify version number), `build` (Use plugin applied in your build.gradle). Default value: `specify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the SpotBugs Gradle plugin version to use. The version can be declared in the Gradle configuration file, or the version can be specified in this string.
 <!-- :::editable-content-end::: -->
@@ -304,11 +324,12 @@ Specifies the SpotBugs Gradle plugin version to use. The version can be declared
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="spotbugsgradlepluginversion-property"></a>
 <!-- :::item name="spotbugsGradlePluginVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
 **`spotbugsGradlePluginVersion`** - **Version number**<br>
-`string`. Required when `spotBugsAnalysisEnabled = true && spotBugsGradlePluginVersionChoice = specify`. Default value: `4.7.0`.<br>
+`string`. Required when `spotBugsAnalysis = true && spotBugsGradlePluginVersionChoice = specify`. Default value: `4.7.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contains the version number of the [SpotBugs Gradle plugin](https://plugins.gradle.org/plugin/com.github.spotbugs).
 <!-- :::editable-content-end::: -->

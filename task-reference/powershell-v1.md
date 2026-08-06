@@ -1,10 +1,10 @@
 ---
 title: PowerShell@1 - PowerShell v1 task
 description: Run a PowerShell script.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # PowerShell@1 - PowerShell v1 task
@@ -45,6 +45,7 @@ Run a PowerShell script.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="scripttype-property"></a>
 <!-- :::item name="scriptType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,6 +58,7 @@ Specifies the type of script for the task to run: an inline script or a path to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scriptname-property"></a>
 <!-- :::item name="scriptName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +71,7 @@ Specifies the type of script for the task to run: an inline script or a path to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +86,7 @@ Specifies the arguments passed to the PowerShell script. Arguments can be ordina
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingfolder-property"></a>
 <!-- :::item name="workingFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +99,7 @@ Specifies the working directory where the script is run. If a value is not speci
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="inlinescript-property"></a>
 <!-- :::item name="inlineScript"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +112,7 @@ Specifies the contents of the script. The maximum supported inline script length
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 

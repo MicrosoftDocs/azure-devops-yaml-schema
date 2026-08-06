@@ -1,10 +1,10 @@
 ---
 title: AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
 description: Scan for open source dependency vulnerabilities in your source code.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
@@ -39,6 +39,7 @@ Scan your application for any vulnerabilities in open source components used in 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="directoryexclusionlist-property"></a>
 <!-- :::item name="directoryExclusionList"::: -->
 :::moniker range=">azure-pipelines-server"
 

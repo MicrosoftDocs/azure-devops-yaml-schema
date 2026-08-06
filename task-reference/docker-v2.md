@@ -1,7 +1,7 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -49,6 +49,7 @@ Build or push Docker images, log in or log out, start or stop containers, or run
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="containerregistry-property"></a>
 <!-- :::item name="containerRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -61,6 +62,7 @@ Name of the [Docker registry service connection](/azure/devops/pipelines/library
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="repository-property"></a>
 <!-- :::item name="repository"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -73,6 +75,7 @@ Specifies the name of the repository.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +88,7 @@ Specifies the Docker command to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerfile-property"></a>
 <!-- :::item name="Dockerfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +101,7 @@ Specifies the path to the Docker file. The task uses the first Docker file it fi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildcontext-property"></a>
 <!-- :::item name="buildContext"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,18 +114,27 @@ Specifies the path to the build context. Pass `**` to indicate the directory tha
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="tags"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`tags`** - **Tags**<br>
 `string`. Optional. Use when `command = build || command = push || command = buildAndPush`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a list of comma-separated tags. These tags are used in `build`, `push` and `buildAndPush` commands.
+A list of tags on separate lines. These tags are used in the `build`, `push`, and `buildAndPush` commands.
+
+Example:
+```yaml
+tags: |
+  tag1
+  tag2
+```
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +149,7 @@ Example: Using the build command, `--build-arg HTTP_PROXY=http://10.20.30.2:1234
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addpipelinedata-property"></a>
 <!-- :::item name="addPipelineData"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -147,6 +162,7 @@ By default, pipeline data like source branch name, or build ID are added and hel
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addbaseimagedata-property"></a>
 <!-- :::item name="addBaseImageData"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -159,6 +175,7 @@ By default, base image data like base image name, or digest are added and help w
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="container-property"></a>
 <!-- :::item name="container"::: -->
 :::moniker range="<=azure-pipelines"
 

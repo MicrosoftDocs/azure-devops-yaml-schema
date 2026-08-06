@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@2 - Azure file copy v2 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 2).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -45,15 +45,15 @@ Copy files to Azure Blob Storage or virtual machines.
   inputs:
     SourcePath: # string. Required. Source. 
     #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Alias: ConnectedServiceNameSelector. Azure Connection Type. Default: ConnectedServiceNameARM.
-    #azureClassicSubscription: # string. Alias: ConnectedServiceName. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
-    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
+    #azureClassicSubscription: # string. Alias: ConnectedServiceName. Required when azureConnectionType = ConnectedServiceName. Azure Classic Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required when azureConnectionType = ConnectedServiceNameARM. Azure Subscription. 
     Destination: # 'AzureBlob' | 'AzureVMs'. Required. Destination Type. 
-    #classicStorage: # string. Alias: StorageAccount. Required when ConnectedServiceNameSelector = ConnectedServiceName. Classic Storage Account. 
-    storage: # string. Alias: StorageAccountRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. RM Storage Account. 
+    #classicStorage: # string. Alias: StorageAccount. Required when azureConnectionType = ConnectedServiceName. Classic Storage Account. 
+    storage: # string. Alias: StorageAccountRM. Required when azureConnectionType = ConnectedServiceNameARM. RM Storage Account. 
     #ContainerName: # string. Required when Destination = AzureBlob. Container Name. 
     #BlobPrefix: # string. Optional. Use when Destination = AzureBlob. Blob Prefix. 
-    #cloudService: # string. Alias: EnvironmentName. Required when ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs. Cloud Service. 
-    #resourceGroup: # string. Alias: EnvironmentNameRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Resource Group. 
+    #cloudService: # string. Alias: EnvironmentName. Required when azureConnectionType = ConnectedServiceName && Destination = AzureVMs. Cloud Service. 
+    #resourceGroup: # string. Alias: EnvironmentNameRM. Required when azureConnectionType = ConnectedServiceNameARM && Destination = AzureVMs. Resource Group. 
     #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Optional. Use when Destination = AzureVMs. Select Machines By. Default: machineNames.
     #MachineNames: # string. Optional. Use when Destination = AzureVMs. Filter Criteria. 
     #vmsAdminUserName: # string. Required when Destination = AzureVMs. Admin Login. 
@@ -61,7 +61,7 @@ Copy files to Azure Blob Storage or virtual machines.
     #TargetPath: # string. Required when Destination = AzureVMs. Destination Folder. 
     #AdditionalArgumentsForBlobCopy: # string. Optional Arguments (for uploading files to blob). 
     #AdditionalArgumentsForVMCopy: # string. Optional. Use when Destination = AzureVMs. Optional Arguments (for downloading files to VM). 
-    #enableCopyPrerequisites: false # boolean. Optional. Use when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Enable Copy Prerequisites. Default: false.
+    #enableCopyPrerequisites: false # boolean. Optional. Use when azureConnectionType = ConnectedServiceNameARM && Destination = AzureVMs. Enable Copy Prerequisites. Default: false.
     #CopyFilesInParallel: true # boolean. Optional. Use when Destination = AzureVMs. Copy in Parallel. Default: true.
     #CleanTargetBeforeCopy: false # boolean. Optional. Use when Destination = AzureVMs. Clean Target. Default: false.
     #skipCACheck: true # boolean. Optional. Use when Destination = AzureVMs. Test Certificate. Default: true.
@@ -77,6 +77,7 @@ Copy files to Azure Blob Storage or virtual machines.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sourcepath-property"></a>
 <!-- :::item name="SourcePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -89,6 +90,7 @@ Specify the absolute path to the source folder, file on the local machine, or a 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureconnectiontype-property"></a>
 <!-- :::item name="azureConnectionType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,11 +103,12 @@ Specify the Azure connection type.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureclassicsubscription-property"></a>
 <!-- :::item name="azureClassicSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`azureClassicSubscription`** - **Azure Classic Subscription**<br>
-[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required when `azureConnectionType = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the target Azure Classic subscription.
 <!-- :::editable-content-end::: -->
@@ -113,11 +116,12 @@ Specify the target Azure Classic subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required when `azureConnectionType = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the target Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
@@ -125,6 +129,7 @@ Specify the target Azure Resource Manager subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="destination-property"></a>
 <!-- :::item name="Destination"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,11 +142,12 @@ Specify the destination type to use for copying the files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="classicstorage-property"></a>
 <!-- :::item name="classicStorage"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`classicStorage`** - **Classic Storage Account**<br>
-[Input alias](index.md#what-are-task-input-aliases): `StorageAccount`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `StorageAccount`. `string`. Required when `azureConnectionType = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a pre-existing classic storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
@@ -149,11 +155,12 @@ Specify a pre-existing classic storage account. This is the storage account used
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="storage-property"></a>
 <!-- :::item name="storage"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`storage`** - **RM Storage Account**<br>
-[Input alias](index.md#what-are-task-input-aliases): `StorageAccountRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `StorageAccountRM`. `string`. Required when `azureConnectionType = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a pre-existing ARM storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
@@ -161,6 +168,7 @@ Specify a pre-existing ARM storage account. This is the storage account used as 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containername-property"></a>
 <!-- :::item name="ContainerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +183,7 @@ To create a virtual directory inside the container, use the Blob prefix input. F
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="blobprefix-property"></a>
 <!-- :::item name="BlobPrefix"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -191,11 +200,12 @@ Example: If you specify a Blob prefix `myvd1`, a virtual directory is created in
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cloudservice-property"></a>
 <!-- :::item name="cloudService"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`cloudService`** - **Cloud Service**<br>
-[Input alias](index.md#what-are-task-input-aliases): `EnvironmentName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `EnvironmentName`. `string`. Required when `azureConnectionType = ConnectedServiceName && Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the target Cloud Service.
 <!-- :::editable-content-end::: -->
@@ -203,11 +213,12 @@ Specify the name of the target Cloud Service.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcegroup-property"></a>
 <!-- :::item name="resourceGroup"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`resourceGroup`** - **Resource Group**<br>
-[Input alias](index.md#what-are-task-input-aliases): `EnvironmentNameRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `EnvironmentNameRM`. `string`. Required when `azureConnectionType = ConnectedServiceNameARM && Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the target Resource Group.
 <!-- :::editable-content-end::: -->
@@ -215,6 +226,7 @@ Specify the name of the target Resource Group.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefilteringmethod-property"></a>
 <!-- :::item name="ResourceFilteringMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -227,6 +239,7 @@ Specify the VM host name or tag that identifies a subset of VMs in a resource gr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinenames-property"></a>
 <!-- :::item name="MachineNames"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -241,6 +254,7 @@ Note: Valid delimiters for tags include &#44;(comma), &#58;(colon) and &#59;(sem
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmsadminusername-property"></a>
 <!-- :::item name="vmsAdminUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -253,6 +267,7 @@ Provide the user name of the Azure VM administrator account.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vmsadminpassword-property"></a>
 <!-- :::item name="vmsAdminPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -267,6 +282,7 @@ Valid input includes variables defined in build or release pipelines such as `$(
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -281,6 +297,7 @@ Valid input includes environment variables such as `$env:windir\BudgetIT\Web`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalargumentsforblobcopy-property"></a>
 <!-- :::item name="AdditionalArgumentsForBlobCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -303,6 +320,7 @@ If no optional arguments are specified, the following arguments are added by def
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalargumentsforvmcopy-property"></a>
 <!-- :::item name="AdditionalArgumentsForVMCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -322,11 +340,12 @@ If no optional arguments are specified, the following are added by default.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enablecopyprerequisites-property"></a>
 <!-- :::item name="enableCopyPrerequisites"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`enableCopyPrerequisites`** - **Enable Copy Prerequisites**<br>
-`boolean`. Optional. Use when `ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs`. Default value: `false`.<br>
+`boolean`. Optional. Use when `azureConnectionType = ConnectedServiceNameARM && Destination = AzureVMs`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When enabled, uses a self-signed certificate to configure a Windows Remote Management (WinRM) listener on port 5986 instead of the HTTPS protocol. Required for performing copy operations on Azure VMs. If the target VMs use a load balancer, configure inbound NAT rules for the target port (5986). Applies only for ARM VMs.
 <!-- :::editable-content-end::: -->
@@ -334,6 +353,7 @@ When enabled, uses a self-signed certificate to configure a Windows Remote Manag
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="copyfilesinparallel-property"></a>
 <!-- :::item name="CopyFilesInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -346,6 +366,7 @@ Accepting the default setting copies files in parallel to the target VMs.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleantargetbeforecopy-property"></a>
 <!-- :::item name="CleanTargetBeforeCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -358,6 +379,7 @@ Setting this value to `true` cleans the destination folder before performing the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="skipcacheck-property"></a>
 <!-- :::item name="skipCACheck"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -370,6 +392,7 @@ The default value will not validate that the server certificate was signed by a 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputstorageuri-property"></a>
 <!-- :::item name="outputStorageUri"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -382,6 +405,7 @@ Specify the name of the variable used for the storage container URI to which fil
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputstoragecontainersastoken-property"></a>
 <!-- :::item name="outputStorageContainerSasToken"::: -->
 :::moniker range="<=azure-pipelines"
 

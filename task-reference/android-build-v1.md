@@ -1,10 +1,10 @@
 ---
 title: AndroidBuild@1 - Android Build v1 task
 description: AndroidBuild@1 is deprecated. Use Gradle.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AndroidBuild@1 - Android Build v1 task
@@ -59,6 +59,7 @@ The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipel
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="gradlewrapper-property"></a>
 <!-- :::item name="gradleWrapper"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +72,7 @@ The location of the `gradlew` wrapper that is used for the build. Agents on Wind
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gradleproj-property"></a>
 <!-- :::item name="gradleProj"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +85,7 @@ The relative path from the repo root to the root directory of the application. T
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="gradlearguments-property"></a>
 <!-- :::item name="gradleArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +98,7 @@ Provides any options to pass to the Gradle command line. Learn more about the [G
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="avdname-property"></a>
 <!-- :::item name="avdName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +113,7 @@ You must deploy your own agent to use this string. You cannot use a Microsoft-ho
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createavd-property"></a>
 <!-- :::item name="createAvd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -121,6 +126,7 @@ Creates the named Android Virtual Device (AVD).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="emulatortarget-property"></a>
 <!-- :::item name="emulatorTarget"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -133,6 +139,7 @@ The Android SDK version that the Android Virtual Device (AVD) targets.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="emulatordevice-property"></a>
 <!-- :::item name="emulatorDevice"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -145,6 +152,7 @@ The device pipeline that may be used. This can be a device index or an Id.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="avdabi-property"></a>
 <!-- :::item name="avdAbi"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -157,6 +165,7 @@ The Application Binary Interface (ABI) to use for the Android Virtual Device (AV
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="avdforce-property"></a>
 <!-- :::item name="avdForce"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -169,6 +178,7 @@ Overwrites an existing AVD by passing `--force` to the `android create avd` comm
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="avdoptionalargs-property"></a>
 <!-- :::item name="avdOptionalArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -181,6 +191,7 @@ Creates additional arguments to pass to `android create avd`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="startemulator-property"></a>
 <!-- :::item name="startEmulator"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -195,6 +206,7 @@ You must deploy your own agent to use this boolean. You cannot use a Microsoft-h
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="emulatortimeout-property"></a>
 <!-- :::item name="emulatorTimeout"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -207,6 +219,7 @@ Defines how long (in seconds) the build will wait for the emulator to start.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="emulatorheadless-property"></a>
 <!-- :::item name="emulatorHeadless"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -219,6 +232,7 @@ Starts the emulator with no GUI (headless mode) by using the `-no-skin -no-audio
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="emulatoroptionalargs-property"></a>
 <!-- :::item name="emulatorOptionalArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -231,6 +245,7 @@ Provides additional arguments to pass to the `emulator` command.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deleteavd-property"></a>
 <!-- :::item name="deleteAvd"::: -->
 :::moniker range="<=azure-pipelines"
 

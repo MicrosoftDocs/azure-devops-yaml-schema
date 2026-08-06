@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@1 - App Center distribute v1 task
 description: Distribute app builds to testers and users via Visual Studio App Center (task version 1).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -59,16 +59,16 @@ Use this task to distribute app builds to testers and users via App Center and V
     appSlug: # string. Required. App slug. 
     appFile: # string. Alias: app. Required. Binary file path. 
     releaseNotesOption: 'input' # 'input' | 'file'. Alias: releaseNotesSelection. Required. Create release notes. Default: input.
-    releaseNotesInput: # string. Required when releaseNotesSelection = input. Release notes. 
-    #releaseNotesFile: # string. Required when releaseNotesSelection = file. Release notes file. 
+    releaseNotesInput: # string. Required when releaseNotesOption = input. Release notes. 
+    #releaseNotesFile: # string. Required when releaseNotesOption = file. Release notes file. 
     #isMandatory: false # boolean. Require users to update to this release. Default: false.
     #distributionGroupId: # string. Alias: destinationId. Destination ID. 
   # Symbols
     #symbolsOption: 'Apple' # 'Apple'. Alias: symbolsType. Symbols type. Default: Apple.
-    #symbolsPath: # string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows. Symbols path. 
-    #symbolsPdbFiles: '**/*.pdb' # string. Alias: pdbPath. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
-    #symbolsDsymFiles: # string. Alias: dsymPath. Optional. Use when symbolsType = Apple. dSYM path. 
-    #symbolsMappingTxtFile: # string. Alias: mappingTxtPath. Optional. Use when symbolsType = AndroidJava. Mapping file. 
+    #symbolsPath: # string. Optional. Use when symbolsOption == AndroidNative || symbolsOption = Windows. Symbols path. 
+    #symbolsPdbFiles: '**/*.pdb' # string. Alias: pdbPath. Optional. Use when symbolsOption = UWP. Symbols path (*.pdb). Default: **/*.pdb.
+    #symbolsDsymFiles: # string. Alias: dsymPath. Optional. Use when symbolsOption = Apple. dSYM path. 
+    #symbolsMappingTxtFile: # string. Alias: mappingTxtPath. Optional. Use when symbolsOption = AndroidJava. Mapping file. 
     #symbolsIncludeParentDirectory: # boolean. Alias: packParentFolder. Include all items in parent folder.
 ```
 
@@ -79,6 +79,7 @@ Use this task to distribute app builds to testers and users via App Center and V
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="serverendpoint-property"></a>
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,6 +92,7 @@ Selects the service connection for Visual Studio App Center. To create one, clic
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appslug-property"></a>
 <!-- :::item name="appSlug"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -103,6 +105,7 @@ The app slug is in the format of `{username}/{app_identifier}`.  To locate `{use
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appfile-property"></a>
 <!-- :::item name="appFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -115,6 +118,7 @@ The relative path from the repo root to the APK or IPA file you want to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsoption-property"></a>
 <!-- :::item name="symbolsOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -127,11 +131,12 @@ Includes symbol files to receive symbolicated stack traces in App Center Diagnos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolspath-property"></a>
 <!-- :::item name="symbolsPath"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`symbolsPath`** - **Symbols path**<br>
-`string`. Optional. Use when `symbolsType == AndroidNative || symbolsType = Windows`.<br>
+`string`. Optional. Use when `symbolsOption == AndroidNative || symbolsOption = Windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the symbols folder.
 <!-- :::editable-content-end::: -->
@@ -139,11 +144,12 @@ The relative path from the repo root to the symbols folder.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolspdbfiles-property"></a>
 <!-- :::item name="symbolsPdbFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`symbolsPdbFiles`** - **Symbols path (*.pdb)**<br>
-[Input alias](index.md#what-are-task-input-aliases): `pdbPath`. `string`. Optional. Use when `symbolsType = UWP`. Default value: `**/*.pdb`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `pdbPath`. `string`. Optional. Use when `symbolsOption = UWP`. Default value: `**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to `.pdb` symbols files. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -151,11 +157,12 @@ The relative path from the repo root to `.pdb` symbols files. Path may contain [
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsdsymfiles-property"></a>
 <!-- :::item name="symbolsDsymFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`symbolsDsymFiles`** - **dSYM path**<br>
-[Input alias](index.md#what-are-task-input-aliases): `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dsymPath`. `string`. Optional. Use when `symbolsOption = Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the dSYM folder. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -163,11 +170,12 @@ The relative path from the repo root to the dSYM folder. Path may contain [wildc
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsmappingtxtfile-property"></a>
 <!-- :::item name="symbolsMappingTxtFile"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`symbolsMappingTxtFile`** - **Mapping file**<br>
-[Input alias](index.md#what-are-task-input-aliases): `mappingTxtPath`. `string`. Optional. Use when `symbolsType = AndroidJava`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `mappingTxtPath`. `string`. Optional. Use when `symbolsOption = AndroidJava`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to Android's `mapping.txt` file.
 <!-- :::editable-content-end::: -->
@@ -175,6 +183,7 @@ The relative path from the repo root to Android's `mapping.txt` file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="symbolsincludeparentdirectory-property"></a>
 <!-- :::item name="symbolsIncludeParentDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +196,7 @@ Uploads the selected symbols file or folder and all other items inside the same 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesoption-property"></a>
 <!-- :::item name="releaseNotesOption"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -199,11 +209,12 @@ The release notes are attached to the release and shown to testers on the instal
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesinput-property"></a>
 <!-- :::item name="releaseNotesInput"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`releaseNotesInput`** - **Release notes**<br>
-`string`. Required when `releaseNotesSelection = input`.<br>
+`string`. Required when `releaseNotesOption = input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The release notes for this version.
 <!-- :::editable-content-end::: -->
@@ -211,11 +222,12 @@ The release notes for this version.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="releasenotesfile-property"></a>
 <!-- :::item name="releaseNotesFile"::: -->
 :::moniker range="<=azure-pipelines"
 
 **`releaseNotesFile`** - **Release notes file**<br>
-`string`. Required when `releaseNotesSelection = file`.<br>
+`string`. Required when `releaseNotesOption = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects a UTF-8 encoded text file which contains the release notes for this version.
 <!-- :::editable-content-end::: -->
@@ -223,6 +235,7 @@ Selects a UTF-8 encoded text file which contains the release notes for this vers
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ismandatory-property"></a>
 <!-- :::item name="isMandatory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -235,6 +248,7 @@ The App Center Distribute SDK required to mandate an update. Testers are automat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="distributiongroupid-property"></a>
 <!-- :::item name="distributionGroupId"::: -->
 :::moniker range="<=azure-pipelines"
 

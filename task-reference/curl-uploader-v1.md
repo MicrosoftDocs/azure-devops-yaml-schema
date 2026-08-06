@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@1 - cURL Upload Files v1 task
 description: Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -46,6 +46,7 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="files-property"></a>
 <!-- :::item name="files"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -58,6 +59,7 @@ The file(s) to be uploaded. Wildcards can be used. For example, `**\*.zip` for a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="username-property"></a>
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +72,7 @@ Optional. Specifies the username for server authentication.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="password-property"></a>
 <!-- :::item name="password"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +85,7 @@ Optional. Specifies the password for server authentication. Use a new build vari
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="url-property"></a>
 <!-- :::item name="url"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +98,7 @@ Specifies the URL to where the file(s) will be uploaded. The directory should en
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +111,7 @@ Optional. The additional arguments that will be passed to cURL.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="redirectstderr-property"></a>
 <!-- :::item name="redirectStderr"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -140,7 +146,7 @@ None.
 
 ### Where can I learn FTP commands?
 
-See the [list of raw FTP commands](https://www.nsftools.com/tips/RawFTP.htm).
+See the [list of raw FTP commands](https://www.w3.org/Protocols/rfc959/5_Declarative).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -1,10 +1,10 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # UseNode@1 - Use Node.js ecosystem v1 task
@@ -22,7 +22,25 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.2"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Use Node.js ecosystem v1
+# Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
+- task: UseNode@1
+  inputs:
+    #version: '10.x' # string. Version. Default: 10.x.
+    #checkLatest: false # boolean. Check for Latest Version. Default: false.
+    #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
+  # advanced
+    #nodejsMirror: 'https://nodejs.org/dist' # string. Set source for Node.js binaries. Default: https://nodejs.org/dist.
+    #retryCountOnDownloadFails: '5' # string. Set retry count when nodes downloads failed. Default: 5.
+    #delayBetweenRetries: '1000' # string. Set delay between retries. Default: 1000.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.2 <=azure-pipelines-server"
 
 ```yaml
 # Use Node.js ecosystem v1
@@ -58,6 +76,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +89,7 @@ Required. Specifies the [Node.js version](https://nodejs.org/en/download/release
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checklatest-property"></a>
 <!-- :::item name="checkLatest"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +102,7 @@ Checks online for the latest available version that satisfies the version spec. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="force32bit-property"></a>
 <!-- :::item name="force32bit"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +115,20 @@ Installs the x86 version of Node.js on a 64-bit Windows agent. Only works on Win
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="nodejsmirror-property"></a>
+<!-- :::item name="nodejsMirror"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`nodejsMirror`** - **Set source for Node.js binaries**<br>
+`string`. Default value: `https://nodejs.org/dist`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use an alternative installation mirror when sourcing the Node.js binaries.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<a name="retrycountondownloadfails-property"></a>
 <!-- :::item name="retryCountOnDownloadFails"::: -->
 :::moniker range=">=azure-pipelines-2022.2"
 
@@ -106,6 +141,7 @@ Use this option when the task failed to download node binaries from the mirror. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="delaybetweenretries-property"></a>
 <!-- :::item name="delayBetweenRetries"::: -->
 :::moniker range=">=azure-pipelines-2022.2"
 

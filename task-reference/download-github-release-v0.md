@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubRelease@0 - Download GitHub Release v0 task
 description: Downloads a GitHub Release from a repository.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -43,6 +43,7 @@ Use this task to download a GitHub release from a repository.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connection-property"></a>
 <!-- :::item name="connection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ Specifies the GitHub service connection name. Learn more about [service connecti
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="userrepository-property"></a>
 <!-- :::item name="userRepository"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,6 +69,7 @@ Specifies the name of the GitHub repository that GitHub releases are downloaded 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="defaultversiontype-property"></a>
 <!-- :::item name="defaultVersionType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +82,7 @@ Downloads assets from the latest GitHub release or a specific GitHub release ver
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,6 +95,7 @@ Defines the GitHub release version/tag to download. This option appears if `spec
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="itempattern-property"></a>
 <!-- :::item name="itemPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -103,6 +108,7 @@ The minimatch pattern that filters files to be downloaded. To download all files
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloadpath-property"></a>
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="<=azure-pipelines"
 

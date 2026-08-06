@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@6 - Run Code Analysis v6 task
 description: Run scanner and upload the results to the SonarQube server (task version 6).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -40,6 +40,7 @@ Run scanner and upload the results to the SonarQube server.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="jdkversion-property"></a>
 <!-- :::item name="jdkversion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -103,5 +104,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [SonarQube Azure DevOps Integration](https://docs.sonarsource.com/sonarqube-cloud/discovering-sonarcloud/integration-with-devops-platforms/azure-devops)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

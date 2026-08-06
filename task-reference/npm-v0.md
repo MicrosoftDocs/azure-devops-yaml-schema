@@ -1,7 +1,7 @@
 ---
 title: Npm@0 - npm v0 task
 description: Run an npm command. Use NpmAuthenticate@0 task for latest capabilities.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -44,6 +44,7 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="cwd-property"></a>
 <!-- :::item name="cwd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -56,6 +57,7 @@ Specifies the working directory where the `npm` command is run. Defaults to the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +72,7 @@ If your arguments contain double quotes (`"`), escape them with a slash (`\`), a
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 

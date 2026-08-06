@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -55,6 +55,7 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +72,7 @@ By default, packages are installed locally. To install packages globally, specif
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdir-property"></a>
 <!-- :::item name="workingDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +85,7 @@ Specifies the path to the folder containing the target `package.json` and `.npmr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="verbose-property"></a>
 <!-- :::item name="verbose"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +98,7 @@ Prints more information to the console when the task runs.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customcommand-property"></a>
 <!-- :::item name="customCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +111,7 @@ Runs a custom command. Example: `dist-tag ls mypackage`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customregistry-property"></a>
 <!-- :::item name="customRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +124,7 @@ Specifies the registries to use. Commit a `.npmrc` file to your source code repo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customfeed-property"></a>
 <!-- :::item name="customFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +137,7 @@ Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customendpoint-property"></a>
 <!-- :::item name="customEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -143,6 +150,7 @@ Credentials to use for external registries located in the project's `.npmrc`. Le
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishregistry-property"></a>
 <!-- :::item name="publishRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -155,6 +163,7 @@ Specifies the registry that the command will target.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishfeed-property"></a>
 <!-- :::item name="publishFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -167,6 +176,7 @@ Specifies a registry hosted in the account. You must have Package Management ins
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishpackagemetadata-property"></a>
 <!-- :::item name="publishPackageMetadata"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -179,6 +189,7 @@ Associates the build/release pipeline's metadata (the run # and source code info
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishendpoint-property"></a>
 <!-- :::item name="publishEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 

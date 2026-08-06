@@ -1,7 +1,7 @@
 ---
 title: VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
 description: Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: steved0x
 ms.author: sdanie
@@ -46,6 +46,7 @@ Use this task to acquire the [Microsoft test platform](https://www.nuget.org/pac
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="packagefeedselector-property"></a>
 <!-- :::item name="packageFeedSelector"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -64,6 +65,7 @@ Specifies the feed where the task fetches the Visual Studio Test Platform NuGet 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="versionselector-property"></a>
 <!-- :::item name="versionSelector"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -76,6 +78,7 @@ Installs the latest version or a specific version of the Visual Studio Test Plat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testplatformversion-property"></a>
 <!-- :::item name="testPlatformVersion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +91,7 @@ Specifies the version of Visual Studio Test Platform to install on the agent. Av
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customfeed-property"></a>
 <!-- :::item name="customFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +104,7 @@ Specifies the URL of a custom feed or a package management feed in Azure DevOps 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="username-property"></a>
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,6 +117,7 @@ Specifies the user name to authenticate the feed specified in the **Package Sour
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="password-property"></a>
 <!-- :::item name="password"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -124,6 +130,7 @@ Specifies the password or personal access token (PAT) for authenticating the fee
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="netshare-property"></a>
 <!-- :::item name="netShare"::: -->
 :::moniker range="<=azure-pipelines"
 

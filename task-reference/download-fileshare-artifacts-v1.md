@@ -1,7 +1,7 @@
 ---
 title: DownloadFileshareArtifacts@1 - Download artifacts from file share v1 task
 description: Download artifacts from a file share, like \\share\drop.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -44,6 +44,7 @@ Use this task to download artifacts from a file share, like `\\share\drop`.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="filesharepath-property"></a>
 <!-- :::item name="filesharePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -56,6 +57,7 @@ Specifies the file share path (for example: `\\server\folder`).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactname-property"></a>
 <!-- :::item name="artifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -68,6 +70,7 @@ Specifies the name of the artifact to download (for example: `drop`).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="itempattern-property"></a>
 <!-- :::item name="itemPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +85,7 @@ The default pattern (`**`) downloads all files within the artifact.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloadpath-property"></a>
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +98,7 @@ Specifies the path on the agent machine where the artifacts are downloaded.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parallelizationlimit-property"></a>
 <!-- :::item name="parallelizationLimit"::: -->
 :::moniker range="<=azure-pipelines"
 

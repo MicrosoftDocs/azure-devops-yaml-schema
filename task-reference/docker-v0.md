@@ -1,7 +1,7 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -86,6 +86,7 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="containerregistrytype-property"></a>
 <!-- :::item name="containerregistrytype"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +99,7 @@ Select 'Azure Container Registry' to connect to it by using an Azure Service Con
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryconnection-property"></a>
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +112,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +125,7 @@ Specifies an Azure subscription.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurecontainerregistry-property"></a>
 <!-- :::item name="azureContainerRegistry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +138,7 @@ Specifies an Azure Container Registry in the selected Azure Subscription. The co
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -146,6 +151,7 @@ Specifies a Docker action.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerfile-property"></a>
 <!-- :::item name="dockerFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -158,6 +164,7 @@ Specifies the path to the Docker file. The task uses the first Docker file it fi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addbaseimagedata-property"></a>
 <!-- :::item name="addBaseImageData"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -170,6 +177,7 @@ The default value adds base image data such as, the base image name and digest t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildarguments-property"></a>
 <!-- :::item name="buildArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -182,6 +190,7 @@ Specifies build-time variables for the Docker file. Format each `name=value` pai
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="defaultcontext-property"></a>
 <!-- :::item name="defaultContext"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -194,6 +203,7 @@ Specifies the build context of the directory that contains the Docker file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="context-property"></a>
 <!-- :::item name="context"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -206,6 +216,7 @@ Specifies the path to the build context.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagename-property"></a>
 <!-- :::item name="imageName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -218,6 +229,7 @@ Specifies the name of the Docker image to build, push, or run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagenamespath-property"></a>
 <!-- :::item name="imageNamesPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -230,6 +242,7 @@ Specifies the path to a text file that contains the names of the Docker images t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="qualifyimagename-property"></a>
 <!-- :::item name="qualifyImageName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -242,6 +255,7 @@ Specifies a qualify image name with the Docker registry service connection's hos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalimagetags-property"></a>
 <!-- :::item name="additionalImageTags"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -254,6 +268,7 @@ Specifies additional tags for the Docker image being built or pushed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includesourcetags-property"></a>
 <!-- :::item name="includeSourceTags"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -266,6 +281,7 @@ Specifies whether to include Git tags when building or pushing the Docker image.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includelatesttag-property"></a>
 <!-- :::item name="includeLatestTag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -278,6 +294,7 @@ Specifies whether to include the *latest* tag when building or pushing the Docke
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagedigestfile-property"></a>
 <!-- :::item name="imageDigestFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -290,6 +307,7 @@ Specifies the path to a file that is created and populated with the full image r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containername-property"></a>
 <!-- :::item name="containerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -302,6 +320,7 @@ Specifies the name of the Docker container to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ports-property"></a>
 <!-- :::item name="ports"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -314,6 +333,7 @@ Specifies ports in the Docker container to publish to the host. List each `host-
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="volumes-property"></a>
 <!-- :::item name="volumes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -326,6 +346,7 @@ Specifies the volumes to mount from the host. List each `host-dir:container-dir`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="envvars-property"></a>
 <!-- :::item name="envVars"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -338,6 +359,7 @@ Specifies environment variables for the Docker container. List each `name=value`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workdir-property"></a>
 <!-- :::item name="workDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -350,6 +372,7 @@ Specifies the working directory for the Docker container.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="entrypoint-property"></a>
 <!-- :::item name="entrypoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -362,6 +385,7 @@ Specifies an override of the default entry point for the Docker container.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="containercommand-property"></a>
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -374,6 +398,7 @@ Specifies a Docker run command. The docker run command first creates a writeable
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="detached-property"></a>
 <!-- :::item name="detached"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -386,6 +411,7 @@ Specifies whether to run the Docker container in the background.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restartpolicy-property"></a>
 <!-- :::item name="restartPolicy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -398,6 +424,7 @@ Specifies a restart policy.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restartmaxretries-property"></a>
 <!-- :::item name="restartMaxRetries"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -410,6 +437,7 @@ Specifies the maximum number of restart retries that the Docker daemon attempts.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customcommand-property"></a>
 <!-- :::item name="customCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -422,6 +450,7 @@ Specifies the Docker command and arguments to execute. For example, `rmi -f imag
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerhostendpoint-property"></a>
 <!-- :::item name="dockerHostEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -434,6 +463,7 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enforcedockernamingconvention-property"></a>
 <!-- :::item name="enforceDockerNamingConvention"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -446,6 +476,7 @@ If enabled, modifies the Docker image name according to Docker naming convention
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -458,6 +489,7 @@ Specifies the working directory for the Docker command.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="memory-property"></a>
 <!-- :::item name="memory"::: -->
 :::moniker range="<=azure-pipelines"
 

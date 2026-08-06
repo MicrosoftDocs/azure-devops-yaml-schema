@@ -1,10 +1,10 @@
 ---
 title: UseRubyVersion@0 - Use Ruby version v0 task
 description: Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # UseRubyVersion@0 - Use Ruby version v0 task
@@ -40,6 +40,7 @@ Use this task to select a version of Ruby to run on an agent. Optionally, the ta
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="versionspec-property"></a>
 <!-- :::item name="versionSpec"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,6 +53,7 @@ Specifies the version range or a version of a Ruby version to use.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="addtopath-property"></a>
 <!-- :::item name="addToPath"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Apps v0 task
 description: Deploy applications to Azure Spring Apps and manage deployments.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -120,6 +120,7 @@ This task deploys applications to Azure Spring Apps and manages those deployment
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -132,6 +133,7 @@ Specifies the [Azure Resource Manager subscription](/azure/devops/pipelines/libr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="action-property"></a>
 <!-- :::item name="Action"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -144,6 +146,7 @@ The action to be performed on Azure Spring Apps.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azurespringcloud-property"></a>
 <!-- :::item name="AzureSpringCloud"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -156,6 +159,7 @@ The name or resource ID of the Azure Spring Apps instance to deploy.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="AppName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -168,6 +172,7 @@ The name of the Azure Spring Apps app to deploy. The app must exist prior to the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymenttype-property"></a>
 <!-- :::item name="DeploymentType"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -180,6 +185,7 @@ To deploy with source code or Java package, choose "Artifacts"; To deploy with c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usestagingdeployment-property"></a>
 <!-- :::item name="UseStagingDeployment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -194,6 +200,7 @@ If set to `true`, apply the task to the [deployment](/azure/spring-apps/concept-
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createnewdeployment-property"></a>
 <!-- :::item name="CreateNewDeployment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -206,6 +213,7 @@ If set to `true`, and the deployment specified by `DeploymentName` does not exis
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploymentname-property"></a>
 <!-- :::item name="DeploymentName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -218,6 +226,7 @@ The [deployment](/azure/spring-apps/concept-understand-app-and-deployment) to wh
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="package-property"></a>
 <!-- :::item name="Package"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -245,6 +254,7 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="builder-property"></a>
 <!-- :::item name="Builder"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -257,6 +267,7 @@ Select a builder of VMware Tanzu® Build Service™, this can be used in enterpr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registryserver-property"></a>
 <!-- :::item name="RegistryServer"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -269,6 +280,7 @@ The registry of the container image.  Default: docker.io.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registryusername-property"></a>
 <!-- :::item name="RegistryUsername"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -281,6 +293,7 @@ The username of the container registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registrypassword-property"></a>
 <!-- :::item name="RegistryPassword"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -293,6 +306,7 @@ The password of the container registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagename-property"></a>
 <!-- :::item name="ImageName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -305,6 +319,7 @@ The container image tag.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagecommand-property"></a>
 <!-- :::item name="ImageCommand"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -317,6 +332,7 @@ The command of the container image.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imageargs-property"></a>
 <!-- :::item name="ImageArgs"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -329,6 +345,7 @@ The arguments of the container image.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="imagelanguageframework-property"></a>
 <!-- :::item name="ImageLanguageFramework"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -340,6 +357,7 @@ The arguments of the container image.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="environmentvariables-property"></a>
 <!-- :::item name="EnvironmentVariables"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -352,6 +370,7 @@ The environment variables to be entered using the syntax `-key value` (for examp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jvmoptions-property"></a>
 <!-- :::item name="JvmOptions"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -375,6 +394,7 @@ Edits the app's JVM options. A string containing JVM options, such as `-Xms1024m
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runtimeversion-property"></a>
 <!-- :::item name="RuntimeVersion"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -409,6 +429,7 @@ The runtime version on which the app will run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dotnetcoremainentrypath-property"></a>
 <!-- :::item name="DotNetCoreMainEntryPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -421,6 +442,7 @@ The path to the .NET executable relative to the zip root.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="Version"::: -->
 :::moniker range="<=azure-pipelines"
 

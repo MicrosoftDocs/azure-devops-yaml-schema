@@ -1,10 +1,10 @@
 ---
 title: AzureFunctionOnKubernetes@1 - Azure Function on Kubernetes v1 task
 description: Deploy Azure function to Kubernetes cluster.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureFunctionOnKubernetes@1 - Azure Function on Kubernetes v1 task
@@ -52,6 +52,7 @@ Deploy Azure function to Kubernetes cluster.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="connectiontype-property"></a>
 <!-- :::item name="connectionType"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -69,6 +70,7 @@ For more information, see [Remarks](#remarks).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerregistryserviceconnection-property"></a>
 <!-- :::item name="dockerRegistryServiceConnection"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -81,6 +83,7 @@ Select a Docker registry service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubernetesserviceconnection-property"></a>
 <!-- :::item name="kubernetesServiceConnection"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -93,6 +96,7 @@ Select a Kubernetes service connection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azuresubscriptionconnection-property"></a>
 <!-- :::item name="azureSubscriptionConnection"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -105,6 +109,7 @@ Select the Azure Resource Manager subscription, which contains Azure Container R
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureresourcegroup-property"></a>
 <!-- :::item name="azureResourceGroup"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -117,6 +122,7 @@ Select an Azure resource group.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="kubernetescluster-property"></a>
 <!-- :::item name="kubernetesCluster"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -129,6 +135,7 @@ Select an Azure managed cluster.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="namespace-property"></a>
 <!-- :::item name="namespace"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -141,6 +148,7 @@ Kubernetes namespace.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secretname-property"></a>
 <!-- :::item name="secretName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -153,6 +161,7 @@ Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dockerhubnamespace-property"></a>
 <!-- :::item name="dockerHubNamespace"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -165,6 +174,7 @@ Docker Hub namespace. Required for private Docker Hub repository.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -177,6 +187,7 @@ Application Name. The Kubernetes objects created use this name. This should foll
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="functionrootdirectory-property"></a>
 <!-- :::item name="functionRootDirectory"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -189,6 +200,7 @@ Function root directory. Should contain host.json. Docker build and push is perf
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforstability-property"></a>
 <!-- :::item name="waitForStability"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -201,6 +213,7 @@ Wait for the Kubernetes objects to reach the desired state.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

@@ -1,7 +1,7 @@
 ---
 title: WindowsMachineFileCopy@2 - Windows machine file copy v2 task
 description: Copy files to remote Windows machines.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -47,6 +47,7 @@ Use this task to copy files to remote Windows machines.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="sourcepath-property"></a>
 <!-- :::item name="SourcePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -59,6 +60,7 @@ The path to the files to copy. Specifies the absolute path of the source folder 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinenames-property"></a>
 <!-- :::item name="MachineNames"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -72,6 +74,7 @@ For example: `dbserver.fabrikam.com, dbserver_int.fabrikam.com:5986, 192.168.12.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminusername-property"></a>
 <!-- :::item name="AdminUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -84,6 +87,7 @@ Specifies the username of a domain or a local administrative account on the targ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminpassword-property"></a>
 <!-- :::item name="AdminPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -96,6 +100,7 @@ Specifies the password for the administrator login for the target machines. Vari
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="targetpath-property"></a>
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -108,6 +113,7 @@ Specifies the local path on the target machines or an accessible UNC path for co
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleantargetbeforecopy-property"></a>
 <!-- :::item name="CleanTargetBeforeCopy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -120,6 +126,7 @@ Deletes all files in the target folder before copying the new files to it.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="copyfilesinparallel-property"></a>
 <!-- :::item name="CopyFilesInParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -132,6 +139,7 @@ Copies files to all target machines in parallel, which can speed up the copying 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalarguments-property"></a>
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 

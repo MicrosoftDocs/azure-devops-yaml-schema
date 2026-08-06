@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@1 - Archive Files v1 task
 description: Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -43,6 +43,7 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="rootfolder-property"></a>
 <!-- :::item name="rootFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,6 +56,7 @@ Name of the root folder or file to archive.  For folders, everything in the name
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="includerootfolder-property"></a>
 <!-- :::item name="includeRootFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +71,7 @@ For example, if the root folder path is: `/home/user/output/classes/` and the fi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="archivetype-property"></a>
 <!-- :::item name="archiveType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +91,7 @@ For all tar files (including compressed ones), choose `tar`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tarcompression-property"></a>
 <!-- :::item name="tarCompression"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +104,7 @@ Selects a compression scheme or `none` to create an uncompressed tar file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="archivefile-property"></a>
 <!-- :::item name="archiveFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +122,7 @@ For example, to create `foo.tgz`:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="replaceexistingarchive-property"></a>
 <!-- :::item name="replaceExistingArchive"::: -->
 :::moniker range="<=azure-pipelines"
 

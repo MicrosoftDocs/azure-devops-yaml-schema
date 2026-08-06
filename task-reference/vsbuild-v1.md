@@ -1,7 +1,7 @@
 ---
 title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: steved0x
 ms.author: sdanie
@@ -41,7 +41,7 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
   # Advanced
     #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
     #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64' | 'arm64'. MSBuild Architecture. Default: x86.
     #logProjectEvents: true # boolean. Record Project Details. Default: true.
     #createLogFile: false # boolean. Create Log File. Default: false.
     #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
@@ -82,6 +82,7 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="solution-property"></a>
 <!-- :::item name="solution"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +110,7 @@ Make sure the solutions you specify are downloaded by this build pipeline. On th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="vsversion-property"></a>
 <!-- :::item name="vsVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -140,6 +142,7 @@ Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildargs-property"></a>
 <!-- :::item name="msbuildArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -152,6 +155,7 @@ Passes additional arguments to MSBuild. For syntax, see [MSBuild Command-Line Re
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="platform-property"></a>
 <!-- :::item name="platform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -168,6 +172,7 @@ Specifies the platform you want to build, such as `Win32`, `x86`, `x64`, or `any
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -183,6 +188,7 @@ Specifies the configuration you want to build, such as `debug` or `release`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="clean-property"></a>
 <!-- :::item name="clean"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -197,6 +203,7 @@ If set to `true`, the task rebuilds all of the code in the code projects. This i
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="maximumcpucount-property"></a>
 <!-- :::item name="maximumCpuCount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -209,6 +216,7 @@ Optional. If your MSBuild target configuration is compatible with building in pa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restorenugetpackages-property"></a>
 <!-- :::item name="restoreNugetPackages"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -221,8 +229,23 @@ This input is deprecated. To restore NuGet packages, add a [NuGet Tool Installer
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildarchitecture-property"></a>
 <!-- :::item name="msbuildArchitecture"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`msbuildArchitecture`** - **MSBuild Architecture**<br>
+`string`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64), `arm64` (MSBuild arm64). Default value: `x86`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Optional. Supplies the architecture (`x86` or `x64`) of MSBuild to run.
+
+> [!TIP]
+> Because Visual Studio runs as a 32-bit application, you may experience problems when your build is processed by a build agent that is running the 64-bit version of Team Foundation Build Service. By selecting MSBuild `x86`, you may resolve these issues.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
 `string`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
@@ -236,6 +259,7 @@ Optional. Supplies the architecture (`x86` or `x64`) of MSBuild to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="logprojectevents-property"></a>
 <!-- :::item name="logProjectEvents"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -248,6 +272,7 @@ Optional. Records timeline details for each project.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createlogfile-property"></a>
 <!-- :::item name="createLogFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -260,6 +285,7 @@ Optional. Creates a log file (Windows only).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="logfileverbosity-property"></a>
 <!-- :::item name="logFileVerbosity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -272,6 +298,7 @@ Specifies the verbosity level in log files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enabledefaultlogger-property"></a>
 <!-- :::item name="enableDefaultLogger"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -284,6 +311,7 @@ If set to `true`, enables the default logger for MSBuild.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customversion-property"></a>
 <!-- :::item name="customVersion"::: -->
 :::moniker range="<=azure-pipelines"
 

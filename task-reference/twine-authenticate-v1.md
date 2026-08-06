@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -70,6 +70,7 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuredevopsserviceconnection-property"></a>
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -82,6 +83,7 @@ If this is set, `feedUrl` is required. All other inputs are ignored.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="feedurl-property"></a>
 <!-- :::item name="feedUrl"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -94,6 +96,7 @@ If this is set, `workloadIdentityServiceConnection` is required. All other input
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactfeed-property"></a>
 <!-- :::item name="artifactFeed"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -117,6 +120,7 @@ Specifies the Azure artifact's feed name to authenticate with twine. The authent
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pythonuploadserviceconnection-property"></a>
 <!-- :::item name="pythonUploadServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
 

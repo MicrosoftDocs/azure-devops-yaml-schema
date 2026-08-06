@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -62,6 +62,7 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="codecoveragetool-property"></a>
 <!-- :::item name="codeCoverageTool"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +75,7 @@ Specifies the tool that generates code coverage results.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="summaryfilelocation-property"></a>
 <!-- :::item name="summaryFileLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +88,7 @@ Specifies the path of the summary file containing code coverage statistics, such
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pathtosources-property"></a>
 <!-- :::item name="pathToSources"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +105,7 @@ Multiple sources can be added by delimiting each list item with the `;` characte
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="reportdirectory-property"></a>
 <!-- :::item name="reportDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +118,7 @@ Specifies the path of the code coverage HTML report directory. The report direct
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="additionalcodecoveragefiles-property"></a>
 <!-- :::item name="additionalCodeCoverageFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +131,7 @@ Specifies the file path pattern and notes any additional code coverage files to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failifcoverageempty-property"></a>
 <!-- :::item name="failIfCoverageEmpty"::: -->
 :::moniker range="<=azure-pipelines"
 

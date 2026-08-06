@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection, with no agent required (task version 1).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -65,6 +65,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,6 +78,7 @@ Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/libr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="messagebody-property"></a>
 <!-- :::item name="messageBody"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -89,6 +91,7 @@ Specifies the JSON `messageBody`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sessionid-property"></a>
 <!-- :::item name="sessionId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,6 +104,7 @@ Specifies the session ID with which the message is published. For session-based 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signpayload-property"></a>
 <!-- :::item name="signPayload"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -113,6 +117,7 @@ If set to `true`, a private certificate will be added to the message.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="certificatestring-property"></a>
 <!-- :::item name="certificateString"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -125,6 +130,7 @@ Specifies the secret variable that contains the certificate content. This can al
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signaturekey-property"></a>
 <!-- :::item name="signatureKey"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,6 +143,7 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="waitforcompletion-property"></a>
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -149,6 +156,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usedatacontractserializer-property"></a>
 <!-- :::item name="useDataContractSerializer"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 

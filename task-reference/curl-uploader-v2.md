@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@2 - cURL Upload Files v2 task
 description: Use cURL's supported protocols to upload files.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -47,6 +47,7 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="files-property"></a>
 <!-- :::item name="files"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -59,6 +60,7 @@ File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all Z
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="authtype-property"></a>
 <!-- :::item name="authType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,6 +73,7 @@ Specifies the authentication method for server authentication.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="serviceendpoint-property"></a>
 <!-- :::item name="serviceEndpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +86,7 @@ Specifies the service connection with the credentials for the server authenticat
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="username-property"></a>
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,6 +99,7 @@ Specifies the username for server authentication.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="password-property"></a>
 <!-- :::item name="password"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -107,6 +112,7 @@ Specifies the password for server authentication. Use a new build variable with 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="url-property"></a>
 <!-- :::item name="url"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +125,7 @@ Specifies the URL to where the file(s) will be uploaded. The directory should en
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="remotepath-property"></a>
 <!-- :::item name="remotePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,6 +138,7 @@ Optional. Specifies the sub-folder on the remote server for the URL supplied in 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -143,6 +151,7 @@ Optional. The additional arguments that will be passed to cURL.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="redirectstderr-property"></a>
 <!-- :::item name="redirectStderr"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -182,7 +191,7 @@ such as FTP, FTPS, SFTP, HTTP, and more.
 
 ### Where can I learn FTP commands?
 
-* [List of raw FTP commands](https://www.nsftools.com/tips/RawFTP.htm)
+* [List of raw FTP commands](https://www.w3.org/Protocols/rfc959/5_Declarative)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

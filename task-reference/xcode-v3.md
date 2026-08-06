@@ -1,7 +1,7 @@
 ---
 title: Xcode@3 - Xcode Build v3 task
 description: Build an Xcode workspace on macOS.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -69,6 +69,7 @@ Use this task to build an Xcode workspace on macOS.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="actions-property"></a>
 <!-- :::item name="actions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,6 +82,7 @@ Specifies a space-delimited list of actions.  Valid options are `build`, `clean`
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -93,6 +95,7 @@ Specifies the Xcode project or workspace configuration to build. When using a va
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sdk-property"></a>
 <!-- :::item name="sdk"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +108,7 @@ Builds an Xcode project or workspace against the specified SDK. Run `xcodebuild 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcworkspacepath-property"></a>
 <!-- :::item name="xcWorkspacePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -117,6 +121,7 @@ Optional. Specifies the relative path from the repo root to the Xcode workspace 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="scheme-property"></a>
 <!-- :::item name="scheme"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +134,7 @@ Optional. Specifies the Xcode scheme name. *Must be a shared scheme* (shared che
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="packageapp-property"></a>
 <!-- :::item name="packageApp"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +147,7 @@ Specifies whether an IPA is generated as a part of the build. For exporting arch
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="archivepath-property"></a>
 <!-- :::item name="archivePath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +160,7 @@ Optional. Specifies a directory where created archives are placed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportpath-property"></a>
 <!-- :::item name="exportPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -165,6 +173,7 @@ Optional. Specifies the destination for the product exported from the archive.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportoptions-property"></a>
 <!-- :::item name="exportOptions"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +186,7 @@ Specifies a way to pass in **Export Options** when exporting the archive.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportmethod-property"></a>
 <!-- :::item name="exportMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +199,7 @@ Specifies the method Xcode uses to export the archive. For example, `app-store`,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportteamid-property"></a>
 <!-- :::item name="exportTeamId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +212,7 @@ Specifies the Apple Developer Portal 10-digit team ID to use for the export.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportoptionsplist-property"></a>
 <!-- :::item name="exportOptionsPlist"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -213,6 +225,7 @@ Specifies the path to a plist file that configures archive exporting.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exportargs-property"></a>
 <!-- :::item name="exportArgs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -225,6 +238,7 @@ Specifies additional command line arguments used to export.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcode8automaticsigning-property"></a>
 <!-- :::item name="xcode8AutomaticSigning"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -237,6 +251,7 @@ Use this input if you have an Xcode 8 or Xcode 9 project configured for Automati
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="teamid-property"></a>
 <!-- :::item name="teamId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -249,6 +264,7 @@ Specifies the 10-digit developer team ID. This is required if you are a member o
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="signmethod-property"></a>
 <!-- :::item name="signMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +277,7 @@ Use this input if the build uses a signing or provisioning method that is differ
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="iossigningidentity-property"></a>
 <!-- :::item name="iosSigningIdentity"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -273,6 +290,7 @@ Specifies the signing identity override that is used to sign the build. Defaults
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="unlockdefaultkeychain-property"></a>
 <!-- :::item name="unlockDefaultKeychain"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -285,6 +303,7 @@ Resolves **User interaction is not allowed** errors by unlocking the default key
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="defaultkeychainpassword-property"></a>
 <!-- :::item name="defaultKeychainPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -297,6 +316,7 @@ Specifies the password to unlock the default keychain.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="provprofileuuid-property"></a>
 <!-- :::item name="provProfileUuid"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -309,6 +329,7 @@ Specifies the UUID of an installed provisioning profile to use for the build. Us
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="p12-property"></a>
 <!-- :::item name="p12"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -321,6 +342,7 @@ Specifies the relative path to a PKCS12 formatted P12 certificate file that cont
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="p12pwd-property"></a>
 <!-- :::item name="p12pwd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -333,6 +355,7 @@ Specifies the password to a P12 certificate file. Use a build variable to encryp
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="provprofile-property"></a>
 <!-- :::item name="provProfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -345,6 +368,7 @@ Specifies the relative path to a file containing a provisioning profile override
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="removeprofile-property"></a>
 <!-- :::item name="removeProfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -357,6 +381,7 @@ Removes the contents of the provisioning profile file from the build agent after
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="args-property"></a>
 <!-- :::item name="args"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -369,6 +394,7 @@ Specifies additional command line arguments used to build. This input is useful 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cwd-property"></a>
 <!-- :::item name="cwd"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -381,6 +407,7 @@ Specifies the working directory for build runs. Defaults to the root of the repo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="outputpattern-property"></a>
 <!-- :::item name="outputPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -393,6 +420,7 @@ Specifies the relative path where build output (binaries) are placed.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="xcodedeveloperdir-property"></a>
 <!-- :::item name="xcodeDeveloperDir"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -405,6 +433,7 @@ Optional. Specifies the path to the Xcode Developer folder if it's not the syste
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="usexcpretty-property"></a>
 <!-- :::item name="useXcpretty"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -417,6 +446,7 @@ Formats `xcodebuild` output and generates a JUnit test results report. Must be i
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishjunitresults-property"></a>
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range="<=azure-pipelines"
 

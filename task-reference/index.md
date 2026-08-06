@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 04/07/2026
+ms.date: 06/30/2026
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -46,14 +46,13 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Build**<br>[ContainerBuild@0](container-build-v0.md) | Container Build Task. |
 | **Docker**<br>[Docker@2](docker-v2.md)<br>[Docker@1](docker-v1.md)<br>[Docker@0](docker-v0.md) | Build or push Docker images, login or logout, start or stop containers, or run a Docker command. |
 | **Docker Compose**<br>[DockerCompose@1](docker-compose-v1.md)<br>[DockerCompose@0](docker-compose-v0.md) | Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry. |
-| **Download GitHub Nuget Packages**<br>[DownloadGitHubNugetPackage@1](download-github-nuget-package-v1.md) | Restore your nuget packages using dotnet CLI. |
+| **Download GitHub NuGet**<br>[DownloadGitHubNugetPackage@1](download-github-nuget-package-v1.md) | Deprecated: this task is no longer maintained. Use the NuGetCommand@2 or DotNetCoreCLI@2 task with GitHub service connections instead. |
 | **Go**<br>[Go@0](go-v0.md) | Get, build, or test a Go application, or run a custom Go command. |
 | **Gradle**<br>[Gradle@4](gradle-v4.md)<br>[Gradle@3](gradle-v3.md)<br>[Gradle@2](gradle-v2.md)<br>[Gradle@1](gradle-v1.md) | Build using a Gradle wrapper script. |
 | **Grunt**<br>[Grunt@0](grunt-v0.md) | Run the Grunt JavaScript task runner. |
 | **gulp**<br>[gulp@1](gulp-v1.md)<br>[gulp@0](gulp-v0.md) | Run the gulp Node.js streaming task-based build system. |
 | **Index sources and publish symbols**<br>[PublishSymbols@2](publish-symbols-v2.md)<br>[PublishSymbols@1](publish-symbols-v1.md) | Index your source code and publish symbols to a file share or Azure Artifacts symbol server. |
-| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md) | Queue a job on a Jenkins server. |
-| **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
+| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md)<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
 | **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Prepare Analysis Configuration**<br>[SonarQubePrepare@8](sonar-qube-prepare-v8.md)<br>[SonarQubePrepare@7](sonar-qube-prepare-v7.md)<br>[SonarQubePrepare@6](sonar-qube-prepare-v6.md)<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube Server analysis configuration. |
@@ -80,7 +79,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure CLI Preview**<br>[AzureCLI@0](azure-cli-v0.md) | Run a Shell or Batch script with Azure CLI commands against an azure subscription. |
 | **Azure Cloud Service deployment**<br>[AzureCloudPowerShellDeployment@2](azure-cloud-powershell-deployment-v2.md)<br>[AzureCloudPowerShellDeployment@1](azure-cloud-powershell-deployment-v1.md) | Deploy an Azure Cloud Service. |
 | **Azure Container Apps Deploy**<br>[AzureContainerApps@1](azure-container-apps-v1.md)<br>[AzureContainerApps@0](azure-container-apps-v0.md) | An Azure DevOps Task to build and deploy Azure Container Apps. |
-| **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
+| **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@2](azure-mysql-deployment-v2.md)<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL Flexible Server. |
 | **Azure file copy**<br>[AzureFileCopy@6](azure-file-copy-v6.md)<br>[AzureFileCopy@5](azure-file-copy-v5.md)<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@1](azure-function-on-kubernetes-v1.md)<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
 | **Azure Functions Deploy**<br>[AzureFunctionApp@2](azure-function-app-v2.md)<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
@@ -88,13 +87,13 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
 | **Azure PowerShell**<br>[AzurePowerShell@5](azure-powershell-v5.md)<br>[AzurePowerShell@4](azure-powershell-v4.md)<br>[AzurePowerShell@3](azure-powershell-v3.md)<br>[AzurePowerShell@2](azure-powershell-v2.md)<br>[AzurePowerShell@1](azure-powershell-v1.md) | Run a PowerShell script within an Azure environment. |
-| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
-| **Azure Resource Group Deployment**<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy, start, stop, delete Azure Resource Groups. |
+| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md)<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
 | **Azure Spring Apps**<br>[AzureSpringCloud@0](azure-spring-cloud-v0.md) | Deploy applications to Azure Spring Apps and manage deployments. |
 | **Azure SQL Database deployment**<br>[SqlAzureDacpacDeployment@1](sql-azure-dacpac-deployment-v1.md) | Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD. |
 | **Azure VM scale set deployment**<br>[AzureVmssDeployment@1](azure-vmss-deployment-v1.md)<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
 | **Azure Web App**<br>[AzureWebApp@1](azure-web-app-v1.md) | Deploy an Azure Web App for Linux or Windows. |
 | **Azure Web App for Containers**<br>[AzureWebAppContainer@1](azure-web-app-container-v1.md) | Deploy containers to Azure App Service. |
+| **Bicep Deploy**<br>[BicepDeploy@0](bicep-deploy-v0.md) | Deploy and Manage Azure Resources using Bicep Files. |
 | **Build machine image**<br>[PackerBuild@1](packer-build-v1.md)<br>[PackerBuild@0](packer-build-v0.md) | Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment. |
 | **Check Azure Policy compliance**<br>[AzurePolicyCheckGate@0](azure-policy-check-gate-v0.md) | Security and compliance assessment for Azure Policy. |
 | **Chef**<br>[Chef@1](chef-v1.md) | Deploy to Chef environments by editing environment attributes. |
@@ -110,8 +109,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Manual validation**<br>[ManualValidation@1](manual-validation-v1.md)<br>[ManualValidation@0](manual-validation-v0.md) | Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
 | **MySQL database deploy**<br>[MysqlDeploymentOnMachineGroup@1](mysql-deployment-on-machine-group-v1.md) | Run scripts and make changes to a MySQL Database. |
 | **Package and deploy Helm charts**<br>[HelmDeploy@1](helm-deploy-v1.md)<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
-| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
-| **PowerShell on Target Machines**<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machine(s). |
+| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md)<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
 | **Service Fabric application deployment**<br>[ServiceFabricDeploy@1](service-fabric-deploy-v1.md) | Deploy an Azure Service Fabric application to a cluster. |
 | **Service Fabric Compose deploy**<br>[ServiceFabricComposeDeploy@0](service-fabric-compose-deploy-v0.md) | Deploy a Docker Compose application to an Azure Service Fabric cluster. |
 | **SQL Server database deploy**<br>[SqlDacpacDeploymentOnMachineGroup@0](sql-dacpac-deployment-on-machine-group-v0.md) | Deploy a SQL Server database using DACPAC or SQL scripts. |
@@ -125,11 +123,12 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Cargo authenticate (for task runners)**<br>[CargoAuthenticate@0](cargo-authenticate-v0.md) | Authentication task for the cargo client used for installing Cargo crates distribution. |
 | **CocoaPods**<br>[CocoaPods@0](cocoa-pods-v0.md) | Install CocoaPods dependencies for Swift and Objective-C Cocoa projects. |
 | **Conda environment**<br>[CondaEnvironment@1](conda-environment-v1.md)<br>[CondaEnvironment@0](conda-environment-v0.md) | This task is deprecated. Use `conda` directly in script to work with Anaconda environments. |
-| **Download Github Npm Package**<br>[DownloadGithubNpmPackage@1](download-github-npm-package-v1.md) | Install npm packages from GitHub. |
+| **Download Github Npm Package**<br>[DownloadGithubNpmPackage@1](download-github-npm-package-v1.md) | Deprecated: this task is no longer maintained. Use the Npm@1 task with GitHub service connections instead. |
+| **Gradle Authenticate**<br>[GradleAuthenticate@0](gradle-authenticate-v0.md) | Authenticate Gradle builds with Azure Artifacts feeds using Workload Identity Federation or an access token. |
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
@@ -138,7 +137,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **PyPI publisher**<br>[PyPIPublisher@0](py-pi-publisher-v0.md) | Create and upload an sdist or wheel to a PyPI-compatible index using Twine. |
 | **Python pip authenticate**<br>[PipAuthenticate@1](pip-authenticate-v1.md)<br>[PipAuthenticate@0](pip-authenticate-v0.md) | Authentication task for the pip client used for installing Python distributions. |
 | **Python twine upload authenticate**<br>[TwineAuthenticate@1](twine-authenticate-v1.md)<br>[TwineAuthenticate@0](twine-authenticate-v0.md) | Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection. |
-| **Universal packages**<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
+| **Universal packages**<br>[UniversalPackages@1](universal-packages-v1.md)<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
 ## Test tasks
 
 | Task | Description |
@@ -149,12 +148,10 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@3](vstest-v3.md)<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2 and later). |
-| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
-| **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
+| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md)<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 ## Tool tasks
 
 | Task | Description |
@@ -179,8 +176,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | Task | Description |
 |---|---|
 | **Advanced Security Dependency Scanning**<br>[AdvancedSecurity-Dependency-Scanning@1](advanced-security-dependency-scanning-v1.md) | Scan for open source dependency vulnerabilities in your source code. |
-| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
-| **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
+| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md)<br>[ArchiveFiles@1](archive-files-v1.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
 | **Bash**<br>[Bash@3](bash-v3.md) | Run a Bash script on macOS, Linux, or Windows. |
 | **Batch script**<br>[BatchScript@1](batch-script-v1.md) | Run a Windows command or batch script and optionally allow it to change the environment. |
@@ -188,8 +184,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Cache (Beta)**<br>[CacheBeta@1](cache-beta-v1.md)<br>[CacheBeta@0](cache-beta-v0.md) | Cache files between runs. |
 | **Command Line**<br>[CmdLine@2](cmd-line-v2.md)<br>[CmdLine@1](cmd-line-v1.md) | Run a command line script using Bash on Linux and macOS and cmd.exe on Windows. |
 | **Copy and Publish Build Artifacts**<br>[CopyPublishBuildArtifacts@1](copy-publish-build-artifacts-v1.md) | CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead. |
-| **Copy files**<br>[CopyFiles@2](copy-files-v2.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
-| **Copy Files**<br>[CopyFiles@1](copy-files-v1.md) | Copy files from source folder to target folder using minimatch patterns (The minimatch patterns will only match file paths, not folder paths). |
+| **Copy files**<br>[CopyFiles@2](copy-files-v2.md)<br>[CopyFiles@1](copy-files-v1.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
 | **cURL Upload Files**<br>[cURLUploader@2](curl-uploader-v2.md)<br>[cURLUploader@1](curl-uploader-v1.md) | Use cURL's supported protocols to upload files. |
 | **Decrypt file (OpenSSL)**<br>[DecryptFile@1](decrypt-file-v1.md) | Decrypt a file using OpenSSL. |
 | **Delay**<br>[Delay@1](delay-v1.md) | Delay further execution of a workflow by a fixed time. |
@@ -206,12 +201,10 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
 | **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
-| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
-| **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
-| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
-| **Install Apple Provisioning Profile**<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent. |
+| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md)<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent machine. |
+| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md)<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
 | **Install SSH key**<br>[InstallSSHKey@0](install-ssh-key-v0.md) | Install an SSH key prior to a build or deployment. |
-| **Invoke Azure Function**<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
+| **Invoke Azure Function**<br>[AzureFunction@2](azure-function-v2.md)<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
 | **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@2](jenkins-download-artifacts-v2.md)<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |
 | **Node.js tasks runner installer**<br>[NodeTaskRunnerInstaller@0](node-task-runner-installer-v0.md) | Install specific Node.js version to run node tasks. |
 | **Notation**<br>[Notation@0](notation-v0.md) | Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation. |
@@ -253,8 +246,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Grunt**<br>[Grunt@0](grunt-v0.md) | Run the Grunt JavaScript task runner. |
 | **gulp**<br>[gulp@1](gulp-v1.md)<br>[gulp@0](gulp-v0.md) | Run the gulp Node.js streaming task-based build system. |
 | **Index sources and publish symbols**<br>[PublishSymbols@2](publish-symbols-v2.md)<br>[PublishSymbols@1](publish-symbols-v1.md) | Index your source code and publish symbols to a file share or Azure Artifacts symbol server. |
-| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md) | Queue a job on a Jenkins server. |
-| **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
+| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md)<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
 | **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
@@ -286,8 +278,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
 | **Azure PowerShell**<br>[AzurePowerShell@5](azure-powershell-v5.md)<br>[AzurePowerShell@4](azure-powershell-v4.md)<br>[AzurePowerShell@3](azure-powershell-v3.md)<br>[AzurePowerShell@2](azure-powershell-v2.md)<br>[AzurePowerShell@1](azure-powershell-v1.md) | Run a PowerShell script within an Azure environment. |
-| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
-| **Azure Resource Group Deployment**<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy, start, stop, delete Azure Resource Groups. |
+| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md)<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
 | **Azure Spring Apps**<br>[AzureSpringCloud@0](azure-spring-cloud-v0.md) | Deploy applications to Azure Spring Apps and manage deployments. |
 | **Azure SQL Database deployment**<br>[SqlAzureDacpacDeployment@1](sql-azure-dacpac-deployment-v1.md) | Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD. |
 | **Azure VM scale set deployment**<br>[AzureVmssDeployment@1](azure-vmss-deployment-v1.md)<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
@@ -308,8 +299,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Manual validation**<br>[ManualValidation@1](manual-validation-v1.md)<br>[ManualValidation@0](manual-validation-v0.md) | Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
 | **MySQL database deploy**<br>[MysqlDeploymentOnMachineGroup@1](mysql-deployment-on-machine-group-v1.md) | Run scripts and make changes to a MySQL Database. |
 | **Package and deploy Helm charts**<br>[HelmDeploy@1](helm-deploy-v1.md)<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
-| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
-| **PowerShell on Target Machines**<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machine(s). |
+| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md)<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
 | **Service Fabric application deployment**<br>[ServiceFabricDeploy@1](service-fabric-deploy-v1.md) | Deploy an Azure Service Fabric application to a cluster. |
 | **Service Fabric Compose deploy**<br>[ServiceFabricComposeDeploy@0](service-fabric-compose-deploy-v0.md) | Deploy a Docker Compose application to an Azure Service Fabric cluster. |
 | **SQL Server database deploy**<br>[SqlDacpacDeploymentOnMachineGroup@0](sql-dacpac-deployment-on-machine-group-v0.md) | Deploy a SQL Server database using DACPAC or SQL scripts. |
@@ -327,7 +317,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
@@ -346,12 +336,10 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@3](vstest-v3.md)<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2 and later). |
-| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
-| **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
+| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md)<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 ## Tool tasks
 
 | Task | Description |
@@ -374,8 +362,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
-| **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
+| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md)<br>[ArchiveFiles@1](archive-files-v1.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
 | **Bash**<br>[Bash@3](bash-v3.md) | Run a Bash script on macOS, Linux, or Windows. |
 | **Batch script**<br>[BatchScript@1](batch-script-v1.md) | Run a Windows command or batch script and optionally allow it to change the environment. |
@@ -383,8 +370,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Cache (Beta)**<br>[CacheBeta@1](cache-beta-v1.md)<br>[CacheBeta@0](cache-beta-v0.md) | Cache files between runs. |
 | **Command Line**<br>[CmdLine@2](cmd-line-v2.md)<br>[CmdLine@1](cmd-line-v1.md) | Run a command line script using Bash on Linux and macOS and cmd.exe on Windows. |
 | **Copy and Publish Build Artifacts**<br>[CopyPublishBuildArtifacts@1](copy-publish-build-artifacts-v1.md) | CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead. |
-| **Copy files**<br>[CopyFiles@2](copy-files-v2.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
-| **Copy Files**<br>[CopyFiles@1](copy-files-v1.md) | Copy files from source folder to target folder using minimatch patterns (The minimatch patterns will only match file paths, not folder paths). |
+| **Copy files**<br>[CopyFiles@2](copy-files-v2.md)<br>[CopyFiles@1](copy-files-v1.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
 | **cURL Upload Files**<br>[cURLUploader@2](curl-uploader-v2.md)<br>[cURLUploader@1](curl-uploader-v1.md) | Use cURL's supported protocols to upload files. |
 | **Decrypt file (OpenSSL)**<br>[DecryptFile@1](decrypt-file-v1.md) | Decrypt a file using OpenSSL. |
 | **Delay**<br>[Delay@1](delay-v1.md) | Delay further execution of a workflow by a fixed time. |
@@ -401,10 +387,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
 | **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
-| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
-| **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
-| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
-| **Install Apple Provisioning Profile**<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent. |
+| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md)<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent machine. |
+| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md)<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
 | **Install SSH key**<br>[InstallSSHKey@0](install-ssh-key-v0.md) | Install an SSH key prior to a build or deployment. |
 | **Invoke Azure Function**<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
 | **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@2](jenkins-download-artifacts-v2.md)<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |
@@ -447,8 +431,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Grunt**<br>[Grunt@0](grunt-v0.md) | Run the Grunt JavaScript task runner. |
 | **gulp**<br>[gulp@1](gulp-v1.md)<br>[gulp@0](gulp-v0.md) | Run the gulp Node.js streaming task-based build system. |
 | **Index sources and publish symbols**<br>[PublishSymbols@2](publish-symbols-v2.md)<br>[PublishSymbols@1](publish-symbols-v1.md) | Index your source code and publish symbols to a file share or Azure Artifacts symbol server. |
-| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md) | Queue a job on a Jenkins server. |
-| **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
+| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md)<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
 | **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
@@ -477,8 +460,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
 | **Azure PowerShell**<br>[AzurePowerShell@5](azure-powershell-v5.md)<br>[AzurePowerShell@4](azure-powershell-v4.md)<br>[AzurePowerShell@3](azure-powershell-v3.md)<br>[AzurePowerShell@2](azure-powershell-v2.md)<br>[AzurePowerShell@1](azure-powershell-v1.md) | Run a PowerShell script within an Azure environment. |
-| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
-| **Azure Resource Group Deployment**<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy, start, stop, delete Azure Resource Groups. |
+| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md)<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
 | **Azure Spring Apps**<br>[AzureSpringCloud@0](azure-spring-cloud-v0.md) | Deploy applications to Azure Spring Apps and manage deployments. |
 | **Azure SQL Database deployment**<br>[SqlAzureDacpacDeployment@1](sql-azure-dacpac-deployment-v1.md) | Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD. |
 | **Azure VM scale set deployment**<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
@@ -499,8 +481,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Manual validation**<br>[ManualValidation@0](manual-validation-v0.md) | [PREVIEW] Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
 | **MySQL database deploy**<br>[MysqlDeploymentOnMachineGroup@1](mysql-deployment-on-machine-group-v1.md) | Run scripts and make changes to a MySQL Database. |
 | **Package and deploy Helm charts**<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
-| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
-| **PowerShell on Target Machines**<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machine(s). |
+| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md)<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
 | **Service Fabric application deployment**<br>[ServiceFabricDeploy@1](service-fabric-deploy-v1.md) | Deploy an Azure Service Fabric application to a cluster. |
 | **Service Fabric Compose deploy**<br>[ServiceFabricComposeDeploy@0](service-fabric-compose-deploy-v0.md) | Deploy a Docker Compose application to an Azure Service Fabric cluster. |
 | **SQL Server database deploy**<br>[SqlDacpacDeploymentOnMachineGroup@0](sql-dacpac-deployment-on-machine-group-v0.md) | Deploy a SQL Server database using DACPAC or SQL scripts. |
@@ -518,7 +499,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
@@ -536,12 +517,10 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
-| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
-| **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
+| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md)<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 ## Tool tasks
 
 | Task | Description |
@@ -564,8 +543,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
-| **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
+| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md)<br>[ArchiveFiles@1](archive-files-v1.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
 | **Bash**<br>[Bash@3](bash-v3.md) | Run a Bash script on macOS, Linux, or Windows. |
 | **Batch script**<br>[BatchScript@1](batch-script-v1.md) | Run a Windows command or batch script and optionally allow it to change the environment. |
@@ -573,8 +551,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Cache (Beta)**<br>[CacheBeta@1](cache-beta-v1.md)<br>[CacheBeta@0](cache-beta-v0.md) | Cache files between runs. |
 | **Command Line**<br>[CmdLine@2](cmd-line-v2.md)<br>[CmdLine@1](cmd-line-v1.md) | Run a command line script using Bash on Linux and macOS and cmd.exe on Windows. |
 | **Copy and Publish Build Artifacts**<br>[CopyPublishBuildArtifacts@1](copy-publish-build-artifacts-v1.md) | CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead. |
-| **Copy files**<br>[CopyFiles@2](copy-files-v2.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
-| **Copy Files**<br>[CopyFiles@1](copy-files-v1.md) | Copy files from source folder to target folder using minimatch patterns (The minimatch patterns will only match file paths, not folder paths). |
+| **Copy files**<br>[CopyFiles@2](copy-files-v2.md)<br>[CopyFiles@1](copy-files-v1.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
 | **cURL Upload Files**<br>[cURLUploader@2](curl-uploader-v2.md)<br>[cURLUploader@1](curl-uploader-v1.md) | Use cURL's supported protocols to upload files. |
 | **Decrypt file (OpenSSL)**<br>[DecryptFile@1](decrypt-file-v1.md) | Decrypt a file using OpenSSL. |
 | **Delay**<br>[Delay@1](delay-v1.md) | Delay further execution of a workflow by a fixed time. |
@@ -591,10 +568,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
 | **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
-| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
-| **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
-| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
-| **Install Apple Provisioning Profile**<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent. |
+| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md)<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent machine. |
+| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md)<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
 | **Install SSH key**<br>[InstallSSHKey@0](install-ssh-key-v0.md) | Install an SSH key prior to a build or deployment. |
 | **Invoke Azure Function**<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
 | **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |
@@ -637,8 +612,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Grunt**<br>[Grunt@0](grunt-v0.md) | Run the Grunt JavaScript task runner. |
 | **gulp**<br>[gulp@1](gulp-v1.md)<br>[gulp@0](gulp-v0.md) | Run the gulp Node.js streaming task-based build system. |
 | **Index sources and publish symbols**<br>[PublishSymbols@2](publish-symbols-v2.md)<br>[PublishSymbols@1](publish-symbols-v1.md) | Index your source code and publish symbols to a file share or Azure Artifacts symbol server. |
-| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md) | Queue a job on a Jenkins server. |
-| **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
+| **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md)<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
 | **Maven**<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
@@ -666,8 +640,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
 | **Azure PowerShell**<br>[AzurePowerShell@5](azure-powershell-v5.md)<br>[AzurePowerShell@4](azure-powershell-v4.md)<br>[AzurePowerShell@3](azure-powershell-v3.md)<br>[AzurePowerShell@2](azure-powershell-v2.md)<br>[AzurePowerShell@1](azure-powershell-v1.md) | Run a PowerShell script within an Azure environment. |
-| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
-| **Azure Resource Group Deployment**<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy, start, stop, delete Azure Resource Groups. |
+| **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md)<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
 | **Azure Spring Apps**<br>[AzureSpringCloud@0](azure-spring-cloud-v0.md) | Deploy applications to Azure Spring Apps and manage deployments. |
 | **Azure SQL Database deployment**<br>[SqlAzureDacpacDeployment@1](sql-azure-dacpac-deployment-v1.md) | Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD. |
 | **Azure VM scale set deployment**<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
@@ -688,8 +661,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Manual validation**<br>[ManualValidation@0](manual-validation-v0.md) | [PREVIEW] Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
 | **MySQL database deploy**<br>[MysqlDeploymentOnMachineGroup@1](mysql-deployment-on-machine-group-v1.md) | Run scripts and make changes to a MySQL Database. |
 | **Package and deploy Helm charts**<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
-| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
-| **PowerShell on Target Machines**<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machine(s). |
+| **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md)<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
 | **Service Fabric application deployment**<br>[ServiceFabricDeploy@1](service-fabric-deploy-v1.md) | Deploy an Azure Service Fabric application to a cluster. |
 | **Service Fabric Compose deploy**<br>[ServiceFabricComposeDeploy@0](service-fabric-compose-deploy-v0.md) | Deploy a Docker Compose application to an Azure Service Fabric cluster. |
 | **SQL Server database deploy**<br>[SqlDacpacDeploymentOnMachineGroup@0](sql-dacpac-deployment-on-machine-group-v0.md) | Deploy a SQL Server database using DACPAC or SQL scripts. |
@@ -706,7 +678,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Use this task to restore or pack NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
@@ -724,12 +696,10 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish Cobertura or JaCoCo code coverage results from a build. |
-| **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
-| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
+| **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
-| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
-| **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
+| **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md)<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 ## Tool tasks
 
 | Task | Description |
@@ -752,8 +722,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
-| **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
+| **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md)<br>[ArchiveFiles@1](archive-files-v1.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
 | **Bash**<br>[Bash@3](bash-v3.md) | Run a Bash script on macOS, Linux, or Windows. |
 | **Batch script**<br>[BatchScript@1](batch-script-v1.md) | Run a Windows command or batch script and optionally allow it to change the environment. |
@@ -761,8 +730,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Cache (Beta)**<br>[CacheBeta@1](cache-beta-v1.md)<br>[CacheBeta@0](cache-beta-v0.md) | Cache files between runs. |
 | **Command Line**<br>[CmdLine@2](cmd-line-v2.md)<br>[CmdLine@1](cmd-line-v1.md) | Run a command line script using Bash on Linux and macOS and cmd.exe on Windows. |
 | **Copy and Publish Build Artifacts**<br>[CopyPublishBuildArtifacts@1](copy-publish-build-artifacts-v1.md) | CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead. |
-| **Copy files**<br>[CopyFiles@2](copy-files-v2.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
-| **Copy Files**<br>[CopyFiles@1](copy-files-v1.md) | Copy files from source folder to target folder using minimatch patterns (The minimatch patterns will only match file paths, not folder paths). |
+| **Copy files**<br>[CopyFiles@2](copy-files-v2.md)<br>[CopyFiles@1](copy-files-v1.md) | Copy files from a source folder to a target folder using patterns matching file paths (not folder paths). |
 | **cURL Upload Files**<br>[cURLUploader@2](curl-uploader-v2.md)<br>[cURLUploader@1](curl-uploader-v1.md) | Use cURL's supported protocols to upload files. |
 | **Decrypt file (OpenSSL)**<br>[DecryptFile@1](decrypt-file-v1.md) | Decrypt a file using OpenSSL. |
 | **Delay**<br>[Delay@1](delay-v1.md) | Delay further execution of a workflow by a fixed time. |
@@ -779,10 +747,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
 | **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
-| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
-| **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
-| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
-| **Install Apple Provisioning Profile**<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent. |
+| **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md)<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent machine. |
+| **Install Apple provisioning profile**<br>[InstallAppleProvisioningProfile@1](install-apple-provisioning-profile-v1.md)<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent machine. |
 | **Install SSH key**<br>[InstallSSHKey@0](install-ssh-key-v0.md) | Install an SSH key prior to a build or deployment. |
 | **Invoke Azure Function**<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
 | **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |

@@ -1,7 +1,7 @@
 ---
 title: BatchScript@1 - Batch script v1 task
 description: Run a Windows command or batch script and optionally allow it to change the environment.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -42,6 +42,7 @@ Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` o
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="filename-property"></a>
 <!-- :::item name="filename"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ The path of the `.cmd` or `.bat` script to execute. This should be a fully quali
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ The arguments passed to the `.cmd` or `.bat` script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="modifyenvironment-property"></a>
 <!-- :::item name="modifyEnvironment"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +81,7 @@ Determines whether environment variable modifications will affect subsequent tas
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingfolder-property"></a>
 <!-- :::item name="workingFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +94,7 @@ The current working directory when a script is run.  This defaults to the folder
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failonstandarderror-property"></a>
 <!-- :::item name="failOnStandardError"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@2 - Azure Key Vault v2 task
 description: Download Azure Key Vault secrets.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -41,6 +41,7 @@ Use this task to download secrets, such as authentication keys, storage account 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuresubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -53,6 +54,7 @@ Select the service connection for the Azure subscription containing the Azure Ke
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="keyvaultname-property"></a>
 <!-- :::item name="KeyVaultName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -65,6 +67,7 @@ The name of the Azure Key Vault that contains the secrets to download.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="secretsfilter-property"></a>
 <!-- :::item name="SecretsFilter"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,6 +80,7 @@ Downloads secret names according to the entered value. The value can be the defa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runasprejob-property"></a>
 <!-- :::item name="RunAsPreJob"::: -->
 :::moniker range="<=azure-pipelines"
 

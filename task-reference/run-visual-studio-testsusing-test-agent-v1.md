@@ -1,7 +1,7 @@
 ---
 title: RunVisualStudioTestsusingTestAgent@1 - Run functional tests v1 task
 description: RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test Agent Deployment) are deprecated. Use the Visual Studio Test task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -58,6 +58,7 @@ RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test 
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="testmachinegroup-property"></a>
 <!-- :::item name="testMachineGroup"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +75,7 @@ A comma separated list of machine FQDNs or IP addresses, which may include the p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="droplocation-property"></a>
 <!-- :::item name="dropLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +88,7 @@ Specifies the location on the test machine(s) where the test binaries have been 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testselection-property"></a>
 <!-- :::item name="testSelection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +101,7 @@ Specifies how tests are run: using test assemblies or Test Plan.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testplan-property"></a>
 <!-- :::item name="testPlan"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +114,7 @@ Specifies a test plan that is already configured for this organization.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testsuite-property"></a>
 <!-- :::item name="testSuite"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,6 +127,7 @@ Specifies a test suite from the selected test plan.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testconfiguration-property"></a>
 <!-- :::item name="testConfiguration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -134,6 +140,7 @@ Specifies a test configuration from the selected test plan.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sourcefilters-property"></a>
 <!-- :::item name="sourcefilters"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -146,6 +153,7 @@ Specifies the test binaries to run tests on. Wildcards can be used. For example,
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testfiltercriteria-property"></a>
 <!-- :::item name="testFilterCriteria"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -158,6 +166,7 @@ The filter that specfies the tests to execute within the test assembly files. Wo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runsettingsfile-property"></a>
 <!-- :::item name="runSettingsFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -170,6 +179,7 @@ Specifies the file path to the `runsettings` or `testsettings` file to use with 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="overriderunparams-property"></a>
 <!-- :::item name="overrideRunParams"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -185,6 +195,7 @@ Specifies the override parameters that are defined in the `TestRunParameters` se
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="codecoverageenabled-property"></a>
 <!-- :::item name="codeCoverageEnabled"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -197,6 +208,7 @@ Specifies if Code Coverage is enabled for the task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customslicingenabled-property"></a>
 <!-- :::item name="customSlicingEnabled"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -212,6 +224,7 @@ When the value of this boolean is set to `true`, the tests are distributed based
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -224,6 +237,7 @@ Specifies a name for the test run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="platform-property"></a>
 <!-- :::item name="platform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -236,6 +250,7 @@ Specifies the platform against which the tests should be reported. If you have d
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -248,6 +263,7 @@ Specifies the configuration against which the tests should be reported. If you h
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testconfigurations-property"></a>
 <!-- :::item name="testConfigurations"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -260,6 +276,7 @@ Optional. Associates a test case filter against a test configuration ID. Syntax:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="autmachinegroup-property"></a>
 <!-- :::item name="autMachineGroup"::: -->
 :::moniker range="<=azure-pipelines"
 

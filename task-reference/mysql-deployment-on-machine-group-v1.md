@@ -1,10 +1,10 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
@@ -50,6 +50,7 @@ Use this task to run your scripts and make changes to your MySQL Database. There
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="tasknameselector-property"></a>
 <!-- :::item name="TaskNameSelector"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -62,6 +63,7 @@ Specifies either Script File or Inline Script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlfile-property"></a>
 <!-- :::item name="SqlFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +76,7 @@ Specifies the full path of the script file on the automation agent or on a UNC p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlinline-property"></a>
 <!-- :::item name="SqlInline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -86,6 +89,7 @@ Specifies the MySQL script to execute on the selected database.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="servername-property"></a>
 <!-- :::item name="ServerName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -98,6 +102,7 @@ Specifies the server name of `Database for MySQL`, such as `localhost`. This str
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="databasename-property"></a>
 <!-- :::item name="DatabaseName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +115,7 @@ Specifies the name of the database. The script will create a database name if on
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlusername-property"></a>
 <!-- :::item name="SqlUsername"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -133,6 +139,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqlpassword-property"></a>
 <!-- :::item name="SqlPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -145,6 +152,7 @@ Specifies the password for MySQL Database. The password can be a variable define
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sqladditionalarguments-property"></a>
 <!-- :::item name="SqlAdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
 

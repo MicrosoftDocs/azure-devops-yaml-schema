@@ -1,7 +1,7 @@
 ---
 title: DeployVisualStudioTestAgent@1 - Visual Studio Test Agent Deployment v1 task
 description: Deploy and configure Test Agent to run tests on a set of machines.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -55,6 +55,7 @@ This task deploys and configures the Test Agent to run tests on a set of machine
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="testmachinegroup-property"></a>
 <!-- :::item name="testMachineGroup"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +71,7 @@ This input has three options:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminusername-property"></a>
 <!-- :::item name="adminUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,6 +84,7 @@ Specifies the administrator login for the target machines.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="adminpassword-property"></a>
 <!-- :::item name="adminPassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -94,6 +97,7 @@ Specifies the administrator password for the target machines. This input can acc
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="winrmprotocol-property"></a>
 <!-- :::item name="winRmProtocol"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +110,7 @@ Specifies the protocol to use for the WinRM connection with the machine(s). The 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testcertificate-property"></a>
 <!-- :::item name="testCertificate"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +123,7 @@ Provides the option to skip the authenticity validation of the machine's certifi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourcefilteringmethod-property"></a>
 <!-- :::item name="resourceFilteringMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -129,6 +135,7 @@ Provides the option to skip the authenticity validation of the machine's certifi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testmachines-property"></a>
 <!-- :::item name="testMachines"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +148,7 @@ Provides a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.c
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machineusername-property"></a>
 <!-- :::item name="machineUserName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +161,7 @@ Specifies the username with which the test agent needs to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="machinepassword-property"></a>
 <!-- :::item name="machinePassword"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -165,6 +174,7 @@ Specifies the password for the username given above.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="runasprocess-property"></a>
 <!-- :::item name="runAsProcess"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +187,7 @@ Denotes if the test agent needs to run as an interactive process. This input is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="agentlocation-property"></a>
 <!-- :::item name="agentLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +200,7 @@ Optional. Supplies the path to vstf_testagent.exe from the network or local loca
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="updatetestagent-property"></a>
 <!-- :::item name="updateTestAgent"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +213,7 @@ Optional. Specifies if the test agent needs to be updated.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isdatacollectiononly-property"></a>
 <!-- :::item name="isDataCollectionOnly"::: -->
 :::moniker range="<=azure-pipelines"
 

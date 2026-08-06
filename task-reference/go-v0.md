@@ -1,7 +1,7 @@
 ---
 title: Go@0 - Go v0 task
 description: Get, build, or test a Go application, or run a custom Go command.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -40,6 +40,7 @@ Use this task to get, build, or test a Go application, or to run a custom Go com
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="command-property"></a>
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,6 +53,7 @@ Specifies a Go command to run. Use `Custom` to run a command not listed here.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="customcommand-property"></a>
 <!-- :::item name="customCommand"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -64,6 +66,7 @@ A custom Go command to execute. For example, to execute `go version`, use `versi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="arguments-property"></a>
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -76,6 +79,7 @@ The optional arguments to the selected command. For example, use build-time argu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingdirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,14 +1,26 @@
 ---
 title: PublishTestResults@1 - Publish test results v1 task
 description: Publish test results to Azure Pipelines (task version 1).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishTestResults@1 - Publish test results v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Publish test results to Azure Pipelines.
+
+This version of the task is deprecated; use [PublishTestResults@2](./publish-test-results-v2.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Publish test results to Azure Pipelines.
@@ -21,10 +33,29 @@ Publish test results to Azure Pipelines.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 ```yaml
-# Publish test results v1
+# Publish Test Results v1
+# [Deprecated] Publish test results to Azure Pipelines.
+- task: PublishTestResults@1
+  inputs:
+    testRunner: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Required. Test Result Format. Default: JUnit.
+    testResultsFiles: '**/TEST-*.xml' # string. Required. Test Results Files. Default: **/TEST-*.xml.
+    #mergeTestResults: false # boolean. Merge Test Results. Default: false.
+    #testRunTitle: # string. Test Run Title. 
+  # Advanced
+    #platform: # string. Platform. 
+    #configuration: # string. Configuration. 
+    #publishRunAttachments: true # boolean. Upload Test Attachments. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
+
+```yaml
+# Publish Test Results v1
 # Publish test results to Azure Pipelines.
 - task: PublishTestResults@1
   inputs:
@@ -45,6 +76,7 @@ Publish test results to Azure Pipelines.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="testrunner-property"></a>
 <!-- :::item name="testRunner"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,6 +89,7 @@ Specifies the format of the results files you want to publish. The following for
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testresultsfiles-property"></a>
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -75,6 +108,7 @@ For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mergetestresults-property"></a>
 <!-- :::item name="mergeTestResults"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -90,6 +124,7 @@ When this boolean's value is `true`, the task reports test results from all the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="testruntitle-property"></a>
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +137,7 @@ Optional. Specifies a name for the test run against which the results will be re
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="platform-property"></a>
 <!-- :::item name="platform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +150,7 @@ Optional. Specifies the build platform against which the test run should be repo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +163,7 @@ Optional. Specifies the build configuration against which the test run should be
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="publishrunattachments-property"></a>
 <!-- :::item name="publishRunAttachments"::: -->
 :::moniker range="<=azure-pipelines"
 

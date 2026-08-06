@@ -1,7 +1,7 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -33,7 +33,7 @@ Use this task to build with MSBuild.
     solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
     #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
     #msbuildVersion: 'latest' # 'latest' | '18.0' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64' | 'arm64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -80,6 +80,7 @@ Use this task to build with MSBuild.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="solution-property"></a>
 <!-- :::item name="solution"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,6 +103,7 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildlocationmethod-property"></a>
 <!-- :::item name="msbuildLocationMethod"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -113,6 +115,7 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildversion-property"></a>
 <!-- :::item name="msbuildVersion"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -136,8 +139,20 @@ If the preferred version cannot be found, the latest version found is used inste
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildarchitecture-property"></a>
 <!-- :::item name="msbuildArchitecture"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`msbuildArchitecture`** - **MSBuild Architecture**<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64), `arm64` (MSBuild arm64). Default value: `x86`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Supplies the MSBuild architecture (x86, x64) to run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
@@ -148,6 +163,7 @@ Supplies the MSBuild architecture (x86, x64) to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildlocation-property"></a>
 <!-- :::item name="msbuildLocation"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -160,6 +176,7 @@ Supplies the path to MSBuild.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="platform-property"></a>
 <!-- :::item name="platform"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -174,6 +191,7 @@ Supplies the path to MSBuild.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="configuration-property"></a>
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -187,6 +205,7 @@ Supplies the path to MSBuild.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="msbuildarguments-property"></a>
 <!-- :::item name="msbuildArguments"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -199,6 +218,7 @@ Specifies additional arguments passed to MSBuild (on Windows) and xbuild (on mac
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="clean-property"></a>
 <!-- :::item name="clean"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -213,6 +233,7 @@ For more information, see [repo options](/azure/devops/pipelines/repos/pipeline-
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="maximumcpucount-property"></a>
 <!-- :::item name="maximumCpuCount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -225,6 +246,7 @@ If your MSBuild target configuration is compatible with building in parallel, yo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="restorenugetpackages-property"></a>
 <!-- :::item name="restoreNugetPackages"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -237,6 +259,7 @@ This option is deprecated. To restore NuGet packages, add a [NuGet](/azure/devop
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="logprojectevents-property"></a>
 <!-- :::item name="logProjectEvents"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -249,6 +272,7 @@ Optionally records timeline details for each project (Windows only).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="createlogfile-property"></a>
 <!-- :::item name="createLogFile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +285,7 @@ Optionally creates a log file (Windows only).
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="logfileverbosity-property"></a>
 <!-- :::item name="logFileVerbosity"::: -->
 :::moniker range="<=azure-pipelines"
 

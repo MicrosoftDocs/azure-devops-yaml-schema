@@ -1,7 +1,7 @@
 ---
 title: MavenAuthenticate@0 - Maven Authenticate v0 task
 description: Provides credentials for Azure Artifacts feeds and external maven repositories.
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -53,6 +53,7 @@ Use this task to provide credentials for Azure Artifacts feeds and external Mave
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="azuredevopsserviceconnection-property"></a>
 <!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range=">azure-pipelines-server"
 
@@ -65,6 +66,7 @@ This is an Entra Workload ID-backed Azure DevOps user Service Connection. If thi
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactsfeeds-property"></a>
 <!-- :::item name="artifactsFeeds"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,6 +79,7 @@ Specifies a comma-separated list of Azure Artifacts feed names to authenticate w
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mavenserviceconnections-property"></a>
 <!-- :::item name="mavenServiceConnections"::: -->
 :::moniker range="<=azure-pipelines"
 

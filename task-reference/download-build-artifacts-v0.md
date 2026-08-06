@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@0 - Download build artifacts v0 task
 description: Download files that were saved as artifacts of a completed build (task version 0).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -94,6 +94,7 @@ If you're using Azure DevOps Services, we recommend using [Download Pipeline Art
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="buildtype-property"></a>
 <!-- :::item name="buildType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +107,7 @@ Whether to download artifacts produced by the current build or from a specific b
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="project-property"></a>
 <!-- :::item name="project"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +120,7 @@ The project from which you want to download the build artifacts.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pipeline-property"></a>
 <!-- :::item name="pipeline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -130,6 +133,7 @@ Specifies the build pipeline name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="specificbuildwithtriggering-property"></a>
 <!-- :::item name="specificBuildWithTriggering"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -142,6 +146,7 @@ If `true`, this build task tries to download artifacts from the triggering build
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildversiontodownload-property"></a>
 <!-- :::item name="buildVersionToDownload"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -153,6 +158,7 @@ If `true`, this build task tries to download artifacts from the triggering build
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="allowpartiallysucceededbuilds-property"></a>
 <!-- :::item name="allowPartiallySucceededBuilds"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -165,6 +171,7 @@ If `true`, this build task tries to download artifacts whether the build succeed
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="branchname-property"></a>
 <!-- :::item name="branchName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -177,6 +184,7 @@ Specifies whether to filter on branch/ref name, for example: `refs/heads/develop
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="buildid-property"></a>
 <!-- :::item name="buildId"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +197,7 @@ The build you want to download the artifacts from.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="tags"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,6 +210,7 @@ A comma-delimited list of tags. Only builds with these tags are returned.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloadtype-property"></a>
 <!-- :::item name="downloadType"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -213,6 +223,7 @@ Downloads a specific artifact or specific files from the build.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="artifactname-property"></a>
 <!-- :::item name="artifactName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -225,6 +236,7 @@ The name of the artifact to download.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="itempattern-property"></a>
 <!-- :::item name="itemPattern"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -239,6 +251,7 @@ The default pattern `\*\*` downloads all files across all artifacts in the build
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="downloadpath-property"></a>
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -251,6 +264,7 @@ The path on the agent machine where the artifacts are downloaded.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="cleandestinationfolder-property"></a>
 <!-- :::item name="cleanDestinationFolder"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -263,6 +277,7 @@ Deletes all the existing files in the destination folder before the artifact is 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parallelizationlimit-property"></a>
 <!-- :::item name="parallelizationLimit"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -275,6 +290,7 @@ The number of files to download simultaneously.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="checkdownloadedfiles-property"></a>
 <!-- :::item name="checkDownloadedFiles"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -287,6 +303,7 @@ If `true`, this build task checks that all files are fully downloaded.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retrydownloadcount-property"></a>
 <!-- :::item name="retryDownloadCount"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -299,6 +316,7 @@ The number of times to retry downloading a build artifact if the download fails.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retryredirectdownloadcount-property"></a>
 <!-- :::item name="retryRedirectDownloadCount"::: -->
 :::moniker range=">=azure-pipelines-2022.2"
 
@@ -311,6 +329,7 @@ Optional number of times to retry downloading a build artifact if the download b
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="extracttars-property"></a>
 <!-- :::item name="extractTars"::: -->
 :::moniker range="<=azure-pipelines"
 

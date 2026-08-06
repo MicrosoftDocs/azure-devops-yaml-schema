@@ -1,10 +1,10 @@
 ---
 title: XcodePackageiOS@0 - Xcode Package iOS v0 task
 description: Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below).
-ms.date: 04/02/2026
+ms.date: 07/28/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
-author: juliakm
-ms.author: jukullam
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # XcodePackageiOS@0 - Xcode Package iOS v0 task
@@ -49,6 +49,7 @@ This task is deprecated.
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="appname-property"></a>
 <!-- :::item name="appName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -61,6 +62,7 @@ Specifies the name of the .app, which is sometimes different from the .ipa.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ipaname-property"></a>
 <!-- :::item name="ipaName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -73,6 +75,7 @@ Specifies the name of the .ipa, which is sometimes different from the .app.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="provisioningprofile-property"></a>
 <!-- :::item name="provisioningProfile"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +88,7 @@ Specifies the name of the provisioning profile to use when signing.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sdk-property"></a>
 <!-- :::item name="sdk"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +101,7 @@ Specifies the SDK. Run **xcodebuild -showsdks** to see the valid list of SDKs.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="apppath-property"></a>
 <!-- :::item name="appPath"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +114,7 @@ Specifies the relative path to the built .app file.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ipapath-property"></a>
 <!-- :::item name="ipaPath"::: -->
 :::moniker range="<=azure-pipelines"
 
