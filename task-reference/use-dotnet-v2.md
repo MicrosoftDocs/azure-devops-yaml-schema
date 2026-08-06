@@ -280,7 +280,7 @@ The tool installer approach also allows you to decouple from the agent update cy
 
 ### Roll-forward support with global.json
 
-When `useGlobalJson` is set to `true`, the task reads the `sdk.rollForward` property from your `global.json` file and installs the latest SDK version that satisfies the specified roll-forward policy. This behavior matches how the .NET CLI resolves SDK versions locally.
+When `useGlobalJson` is set to `true`, the task reads the `sdk.rollForward` property from your `global.json` file and installs the latest SDK version that satisfies the specified roll-forward policy. For `disable`, `patch`, `feature`, and `minor` policies, this matches how the .NET CLI resolves SDK versions locally; `major` and `latestMajor` are currently resolved within the same major version.
 
 If `sdk.rollForward` is not present in your `global.json`, the task installs the exact version specified in `sdk.version`. This matches the previous behavior.
 
@@ -299,7 +299,7 @@ The following table shows how each `rollForward` value affects version resolutio
 | `latestMajor` | Same as `major`. | Latest `8.x` |
 
 > [!NOTE]
-> The `major` and `latestMajor` policies currently resolve within the same major version only. Cross-major version resolution is not yet supported.
+> In UseDotNet@2, the `major` and `latestMajor` policies currently resolve within the same major version only. Cross-major version resolution is not yet supported.
 
 If `global.json` contains an unrecognized `rollForward` value, the task logs a warning and falls back to installing the exact version specified in `sdk.version`.
 
