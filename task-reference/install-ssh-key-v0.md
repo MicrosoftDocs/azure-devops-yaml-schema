@@ -54,6 +54,12 @@ Use this task in a pipeline to install an SSH key prior to a build or release st
 [Input alias](index.md#what-are-task-input-aliases): `hostName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the SSH key entry for the known_hosts file.
+
+To obtain your **Known Hosts Entry** using Git Bash, enter the following command:
+
+```bash
+ssh-keyscan ssh.dev.azure.com
+```
 <!-- :::editable-content-end::: -->
 <br>
 
