@@ -1,14 +1,25 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 07/28/2026
+ms.date: 08/17/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # FileTransform@2 - File transform v2 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to replace tokens with variable values in XML or JSON configuration files.
+
+> [!IMPORTANT]
+> For security, file transformations process only the built-in XDT transform and locator types. The `xdt:Import` element (which loads a custom transform assembly by name or path) and any custom `xdt:Transform` or `xdt:Locator` types are rejected before the transform runs, because a transform file that comes from an untrusted package could otherwise load and run arbitrary code on the pipeline agent. If you rely on custom XDT transforms, apply them before the pipeline consumes the package or switch to the built-in transforms. To temporarily restore the previous behavior, set the pipeline variable `AZP_ALLOW_UNSAFE_XDT_TRANSFORMS` to `true`. This reenables loading the assemblies that the transform file references and isn't recommended.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="<azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to replace tokens with variable values in XML or JSON configuration files.
@@ -206,10 +217,17 @@ What's new in File Transform version 2:
 Use this task to apply file transformations and variable substitutions on configuration and parameters files.
 For details of how translations are processed, see [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
 
+:::moniker range="=azure-pipelines"
+
 > [!IMPORTANT]
 > This task is intended for web packages and requires a web package file. It does not work on standalone JSON files.
 
 ### File transformations
+
+> [!IMPORTANT]
+> For security, file transformations process only the built-in XDT transform and locator types. The `xdt:Import` element (which loads a custom transform assembly by name or path) and any custom `xdt:Transform` or `xdt:Locator` types are rejected before the transform runs, because a transform file that comes from an untrusted package could otherwise load and run arbitrary code on the pipeline agent. If you rely on custom XDT transforms, apply them before the pipeline consumes the package or switch to the built-in transforms. To temporarily restore the previous behavior, set the pipeline variable `AZP_ALLOW_UNSAFE_XDT_TRANSFORMS` to `true`. This reenables loading the assemblies that the transform file references and isn't recommended.
+
+:::moniker-end
 
 * At present, file transformations are supported for only XML files.
 * To apply an XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-transform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
