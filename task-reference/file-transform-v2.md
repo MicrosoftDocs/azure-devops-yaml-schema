@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2
 # FileTransform@2 - File transform v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to replace tokens with variable values in XML or JSON configuration files.
@@ -19,7 +19,7 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 
 :::moniker-end
 
-:::moniker range="<azure-pipelines"
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to replace tokens with variable values in XML or JSON configuration files.
