@@ -217,12 +217,12 @@ What's new in File Transform version 2:
 Use this task to apply file transformations and variable substitutions on configuration and parameters files.
 For details of how translations are processed, see [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
 
-:::moniker range="=azure-pipelines"
-
 > [!IMPORTANT]
 > This task is intended for web packages and requires a web package file. It does not work on standalone JSON files.
 
 ### File transformations
+
+:::moniker range="=azure-pipelines"
 
 > [!IMPORTANT]
 > For security, file transformations process only the built-in XDT transform and locator types. The `xdt:Import` element (which loads a custom transform assembly by name or path) and any custom `xdt:Transform` or `xdt:Locator` types are rejected before the transform runs, because a transform file that comes from an untrusted package could otherwise load and run arbitrary code on the pipeline agent. If you rely on custom XDT transforms, apply them before the pipeline consumes the package or switch to the built-in transforms. To temporarily restore the previous behavior, set the pipeline variable `AZP_ALLOW_UNSAFE_XDT_TRANSFORMS` to `true`. This reenables loading the assemblies that the transform file references and isn't recommended.
