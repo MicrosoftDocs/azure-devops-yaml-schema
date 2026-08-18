@@ -1,7 +1,7 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 07/29/2026
+ms.date: 08/17/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -81,8 +81,6 @@ A pipeline can extend a single template. The template file should be a complete,
 The `extends` keyword is used with **Extends** templates. **Extends** templates control and define a schema for what is allowed in a pipeline. When an extends template is used, it defines logic and structure that a pipeline must follow. This is useful for enforcing security, compliance, or organizational standards. For more information, see [Use YAML templates in pipelines for reusable and secure processes: Extends templates](/azure/devops/pipelines/process/templates?pivots=templates-extends).
 
 **Includes** templates use the `template` keyword which is available in stages, jobs, steps, and variables. **Includes** templates insert reusable content into a pipeline. If a template is used to include content, it functions like an include directive in many programming languages. Content from a template is inserted into the pipeline or template that includes it. For more information, see [Use YAML templates in pipelines for reusable and secure processes: Includes templates](/azure/devops/pipelines/process/templates?pivots=templates-includes).
-
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
