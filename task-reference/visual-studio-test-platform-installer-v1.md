@@ -1,7 +1,7 @@
 ---
 title: VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
 description: Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: steved0x
 ms.author: sdanie

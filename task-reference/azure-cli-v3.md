@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@3 - Azure CLI v3 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent. (task verion 3)
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines"
 ---
 

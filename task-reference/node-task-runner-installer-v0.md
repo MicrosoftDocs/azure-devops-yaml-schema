@@ -1,7 +1,7 @@
 ---
 title: NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
 description: Install specific Node.js version to run node tasks.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: ramiMSFT
 ms.author: rabououn
