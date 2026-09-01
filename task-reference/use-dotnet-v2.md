@@ -1,7 +1,7 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -31,12 +31,12 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
   inputs:
     #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
     #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory.
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version.
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
     #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
     #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
   # Advanced
-    #vsVersion: # string. Compatible Visual Studio version.
+    #vsVersion: # string. Compatible Visual Studio version. 
     #checkForExistingVersion: false # boolean. Check for existing installation. Default: false.
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
@@ -53,12 +53,12 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
   inputs:
     #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
     #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory.
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version.
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
     #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
     #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
   # Advanced
-    #vsVersion: # string. Compatible Visual Studio version.
+    #vsVersion: # string. Compatible Visual Studio version. 
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
 ```
@@ -74,11 +74,11 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
   inputs:
     #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
     #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
-    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory.
-    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version.
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
     #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
   # Advanced
-    #vsVersion: # string. Compatible Visual Studio version.
+    #vsVersion: # string. Compatible Visual Studio version. 
     #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
     #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
 ```

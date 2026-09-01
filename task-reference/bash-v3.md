@@ -1,7 +1,7 @@
 ---
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -18,7 +18,6 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
 
 >[!WARNING]
 > This does not apply to classic pipelines running on Windows agents, where this task is using Git Bash instead.
-
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
