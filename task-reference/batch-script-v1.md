@@ -1,7 +1,7 @@
 ---
 title: BatchScript@1 - Batch script v1 task
 description: Run a Windows command or batch script and optionally allow it to change the environment.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 

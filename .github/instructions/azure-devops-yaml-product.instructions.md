@@ -57,6 +57,33 @@ are produced by the tooling that generates the task reference documentation,
 so those automation PRs may create new articles or update non-editable
 content regions.
 
+#### Automation PR handling
+
+When reviewing pull requests in this repository, apply these rules in order:
+
+1. **Automation PR detection (precedence)**
+   Treat the PR as automation if **any** of the following are true:
+   - Label includes `task-automation` (or `yaml-schema-automation`).
+     - Label is the strongest signal; title/body are fallback signals.
+   - PR title matches `Task freshness review` (or equivalent freshness-sweep wording).
+   - PR body states metadata freshness-only intent (for example, `ms.date` refresh across files).
+
+2. **Expected-change suppression**
+   For automation PRs:
+   - `ms.date` updates are expected and **must not** be flagged by themselves.
+   - In generated task/YAML reference docs, updates outside `<!-- :::editable-content ...::: -->` regions are expected for automation sweeps and **must not** be flagged by themselves.
+   - If changes are metadata-only with no semantic edits, do not leave blocking/corrective comments; optionally leave a brief acknowledgment.
+
+3. **Mixed-change handling**
+   - If an automation PR includes substantive non-metadata edits (content/schema/behavioral text), review **only** those substantive hunks.
+   - Explicitly ignore pure `ms.date`/metadata hunks in review findings.
+
+4. **Conflict resolution**
+   - Repository-specific automation rules override generic “avoid churn/date-only edits” guidance.
+
+5. **Reviewer output constraint**
+   - Do not recommend reverting/avoiding `ms.date` changes when automation conditions are met and edits are metadata-only.
+
 ### Editable content tags
 
 Editable regions are delimited by HTML comments:

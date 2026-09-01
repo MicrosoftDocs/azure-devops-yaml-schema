@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationExport@10 - Azure App Configuration Export v10 task
 description: Export key-values from Azure App Configuration to task variables in your build or deployment pipelines.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: ramiMSFT
 ms.author: rabououn

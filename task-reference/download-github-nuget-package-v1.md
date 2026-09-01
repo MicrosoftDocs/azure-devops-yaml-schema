@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 description: Restore your nuget packages using dotnet CLI.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn

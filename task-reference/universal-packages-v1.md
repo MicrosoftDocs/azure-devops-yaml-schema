@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@1 - Universal Packages v1 task
 description: Publish or download Universal Packages using the Universal Packages v1 task.
-ms.date: 07/28/2026
+ms.date: 09/01/2026
 monikerRange: "=azure-pipelines"
 ---
 

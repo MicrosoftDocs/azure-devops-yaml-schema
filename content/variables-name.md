@@ -1,7 +1,7 @@
 ---
 title: variables.name definition
 description: Define variables using name and full syntax.
-ms.date: 07/29/2026
+ms.date: 09/01/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
