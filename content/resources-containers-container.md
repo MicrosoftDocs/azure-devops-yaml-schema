@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 09/01/2026
+ms.date: 09/04/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -204,7 +204,7 @@ Variables to map into the container's environment.
 :::moniker range="<=azure-pipelines"
 
 **`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+Controls whether the agent maps `/var/run/docker.sock` into the job container on Linux agents. The default is `false`. Set to `true` to access the host Docker daemon from inside the container.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
