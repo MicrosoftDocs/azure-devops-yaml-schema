@@ -163,7 +163,7 @@ Variables to map into the container's environment.
 <!-- :::item-end::: -->
 <!-- :::item name="mapDockerSocket"::: -->
 **`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Controls whether the agent maps `/var/run/docker.sock` into the job container on Linux agents. The default is `false`. Set to `true` to access the host Docker daemon from inside the container. For more information, see [Define Container jobs: Docker socket mapping](/azure/devops/pipelines/process/container-phases#docker-socket-mapping).
+Controls whether the agent maps `/var/run/docker.sock` into the job container on agents. The default is `false`. Set to `true` to access the host Docker daemon from inside the container. For more information, see [Define Container jobs: Docker socket mapping](/azure/devops/pipelines/process/container-phases#docker-socket-mapping).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
