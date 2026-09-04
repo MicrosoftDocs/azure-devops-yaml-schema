@@ -1,7 +1,7 @@
 ---
 title: jobs.job.container definition
 description: Container resource name.
-ms.date: 09/01/2026
+ms.date: 09/04/2026
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -163,7 +163,7 @@ Variables to map into the container's environment.
 <!-- :::item-end::: -->
 <!-- :::item name="mapDockerSocket"::: -->
 **`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+Controls whether the agent maps `/var/run/docker.sock` into the job container. The default is `false`. Set to `true` to access the host Docker daemon from inside the container. For more information, see [Define Container jobs: Docker socket mapping](/azure/devops/pipelines/process/container-phases#docker-socket-mapping).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
