@@ -1,7 +1,7 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 09/01/2026
+ms.date: 09/23/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -391,11 +391,11 @@ On a non-Windows agent (for any app service type), the task relies on [Kudu REST
 
 ### Zip Deploy
 
-Creates a .zip deployment package of the chosen package or folder. The file contents are then deployed to the wwwroot folder of the function app in Azure App Service. This option overwrites all existing contents in the wwwroot folder. For more information, see [Zip deployment for Azure Functions](/azure/azure-functions/deployment-zip-push).
+Creates a .zip deployment package of the chosen package or folder. The file contents are then deployed to the wwwroot folder of the function app in Azure App Service. This option overwrites all existing contents in the wwwroot folder. For more information, see [Zip deployment for Azure Functions](/azure/azure-functions/deployment-zip-push#run-functions-from-the-deployment-package).
 
 ### RunFromPackage
 
-Creates the same deployment package as Zip Deploy. However, instead of deploying files to the wwwroot folder, the entire package is mounted by the Azure Functions runtime. With this option, files in the wwwroot folder become read-only. For more information, see [Run your Azure Functions from a package file](/azure/azure-functions/run-functions-from-deployment-package).
+Creates the same deployment package as Zip Deploy. However, instead of deploying files to the wwwroot folder, the entire package is mounted by the Azure Functions runtime. With this option, files in the wwwroot folder become read-only. For more information, see [Run your Azure Functions from a package file](/azure/azure-functions/deployment-zip-push#run-functions-from-the-deployment-package).
 
 [!INCLUDE [rm-app-service-troubleshoot-shared](includes/rm-app-service-troubleshoot-shared.md)]
 

@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@5 - Azure App Service deploy v5 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 09/01/2026
+ms.date: 09/23/2026
 monikerRange: "=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -727,7 +727,7 @@ container registry, repository, image name, and tag information. You can also us
 
 Expects a .zip deployment package and deploys the file contents to the **wwwroot** folder of the App Service or Function App in Azure.
 This option overwrites all existing contents in the **wwwroot** folder. For more information, see
-[Zip deployment for Azure Functions](/azure/azure-functions/deployment-zip-push).
+[Zip deployment for Azure Functions](/azure/azure-functions/deployment-zip-push#run-functions-from-the-deployment-package).
 
 #### One Deploy
 
@@ -741,7 +741,7 @@ Choose **One Deploy** (`oneDeploy`) or **Zip Deploy** (`zipDeploy`) for **Deploy
 
 Expects the same deployment package as Zip Deploy. However, instead of deploying files to the **wwwroot** folder, the entire package is
 mounted by the Functions runtime and files in the **wwwroot** folder become read-only. For more information, see
-[Run your Azure Functions from a package file](/azure/azure-functions/run-functions-from-deployment-package).
+[Run your Azure Functions from a package file](/azure/azure-functions/deployment-zip-push#run-functions-from-the-deployment-package).
 
 #### War Deploy
 
