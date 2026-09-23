@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 09/01/2026
+ms.date: 09/23/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -29,7 +29,9 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 # Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
 - task: UseNode@1
   inputs:
-    #version: '10.x' # string. Version. Default: 10.x.
+    versionSource: 'spec' # 'spec' | 'fromFile'. Required. Source of version. Default: spec.
+    #version: '10.x' # string. Optional. Use when versionSource = spec. Version. Default: 10.x.
+    #versionFilePath: # string. Optional. Use when versionSource = fromFile. Version File Path. 
     #checkLatest: false # boolean. Check for Latest Version. Default: false.
     #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
   # advanced
@@ -76,14 +78,50 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::inputs::: -->
 ## Inputs
 
+<a name="versionsource-property"></a>
+<!-- :::item name="versionSource"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`versionSource`** - **Source of version**<br>
+`string`. Required. Allowed values: `spec` (Specify Node version), `fromFile` (Get version from file). Default value: `spec`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <a name="version-property"></a>
 <!-- :::item name="version"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
+
+**`version`** - **Version**<br>
+`string`. Optional. Use when `versionSource = spec`. Default value: `10.x`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the [Node.js version](https://nodejs.org/en/download/releases/) using SemVer's version range syntax. Examples: `10.x`, `10.15.1`, `>=10.15.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 **`version`** - **Version**<br>
 `string`. Default value: `10.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Required. Specifies the [Node.js version](https://nodejs.org/en/download/releases/) using SemVer's version range syntax. Examples: `10.x`, `10.15.1`, `>=10.15.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<a name="versionfilepath-property"></a>
+<!-- :::item name="versionFilePath"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`versionFilePath`** - **Version File Path**<br>
+`string`. Optional. Use when `versionSource = fromFile`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+File path to get version.  Example: src/.nvmrc.
 <!-- :::editable-content-end::: -->
 <br>
 

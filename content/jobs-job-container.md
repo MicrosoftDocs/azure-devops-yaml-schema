@@ -1,7 +1,7 @@
 ---
 title: jobs.job.container definition
 description: Container resource name.
-ms.date: 09/04/2026
+ms.date: 09/23/2026
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
