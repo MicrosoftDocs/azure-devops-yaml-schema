@@ -1,7 +1,7 @@
 ---
 title: steps.script definition
 description: Runs a script using cmd.exe on Windows and Bash on other platforms.
-ms.date: 09/23/2026
+ms.date: 09/24/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -76,7 +76,7 @@ Fail the task if output is sent to Stderr?
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Start the script with this working directory.
+Start the script with this working directory. If you don't specify a value, the step starts in `$(Build.SourcesDirectory)`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -173,6 +173,8 @@ Number of retries if the task fails.
 The `script` keyword is a shortcut for the [command-line task](/azure/devops/pipelines/tasks/reference/cmd-line-v2).
 The task runs a script using cmd.exe on Windows and Bash on other platforms.
 
+If you don't set `workingDirectory`, the script runs from `$(Build.SourcesDirectory)`, which is the root of the checked-out repository for the job. Set `workingDirectory` when your script needs to start in a different folder, such as a subdirectory that contains your build scripts or project files.
+
 Learn more about [conditions](/azure/devops/pipelines/process/conditions),
 [timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks#step-target).
 <!-- :::editable-content-end::: -->
@@ -193,6 +195,16 @@ If you don't specify a command mode, you can shorten the `target` structure to:
 steps:
 - script: echo Hello world!
   displayName: Say hello
+```
+
+The following example shows the default working directory when `workingDirectory` isn't specified:
+
+```yaml
+steps:
+- script: |
+    echo "Default working directory:"
+    pwd
+  displayName: Show default working directory
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
